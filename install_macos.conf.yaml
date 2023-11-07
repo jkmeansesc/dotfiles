@@ -17,6 +17,7 @@
     $HOME/.config/karabiner: macos/karabiner
     $HOME/.config/lazygit: macos/lazygit
     $HOME/.config/neofetch: macos/neofetch
+    $HOME/.zshrc: macos/.zshrc
 
 # - create:
 # - ~/downloads
