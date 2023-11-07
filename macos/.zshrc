@@ -84,35 +84,17 @@ plugins=(
 	z
 )
 
-
 source $ZSH/oh-my-zsh.sh
+
+# Ruby added
+source /opt/homebrew/opt/chruby/share/chruby/chruby.sh
+source /opt/homebrew/opt/chruby/share/chruby/auto.sh
+chruby ruby-3.2.2
 
 # User configuration
 
-# export MANPATH="/usr/local/man:$MANPATH"
-
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
-
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-test -e /Users/oneoldmac/.iterm2_shell_integration.zsh && source /Users/oneoldmac/.iterm2_shell_integration.zsh || true
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # JAVA ENV
 export JAVA_HOME="/Users/oneoldmac/Library/Java/JavaVirtualMachines/openjdk-20.0.2/Contents/Home"
@@ -127,16 +109,9 @@ export PYTHON_HOME="/opt/homebrew/Cellar/python@3.12/3.12.0"
 # PATH ENV
 export PATH=".$PATH:$JAVA_HOME/bin:$CLASS_PATH:$PYTHON_HOME/bin:$MAVEN_HOME/bin:/usr/local/bin/:/opt/homebrew/bin:$PATH"
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
 # 解决ssh到远程服务器中文乱码
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
-
-source /opt/homebrew/opt/chruby/share/chruby/chruby.sh
-source /opt/homebrew/opt/chruby/share/chruby/auto.sh
-chruby ruby-3.2.2
 
 # Set $XDG_CONFIG_HOME
 export XDG_CONFIG_HOME=$HOME/.config
