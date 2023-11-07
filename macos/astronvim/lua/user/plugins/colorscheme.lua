@@ -3,14 +3,14 @@ return {
     name = "catppuccin",
     opts = {
         flavour = "mocha",
-        transparent_background = false,
+        transparent_background = true,
         term_colors = false,
         integrations = {
             alpha = true,
             cmp = true,
             gitsigns = true,
             treesitter = true,
-            neotree = true,
+            neotree = false,
             mini = {
                 enabled = true,
                 indentscope_color = "",
