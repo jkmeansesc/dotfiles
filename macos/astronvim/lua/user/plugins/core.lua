@@ -134,6 +134,7 @@ return {
             luasnip.filetype_extend("javascript", { "javascriptreact" })
         end,
     },
+
     {
         "windwp/nvim-autopairs",
         config = function(plugin, opts)
@@ -167,6 +168,7 @@ return {
             )
         end,
     },
+
     {
         "rebelot/heirline.nvim",
         opts = function(_, opts)
@@ -190,5 +192,12 @@ return {
             -- return the final configuration table
             return opts
         end,
+    },
+
+    {
+        "rcarriga/nvim-notify",
+        opts = {
+            background_colour = "#000000",
+        },
     },
 }
