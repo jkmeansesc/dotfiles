@@ -1,0 +1,19 @@
+- defaults:
+    link:
+      relink: true
+      if: "[ `uname` = Darwin ]"
+- clean:
+    ~/:
+      force: true
+    ~/.config:
+      recursive: true
+
+- link:
+    ~/.config/tmux: macos/tmux
+
+# - create:
+# - ~/downloads
+# - ~/.vim/undo-history
+
+- shell:
+    - [git submodule update --init --recursive, Installing submodules]
