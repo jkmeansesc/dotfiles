@@ -1,1 +1,7 @@
 path
+Brewfile.*.lock.json
+secrets.*
+credentials.*
+.pkrvars.hcl
+*.pkrvars.hcl
+.nvimlog
