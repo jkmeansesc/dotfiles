@@ -1,7 +1,8 @@
-astronvim
-karabiner
-skhd
-tmux
-yabai
-zshrc_macos
-gitconfig
+mac_astronvim
+mac_karabiner
+mac_skhd
+mac_tmux
+mac_yabai
+mac_zshrc_macos
+mac_gitconfig
+mac_p10k
