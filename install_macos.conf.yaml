@@ -2,14 +2,21 @@
     link:
       relink: true
       if: "[ `uname` = Darwin ]"
-- clean:
-    ~/:
       force: true
-    ~/.config:
+- clean:
+    $HOME/:
+      force: true
+    $HOME/.config:
       recursive: true
 
 - link:
-    ~/.config/tmux: macos/tmux
+    $HOME/.config/tmux: macos/tmux
+    $HOME/.config/yabai: macos/yabai
+    $HOME/.config/skhd: macos/skhd
+    $HOME/.config/astronvim: macos/astronvim
+    $HOME/.config/karabiner: macos/karabiner
+    $HOME/.config/lazygit: macos/lazygit
+    $HOME/.config/neofetch: macos/neofetch
 
 # - create:
 # - ~/downloads
