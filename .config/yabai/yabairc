@@ -1,0 +1,58 @@
+# 默认布局：bsp float stack
+yabai -m config layout bsp
+
+# New window spawns to the right if vertical split, or bottom if horizontal split
+yabai -m config window_placement second_child
+
+# 自动平衡所有窗口始终占据相同的空间
+yabai -m config auto_balance                 off
+# 如果禁用自动平衡，此项属性定义的是新窗口占用的空间量。0.5意为旧窗口占用50%
+yabai -m config split_ratio                 0.50
+
+# padding set to 12px
+yabai -m config top_padding 5
+yabai -m config bottom_padding 5
+yabai -m config left_padding 5
+yabai -m config right_padding 5
+yabai -m config window_gap 5
+
+# center mouse on window with focus
+yabai -m config mouse_follows_focus off
+yabai -m config focus_follows_mouse off
+
+# modifier for clicking and dragging with mouse
+yabai -m config mouse_modifier alt
+# set modifier + left-click drag to move window
+yabai -m config mouse_action1 move
+# set modifier + right-click drag to resize window
+yabai -m config mouse_action2 resize
+
+# when window is dropped in center of another window, swap them (on edges it will split it)
+yabai -m mouse_drop_action swap
+
+# Disable specific apps from being managed
+yabai -m rule --add app="^System Settings$" manage=off
+yabai -m rule --add app="^Calculator$" manage=off
+yabai -m rule --add app="^CleanMyMac X$" manage=off
+yabai -m rule --add app="^Dictionary$" manage=off
+yabai -m rule --add app="^Activity Monitor$" manage=off
+yabai -m rule --add app="^Scroll Reverser$" manageioff
+yabai -m rule --add app="^App Store$" manage=off
+yabai -m rule --add app="^balenaEtcher$" manage=off
+yabai -m rule --add app="^Microsoft Remote Desktop$" manage=off
+yabai -m rule --add app="^Infuse$" title="^Home$" manage=off
+yabai -m rule --add app="^Movist Pro$" manage=off
+yabai -m rule --add app="^Downie 4$" manage=off
+
+yabai -m rule --add title="^Karabiner-Elements Settings$" manage=off
+yabai -m rule --add title="^Karabiner-EventViewer$" manage=off
+yabai -m rule --add title="^Alfred Preferences$" manage=off
+yabai -m rule --add title="^Preferences$" manage=off
+yabai -m rule --add title="^Settings$" manage=off
+yabai -m rule --add title="^Software Update$" manage=off
+yabai -m rule --add title="^Outlook Settings$" manage=off
+yabai -m rule --add title="^PicList$" manage=off
+yabai -m rule --add title="^Add Account$" manage=off
+# Web browsers
+yabai -m rule --add app="^Google Chrome|Safari$" space=1
+

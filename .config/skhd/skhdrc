@@ -1,0 +1,84 @@
+# change window focus within space
+ctrl + alt - j : yabai -m window --focus south
+ctrl + alt - k : yabai -m window --focus north
+ctrl + alt - h : yabai -m window --focus west
+ctrl + alt - l : yabai -m window --focus east
+
+#change focus between external displays (left and right)
+ctrl + alt - w: yabai -m display --focus west
+ctrl + alt - e: yabai -m display --focus east
+
+# rotate layout clockwise
+ctrl + alt - r : yabai -m space --rotate 270
+
+# flip along y-axis
+ctrl + alt - y : yabai -m space --mirror y-axis
+
+# flip along x-axis
+ctrl + alt - x : yabai -m space --mirror x-axis
+
+# toggle window float
+ctrl + alt - t : yabai -m window --toggle float --grid 4:4:1:1:2:2
+
+# maximize a window
+ctrl + alt - f : yabai -m window --toggle zoom-fullscreen
+
+# balance out tree of windows (resize to occupy same area)
+ctrl + alt - b : yabai -m space --balance
+
+# stack config
+ctrl + alt - s : yabai -m window --stack next 
+ctrl + alt - n : yabai -m window --focus stack.next
+ctrl + alt - p : yabai -m window --focus stack.prev
+
+# move window and split
+ctrl + alt + shift - j : yabai -m window --warp south
+ctrl + alt + shift - k : yabai -m window --warp north
+ctrl + alt + shift - h : yabai -m window --warp west
+ctrl + alt + shift - l : yabai -m window --warp east
+
+# swap windows
+ctrl + alt + cmd - j : yabai -m window --swap south
+ctrl + alt + cmd - k : yabai -m window --swap north
+ctrl + alt + cmd - h : yabai -m window --swap west
+ctrl + alt + cmd - l : yabai -m window --swap east
+
+# move window to display left and right
+ctrl + alt + cmd - w : yabai -m window --display west; yabai -m display --focus west;
+ctrl + alt + cmd - e : yabai -m window --display east; yabai -m display --focus east;
+
+# move window to prev and next space
+ctrl + alt + cmd - p : yabai -m window --space prev;
+ctrl + alt + cmd - n : yabai -m window --space next;
+
+# move window to space #
+ctrl + alt + cmd - 1 : yabai -m window --space 1;
+ctrl + alt + cmd - 2 : yabai -m window --space 2;
+ctrl + alt + cmd - 3 : yabai -m window --space 3;
+ctrl + alt + cmd - 4 : yabai -m window --space 4;
+ctrl + alt + cmd - 5 : yabai -m window --space 5;
+ctrl + alt + cmd - 6 : yabai -m window --space 6;
+ctrl + alt + cmd - 7 : yabai -m window --space 7;
+ctrl + alt + cmd - 8 : yabai -m window --space 8;
+ctrl + alt + cmd - 9 : yabai -m window --space 9;
+
+# stop/start/restart yabai
+hyper - q : yabai --stop-service
+hyper - s : yabai --start-service
+hyper - r : yabai --restart-service
+
+# 调整窗口大小
+# Set resize border color 
+:: resize @ : yabai -m config active_window_border_color 0xFFFF00FF
+# toggle resize mode 
+resize < hyper - w ; default
+default < hyper - w ; resize
+# resize commands
+resize < h : yabai -m window --resize left:-50:0; \
+                  yabai -m window --resize right:-50:0
+resize < j : yabai -m window --resize bottom:0:50; \
+                  yabai -m window --resize top:0:50
+resize < k : yabai -m window --resize top:0:-50; \
+                  yabai -m window --resize bottom:0:-50
+resize < l : yabai -m window --resize right:50:0; \
+                  yabai -m window --resize left:50:0
