@@ -5,7 +5,7 @@
       force: true
 
 - clean:
-    $HOME/:
+    $HOME:
       force: true
     $HOME/.config:
       recursive: true
