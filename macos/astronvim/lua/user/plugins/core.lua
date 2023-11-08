@@ -93,6 +93,7 @@ return {
                 "python",
                 "c",
                 "xml",
+                "regex",
             })
         end,
     },
