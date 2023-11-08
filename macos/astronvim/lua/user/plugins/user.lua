@@ -34,6 +34,7 @@ return {
             }
         end,
     },
+
     {
         "Exafunction/codeium.nvim",
         event = "BufEnter",
@@ -44,55 +45,56 @@ return {
         config = function() require("codeium").setup {} end,
     },
 
-    {
-        "echasnovski/mini.indentscope",
-        event = "User AstroFile",
-        opts = { symbol = "│", options = { try_as_border = true } },
-        init = function()
-            vim.api.nvim_create_autocmd("FileType", {
-                desc = "Disable indentscope for certain filetypes",
-                pattern = {
-                    "Trouble",
-                    "aerial",
-                    "alpha",
-                    "checkhealth",
-                    "dashboard",
-                    "fzf",
-                    "help",
-                    "lazy",
-                    "lspinfo",
-                    "man",
-                    "mason",
-                    "neo-tree",
-                    "notify",
-                    "null-ls-info",
-                    "starter",
-                    "toggleterm",
-                    "undotree",
-                },
-                callback = function(event) vim.b[event.buf].miniindentscope_disable = true end,
-            })
-            vim.api.nvim_create_autocmd("BufWinEnter", {
-                desc = "Disable indentscope for certain buftypes",
-                callback = function(event)
-                    if
-                        vim.tbl_contains({
-                            "nofile",
-                            "prompt",
-                            "quickfix",
-                            "terminal",
-                        }, vim.bo[event.buf].buftype)
-                    then
-                        vim.b[event.buf].miniindentscope_disable = true
-                    end
-                end,
-            })
-            vim.api.nvim_create_autocmd("TermOpen", {
-                desc = "Disable indentscope for terminals",
-                callback = function(event) vim.b[event.buf].miniindentscope_disable = true end,
-            })
-        end,
-    },
+    -- {
+    --     "echasnovski/mini.indentscope",
+    --     event = "User AstroFile",
+    --     opts = { symbol = "│", options = { try_as_border = true } },
+    --     init = function()
+    --         vim.api.nvim_create_autocmd("FileType", {
+    --             desc = "Disable indentscope for certain filetypes",
+    --             pattern = {
+    --                 "Trouble",
+    --                 "aerial",
+    --                 "alpha",
+    --                 "checkhealth",
+    --                 "dashboard",
+    --                 "fzf",
+    --                 "help",
+    --                 "lazy",
+    --                 "lspinfo",
+    --                 "man",
+    --                 "mason",
+    --                 "neo-tree",
+    --                 "notify",
+    --                 "null-ls-info",
+    --                 "starter",
+    --                 "toggleterm",
+    --                 "undotree",
+    --             },
+    --             callback = function(event) vim.b[event.buf].miniindentscope_disable = true end,
+    --         })
+    --         vim.api.nvim_create_autocmd("BufWinEnter", {
+    --             desc = "Disable indentscope for certain buftypes",
+    --             callback = function(event)
+    --                 if
+    --                     vim.tbl_contains({
+    --                         "nofile",
+    --                         "prompt",
+    --                         "quickfix",
+    --                         "terminal",
+    --                     }, vim.bo[event.buf].buftype)
+    --                 then
+    --                     vim.b[event.buf].miniindentscope_disable = true
+    --                 end
+    --             end,
+    --         })
+    --         vim.api.nvim_create_autocmd("TermOpen", {
+    --             desc = "Disable indentscope for terminals",
+    --             callback = function(event) vim.b[event.buf].miniindentscope_disable = true end,
+    --         })
+    --     end,
+    -- },
+
     {
         "folke/trouble.nvim",
         cmd = { "TroubleToggle", "Trouble" },

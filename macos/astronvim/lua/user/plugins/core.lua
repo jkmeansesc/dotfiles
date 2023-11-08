@@ -103,6 +103,11 @@ return {
         opts = {
             scope = { enabled = false },
             whitespace = { remove_blankline_trail = true },
+            exclude = {
+                filetypes = {
+                    "dashboard",
+                },
+            },
         },
     },
 
