@@ -1,14 +1,11 @@
 local map = vim.api.nvim_set_keymap
--- 复用 opt 参数
-local opt = {noremap = true, silent = true }
 
-maps.n["j"] = { "v:count == 0 ? 'gj' : 'j'", expr = true, desc = "Move cursor down" }
-maps.n["k"] = { "v:count == 0 ? 'gk' : 'k'", expr = true, desc = "Move cursor up" }
-maps.n["<leader>w"] = { "<cmd>w<cr>", desc = "Save" }
-maps.n["<leader>q"] = { "<cmd>confirm q<cr>", desc = "Quit" }
-maps.n["<leader>n"] = { "<cmd>enew<cr>", desc = "New File" }
-maps.n["<C-s>"] = { "<cmd>w!<cr>", desc = "Force write" }
-maps.n["<C-q>"] = { "<cmd>qa!<cr>", desc = "Force quit" }
-maps.n["|"] = { "<cmd>vsplit<cr>", desc = "Vertical Split" }
-maps.n["\\"] = { "<cmd>split<cr>", desc = "Horizontal Split" }
-
+map("n", "j", "v:count == 0 ? 'gj' : 'j'", { noremap = true, silent = true, expr = true, desc = "Move cursor down" })
+map("n", "k", "v:count == 0 ? 'gk' : 'k'", { noremap = true, silent = true, expr = true, desc = "Move cursor up" })
+map("n", "<leader>w", "<cmd>w<cr>", { noremap = true, silent = true, desc = "Save" })
+map("n", "<leader>q", "<cmd>confirm q<cr>", { noremap = true, silent = true, desc = "Quit" })
+map("n", "<leader>n", "<cmd>enew<cr>", { noremap = true, silent = true, desc = "New File" })
+map("n", "<C-s>", "<cmd>w!<cr>", { noremap = true, silent = true, desc = "Force write" })
+map("n", "<C-q>", "<cmd>qa!<cr>", { noremap = true, silent = true, desc = "Force quit" })
+map("n", "|", "<cmd>vsplit<cr>", { noremap = true, silent = true, desc = "Vertical Split" })
+map("n", "\\", "<cmd>split<cr>", { noremap = true, silent = true, desc = "Horizontal Split" })
