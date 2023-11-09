@@ -48,9 +48,6 @@ return {
         -- select all
         ["<leader>a"] = { "gg<S-v>G", desc = "Select All" },
 
-        -- clear search highlights
-        ["<ESC><ESC>"] = { ":nohl<CR>", desc = "Clear search highlights" },
-
         -- keep cursor stays at current location when appending the next line to the current line with "J"
         ["J"] = { "mzJ`z" },
 
