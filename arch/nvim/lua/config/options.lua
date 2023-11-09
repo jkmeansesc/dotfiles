@@ -45,7 +45,7 @@ local options = {
         preserveindent = true, -- preserve indent structure as much as possible
         pumheight = 10, -- height of the pop up menu
         relativenumber = true, -- show relative numberline
-        scrolloff = 8, -- minimum number of lines to keep above and below the cursor.
+        scrolloff = 10, -- minimum number of lines to keep above and below the cursor.
         shiftround = true, -- round indent to a multiple of 'shiftwidth'.
         shiftwidth = 4, -- number of space inserted for indentation
         showmode = false, -- disable showing modes in command line
@@ -60,7 +60,7 @@ local options = {
         swapfile = false, -- disable swap files.
         tabstop = 4, -- number of space in a tab
         termguicolors = true, -- enable 24-bit RGB color in the TUI
-        timeoutlen = 500, -- shorten key timeout length a little bit for which-key
+        timeoutlen = 350, -- shorten key timeout length a little bit for which-key
         undofile = true, -- enable persistent undo
         updatetime = 300, -- length of time to wait before triggering the plugin
         virtualedit = "block", -- allow going past end of line in visual block mode
@@ -69,9 +69,9 @@ local options = {
         wrap = false, -- disable wrapping of lines longer than the width of window
         writebackup = false, -- disable making a backup before overwriting a file
     },
-    t = {},
 }
 
+-- loop setting options
 for scope, table in pairs(options) do
     for setting, value in pairs(table) do
         vim[scope][setting] = value
