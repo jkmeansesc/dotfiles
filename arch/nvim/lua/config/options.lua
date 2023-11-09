@@ -9,7 +9,7 @@ end
 local options = {
     g = {
         mapleader = " ", -- set leader key
-        maplocalleader = ",", -- set default local leader key
+        maplocalleader = " ", -- set default local leader key
         encoding = "UTF-8", -- utf8
     },
     opt = {
