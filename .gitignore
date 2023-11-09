@@ -5,3 +5,4 @@ credentials.*
 .pkrvars.hcl
 *.pkrvars.hcl
 .nvimlog
+lazy-lock.json
