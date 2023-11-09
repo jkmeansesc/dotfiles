@@ -1,2 +1,8 @@
--- bootstrap lazy.nvim, LazyVim and your plugins
-require("config.lazy")
+for _, source in ipairs {
+    "config.keymaps",
+    "config.options",
+    "config.lazy",
+} do
+    local status_ok, fault = pcall(require, source)
+    if not status_ok then vim.api.nvim_err_writeln("Failed to load " .. source .. "\n\n" .. fault) end
+end
