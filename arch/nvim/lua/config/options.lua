@@ -6,6 +6,11 @@ if vim.fn.has "nvim-0.9" == 1 then
     vim.opt.diffopt:append "linematch:60" -- enable linematch diff algorithm
 end
 
+-- disable some default providers
+for _, provider in ipairs { "node", "perl", "python3", "ruby" } do
+    vim.g["loaded_" .. provider .. "_provider"] = 0
+end
+
 local options = {
     g = {
         mapleader = " ", -- set leader key
@@ -78,7 +83,3 @@ for scope, table in pairs(options) do
     end
 end
 
--- disable some default providers
-for _, provider in ipairs { "node", "perl", "python3", "ruby" } do
-    vim.g["loaded_" .. provider .. "_provider"] = 0
-end
