@@ -6,7 +6,7 @@ return {
     opts = function()
         local dashboard = require "alpha.themes.dashboard"
         require "alpha.term"
-        dashboard.section.terminal.command = vim.fn.stdpath "config" .. "/lua/wen/utils/nvim-logo -t"
+        dashboard.section.terminal.command = vim.fn.stdpath "config" .. "/nvim-logo -t"
         dashboard.section.terminal.width = 70
         dashboard.section.terminal.height = 10
         dashboard.section.terminal.opts.redraw = true
