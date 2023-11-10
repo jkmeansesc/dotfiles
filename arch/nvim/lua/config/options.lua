@@ -83,3 +83,4 @@ for scope, table in pairs(options) do
     end
 end
 
+vim.g.mapleader = " "
