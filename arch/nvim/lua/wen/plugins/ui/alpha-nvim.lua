@@ -33,7 +33,13 @@ return {
         dashboard.section.header.opts.hl = "AlphaHeader"
         dashboard.section.buttons.opts.hl = "AlphaButtons"
         dashboard.section.footer.opts.hl = "AlphaFooter"
-        dashboard.opts.layout[1].val = 8
+     --   dashboard.opts.layout[1].val = 8
+        dashboard.opts.layout = {
+                        dashboard.section.terminal,
+                                    { type = "padding", val = 4 },
+                                                dashboard.section.buttons,
+                                                            dashboard.section.footer,
+                                                                    }
         return dashboard
     end,
     config = function(_, dashboard)
