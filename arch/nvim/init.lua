@@ -1,6 +1,6 @@
 for _, source in ipairs {
-    "wen.base.keymaps",
-    "wen.base.options",
+    "wen.keymaps",
+    "wen.options",
     "wen.utils",
     "wen.lazy",
 } do
