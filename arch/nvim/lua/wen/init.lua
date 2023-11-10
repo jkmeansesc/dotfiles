@@ -12,6 +12,7 @@ require("lazy").setup {
         -- { "LazyVim/LazyVim", import = "lazyvim.plugins" },
         { import = "wen.plugins.core" },
         { import = "wen.plugins.ui" },
+        { import = "wen.plugins.coding" },
     },
 
     defaults = {

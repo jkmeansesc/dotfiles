@@ -32,31 +32,6 @@ return {
             local api = require "nvim-tree.api"
             api.events.subscribe(api.events.Event.FileCreated, function(file) vim.cmd("edit " .. file.fname) end)
 
-            -- see setup for definition
-            -- local function natural_cmp(left, right)
-            --     left = left.name:lower()
-            --     right = right.name:lower()
-            --
-            --     if left == right then return false end
-            --
-            --     for i = 1, math.max(string.len(left), string.len(right)), 1 do
-            --         local l = string.sub(left, i, -1)
-            --         local r = string.sub(right, i, -1)
-            --
-            --         if
-            --             type(tonumber(string.sub(l, 1, 1))) == "number"
-            --             and type(tonumber(string.sub(r, 1, 1))) == "number"
-            --         then
-            --             local l_number = tonumber(string.match(l, "^[0-9]+"))
-            --             local r_number = tonumber(string.match(r, "^[0-9]+"))
-            --
-            --             if l_number ~= r_number then return l_number < r_number end
-            --         elseif string.sub(l, 1, 1) ~= string.sub(r, 1, 1) then
-            --             return l < r
-            --         end
-            --     end
-            -- end
-
             -- configure nvim-tree
             require("nvim-tree").setup {
                 filters = {
@@ -131,25 +106,6 @@ return {
                         },
                     },
                 },
-
-                -- automatically focus opend file by Enter <CR>
-                on_attach = function(bufnr)
-                    local function opts(desc)
-                        return {
-                            desc = "nvim-tree: " .. desc,
-                            buffer = bufnr,
-                            noremap = true,
-                            silent = true,
-                            nowait = true,
-                        }
-                    end
-                    local ok, api = pcall(require, "nvim-tree.api")
-                    assert(ok, "api module is not found")
-                    vim.keymap.set("n", "<CR>", api.node.open.tab_drop, opts "Tab drop")
-                end,
-
-                -- sort as 1 foo, 3 foo, 20 foo rather than 1 foo, 20 foo, 3 foo
-                -- sort_by = function(nodes) table.sort(nodes, natural_cmp) end,
             }
         end,
     },
