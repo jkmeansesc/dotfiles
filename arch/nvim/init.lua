@@ -1,6 +1,7 @@
 for _, source in ipairs {
     "wen.base.keymaps",
     "wen.base.options",
+    "wen.utils",
     "wen.lazy",
 } do
     local status_ok, fault = pcall(require, source)
