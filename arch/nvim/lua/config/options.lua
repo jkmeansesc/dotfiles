@@ -32,8 +32,6 @@ local options = {
         fileencoding = "utf-8", -- file content encoding for the buffer
         fillchars = { eob = " " }, -- disable `~` on nonexistent lines
         foldcolumn = vim.fn.has "nvim-0.9" == 1 and "1" or nil, -- show foldcolumn in nvim 0.9
-        foldenable = true, -- enable fold for nvim-ufo
-        foldlevel = 99, -- set high foldlevel for nvim-ufo
         foldlevelstart = 99, -- start with all code unfolded
         hidden = true, -- allow switching between buffers without saving.
         history = 100, -- number of commands to remember in a history table
