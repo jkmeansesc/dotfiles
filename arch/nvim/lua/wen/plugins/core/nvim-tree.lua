@@ -76,12 +76,26 @@ return {
                     },
                 },
             },
+
+            -- Automatically focus opend file by Enter <CR>
+            on_attach = function(bufnr)
+                local function opts(desc)
+                    return { desc = "nvim-tree: " .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
+                end
+                local ok, api = pcall(require, "nvim-tree.api")
+                assert(ok, "api module is not found")
+                vim.keymap.set("n", "<CR>", api.node.open.tab_drop, opts "Tab drop")
+            end,
         },
 
         config = function(_, opts)
             -- recommended settings from nvim-tree documentation
             vim.g.loaded_netrw = 1
             vim.g.loaded_netrwPlugin = 1
+
+            -- Automatically open file upon creation
+            local api = require "nvim-tree.api"
+            api.events.subscribe(api.events.Event.FileCreated, function(file) vim.cmd("edit " .. file.fname) end)
 
             -- configure nvim-tree
             require("nvim-tree").setup { opts }
