@@ -8,59 +8,61 @@ end
 vim.opt.rtp:prepend(vim.env.LAZY or lazypath)
 
 require("lazy").setup {
-  spec = {
-    -- { "LazyVim/LazyVim", import = "lazyvim.plugins" },
-    { import = "wen.plugins" },
-  },
-
-  defaults = {
-    version = false,     -- always use the latest git commit
-    -- version = "*", -- install the latest stable version for plugins that support semver
-  },
-
-  install = { colorscheme = { "tokyonight", "catppuccin" } },
-
-  checker = {
-    enabled = true,
-    notify = false,
-  },
-
-  change_detection = {
-    notify = false,
-  },
-
-  performance = {
-    rtp = {
-      disabled_plugins = {
-        "gzip",
-        "matchit",
-        "matchparen",
-        "netrwPlugin",
-        "tarPlugin",
-        "tohtml",
-        "tutor",
-        "zipPlugin",
-        "2html_plugin",
-        "getscript",
-        "getscriptPlugin",
-        "logipat",
-        "netrw",
-        "netrwSettings",
-        "netrwFileHandlers",
-        "tar",
-        "rrhelper",
-        "spellfile_plugin",
-        "vimball",
-        "vimballPlugin",
-        "zip",
-        "rplugin",
-        "syntax",
-        "synmenu",
-        "optwin",
-        "compiler",
-        "bugreport",
-        "ftplugin",
-      },
+    spec = {
+        -- { "LazyVim/LazyVim", import = "lazyvim.plugins" },
+        { import = "wen.plugins" },
+        { import = "wen.plugins.core" },
+        { import = "wen.plugins.ui" },
     },
-  },
+
+    defaults = {
+        version = false, -- always use the latest git commit
+        -- version = "*", -- install the latest stable version for plugins that support semver
+    },
+
+    install = { colorscheme = { "tokyonight", "catppuccin" } },
+
+    checker = {
+        enabled = true,
+        notify = false,
+    },
+
+    change_detection = {
+        notify = false,
+    },
+
+    performance = {
+        rtp = {
+            disabled_plugins = {
+                "gzip",
+                "matchit",
+                "matchparen",
+                "netrwPlugin",
+                "tarPlugin",
+                "tohtml",
+                "tutor",
+                "zipPlugin",
+                "2html_plugin",
+                "getscript",
+                "getscriptPlugin",
+                "logipat",
+                "netrw",
+                "netrwSettings",
+                "netrwFileHandlers",
+                "tar",
+                "rrhelper",
+                "spellfile_plugin",
+                "vimball",
+                "vimballPlugin",
+                "zip",
+                "rplugin",
+                "syntax",
+                "synmenu",
+                "optwin",
+                "compiler",
+                "bugreport",
+                "ftplugin",
+            },
+        },
+    },
 }
