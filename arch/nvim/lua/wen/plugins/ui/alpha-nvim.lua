@@ -1,18 +1,21 @@
 return {
     "goolord/alpha-nvim",
-    dependencies = { "nvim-tree/nvim-web-devicons" },
     event = "VimEnter",
     enabled = true,
     init = false,
     opts = function()
         local dashboard = require "alpha.themes.dashboard"
-        require "alpha.term"
-        dashboard.section.terminal.command = vim.fn.stdpath "config" .. "/nvim-logo -t"
-        dashboard.section.terminal.width = 70
-        dashboard.section.terminal.height = 10
-        dashboard.section.terminal.opts.redraw = true
-        dashboard.section.terminal.opts.window_config.zindex = 1
+        local logo = [[
+              ████ ██████           █████      ██
+             ███████████             █████ 
+             █████████ ███████████████████ ███   ███████████
+            █████████  ███    █████████████ █████ ██████████████
+           █████████ ██████████ █████████ █████ █████ ████ █████
+         ███████████ ███    ███ █████████ █████ █████ ████ █████
+        ██████  █████████████████████ ████ █████ █████ ████ ██████
+    ]]
 
+        dashboard.section.header.val = vim.split(logo, "\n")
         -- stylua: ignore
         dashboard.section.buttons.val = {
             dashboard.button("f", " " .. " Find file", "<cmd> Telescope find_files <cr>"),
@@ -33,13 +36,7 @@ return {
         dashboard.section.header.opts.hl = "AlphaHeader"
         dashboard.section.buttons.opts.hl = "AlphaButtons"
         dashboard.section.footer.opts.hl = "AlphaFooter"
-     --   dashboard.opts.layout[1].val = 8
-        dashboard.opts.layout = {
-                        dashboard.section.terminal,
-                                    { type = "padding", val = 4 },
-                                                dashboard.section.buttons,
-                                                            dashboard.section.footer,
-                                                                    }
+        dashboard.opts.layout[1].val = 8
         return dashboard
     end,
     config = function(_, dashboard)
