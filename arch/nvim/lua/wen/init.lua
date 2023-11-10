@@ -10,7 +10,6 @@ vim.opt.rtp:prepend(vim.env.LAZY or lazypath)
 require("lazy").setup {
     spec = {
         -- { "LazyVim/LazyVim", import = "lazyvim.plugins" },
-        { import = "wen.plugins" },
         { import = "wen.plugins.core" },
         { import = "wen.plugins.ui" },
     },
