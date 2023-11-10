@@ -90,8 +90,11 @@ return {
 
     {
         "folke/which-key.nvim",
-        require("which-key").register {
-            ["<leader>e"] = { "<cmd>NvimTreeFindFileToggle<CR>", "Toggle explorer on current file" },
-        },
+        config = function()
+            require("which-key").register {
+                ["<leader>e"] = { "<cmd>NvimTreeFindFileToggle<CR>", "Toggle explorer on current file" },
+                ["<leader>o"] = { "<cmd>NvimTreeFocus", "Toggle explorer focus" },
+            }
+        end,
     },
 }
