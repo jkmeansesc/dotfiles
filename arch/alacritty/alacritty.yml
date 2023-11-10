@@ -5,7 +5,7 @@ env:
 
 window:
   decorations: None
-  opacity: 1.0
+  opacity: 0.8
   startup_mode: Windowed
   title: Alacritty
 
