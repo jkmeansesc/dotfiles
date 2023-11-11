@@ -81,7 +81,7 @@ return {
             api.events.subscribe(api.events.Event.FileCreated, function(file) vim.cmd("edit " .. file.fname) end)
 
             -- configure nvim-tree
-            require("nvim-tree").setup (opts) 
+            require("nvim-tree").setup(opts)
         end,
     },
 
