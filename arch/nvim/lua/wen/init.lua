@@ -13,6 +13,7 @@ require("lazy").setup {
         { import = "wen.plugins.core" },
         { import = "wen.plugins.ui" },
         { import = "wen.plugins.coding" },
+        { import = "wen.plugins.editor" },
     },
 
     defaults = {

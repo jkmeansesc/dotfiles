@@ -12,7 +12,8 @@ return {
             vim.o.laststatus = 0
         end
     end,
-    opts = function()
+
+    config = function()
         -- Eviline config for lualine
         -- Author: shadmansaleh
         -- Credit: glepnir
@@ -211,7 +212,7 @@ return {
             color = { fg = colors.blue },
             padding = { left = 1 },
         }
+        -- Now don't forget to initialize lualine
+        lualine.setup(config)
     end,
-
-    config = function(_, opts) require("lualine").setup(opts) end,
 }
