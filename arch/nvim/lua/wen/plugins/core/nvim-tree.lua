@@ -3,11 +3,6 @@ return {
         "nvim-tree/nvim-tree.lua",
         dependencies = { "nvim-tree/nvim-web-devicons" },
         opts = {
-            filters = {
-                dotfiles = false,
-            },
-            disable_netrw = true,
-            hijack_netrw = true,
             hijack_cursor = true,
             hijack_unnamed_buffer_when_opening = false,
             sync_root_with_cwd = true,
@@ -16,7 +11,6 @@ return {
                 update_root = false,
             },
             view = {
-                adaptive_size = false,
                 side = "left",
                 width = 30,
                 preserve_window_proportions = true,
@@ -25,31 +19,11 @@ return {
                 enable = false,
                 ignore = true,
             },
-            filesystem_watchers = {
-                enable = true,
-            },
-            actions = {
-                open_file = {
-                    resize_window = true,
-                },
-            },
             renderer = {
-                root_folder_label = false,
-                highlight_git = false,
-                highlight_opened_files = "none",
-
-                indent_markers = {
-                    enable = false,
-                },
-
                 icons = {
                     show = {
-                        file = true,
-                        folder = true,
-                        folder_arrow = true,
                         git = false,
                     },
-
                     glyphs = {
                         default = "󰈚",
                         symlink = "",
@@ -107,7 +81,7 @@ return {
             api.events.subscribe(api.events.Event.FileCreated, function(file) vim.cmd("edit " .. file.fname) end)
 
             -- configure nvim-tree
-            require("nvim-tree").setup { opts }
+            require("nvim-tree").setup (opts) 
         end,
     },
 

@@ -47,6 +47,7 @@ return {
 
         -- Config
         local config = {
+            extensions = {"quickfix","lazy","mason","nvim-dap-ui","nvim-tree","toggleterm","trouble"},
             options = {
                 -- Disable sections and component separators
                 component_separators = "",
