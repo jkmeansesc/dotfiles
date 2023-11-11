@@ -11,7 +11,7 @@ return {
                 cmp = true,
                 gitsigns = true,
                 treesitter = true,
-                neotree = true,
+                nvimtree = true,
                 mini = {
                     enabled = true,
                     indentscope_color = "",
