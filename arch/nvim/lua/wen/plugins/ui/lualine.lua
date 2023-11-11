@@ -4,8 +4,9 @@ return {
     event = "VeryLazy",
     opts = {
         extensions = { "quickfix", "lazy", "mason", "nvim-dap-ui", "nvim-tree", "toggleterm", "trouble" },
+        options = {theme = "catppuccin"},
+    },
 
-    }
     init = function()
         vim.g.lualine_laststatus = vim.o.laststatus
         if vim.fn.argc(-1) > 0 then
@@ -17,5 +18,5 @@ return {
         end
     end,
 
-    config = function() require("lualine").setup() end,
+    config = function(_,opts) require("lualine").setup(opts) end,
 }
