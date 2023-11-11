@@ -43,12 +43,3 @@ return {
         resession_enabled = false, -- enable experimental resession.nvim session management (will be default in AstroNvim v4)
     },
 }
--- If you need more control, you can use the function()...end notation
--- return function(local_vim)
---   local_vim.relativenumber = true
---   local_vim.g.mapleader = " "
---   local_vim.whichwrap = vim.whichwrap - { 'b', 's' } -- removing on from list
---   local_vim.shortmess = vim.shortmess + { I = true } -- add to on list
---
---   return local_vim
--- end

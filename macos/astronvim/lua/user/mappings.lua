@@ -1,14 +1,5 @@
--- Mapping data with "desc" stored directly by vim.[).
---
--- Please use this mappings table to set keyboard mapping since this is the
--- lower level configuration and more robust one. (which-key will
--- automatically pick-up stored data by this setting.)
 return {
-    -- first key is the mode
     n = {
-        -- second key is the lefthand side of the map
-
-        -- open alpha automatically when no more buffers
         ["<leader>c"] = {
             function()
                 local bufs = vim.fn.getbufinfo { buflisted = true }
@@ -50,10 +41,6 @@ return {
 
         -- keep cursor stays at current location when appending the next line to the current line with "J"
         ["J"] = { "mzJ`z" },
-
-        -- keep cursor in the middle when jumping <C-d/u>
-        ["<C-d>"] = { "<C-d>zz" },
-        ["<C-u>"] = { "<C-u>zz" },
 
         -- allow search terms to stay in the middle
         ["n"] = { "nzzzv" },
