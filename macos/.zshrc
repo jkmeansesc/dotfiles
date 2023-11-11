@@ -133,3 +133,8 @@ alias python="$PYTHON_HOME/bin/python3.12"
 ## Git
 alias config='$(which git) --git-dir=$HOME/github/dotfiles/ --work-tree=$HOME'
 
+## Tmux
+alias tn="tmux new -s"
+alias tl="tmux ls"
+alias ta="tmux attach -t"
+alias td="tmux detach"
