@@ -24,8 +24,9 @@ keymap.set("v", "J", ":move '>+1<CR>gv-gv", utils.keymap_opts "Move text up")
 keymap.set("v", "K", ":move '<-2<CR>gv-gv", utils.keymap_opts "Move text down")
 
 -- window management
-keymap.set("n", "|", "<cmd>vsplit<cr>", utils.keymap_opts "Vertical Split")
-keymap.set("n", "\\", "<cmd>split<cr>", utils.keymap_opts "Horizontal Split")
+keymap.set("n", "|", "<C-w>v", utils.keymap_opts "Split window vertically")
+keymap.set("n", "\\", "<C-w>s", utils.keymap_opts "Split window horizontally")
+keymap.set("n", "<leader>c", "<cmd>close<CR>", utils.keymap_opts "Close current split")
 keymap.set("n", "<C-h>", "<C-w>h", utils.keymap_opts "Cursor focus window left")
 keymap.set("n", "<C-j>", "<C-w>j", utils.keymap_opts "Cursor focus window down")
 keymap.set("n", "<C-k>", "<C-w>k", utils.keymap_opts "Cursor focus window up")
