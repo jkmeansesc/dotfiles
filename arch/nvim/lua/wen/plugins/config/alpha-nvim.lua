@@ -1,6 +1,4 @@
-local M = {}
-
-M.opts = function()
+local opts = function()
     local dashboard = require "alpha.themes.dashboard"
     local logo = [[
               ████ ██████           █████      ██
@@ -37,7 +35,7 @@ M.opts = function()
     return dashboard
 end
 
-M.config = function(_, dashboard)
+return function(_, dashboard)
     -- close Lazy and re-open when the dashboard is ready
     if vim.o.filetype == "lazy" then
         vim.cmd.close()
@@ -67,5 +65,3 @@ M.config = function(_, dashboard)
         end,
     })
 end
-
-return M
