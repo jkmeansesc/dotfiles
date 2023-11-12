@@ -38,7 +38,7 @@ return {
         event = "VimEnter",
         enabled = true,
         init = false,
-        config = require "wen.plugins.config.alpha-nvim",
+        require "wen.plugins.config.alpha-nvim",
         --     opts = function()
         --         local dashboard = require "alpha.themes.dashboard"
         --         local logo = [[
