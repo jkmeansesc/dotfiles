@@ -38,6 +38,6 @@ return {
         event = "VimEnter",
         enabled = true,
         init = false,
-        config = require "wen.plugins.config.alpha",
+        config = require "wen.plugins.config.alpha-nvim",
     },
 }
