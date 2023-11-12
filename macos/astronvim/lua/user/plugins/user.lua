@@ -1,39 +1,6 @@
 return {
-    {
-        "echasnovski/mini.animate",
-        event = "VeryLazy",
-        cond = not vim.g.neovide,
-        opts = function()
-            -- don't use animate when scrolling with the mouse
-            local mouse_scrolled = false
-            for _, scroll in ipairs { "Up", "Down" } do
-                local key = "<ScrollWheel" .. scroll .. ">"
-                vim.keymap.set({ "", "i" }, key, function()
-                    mouse_scrolled = true
-                    return key
-                end, { expr = true })
-            end
 
-            local animate = require "mini.animate"
-            return {
-                resize = {
-                    timing = animate.gen_timing.linear { duration = 100, unit = "total" },
-                },
-                scroll = {
-                    timing = animate.gen_timing.linear { duration = 150, unit = "total" },
-                    subscroll = animate.gen_subscroll.equal {
-                        predicate = function(total_scroll)
-                            if mouse_scrolled then
-                                mouse_scrolled = false
-                                return false
-                            end
-                            return total_scroll > 1
-                        end,
-                    },
-                },
-            }
-        end,
-    },
+    { "karb94/neoscroll.nvim", event = "VeryLazy", opts = {} },
 
     {
         "Exafunction/codeium.nvim",
@@ -45,55 +12,55 @@ return {
         config = function() require("codeium").setup {} end,
     },
 
-    -- {
-    --     "echasnovski/mini.indentscope",
-    --     event = "User AstroFile",
-    --     opts = { symbol = "│", options = { try_as_border = true } },
-    --     init = function()
-    --         vim.api.nvim_create_autocmd("FileType", {
-    --             desc = "Disable indentscope for certain filetypes",
-    --             pattern = {
-    --                 "Trouble",
-    --                 "aerial",
-    --                 "alpha",
-    --                 "checkhealth",
-    --                 "dashboard",
-    --                 "fzf",
-    --                 "help",
-    --                 "lazy",
-    --                 "lspinfo",
-    --                 "man",
-    --                 "mason",
-    --                 "neo-tree",
-    --                 "notify",
-    --                 "null-ls-info",
-    --                 "starter",
-    --                 "toggleterm",
-    --                 "undotree",
-    --             },
-    --             callback = function(event) vim.b[event.buf].miniindentscope_disable = true end,
-    --         })
-    --         vim.api.nvim_create_autocmd("BufWinEnter", {
-    --             desc = "Disable indentscope for certain buftypes",
-    --             callback = function(event)
-    --                 if
-    --                     vim.tbl_contains({
-    --                         "nofile",
-    --                         "prompt",
-    --                         "quickfix",
-    --                         "terminal",
-    --                     }, vim.bo[event.buf].buftype)
-    --                 then
-    --                     vim.b[event.buf].miniindentscope_disable = true
-    --                 end
-    --             end,
-    --         })
-    --         vim.api.nvim_create_autocmd("TermOpen", {
-    --             desc = "Disable indentscope for terminals",
-    --             callback = function(event) vim.b[event.buf].miniindentscope_disable = true end,
-    --         })
-    --     end,
-    -- },
+    {
+        "echasnovski/mini.indentscope",
+        event = "User AstroFile",
+        opts = { symbol = "│", options = { try_as_border = true } },
+        init = function()
+            vim.api.nvim_create_autocmd("FileType", {
+                desc = "Disable indentscope for certain filetypes",
+                pattern = {
+                    "Trouble",
+                    "aerial",
+                    "alpha",
+                    "checkhealth",
+                    "dashboard",
+                    "fzf",
+                    "help",
+                    "lazy",
+                    "lspinfo",
+                    "man",
+                    "mason",
+                    "neo-tree",
+                    "notify",
+                    "null-ls-info",
+                    "starter",
+                    "toggleterm",
+                    "undotree",
+                },
+                callback = function(event) vim.b[event.buf].miniindentscope_disable = true end,
+            })
+            vim.api.nvim_create_autocmd("BufWinEnter", {
+                desc = "Disable indentscope for certain buftypes",
+                callback = function(event)
+                    if
+                        vim.tbl_contains({
+                            "nofile",
+                            "prompt",
+                            "quickfix",
+                            "terminal",
+                        }, vim.bo[event.buf].buftype)
+                    then
+                        vim.b[event.buf].miniindentscope_disable = true
+                    end
+                end,
+            })
+            vim.api.nvim_create_autocmd("TermOpen", {
+                desc = "Disable indentscope for terminals",
+                callback = function(event) vim.b[event.buf].miniindentscope_disable = true end,
+            })
+        end,
+    },
 
     {
         "folke/trouble.nvim",

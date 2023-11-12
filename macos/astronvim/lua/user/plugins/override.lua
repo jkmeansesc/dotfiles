@@ -16,24 +16,18 @@ return {
         end,
     },
 
-    -- use mason-lspconfig to configure LSP installations
     {
         "williamboman/mason-lspconfig.nvim",
-        -- overrides `require("mason-lspconfig").setup(...)`
         opts = function(_, opts)
-            -- add more things to the ensure_installed table protecting against community packs modifying it
             opts.ensure_installed = require("astronvim.utils").list_insert_unique(opts.ensure_installed, {
                 "lua_ls",
             })
         end,
     },
 
-    -- use mason-null-ls to configure Formatters/Linter installation for null-ls sources
     {
         "jay-babu/mason-null-ls.nvim",
-        -- overrides `require("mason-null-ls").setup(...)`
         opts = function(_, opts)
-            -- add more things to the ensure_installed table protecting against community packs modifying it
             opts.ensure_installed = require("astronvim.utils").list_insert_unique(opts.ensure_installed, {
                 "prettier",
                 "stylua",
@@ -44,9 +38,7 @@ return {
 
     {
         "jay-babu/mason-nvim-dap.nvim",
-        -- overrides `require("mason-nvim-dap").setup(...)`
         opts = function(_, opts)
-            -- add more things to the ensure_installed table protecting against community packs modifying it
             opts.ensure_installed = require("astronvim.utils").list_insert_unique(opts.ensure_installed, {
                 "python",
             })
@@ -56,12 +48,6 @@ return {
     {
         "jose-elias-alvarez/null-ls.nvim",
         opts = function(_, config)
-            -- config variable is the default configuration table for the setup function call
-            -- local null_ls = require "null-ls"
-
-            -- Check supported formatters and linters
-            -- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/formatting
-            -- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/diagnostics
             config.sources = {
                 -- Set a formatter
                 -- null_ls.builtins.formatting.stylua,
@@ -100,35 +86,19 @@ return {
 
     {
         "lukas-reineke/indent-blankline.nvim",
-        event = "User AstroFile",
-        opts = {
-            scope = { enabled = false },
-            whitespace = { remove_blankline_trail = true },
-            exclude = {
-                filetypes = {
-                    "dashboard",
-                },
-            },
-        },
+        opts = function(_, opts)
+            opts.scope = { enabled = false }
+            opts.whitespace = { remove_blankline_trail = true }
+        end,
     },
 
     {
         "nvim-telescope/telescope.nvim",
         dependencies = {
             "debugloop/telescope-undo.nvim",
-            "nvim-telescope/telescope-fzy-native.nvim",
         },
-        keys = {
-            {
-                "<leader>fu",
-                "<cmd>Telescope undo<CR>",
-                desc = "Find undos",
-            },
-        },
-        opts = function()
-            require("telescope").load_extension "undo"
-            require("telescope").load_extension "fzy_native"
-        end,
+        keys = { { "<leader>fu", "<cmd>Telescope undo<CR>", desc = "Find undos" } },
+        opts = function() require("telescope").load_extension "undo" end,
     },
 
     {
@@ -174,36 +144,4 @@ return {
             )
         end,
     },
-
-    {
-        "rebelot/heirline.nvim",
-        opts = function(_, opts)
-            local status = require "astronvim.utils.status"
-            opts.statusline = { -- statusline
-                hl = { fg = "fg", bg = "bg" },
-                status.component.mode { mode_text = { padding = { left = 1, right = 1 } } }, -- add the mode text
-                status.component.git_branch(),
-                status.component.file_info { filetype = {}, filename = false, file_modified = false },
-                status.component.git_diff(),
-                status.component.diagnostics(),
-                status.component.fill(),
-                status.component.cmd_info(),
-                status.component.fill(),
-                status.component.lsp(),
-                status.component.treesitter(),
-                status.component.nav(),
-                -- remove the 2nd mode indicator on the right
-            }
-
-            -- return the final configuration table
-            return opts
-        end,
-    },
-
-    -- {
-    --     "rcarriga/nvim-notify",
-    --     opts = {
-    --         background_colour = "#000000",
-    --     },
-    -- },
 }

@@ -1,0 +1,32 @@
+return {
+    diff = { cmd = "terminal_git" },
+    checker = { enabled = true },
+    performance = {
+        rtp = {
+            disabled_plugins = {
+                "matchit",
+                "matchparen",
+                "tutor",
+                "2html_plugin",
+                "getscript",
+                "getscriptPlugin",
+                "logipat",
+                "netrw",
+                "netrwSettings",
+                "netrwFileHandlers",
+                "tar",
+                "rrhelper",
+                "spellfile_plugin",
+                "vimball",
+                "vimballPlugin",
+                "rplugin",
+                "syntax",
+                "synmenu",
+                "optwin",
+                "compiler",
+                "bugreport",
+                "ftplugin",
+            },
+        },
+    },
+}

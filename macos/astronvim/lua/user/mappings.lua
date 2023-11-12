@@ -1,16 +1,5 @@
 return {
     n = {
-        ["<leader>c"] = {
-            function()
-                local bufs = vim.fn.getbufinfo { buflisted = true }
-                require("astronvim.utils.buffer").close(0)
-                if require("astronvim.utils").is_available "alpha-nvim" and not bufs[2] then
-                    require("alpha").start(true)
-                end
-            end,
-            desc = "Close buffer",
-        },
-
         -- navigate buffer tabs with `H` and `L`
         L = {
             function() require("astronvim.utils.buffer").nav(vim.v.count > 0 and vim.v.count or 1) end,
@@ -20,21 +9,6 @@ return {
             function() require("astronvim.utils.buffer").nav(-(vim.v.count > 0 and vim.v.count or 1)) end,
             desc = "Previous buffer",
         },
-
-        -- mappings seen under group name "Buffer"
-        ["<leader>bD"] = {
-            function()
-                require("astronvim.utils.status").heirline.buffer_picker(
-                    function(bufnr) require("astronvim.utils.buffer").close(bufnr) end
-                )
-            end,
-            desc = "Pick to close",
-        },
-        -- tables with the `name` key will be registered with which-key if it's installed
-        -- this is useful for naming menus
-        ["<leader>b"] = { name = "Buffers" },
-        -- quick save
-        ["<C-s>"] = { ":w!<cr>", desc = "Save File" }, -- change description but the same command
 
         -- select all
         ["<leader>a"] = { "gg<S-v>G", desc = "Select All" },
