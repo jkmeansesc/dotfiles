@@ -1,4 +1,4 @@
-local opts = function()
+local dashboard = function()
     local dashboard = require "alpha.themes.dashboard"
     local logo = [[
               ████ ██████           █████      ██
