@@ -1,8 +1,6 @@
-return function()
-    local opts = {
-        extensions = { "quickfix", "lazy", "mason", "nvim-dap-ui", "nvim-tree", "toggleterm", "trouble" },
-        options = { theme = "catppuccin" },
-    }
+local opts = {
+    extensions = { "quickfix", "lazy", "mason", "nvim-dap-ui", "nvim-tree", "toggleterm", "trouble" },
+    options = { theme = "catppuccin" },
+}
 
-    require("lualine").setup(opts)
-end
+return function() require("lualine").setup(opts) end
