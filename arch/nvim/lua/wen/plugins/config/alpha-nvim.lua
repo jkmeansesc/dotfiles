@@ -1,4 +1,4 @@
-local dashboard = function()
+local opts = function()
     local dashboard = require "alpha.themes.dashboard"
     local logo = [[
               ████ ██████           █████      ██
@@ -35,7 +35,7 @@ local dashboard = function()
     return dashboard
 end
 
-return function(_, dashboard)
+return function(_, opts)
     -- close Lazy and re-open when the dashboard is ready
     if vim.o.filetype == "lazy" then
         vim.cmd.close()
@@ -46,7 +46,7 @@ return function(_, dashboard)
         })
     end
 
-    require("alpha").setup(dashboard.opts)
+    require("alpha").setup(opts)
 
     vim.api.nvim_create_autocmd("User", {
         once = true,
