@@ -1,11 +1,14 @@
 local keymap = vim.keymap
-local utils = require "wen.utils"
 
--- remap space as leader key
-keymap.set("", "<Space>", "<Nop>", utils.keymap_opts "Map space to nada")
-vim.g.mapleader = " " -- set leader key
-vim.g.maplocalleader = " " -- set default local leader key
-
+local function M.keymap_opts(desc, expr)
+    local opts = {
+        noremap = true,
+        silent = true,
+        desc = desc,
+    }
+    if expr then opts.expr = true end
+    return opts
+end
 -- basic keymap
 keymap.set("n", "j", "v:count == 0 ? 'gj' : 'j'", utils.keymap_opts("Move cursor down", true))
 keymap.set("n", "k", "v:count == 0 ? 'gk' : 'k'", utils.keymap_opts("Move cursor up", true))
