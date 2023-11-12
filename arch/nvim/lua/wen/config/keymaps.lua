@@ -37,7 +37,4 @@ keymap.set("n", "<C-l>", "<C-w>l", opts "Cursor focus window right")
 -- Visual mode paste but don't copy
 keymap.set("v", "p", '"_dP', opts "Paste but don't copy")
 
-local wk = require("which-key")
-wk.register({
-["<leader>b"] = {name="Buffer"} 
-})
+
