@@ -28,10 +28,7 @@ return {
                 headlines = true,
             },
         },
-    },
-
-    {
-        "rebelot/kanagawa.nvim",
+        config = function() vim.cmd [[colorscheme catppuccin]] end,
     },
 
     { "ellisonleao/gruvbox.nvim", priority = 1000, config = true, opts = ... },
