@@ -26,9 +26,9 @@ return {
                 which_key = true,
                 lsp_trouble = true,
                 headlines = true,
+                illuminate = true,
             },
         },
-        config = function() vim.cmd [[colorscheme catppuccin]] end,
     },
 
     { "ellisonleao/gruvbox.nvim", priority = 1000, config = true, opts = ... },

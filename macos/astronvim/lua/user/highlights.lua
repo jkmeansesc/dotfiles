@@ -1,5 +1,7 @@
 -- NvChad Telescope Theme
-return function()
+local M = {}
+
+M.init = function()
     local get_hlgroup = require("astronvim.utils").get_hlgroup
     -- get highlights from highlight groups
     local normal = get_hlgroup "Normal"
@@ -23,3 +25,5 @@ return function()
         TelescopeResultsTitle = { fg = bg, bg = bg },
     }
 end
+
+return M
