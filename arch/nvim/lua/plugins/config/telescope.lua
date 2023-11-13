@@ -21,9 +21,9 @@ telescope.setup {
         path_display = { "truncate" },
         color_devicons = true,
         set_env = { ["COLORTERM"] = "truecolor" }, -- default = nil,
-        -- mappings = {
-        --     n = { ["q"] = require("telescope.actions").close },
-        -- },
+        mappings = {
+            n = { ["q"] = require("telescope.actions").close },
+        },
     },
     extensions_list = { "themes", "terms", "fzf" },
     extensions = {
@@ -40,3 +40,80 @@ telescope.setup {
 for _, ext in ipairs(telescope.extensions_list) do
     telescope.load_extension(ext)
 end
+
+vim.keymap.set(
+    "n",
+    "<leader>gb",
+    function() require("telescope.builtin").git_branches { use_file_path = true } end,
+    { desc = "git branches" }
+)
+vim.keymap.set(
+    "n",
+    "<leader>gc",
+    function() require("telescope.builtin").git_commits { use_file_path = true } end,
+    { desc = "git commits (repository)" }
+)
+vim.keymap.set(
+    "n",
+    "<leader>gC",
+    function() require("telescope.builtin").git_bcommits { use_file_path = true } end,
+    { desc = "git commits (current file)" }
+)
+vim.keymap.set(
+    "n",
+    "<leader>gt",
+    function() require("telescope.builtin").git_status { use_file_path = true } end,
+    { desc = "git status" }
+)
+vim.keymap.set(
+    "n",
+    "<leader>f<CR>",
+    function() require("telescope.builtin").resume() end,
+    { desc = "resume previous search" }
+)
+vim.keymap.set("n", "<leader>f'", function() require("telescope.builtin").marks() end, { desc = "Find marks" })
+vim.keymap.set(
+    "n",
+    "<leader>f/",
+    function() require("telescope.builtin").current_buffer_fuzzy_find() end,
+    { desc = "find words in current buffer" }
+)
+vim.keymap.set("n", "<leader>fb", function() require("telescope.builtin").buffers() end, { desc = "find buffers" })
+vim.keymap.set(
+    "n",
+    "<leader>fc",
+    function() require("telescope.builtin").grep_string() end,
+    { desc = "find word under cursor" }
+)
+vim.keymap.set("n", "<leader>fC", function() require("telescope.builtin").commands() end, { desc = "find commands" })
+vim.keymap.set("n", "<leader>ff", function() require("telescope.builtin").find_files() end, { desc = "find files" })
+vim.keymap.set(
+    "n",
+    "<leader>fF",
+    function() require("telescope.builtin").find_files { hidden = true, no_ignore = true } end,
+    { desc = "find all files" }
+)
+vim.keymap.set("n", "<leader>fh", function() require("telescope.builtin").help_tags() end, { desc = "find help" })
+vim.keymap.set("n", "<leader>fk", function() require("telescope.builtin").keymaps() end, { desc = "find keymaps" })
+vim.keymap.set("n", "<leader>fm", function() require("telescope.builtin").man_pages() end, { desc = "find man" })
+vim.keymap.set(
+    "n",
+    "<leader>fn",
+    function() require("telescope").extensions.notify.notify() end,
+    { desc = "find notifications" }
+)
+vim.keymap.set("n", "<leader>fo", function() require("telescope.builtin").oldfiles() end, { desc = "find history" })
+vim.keymap.set("n", "<leader>fr", function() require("telescope.builtin").registers() end, { desc = "find registers" })
+vim.keymap.set(
+    "n",
+    "<leader>ft",
+    function() require("telescope.builtin").colorscheme { enable_preview = true } end,
+    { desc = "find themes" }
+)
+vim.keymap.set("n", "<leader>fw", function() require("telescope.builtin").live_grep() end, { desc = "find words" })
+vim.keymap.set("n", "<leader>fW", function()
+    require("telescope.builtin").live_grep.additional_args = function(args)
+        return vim.list_extend(args, { "--hidden", "--no-ignore" })
+    end
+end, { desc = "find words in all files" })
+vim.keymap.set("n", "<leader>ls", telescope.extensions.aerial.aerial(), { desc = "search symbols" })

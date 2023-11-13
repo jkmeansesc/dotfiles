@@ -8,9 +8,11 @@ key.setup {
 }
 
 key.register {
-    ["<leader>b"] = { name = " 󰓩.Buffer" },
-    ["<leader>s"] = { name = " 󰤼 Split" },
-    ["<leader>g"] = { name = "  Git" },
+    ["<leader>b"] = { name = " 󰓩.buffer" },
+    ["<leader>s"] = { name = " 󰤼 split" },
+    ["<leader>g"] = { name = "  git" },
+    ["f"] = { name = "  telescope" },
+    ["l"] = { name = "  lsp" },
     ["gc"] = { name = "comment toggle linewise" },
     ["gb"] = { name = "comment toggle blockwise" },
 }
