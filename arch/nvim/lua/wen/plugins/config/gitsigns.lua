@@ -27,17 +27,17 @@ M.opts = {
 
 M.config = function(_, opts)
     require("which-key").register {
-        ["<leader>gn"] = { function() require("gitsigns").next_hunk() end, desc = "Next Git hunk" },
-        ["<leader>gp"] = { function() require("gitsigns").prev_hunk() end, desc = "Previous Git hunk" },
-        ["<leader>gb"] = { function() require("gitsigns").blame_line() end, desc = "View Git blame" },
-        ["<leader>gB"] = { function() require("gitsigns").blame_line { full = true } end, desc = "View full Git blame" },
-        ["<leader>gv"] = { function() require("gitsigns").preview_hunk() end, desc = "Preview Git hunk" },
-        ["<leader>gh"] = { function() require("gitsigns").reset_hunk() end, desc = "Reset Git hunk" },
-        ["<leader>gr"] = { function() require("gitsigns").reset_buffer() end, desc = "Reset Git buffer" },
-        ["<leader>gs"] = { function() require("gitsigns").stage_hunk() end, desc = "Stage Git hunk" },
-        ["<leader>gS"] = { function() require("gitsigns").stage_buffer() end, desc = "Stage Git buffer" },
-        ["<leader>gu"] = { function() require("gitsigns").undo_stage_hunk() end, desc = "Unstage Git hunk" },
-        ["<leader>gd"] = { function() require("gitsigns").diffthis() end, desc = "View Git diff" },
+        ["<leader>gn"] = { function() require("gitsigns").next_hunk() end, "Next Git hunk" },
+        ["<leader>gp"] = { function() require("gitsigns").prev_hunk() end, "Previous Git hunk" },
+        ["<leader>gb"] = { function() require("gitsigns").blame_line() end, "View Git blame" },
+        ["<leader>gB"] = { function() require("gitsigns").blame_line { full = true } end, "View full Git blame" },
+        ["<leader>gv"] = { function() require("gitsigns").preview_hunk() end, "Preview Git hunk" },
+        ["<leader>gh"] = { function() require("gitsigns").reset_hunk() end, "Reset Git hunk" },
+        ["<leader>gr"] = { function() require("gitsigns").reset_buffer() end, "Reset Git buffer" },
+        ["<leader>gs"] = { function() require("gitsigns").stage_hunk() end, "Stage Git hunk" },
+        ["<leader>gS"] = { function() require("gitsigns").stage_buffer() end, "Stage Git buffer" },
+        ["<leader>gu"] = { function() require("gitsigns").undo_stage_hunk() end, "Unstage Git hunk" },
+        ["<leader>gd"] = { function() require("gitsigns").diffthis() end, "View Git diff" },
     }
 
     require("gitsigns").setup(opts)
