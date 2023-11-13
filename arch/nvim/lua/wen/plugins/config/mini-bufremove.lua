@@ -16,11 +16,13 @@ M.config = function()
         else
             bd(0)
         end
+        -- open alpha automatically when no more buffers
         if not bufs[2] then require("alpha").start(true) end
     end
 
     local closeForce = function()
         require("mini.bufremove").delete(0, true)
+        -- open alpha automatically when no more buffers
         if not bufs[2] then require("alpha").start(true) end
     end
 
