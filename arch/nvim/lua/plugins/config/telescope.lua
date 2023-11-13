@@ -36,83 +36,86 @@ telescope.setup {
     },
 }
 
-telescope.load_extension "fzf"
-telescope.load_extension "terms"
-telescope.load_extension "themes"
+-- load extensions
+-- for _, ext in ipairs(telescope.extensions_list) do
+--     telescope.load_extension(ext)
+-- end
+
+vim.keymap.set("n", "<leader>f", "", { desc = "  telescope" })
 
 vim.keymap.set(
     "n",
     "<leader>gb",
     function() require("telescope.builtin").git_branches { use_file_path = true } end,
-    { desc = "git branches" }
+    { desc = "Git branches" }
 )
 vim.keymap.set(
     "n",
     "<leader>gc",
     function() require("telescope.builtin").git_commits { use_file_path = true } end,
-    { desc = "git commits (repository)" }
+    { desc = "Git commits (repository)" }
 )
 vim.keymap.set(
     "n",
     "<leader>gC",
     function() require("telescope.builtin").git_bcommits { use_file_path = true } end,
-    { desc = "git commits (current file)" }
+    { desc = "Git commits (current file)" }
 )
 vim.keymap.set(
     "n",
     "<leader>gt",
     function() require("telescope.builtin").git_status { use_file_path = true } end,
-    { desc = "git status" }
+    { desc = "Git status" }
 )
 vim.keymap.set(
     "n",
     "<leader>f<CR>",
     function() require("telescope.builtin").resume() end,
-    { desc = "resume previous search" }
+    { desc = "Resume previous search" }
 )
 vim.keymap.set("n", "<leader>f'", function() require("telescope.builtin").marks() end, { desc = "Find marks" })
 vim.keymap.set(
     "n",
     "<leader>f/",
     function() require("telescope.builtin").current_buffer_fuzzy_find() end,
-    { desc = "find words in current buffer" }
+    { desc = "Find words in current buffer" }
 )
-vim.keymap.set("n", "<leader>fb", function() require("telescope.builtin").buffers() end, { desc = "find buffers" })
+vim.keymap.set("n", "<leader>fb", function() require("telescope.builtin").buffers() end, { desc = "Find buffers" })
 vim.keymap.set(
     "n",
     "<leader>fc",
     function() require("telescope.builtin").grep_string() end,
-    { desc = "find word under cursor" }
+    { desc = "Find word under cursor" }
 )
-vim.keymap.set("n", "<leader>fC", function() require("telescope.builtin").commands() end, { desc = "find commands" })
-vim.keymap.set("n", "<leader>ff", function() require("telescope.builtin").find_files() end, { desc = "find files" })
+vim.keymap.set("n", "<leader>fC", function() require("telescope.builtin").commands() end, { desc = "Find commands" })
+vim.keymap.set("n", "<leader>ff", function() require("telescope.builtin").find_files() end, { desc = "Find files" })
 vim.keymap.set(
     "n",
     "<leader>fF",
     function() require("telescope.builtin").find_files { hidden = true, no_ignore = true } end,
-    { desc = "find all files" }
+    { desc = "Find all files" }
 )
-vim.keymap.set("n", "<leader>fh", function() require("telescope.builtin").help_tags() end, { desc = "find help" })
-vim.keymap.set("n", "<leader>fk", function() require("telescope.builtin").keymaps() end, { desc = "find keymaps" })
-vim.keymap.set("n", "<leader>fm", function() require("telescope.builtin").man_pages() end, { desc = "find man" })
+vim.keymap.set("n", "<leader>fh", function() require("telescope.builtin").help_tags() end, { desc = "Find help" })
+vim.keymap.set("n", "<leader>fk", function() require("telescope.builtin").keymaps() end, { desc = "Find keymaps" })
+vim.keymap.set("n", "<leader>fm", function() require("telescope.builtin").man_pages() end, { desc = "Find man" })
 vim.keymap.set(
     "n",
     "<leader>fn",
     function() require("telescope").extensions.notify.notify() end,
-    { desc = "find notifications" }
+    { desc = "Find notifications" }
 )
-vim.keymap.set("n", "<leader>fo", function() require("telescope.builtin").oldfiles() end, { desc = "find history" })
-vim.keymap.set("n", "<leader>fr", function() require("telescope.builtin").registers() end, { desc = "find registers" })
+vim.keymap.set("n", "<leader>fo", function() require("telescope.builtin").oldfiles() end, { desc = "Find history" })
+vim.keymap.set("n", "<leader>fr", function() require("telescope.builtin").registers() end, { desc = "Find registers" })
 vim.keymap.set(
     "n",
     "<leader>ft",
     function() require("telescope.builtin").colorscheme { enable_preview = true } end,
-    { desc = "find themes" }
+    { desc = "Find themes" }
 )
-vim.keymap.set("n", "<leader>fw", function() require("telescope.builtin").live_grep() end, { desc = "find words" })
+vim.keymap.set("n", "<leader>fw", function() require("telescope.builtin").live_grep() end, { desc = "Find words" })
 vim.keymap.set("n", "<leader>fW", function()
     require("telescope.builtin").live_grep.additional_args = function(args)
         return vim.list_extend(args, { "--hidden", "--no-ignore" })
     end
-end, { desc = "find words in all files" })
-vim.keymap.set("n", "<leader>ls", telescope.extensions.aerial.aerial(), { desc = "search symbols" })
+end, { desc = "Find words in all files" })
+-- vim.keymap.set("n", "<leader>ls", telescope.extensions.aerial.aerial(), { desc = "search symbols" })
