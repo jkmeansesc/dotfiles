@@ -1,3 +1,5 @@
+local path = "wen.plugins.config"
+
 return {
     {
         "numToStr/Comment.nvim",
@@ -5,23 +7,12 @@ return {
             { "gc", mode = { "n", "v" }, desc = "Comment toggle linewise" },
             { "gb", mode = { "n", "v" }, desc = "Comment toggle blockwise" },
         },
-        opts = require "wen.plugins.config.comment",
+        opts = require(path .. ".comment").opts,
     },
 
     {
         "stevearc/dressing.nvim",
-        init = function()
-            ---@diagnostic disable-next-line: duplicate-set-field
-            vim.ui.select = function(...)
-                require("lazy").load { plugins = { "dressing.nvim" } }
-                return vim.ui.select(...)
-            end
-            ---@diagnostic disable-next-line: duplicate-set-field
-            vim.ui.input = function(...)
-                require("lazy").load { plugins = { "dressing.nvim" } }
-                return vim.ui.input(...)
-            end
-        end,
+        init = require(path .. ".dressing").init,
     },
 
     {
@@ -53,6 +44,6 @@ return {
 
     {
         "mrjones2014/smart-splits.nvim",
-        opts = require "wen.plugins.config.smart-splits",
+        opts = require(path .. ".smart-splits").opts,
     },
 }

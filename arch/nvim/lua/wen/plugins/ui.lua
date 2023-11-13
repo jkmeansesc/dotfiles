@@ -1,4 +1,4 @@
-local config = "wen.plugins.config"
+local path = "wen.plugins.config"
 
 return {
     {
@@ -15,26 +15,17 @@ return {
             { "[b", "<cmd>BufferLineCyclePrev<cr>", desc = "Prev buffer" },
             { "]b", "<cmd>BufferLineCycleNext<cr>", desc = "Next buffer" },
         },
-        opts = require(config .. ".bufferline").opts,
-        config = require(config .. ".bufferline").config,
+        opts = require(path .. ".bufferline").opts,
+        config = require(path .. ".bufferline").config,
     },
 
     {
         "nvim-lualine/lualine.nvim",
         dependencies = { "nvim-tree/nvim-web-devicons" },
         event = "VeryLazy",
-        init = function()
-            vim.g.lualine_laststatus = vim.o.laststatus
-            if vim.fn.argc(-1) > 0 then
-                -- set an empty statusline till lualine loads
-                vim.o.statusline = " "
-            else
-                -- hide the statusline on the starter page
-                vim.o.laststatus = 0
-            end
-        end,
-        opts = require(config .. ".lualine").opts,
-        config = require(config .. ".lualine").config,
+        init = require(path .. ".lualine").init,
+        opts = require(path .. ".lualine").opts,
+        config = require(path .. ".lualine").config,
     },
 
     {
@@ -42,7 +33,7 @@ return {
         event = "VimEnter",
         enabled = true,
         init = false,
-        opts = require(config .. ".alpha-nvim").opts,
-        config = require(config .. ".alpha-nvim").config,
+        opts = require(path .. ".alpha-nvim").opts,
+        config = require(path .. ".alpha-nvim").config,
     },
 }
