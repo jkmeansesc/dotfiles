@@ -74,6 +74,7 @@ M.config = function(_, opts)
     local api = require "nvim-tree.api"
     api.events.subscribe(api.events.Event.FileCreated, function(file) vim.cmd("edit " .. file.fname) end)
 
+    vim.keymap.set("n", "<leader>e", "<cmd>NvimTreeToggle<CR>", { desc = "Toggle file explorer" })
     -- configure nvim-tree
     require("nvim-tree").setup(opts)
 end
