@@ -23,5 +23,6 @@ return {
     {
         "mrjones2014/smart-splits.nvim",
         opts = require(path .. ".smart-splits").opts,
+        config = require(path .. ".smart-splits").config,
     },
 }
