@@ -5,6 +5,7 @@ return {
         "numToStr/Comment.nvim",
         keys = require(path .. ".comment").keys,
         opts = require(path .. ".comment").opts,
+        config = require(path .. ".comment").config,
     },
 
     {

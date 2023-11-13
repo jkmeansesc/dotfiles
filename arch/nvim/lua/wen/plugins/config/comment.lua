@@ -14,4 +14,7 @@ M.opts = function()
     return commentstring_avail and commentstring and { pre_hook = commentstring.create_pre_hook() } or {}
 end
 
+M.config = function()
+    require
+end    
 return M
