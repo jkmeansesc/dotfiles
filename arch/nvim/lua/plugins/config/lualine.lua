@@ -15,8 +15,8 @@ require("lualine").setup {
     sections = {
         lualine_x = {
             {
-                M.lazy_status.updates,
-                cond = M.lazy_status.has_updates,
+                lazy_status.updates,
+                cond = lazy_status.has_updates,
                 color = { fg = "#ff9e64" },
             },
             { "encoding" },
