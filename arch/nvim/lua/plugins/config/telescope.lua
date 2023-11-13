@@ -36,10 +36,9 @@ telescope.setup {
     },
 }
 
--- load extensions
-for _, ext in ipairs(telescope.extensions_list) do
-    telescope.load_extension(ext)
-end
+telescope.load_extension "fzf"
+telescope.load_extension "terms"
+telescope.load_extension "themes"
 
 vim.keymap.set(
     "n",
