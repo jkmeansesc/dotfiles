@@ -1,16 +1,14 @@
-local M = {}
+local keymap = vim.keymap
 
-M.keys = {
-    { "<leader>bp", "<Cmd>BufferLineTogglePin<CR>", desc = "Toggle pin" },
-    { "<leader>bP", "<Cmd>BufferLineGroupClose ungrouped<CR>", desc = "Delete non-pinned buffers" },
-    { "<leader>bo", "<Cmd>BufferLineCloseOthers<CR>", desc = "Delete other buffers" },
-    { "<leader>br", "<Cmd>BufferLineCloseRight<CR>", desc = "Delete buffers to the right" },
-    { "<leader>bl", "<Cmd>BufferLineCloseLeft<CR>", desc = "Delete buffers to the left" },
-    { "<S-h>", "<cmd>BufferLineCyclePrev<cr>", desc = "Prev buffer" },
-    { "<S-l>", "<cmd>BufferLineCycleNext<cr>", desc = "Next buffer" },
-}
+keymap.set("n", "<leader>bp", "<Cmd>BufferLineTogglePin<CR>", { desc = "toggle pin" })
+keymap.set("n", "<leader>bp", "<cmd>bufferlinegroupclose ungrouped<cr>", { desc = "delete non-pinned buffers" })
+keymap.set("n", "<leader>bo", "<cmd>bufferlinecloseothers<cr>", { desc = "delete other buffers" })
+keymap.set("n", "<leader>br", "<cmd>bufferlinecloseright<cr>", { desc = "delete buffers to the right" })
+keymap.set("n", "<leader>bl", "<cmd>bufferlinecloseleft<cr>", { desc = "delete buffers to the left" })
+keymap.set("n", "<S-h>", "<cmd>BufferLineCyclePrev<cr>", { desc = "prev buffer" })
+keymap.set("n", "<S-l>", "<cmd>BufferLineCycleNext<cr>", { desc = "next buffer" })
 
-M.opts = {
+require("bufferline").setup {
     options = {
         -- stylua: ignore
         close_command = function(n) require("mini.bufremove").delete(n, false) end,
@@ -26,7 +24,3 @@ M.opts = {
         },
     },
 }
-
-M.config = function(_, opts) require("bufferline").setup(opts) end
-
-return M

@@ -1,6 +1,5 @@
-local M = {}
-
-M.opts = {
+local telescope = require "telescope"
+telescope.setup {
     defaults = {
         vimgrep_arguments = {
             "rg",
@@ -37,14 +36,7 @@ M.opts = {
     },
 }
 
-M.config = function(_, opts)
-    local telescope = require "telescope"
-    telescope.setup(opts)
-
-    -- load extensions
-    for _, ext in ipairs(opts.extensions_list) do
-        telescope.load_extension(ext)
-    end
+-- load extensions
+for _, ext in ipairs(telescope.extensions_list) do
+    telescope.load_extension(ext)
 end
-
-return M

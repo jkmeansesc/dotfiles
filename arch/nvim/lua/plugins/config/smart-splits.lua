@@ -1,29 +1,22 @@
-local M = {}
+local splits = require "smart-splits"
+local keymap = vim.keymap
 
-M.opts = {
+splits.setup {
     ignored_filetypes = { "nofile", "quickfix", "qf", "prompt" },
     ignored_buftypes = { "nofile" },
 }
 
-M.config = function()
-    local ss = require "smart-splits"
+keymap.set("n", "<A-h>", splits.resize_left, { desc = "resize left" })
+keymap.set("n", "<A-j>", splits.resize_down, { desc = "resize down" })
+keymap.set("n", "<A-k>", splits.resize_up, { desc = "resize up" })
+keymap.set("n", "<A-l>", splits.resize_right, { desc = "resize right" })
 
-    require("which-key").register {
-        ["<A-h>"] = { ss.resize_left, "Resize left" },
-        ["<A-j>"] = { ss.resize_down, "Resize down" },
-        ["<A-k>"] = { ss.resize_up, "Resize up" },
-        ["<A-l>"] = { ss.resize_right, "Resize right" },
+keymap.set("n", "<C-h>", splits.move_cursor_left, { desc = "move cursor left" })
+keymap.set("n", "<C-j>", splits.move_cursor_down, { desc = "move cursor down" })
+keymap.set("n", "<C-k>", splits.move_cursor_up, { desc = "move cursor up" })
+keymap.set("n", "<C-l>", splits.move_cursor_right, { desc = "move cursor right" })
 
-        ["<C-h>"] = { ss.move_cursor_left, "Move cursor left" },
-        ["<C-j>"] = { ss.move_cursor_down, "Move cursor down" },
-        ["<C-k>"] = { ss.move_cursor_up, "Move cursor up" },
-        ["<C-l>"] = { ss.move_cursor_right, "Move cursor right" },
-
-        ["<leader>sh"] = { ss.swap_buf_left, "Swap left" },
-        ["<leader>sj"] = { ss.swap_buf_down, "Swap down" },
-        ["<leader>sk"] = { ss.swap_buf_up, "Swap up" },
-        ["<leader>sl"] = { ss.swap_buf_right, "Swap right" },
-    }
-end
-
-return M
+keymap.set("n", "<leader>sh", splits.swap_buf_left, { desc = "swap left" })
+keymap.set("n", "<leader>sj", splits.swap_buf_down, { desc = "swap down" })
+keymap.set("n", "<leader>sk", splits.swap_buf_up, { desc = "swap up" })
+keymap.set("n", "<leader>sl", splits.swap_buf_right, { desc = "swap right" })

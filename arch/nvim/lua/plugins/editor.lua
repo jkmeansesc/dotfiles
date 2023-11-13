@@ -3,27 +3,24 @@ local path = "plugins.config"
 return {
     {
         "numToStr/Comment.nvim",
-        -- keys = require(path .. ".comment").keys,
-        opts = require(path .. ".comment").opts,
-        config = require(path .. ".comment").config,
+        dependencies = { "JoosepAlviste/nvim-ts-context-commentstring" },
+        event = { "BufReadPre", "BufNewFile" },
+        config = function() require(path .. ".comment") end,
     },
 
     {
         "stevearc/dressing.nvim",
-        init = require(path .. ".dressing").init,
+        config = function() require(path .. ".dressing") end,
     },
 
     {
         "echasnovski/mini.bufremove",
-        lazy = false,
-        config = require(path .. ".mini-bufremove").config,
+        config = function() require(path .. ".mini-bufremove") end,
     },
 
     {
         "mrjones2014/smart-splits.nvim",
-        lazy = false,
-        opts = require(path .. ".smart-splits").opts,
-        config = require(path .. ".smart-splits").config,
+        config = function() require(path .. ".smart-splits") end,
     },
 
     {

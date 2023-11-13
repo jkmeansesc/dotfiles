@@ -1,6 +1,4 @@
-local M = {}
-
-M.init = function(plugin)
+local init = function(plugin)
     -- PERF: add nvim-treesitter queries to the rtp and it's custom query predicates early
     -- This is needed because a bunch of plugins no longer `require("nvim-treesitter")`, which
     -- no longer trigger the **nvim-treeitter** module to be loaded in time.
@@ -15,7 +13,8 @@ M.keys = {
     { "<bs>", desc = "Decrement selection", mode = "x" },
 }
 
-M.opts = {
+---@diagnostic disable-next-line: missing-fields
+require("nvim-treesitter.configs").setup {
     highlight = { enable = true },
     indent = { enable = true },
     ensure_installed = {
@@ -59,6 +58,3 @@ M.opts = {
     -- enable nvim-ts-context-commentstring plugin for commenting tsx and jsx
     context_commentstring = { enable = true, enable_autocmd = false },
 }
-
-M.config = function() require("nvim-treesitter.configs").setup(M.opts) end
-return M

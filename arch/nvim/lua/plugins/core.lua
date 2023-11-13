@@ -4,22 +4,18 @@ return {
     {
         "folke/which-key.nvim",
         event = "VeryLazy",
-        init = require(path .. ".which-key").init,
-        opts = require(path .. ".which-key").opts,
-        config = require(path .. ".which-key").config,
+        config = function() require(path .. ".which-key") end,
     },
 
     {
         "nvim-tree/nvim-tree.lua",
         lazy = false,
         dependencies = { "nvim-tree/nvim-web-devicons" },
-        opts = require(path .. ".nvim-tree").opts,
-        config = require(path .. ".nvim-tree").config,
+        config = function() require(path .. ".nvim-tree") end,
     },
 
     {
         "nvim-treesitter/nvim-treesitter",
-        version = false,
         build = ":TSUpdate",
         event = { "BufReadPre", "BufNewFile" },
         dependencies = {
@@ -27,19 +23,14 @@ return {
             "JoosepAlviste/nvim-ts-context-commentstring",
         },
         cmd = { "TSUpdateSync", "TSUpdate", "TSInstall" },
-        keys = require(path .. ".nvim-treesitter").keys,
-        init = require(path .. ".nvim-treesitter").init,
-        opts = require(path .. ".nvim-treesitter").opts,
-        config = require(path .. ".nvim-treesitter").config,
+        config = function() require(path .. ".nvim-treesitter") end,
     },
 
     {
         "lewis6991/gitsigns.nvim",
         enabled = vim.fn.executable "git" == 1,
         ft = { "gitcommit", "diff" },
-        init = require(path .. ".gitsigns").init,
-        opts = require(path .. ".gitsigns").opts,
-        config = require(path .. ".gitsigns").config,
+        config = function() require(path .. ".gitsigns") end,
     },
 
     {
@@ -51,7 +42,6 @@ return {
             { "nvim-telescope/telescope-fzf-native.nvim", enabled = vim.fn.executable "make" == 1, build = "make" },
         },
         cmd = "Telescope",
-        opts = require(path .. ".telescope").opts,
-        config = require(path .. ".telescope").config,
+        config = function() require(path .. ".telescope") end,
     },
 }

@@ -4,18 +4,14 @@ return {
     {
         "akinsho/bufferline.nvim",
         event = "VeryLazy",
-        keys = require(path .. ".bufferline").keys,
-        opts = require(path .. ".bufferline").opts,
-        config = require(path .. ".bufferline").config,
+        config = function() require(path .. ".bufferline") end,
     },
 
     {
         "nvim-lualine/lualine.nvim",
         dependencies = { "nvim-tree/nvim-web-devicons" },
         event = "VeryLazy",
-        init = require(path .. ".lualine").init,
-        opts = require(path .. ".lualine").opts,
-        config = require(path .. ".lualine").config,
+        config = function() require(path .. ".lualine") end,
     },
 
     {
