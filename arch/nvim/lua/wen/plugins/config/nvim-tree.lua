@@ -49,7 +49,7 @@ M.opts = {
     },
 }
 
-M.config = function()
+M.config = function(_, opts)
     -- close the tab/nvim when nvim-tree is the last window
     vim.api.nvim_create_autocmd("QuitPre", {
         callback = function()
@@ -75,7 +75,7 @@ M.config = function()
     api.events.subscribe(api.events.Event.FileCreated, function(file) vim.cmd("edit " .. file.fname) end)
 
     -- configure nvim-tree
-    require("nvim-tree").setup(M.opts)
+    require("nvim-tree").setup(opts)
 end
 
 return M
