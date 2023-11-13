@@ -28,6 +28,6 @@ return {
                 headlines = true,
             },
         },
-        -- config = function() vim.cmd [[colorscheme catppuccin]] end,
+        config = function() vim.cmd [[colorscheme catppuccin]] end,
     },
 }
