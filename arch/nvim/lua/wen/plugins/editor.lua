@@ -17,7 +17,7 @@ return {
 
     {
         "echasnovski/mini.bufremove",
-        config = require(path .. ".bufremove").config,
+        config = require(path .. ".mini-bufremove").config,
     },
 
     {
