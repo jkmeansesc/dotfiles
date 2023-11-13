@@ -1,55 +1,53 @@
 local M = {}
 
-M.opts = function()
-    return {
-        hijack_cursor = true,
-        hijack_unnamed_buffer_when_opening = false,
-        sync_root_with_cwd = true,
-        update_focused_file = {
-            enable = true,
-            update_root = false,
-        },
-        view = {
-            side = "left",
-            width = 30,
-            preserve_window_proportions = true,
-        },
-        git = {
-            enable = false,
-            ignore = true,
-        },
-        renderer = {
-            icons = {
-                show = {
-                    git = false,
+M.opts = {
+    hijack_cursor = true,
+    hijack_unnamed_buffer_when_opening = false,
+    sync_root_with_cwd = true,
+    update_focused_file = {
+        enable = true,
+        update_root = false,
+    },
+    view = {
+        side = "left",
+        width = 30,
+        preserve_window_proportions = true,
+    },
+    git = {
+        enable = false,
+        ignore = true,
+    },
+    renderer = {
+        icons = {
+            show = {
+                git = false,
+            },
+            glyphs = {
+                default = "󰈚",
+                symlink = "",
+                folder = {
+                    default = "",
+                    empty = "",
+                    empty_open = "",
+                    open = "",
+                    symlink = "",
+                    symlink_open = "",
+                    arrow_open = "",
+                    arrow_closed = "",
                 },
-                glyphs = {
-                    default = "󰈚",
-                    symlink = "",
-                    folder = {
-                        default = "",
-                        empty = "",
-                        empty_open = "",
-                        open = "",
-                        symlink = "",
-                        symlink_open = "",
-                        arrow_open = "",
-                        arrow_closed = "",
-                    },
-                    git = {
-                        unstaged = "✗",
-                        staged = "✓",
-                        unmerged = "",
-                        renamed = "➜",
-                        untracked = "★",
-                        deleted = "",
-                        ignored = "◌",
-                    },
+                git = {
+                    unstaged = "✗",
+                    staged = "✓",
+                    unmerged = "",
+                    renamed = "➜",
+                    untracked = "★",
+                    deleted = "",
+                    ignored = "◌",
                 },
             },
         },
-    }
-end
+    },
+}
 
 M.config = function()
     -- close the tab/nvim when nvim-tree is the last window
