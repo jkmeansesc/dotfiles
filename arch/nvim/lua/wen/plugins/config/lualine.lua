@@ -3,4 +3,4 @@ local opts = {
     options = { theme = "catppuccin" },
 }
 
-return function() require("lualine").setup(opts) end
+return function(_, opts) require("lualine").setup(opts) end
