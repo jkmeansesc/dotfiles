@@ -8,11 +8,6 @@ local init = function(plugin)
     require "nvim-treesitter.query_predicates"
 end
 
-M.keys = {
-    { "<c-space>", desc = "Increment selection" },
-    { "<bs>", desc = "Decrement selection", mode = "x" },
-}
-
 ---@diagnostic disable-next-line: missing-fields
 require("nvim-treesitter.configs").setup {
     highlight = { enable = true },
