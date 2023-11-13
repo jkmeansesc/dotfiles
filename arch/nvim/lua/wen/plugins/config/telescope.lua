@@ -72,4 +72,4 @@ M.config = function(_, opts)
     end
 end
 
-return {}
+return M
