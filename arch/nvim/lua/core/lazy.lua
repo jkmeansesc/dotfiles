@@ -10,26 +10,12 @@ vim.opt.rtp:prepend(vim.env.LAZY or lazypath)
 require("lazy").setup {
     spec = {
         -- { "LazyVim/LazyVim", import = "lazyvim.plugins" },
-        { import = "wen.plugins" },
+        { import = "plugins" },
     },
 
-    defaults = {
-        version = false, -- always use the latest git commit
-        -- version = "*", -- install the latest stable version for plugins that support semver
-        -- lazy = true,
-    },
-
-    install = { colorscheme = { "tokyonight", "catppuccin" } },
-
-    checker = {
-        enabled = true,
-        notify = false,
-    },
-
-    change_detection = {
-        notify = false,
-    },
-
+    defaults = { version = false }, -- always use the latest git commit
+    checker = { enabled = true, notify = false },
+    change_detection = { notify = false },
     performance = {
         rtp = {
             disabled_plugins = {

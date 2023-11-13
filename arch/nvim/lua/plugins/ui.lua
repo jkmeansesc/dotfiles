@@ -21,9 +21,8 @@ return {
     {
         "goolord/alpha-nvim",
         event = "VimEnter",
-        enabled = true,
-        init = false,
-        opts = require(path .. ".alpha-nvim").opts,
-        config = require(path .. ".alpha-nvim").config,
+        -- enabled = true,
+        -- init = false,
+        config = function() require(path .. ".alpha-nvim") end,
     },
 }
