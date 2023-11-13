@@ -22,9 +22,9 @@ M.opts = {
         path_display = { "truncate" },
         color_devicons = true,
         set_env = { ["COLORTERM"] = "truecolor" }, -- default = nil,
-        mappings = {
-            n = { ["q"] = require("telescope.actions").close },
-        },
+        -- mappings = {
+        --     n = { ["q"] = require("telescope.actions").close },
+        -- },
     },
     extensions_list = { "themes", "terms", "fzf" },
     extensions = {
