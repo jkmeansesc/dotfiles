@@ -14,6 +14,7 @@ M.config = function()
     require("which-key").register {
         ["<leader>b"] = { name = " 󰓩.Buffer" },
         ["<leader>s"] = { name = " 󰤼 Split" },
+        ["<leader>g"] = { name = "  Git" },
     }
 end
 

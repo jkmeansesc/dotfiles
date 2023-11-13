@@ -32,4 +32,23 @@ return {
         opts = require(path .. ".nvim-treesitter").opts,
         config = require(path .. ".nvim-treesitter").config,
     },
+
+    {
+        "lewis6991/gitsigns.nvim",
+        enabled = vim.fn.executable "git" == 1,
+        ft = { "gitcommit", "diff" },
+        init = require(path .. ".gitsigns").init,
+        opts = require(path .. ".gitsigns").opts,
+        config = require(path .. ".gitsigns").config,
+    },
+
+    {
+        "nvim-telescope/telescope.nvim",
+        dependencies = {
+            { "nvim-telescope/telescope-fzf-native.nvim", enabled = vim.fn.executable "make" == 1, build = "make" },
+        },
+        cmd = "Telescope",
+        opts = require(path .. ".telescope").opts,
+        config = require(path .. ".telescope").config,
+    },
 }

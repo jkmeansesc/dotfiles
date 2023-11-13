@@ -25,4 +25,9 @@ return {
         opts = require(path .. ".smart-splits").opts,
         config = require(path .. ".smart-splits").config,
     },
+
+    {
+        "inkarkat/vim-ReplaceWithRegister", -- replace with register contents using motion (gr + motion)
+        event = "InsertEnter",
+    },
 }
