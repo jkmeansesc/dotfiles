@@ -1,6 +1,8 @@
 local M = {}
 
 M.config = function()
+    local bufs = vim.fn.getbufinfo { buflisted = true }
+
     local close = function()
         local bd = require("mini.bufremove").delete
         if vim.bo.modified then
@@ -14,9 +16,13 @@ M.config = function()
         else
             bd(0)
         end
+        if not bufs[2] then require("alpha").start(true) end
     end
 
-    local closeForce = function() require("mini.bufremove").delete(0, true) end
+    local closeForce = function()
+        require("mini.bufremove").delete(0, true)
+        if not bufs[2] then require("alpha").start(true) end
+    end
 
     require("which-key").register {
         ["<leader>bc"] = { close, "Close buffer" },
