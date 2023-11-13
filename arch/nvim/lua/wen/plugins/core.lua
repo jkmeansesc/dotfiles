@@ -12,7 +12,8 @@ return {
     {
         "nvim-tree/nvim-tree.lua",
         dependencies = { "nvim-tree/nvim-web-devicons" },
-        config = require "wen.plugins.config.nvim-tree",
+        opts = require("wen.plugins.config.nvim-tree").opts,
+        config = require("wen.plugins.config.nvim-tree").config,
     },
 
     {

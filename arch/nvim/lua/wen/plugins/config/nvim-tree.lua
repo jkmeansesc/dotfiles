@@ -1,5 +1,7 @@
-return function()
-    local opts = {
+local M = {}
+
+M.opts = function()
+    return {
         hijack_cursor = true,
         hijack_unnamed_buffer_when_opening = false,
         sync_root_with_cwd = true,
@@ -47,11 +49,9 @@ return function()
             },
         },
     }
+end
 
-    -- recommended settings from nvim-tree documentation
-    vim.g.loaded_netrw = 1
-    vim.g.loaded_netrwPlugin = 1
-
+M.config = function()
     -- close the tab/nvim when nvim-tree is the last window
     vim.api.nvim_create_autocmd("QuitPre", {
         callback = function()
@@ -77,5 +77,7 @@ return function()
     api.events.subscribe(api.events.Event.FileCreated, function(file) vim.cmd("edit " .. file.fname) end)
 
     -- configure nvim-tree
-    require("nvim-tree").setup(opts)
+    require("nvim-tree").setup(M.opts)
 end
+
+return M
