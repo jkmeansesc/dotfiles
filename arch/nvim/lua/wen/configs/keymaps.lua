@@ -29,12 +29,14 @@ keymap.set("v", "K", ":move '<-2<CR>gv-gv", opts "Move text down")
 -- Window management
 keymap.set("n", "|", "<C-w>v", opts "Split window vertically")
 keymap.set("n", "\\", "<C-w>s", opts "Split window horizontally")
-keymap.set("n", "<C-h>", "<C-w>h", opts "Cursor focus window left")
-keymap.set("n", "<C-j>", "<C-w>j", opts "Cursor focus window down")
-keymap.set("n", "<C-k>", "<C-w>k", opts "Cursor focus window up")
-keymap.set("n", "<C-l>", "<C-w>l", opts "Cursor focus window right")
+keymap.set("n", "<leader>|", "<C-w>v", opts "Split window vertically")
+keymap.set("n", "<leader>\\", "<C-w>s", opts "Split window horizontally")
+keymap.set("n", "<leader>s=", "<C-w>=", opts "Make split equal size")
+keymap.set("n", "<leader>sc", "<cmd>close<CR>", opts "Close current split")
+-- keymap.set("n", "<C-h>", "<C-w>h", opts "Cursor focus window left")
+-- keymap.set("n", "<C-j>", "<C-w>j", opts "Cursor focus window down")
+-- keymap.set("n", "<C-k>", "<C-w>k", opts "Cursor focus window up")
+-- keymap.set("n", "<C-l>", "<C-w>l", opts "Cursor focus window right")
 
 -- Visual mode paste but don't copy
 keymap.set("v", "p", '"_dP', opts "Paste but don't copy")
-
-

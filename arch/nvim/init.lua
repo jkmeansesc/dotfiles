@@ -1,5 +1,5 @@
 for _, source in ipairs {
-    "wen.config",
+    "wen.configs",
     "wen.lazy",
 } do
     local status_ok, fault = pcall(require, source)

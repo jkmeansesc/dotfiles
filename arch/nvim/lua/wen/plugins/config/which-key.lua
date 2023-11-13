@@ -10,4 +10,11 @@ M.opts = {
     disable = { filetypes = { "TelescopePrompt" } },
 }
 
+M.config = function()
+    require("which-key").register {
+        ["<leader>b"] = { name = "󰓩.Buffer" },
+        ["<leader>s"] = { name = "󰤼 Split" },
+    }
+end
+
 return M

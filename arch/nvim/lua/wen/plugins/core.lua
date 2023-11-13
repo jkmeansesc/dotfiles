@@ -6,6 +6,7 @@ return {
         event = "VeryLazy",
         init = require(path .. ".which-key").init,
         opts = require(path .. ".which-key").opts,
+        config = require(path .. ".which-key").config,
     },
 
     {
