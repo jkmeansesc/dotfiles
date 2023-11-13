@@ -42,13 +42,15 @@ return {
         config = require(path .. ".gitsigns").config,
     },
 
-    -- {
-    --     "nvim-telescope/telescope.nvim",
-    --     dependencies = {
-    --         { "nvim-telescope/telescope-fzf-native.nvim", enabled = vim.fn.executable "make" == 1, build = "make" },
-    --     },
-    --     cmd = "Telescope",
-    --     opts = require(path .. ".telescope").opts,
-    --     config = require(path .. ".telescope").config,
-    -- },
+    {
+        "nvim-telescope/telescope.nvim",
+        dependencies = {
+            "nvim-lua/plenary.nvim",
+            "nvim-tree/nvim-web-devicons",
+            { "nvim-telescope/telescope-fzf-native.nvim", enabled = vim.fn.executable "make" == 1, build = "make" },
+        },
+        cmd = "Telescope",
+        opts = require(path .. ".telescope").opts,
+        config = require(path .. ".telescope").config,
+    },
 }
