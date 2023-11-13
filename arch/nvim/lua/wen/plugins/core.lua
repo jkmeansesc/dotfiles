@@ -39,7 +39,7 @@ return {
             { "<c-space>", desc = "Increment selection" },
             { "<bs>", desc = "Decrement selection", mode = "x" },
         },
-
-        config = require "wen.plugins.config.nvim-treesitter",
+        opts = require("wen.plugins.config.nvim-treesitter").opts,
+        config = require("wen.plugins.config.nvim-treesitter").config,
     },
 }
