@@ -17,11 +17,13 @@ return {
 
     {
         "echasnovski/mini.bufremove",
+        lazy = false,
         config = require(path .. ".mini-bufremove").config,
     },
 
     {
         "mrjones2014/smart-splits.nvim",
+        lazy = false,
         opts = require(path .. ".smart-splits").opts,
         config = require(path .. ".smart-splits").config,
     },
