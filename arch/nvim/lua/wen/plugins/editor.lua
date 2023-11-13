@@ -3,10 +3,7 @@ local path = "wen.plugins.config"
 return {
     {
         "numToStr/Comment.nvim",
-        -- keys = {
-        --     { "gc", mode = { "n", "v" }, desc = "Comment toggle linewise" },
-        --     { "gb", mode = { "n", "v" }, desc = "Comment toggle blockwise" },
-        -- },
+        keys = require(path .. ".comment").keys,
         opts = require(path .. ".comment").opts,
     },
 
