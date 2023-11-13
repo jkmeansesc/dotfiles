@@ -15,6 +15,18 @@ M.opts = function()
 end
 
 M.config = function()
-    require
-end    
+    vim.keymap.set(
+        "n",
+        "<leader>/",
+        function() require("Comment.api").toggle.linewise.count(vim.v.count > 0 and vim.v.count or 1) end,
+        { desc = "Toggle comment" }
+    )
+
+    vim.keymap.set(
+        "v",
+        "<leader>/",
+        "<ESC><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>",
+        { desc = "Toggle comment" }
+    )
+end
 return M
