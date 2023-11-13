@@ -12,8 +12,8 @@ M.opts = {
 
 M.config = function()
     require("which-key").register {
-        ["<leader>b"] = { name = "󰓩.Buffer" },
-        ["<leader>s"] = { name = "󰤼 Split" },
+        ["<leader>b"] = { name = " 󰓩.Buffer" },
+        ["<leader>s"] = { name = " 󰤼 Split" },
     }
 end
 
