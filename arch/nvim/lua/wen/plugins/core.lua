@@ -27,10 +27,7 @@ return {
             "JoosepAlviste/nvim-ts-context-commentstring",
         },
         cmd = { "TSUpdateSync", "TSUpdate", "TSInstall" },
-        keys = {
-            { "<c-space>", desc = "Increment selection" },
-            { "<bs>", desc = "Decrement selection", mode = "x" },
-        },
+        keys = require(path .. ".nvim-treesitter").keys,
         init = require(path .. ".nvim-treesitter").init,
         opts = require(path .. ".nvim-treesitter").opts,
         config = require(path .. ".nvim-treesitter").config,

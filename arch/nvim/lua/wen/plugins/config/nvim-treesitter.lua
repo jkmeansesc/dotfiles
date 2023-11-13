@@ -10,6 +10,11 @@ M.init = function(plugin)
     require "nvim-treesitter.query_predicates"
 end
 
+M.keys = {
+    { "<c-space>", desc = "Increment selection" },
+    { "<bs>", desc = "Decrement selection", mode = "x" },
+}
+
 M.opts = {
     highlight = { enable = true },
     indent = { enable = true },
