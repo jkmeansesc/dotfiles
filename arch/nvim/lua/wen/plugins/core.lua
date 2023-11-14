@@ -35,12 +35,12 @@ return {
         config = require(path .. ".nvim-treesitter"),
     },
 
-    {
-        "lewis6991/gitsigns.nvim",
-        enabled = vim.fn.executable "git" == 1,
-        ft = { "gitcommit", "diff" },
-        config = require(path .. ".gitsigns"),
-    },
+    -- {
+    --     "lewis6991/gitsigns.nvim",
+    --     enabled = vim.fn.executable "git" == 1,
+    --     ft = { "gitcommit", "diff" },
+    --     config = require(path .. ".gitsigns"),
+    -- },
 
     -- {
     --     "nvim-telescope/telescope.nvim",
