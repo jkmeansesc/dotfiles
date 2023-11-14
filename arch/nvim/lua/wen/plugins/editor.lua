@@ -23,6 +23,7 @@ return {
         config = require(path .. ".smart-splits"),
     },
 
+    { "max397574/better-escape.nvim", event = "InsertCharPre", opts = { timeout = 300 } },
     -- {
     --     "inkarkat/vim-ReplaceWithRegister", -- replace with register contents using motion (gr + motion)
     --     event = "InsertEnter",
