@@ -1,3 +1,4 @@
+return function()
 local telescope = require "telescope"
 telescope.setup {
     defaults = {
@@ -119,3 +120,4 @@ telescope.setup {
 --     end
 -- end, { desc = "Find words in all files" })
 -- -- vim.keymap.set("n", "<leader>ls", telescope.extensions.aerial.aerial(), { desc = "search symbols" })
+end

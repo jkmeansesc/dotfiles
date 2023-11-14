@@ -1,3 +1,4 @@
+return function()
 local keymap = vim.keymap
 -- keymap.set({"n","v"},"gc",  desc = "Comment toggle linewise" )
 -- keymap.set({"n","v"},"gb",  desc = "Comment toggle blockwise" )
@@ -19,3 +20,4 @@ local ts_context_commentstring = require "ts_context_commentstring.integrations.
 require("Comment").setup {
     pre_hook = ts_context_commentstring.create_pre_hook(),
 }
+end

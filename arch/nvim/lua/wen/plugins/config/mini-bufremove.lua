@@ -1,3 +1,4 @@
+return function()
 local bufs = vim.fn.getbufinfo { buflisted = true }
 local keymap = vim.keymap
 local close = function()
@@ -27,3 +28,4 @@ keymap.set("n", "<leader>bc", close, { desc = "Close buffer" })
 keymap.set("n", "<leader>bC", closeForce, { desc = "Close buffer (force)" })
 keymap.set("n", "<leader>c", close, { desc = "Close buffer" })
 keymap.set("n", "<leader>C", closeForce, { desc = "Close buffer (force)" })
+end

@@ -1,3 +1,4 @@
+return function()
 -- close the tab/nvim when nvim-tree is the last window
 vim.api.nvim_create_autocmd("QuitPre", {
     callback = function()
@@ -73,3 +74,4 @@ require("nvim-tree").setup {
         },
     },
 }
+end

@@ -1,3 +1,4 @@
+return function()
 local lazy_status = require "lazy.status"
 
 vim.g.lualine_laststatus = vim.o.laststatus
@@ -25,3 +26,4 @@ require("lualine").setup {
         },
     },
 }
+end

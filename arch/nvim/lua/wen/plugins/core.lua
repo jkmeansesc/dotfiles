@@ -11,7 +11,7 @@ return {
         "nvim-tree/nvim-tree.lua",
         lazy = false,
         dependencies = { "nvim-tree/nvim-web-devicons" },
-        config = function() require(path .. ".nvim-tree") end,
+        config = require(path .. ".nvim-tree"),
     },
 
     {
@@ -23,7 +23,7 @@ return {
             "JoosepAlviste/nvim-ts-context-commentstring",
         },
         cmd = { "TSUpdateSync", "TSUpdate", "TSInstall" },
-        config = function() require(path .. ".nvim-treesitter") end,
+        config = require(path .. ".nvim-treesitter"),
     },
 
     {
@@ -42,6 +42,6 @@ return {
             { "nvim-telescope/telescope-fzf-native.nvim", enabled = vim.fn.executable "make" == 1, build = "make" },
         },
         cmd = "Telescope",
-        config = function() require(path .. ".telescope") end,
+        config = require(path .. ".telescope"),
     },
 }

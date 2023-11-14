@@ -4,14 +4,14 @@ return {
     {
         "akinsho/bufferline.nvim",
         event = "VeryLazy",
-        config = function() require(path .. ".bufferline") end,
+        config = require(path .. ".bufferline"),
     },
 
     {
         "nvim-lualine/lualine.nvim",
         dependencies = { "nvim-tree/nvim-web-devicons" },
         event = "VeryLazy",
-        config = function() require(path .. ".lualine") end,
+        config = require(path .. ".lualine"),
     },
 
     {
@@ -19,6 +19,6 @@ return {
         event = "VimEnter",
         -- enabled = true,
         -- init = false,
-        config = function() require(path .. ".alpha-nvim") end,
+        config = require(path .. ".alpha-nvim"),
     },
 }

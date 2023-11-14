@@ -1,3 +1,4 @@
+return function()
 local keymap = vim.keymap
 
 keymap.set("n", "<leader>bp", "<Cmd>BufferLineTogglePin<CR>", { desc = "Toggle pin" })
@@ -24,3 +25,4 @@ require("bufferline").setup {
         },
     },
 }
+end

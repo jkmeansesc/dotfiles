@@ -5,22 +5,22 @@ return {
         "numToStr/Comment.nvim",
         dependencies = { "JoosepAlviste/nvim-ts-context-commentstring" },
         event = { "BufReadPre", "BufNewFile" },
-        config = function() require(path .. ".comment") end,
+        config = require(path .. ".comment"),
     },
 
     {
         "stevearc/dressing.nvim",
-        config = function() require(path .. ".dressing") end,
+        config = require(path .. ".dressing"),
     },
 
     {
         "echasnovski/mini.bufremove",
-        config = function() require(path .. ".mini-bufremove") end,
+        config = require(path .. ".mini-bufremove"),
     },
 
     {
         "mrjones2014/smart-splits.nvim",
-        config = function() require(path .. ".smart-splits") end,
+        config = require(path .. ".smart-splits"),
     },
 
     {

@@ -1,3 +1,4 @@
+return function()
 local dashboard = require "alpha.themes.dashboard"
 local logo = [[
                   ████ ██████           █████      ██
@@ -61,3 +62,4 @@ vim.api.nvim_create_autocmd("User", {
 })
 
 require("alpha").setup(dashboard.opts)
+end

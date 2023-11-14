@@ -1,3 +1,4 @@
+return function()
 local splits = require "smart-splits"
 local keymap = vim.keymap
 
@@ -20,3 +21,4 @@ keymap.set("n", "<leader>sh", splits.swap_buf_left, { desc = "Swap left" })
 keymap.set("n", "<leader>sj", splits.swap_buf_down, { desc = "Swap down" })
 keymap.set("n", "<leader>sk", splits.swap_buf_up, { desc = "Swap up" })
 keymap.set("n", "<leader>sl", splits.swap_buf_right, { desc = "Swap right" })
+end
