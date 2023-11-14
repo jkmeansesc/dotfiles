@@ -13,6 +13,7 @@ return {
   --     dependencies = { "nvim-tree/nvim-web-devicons" },
   --     config = require(path .. ".nvim-tree"),
   -- },
+
   {
     "nvim-neo-tree/neo-tree.nvim",
     branch = "v3.x",
@@ -21,7 +22,10 @@ return {
       "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
       "MunifTanjim/nui.nvim",
     },
+    cmd = "Neotree",
+    config = require(path .. ".neo-tree"),
   },
+
   {
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
