@@ -21,4 +21,10 @@ return {
         -- init = false,
         config = require(path .. ".alpha-nvim"),
     },
+
+    {
+        "NvChad/nvim-colorizer.lua",
+        event = { "BufReadPre", "BufNewFile" },
+        config = true,
+    },
 }
