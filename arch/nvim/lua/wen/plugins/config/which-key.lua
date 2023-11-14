@@ -14,7 +14,7 @@ return function()
         ["<leader>g"] = { name = "  Git" },
         ["<leader>f"] = { name = "  Telescope" },
         ["<leader>l"] = { name = "  Lsp" },
-        ["gc"] = { name = "Comment toggle linewise" },
-        ["gb"] = { name = "Comment toggle blockwise" },
+        -- ["gc"] = { name = "Comment toggle linewise" },
+        -- ["gb"] = { name = "Comment toggle blockwise" },
     }
 end
