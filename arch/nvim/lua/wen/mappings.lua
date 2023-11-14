@@ -9,8 +9,8 @@ local function opts(desc, expr)
     }
 end
 
--- vim.api.nvim_set_var('mapleader', ' ')
-vim.g.mapleader = " "
+vim.g.mapleader = " " -- set leader key
+vim.gmaplocalleader = " " -- set default local leader key
 
 -- Basic keymap
 keymap.set("n", "j", "v:count == 0 ? 'gj' : 'j'", opts("Move cursor down", true))
