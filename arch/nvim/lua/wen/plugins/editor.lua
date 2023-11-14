@@ -24,6 +24,13 @@ return {
     },
 
     { "max397574/better-escape.nvim", event = "InsertCharPre", opts = { timeout = 300 } },
+
+    {
+        "NMAC427/guess-indent.nvim",
+        event = { "BufReadPre", "BufNewFile" },
+        config = require(path .. ".guess-indent"),
+    },
+
     -- {
     --     "inkarkat/vim-ReplaceWithRegister", -- replace with register contents using motion (gr + motion)
     --     event = "InsertEnter",
