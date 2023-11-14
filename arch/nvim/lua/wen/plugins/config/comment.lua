@@ -1,8 +1,7 @@
 ---@diagnostic disable: missing-fields
 return function()
     local keymap = vim.keymap
-    -- keymap.set({"n","v"},"gc",  desc = "Comment toggle linewise" )
-    -- keymap.set({"n","v"},"gb",  desc = "Comment toggle blockwise" )
+
     keymap.set(
         "n",
         "<leader>/",
