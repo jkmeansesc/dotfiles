@@ -47,12 +47,14 @@ yabai -m rule --add app="^Downie 4$" manage=off
 yabai -m rule --add title="^Karabiner-Elements Settings$" manage=off
 yabai -m rule --add title="^Karabiner-EventViewer$" manage=off
 yabai -m rule --add title="^Alfred Preferences$" manage=off
-yabai -m rule --add title="^Preferences$" manage=off
-yabai -m rule --add title="^Settings$" manage=off
-yabai -m rule --add title="^Software Update$" manage=off
-yabai -m rule --add title="^Outlook Settings$" manage=off
-yabai -m rule --add title="^PicList$" manage=off
 yabai -m rule --add title="^Add Account$" manage=off
+yabai -m rule --add title="Preferences" manage=off
+yabai -m rule --add title="Settings" manage=off
+yabai -m rule --add title="Software Update" manage=off
+# yabai -m rule --add title="^Outlook Settings$" manage=off
+yabai -m rule --add title="PicList" manage=off
+yabai -m rule --add title="Test" manage=off
+
 # Web browsers
 yabai -m rule --add app="^Google Chrome|Safari$" space=1
 
