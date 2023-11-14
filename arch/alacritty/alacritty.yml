@@ -31,7 +31,7 @@ font:
     family: Hack Nerd Font
     style: Bold Italic
 
-  size: 16.0
+  size: 14.0
 
 selection:
   semantic_escape_chars: ",│`|:\"' ()[]{}<>\t@="
