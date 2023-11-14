@@ -55,3 +55,19 @@ keymap.set("i", "<C-u>", "<Esc>viwUea")
 -- Turn the current word into title case
 keymap.set("i", "<C-t>", "<Esc>b~lea")
 
+-- Insert a blank line below or above current line (do not move the cursor),
+-- see https://stackoverflow.com/a/16136133/6064933
+keymap.set("n", "<leader>o", "o<Esc>k", opts "Insert line below", true)
+keymap.set("n", "<leader>O", "O<Esc>j", opts "Insert line above", true)
+
+-- Replace visual selection with text in register, but not contaminate the register,
+-- see also https://stackoverflow.com/q/10723700/6064933.
+keymap.set("x", "p", '"_c<Esc>p')
+-- Do not move my cursor when joining lines.
+keymap.set("n", "J", function()
+    vim.cmd [[
+    normal! mzJ`z 
+    delmarks z]]
+end, {
+    desc = "Join line",
+})
