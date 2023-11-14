@@ -19,9 +19,9 @@ return {
         build = ":TSUpdate",
         event = { "BufReadPre", "BufNewFile" },
         init = function(plugin)
-        require("lazy.core.loader").add_to_rtp(plugin)
-        require "nvim-treesitter.query_predicates"
-    end,
+            require("lazy.core.loader").add_to_rtp(plugin)
+            require "nvim-treesitter.query_predicates"
+        end,
         dependencies = {
             "nvim-treesitter/nvim-treesitter-textobjects",
             "JoosepAlviste/nvim-ts-context-commentstring",
@@ -39,7 +39,7 @@ return {
 
     {
         "nvim-telescope/telescope.nvim",
-          branch = "0.1.x",
+        branch = "0.1.x",
         dependencies = {
             "nvim-lua/plenary.nvim",
             "nvim-tree/nvim-web-devicons",
