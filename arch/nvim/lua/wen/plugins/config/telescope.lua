@@ -15,9 +15,6 @@ return function()
             prompt_prefix = "   ",
             selection_caret = "  ",
             entry_prefix = "  ",
-            initial_mode = "insert",
-            selection_strategy = "reset",
-            sorting_strategy = "ascending",
             file_ignore_patterns = { "node_modules" },
             path_display = { "truncate" },
             color_devicons = true,
@@ -36,14 +33,12 @@ return function()
             },
         },
     }
-
+    telescope.load_extension("fzf")
     -- load extensions
     -- for _, ext in ipairs(telescope.extensions_list) do
     --     telescope.load_extension(ext)
     -- end
 
-    -- vim.keymap.set("n", "<leader>f", "", { desc = "  telescope" })
-    --
     -- vim.keymap.set(
     --     "n",
     --     "<leader>gb",
@@ -89,7 +84,7 @@ return function()
     --     { desc = "Find word under cursor" }
     -- )
     -- vim.keymap.set("n", "<leader>fC", function() require("telescope.builtin").commands() end, { desc = "Find commands" })
-    -- vim.keymap.set("n", "<leader>ff", function() require("telescope.builtin").find_files() end, { desc = "Find files" })
+    vim.keymap.set("n", "<leader>ff", function() require("telescope.builtin").find_files() end, { desc = "Find files" })
     -- vim.keymap.set(
     --     "n",
     --     "<leader>fF",
