@@ -21,7 +21,7 @@ return {
         init = function(plugin)
         require("lazy.core.loader").add_to_rtp(plugin)
         require "nvim-treesitter.query_predicates"
-    end
+    end,
         dependencies = {
             "nvim-treesitter/nvim-treesitter-textobjects",
             "JoosepAlviste/nvim-ts-context-commentstring",
