@@ -46,11 +46,12 @@ keymap.set("n", "cc", '"_cc')
 keymap.set("x", "c", '"_c')
 
 -- Copy entire buffer.
-keymap.set("n", "<leader>y", "<cmd>%yank<cr>", { desc = "Yank entire buffer" })
+keymap.set("n", "<leader>y", "<cmd>%yank<cr>", opts "Yank entire buffer")
 -- keymap.set("n", "<leader>a", "gg<S-v>G", opts "Select all")
 
 -- Turn the word under cursor to upper case
-keymap.set("i", "<c-u>", "<Esc>viwUea")
+keymap.set("i", "<C-u>", "<Esc>viwUea")
 
 -- Turn the current word into title case
-keymap.set("i", "<c-t>", "<Esc>b~lea")
+keymap.set("i", "<C-t>", "<Esc>b~lea")
+
