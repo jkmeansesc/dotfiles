@@ -9,12 +9,12 @@ return function()
     }
 
     key.register {
-        ["<leader>b"] = { name = " 󰓩.buffer" },
-        ["<leader>s"] = { name = " 󰤼 split" },
-        ["<leader>g"] = { name = "  git" },
-        ["<leader>f"] = { name = "  telescope" },
-        ["<leader>l"] = { name = "  lsp" },
-        ["gc"] = { name = "comment toggle linewise" },
-        ["gb"] = { name = "comment toggle blockwise" },
+        ["<leader>b"] = { name = " 󰓩.Buffer" },
+        ["<leader>s"] = { name = " 󰤼 Split" },
+        ["<leader>g"] = { name = "  Git" },
+        ["<leader>f"] = { name = "  Telescope" },
+        ["<leader>l"] = { name = "  Lsp" },
+        ["gc"] = { name = "Comment toggle linewise" },
+        ["gb"] = { name = "Comment toggle blockwise" },
     }
 end
