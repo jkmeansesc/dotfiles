@@ -1,6 +1,6 @@
 return function()
     vim.o.timeout = true
-    vim.o.timeoutlen = 300
+    vim.o.timeoutlen = 500
 
     local key = require "which-key"
     key.setup {

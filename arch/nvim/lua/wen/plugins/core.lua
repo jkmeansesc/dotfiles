@@ -30,7 +30,7 @@ return {
         "lewis6991/gitsigns.nvim",
         enabled = vim.fn.executable "git" == 1,
         ft = { "gitcommit", "diff" },
-        config = function() require(path .. ".gitsigns") end,
+        config = require(path .. ".gitsigns") 
     },
 
     {

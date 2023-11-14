@@ -1,3 +1,4 @@
+return function()
 -- load gitsigns only when a git file is opened
 vim.api.nvim_create_autocmd({ "BufRead" }, {
     group = vim.api.nvim_create_augroup("GitSignsLazyLoad", { clear = true }),
@@ -37,3 +38,4 @@ require("gitsigns").setup {
         untracked = { text = "│" },
     },
 }
+end

@@ -23,7 +23,7 @@ local closeForce = function()
     if not bufs[2] then require("alpha").start(true) end
 end
 
-keymap.set("n", "<leader>bc", close, { desc = "close buffer" })
-keymap.set("n", "<leader>bC", closeForce, { desc = "close buffer (force)" })
-keymap.set("n", "<leader>c", close, { desc = "close buffer" })
-keymap.set("n", "<leader>C", closeForce, { desc = "close buffer (force)" })
+keymap.set("n", "<leader>bc", close, { desc = "Close buffer" })
+keymap.set("n", "<leader>bC", closeForce, { desc = "Close buffer (force)" })
+keymap.set("n", "<leader>c", close, { desc = "Close buffer" })
+keymap.set("n", "<leader>C", closeForce, { desc = "Close buffer (force)" })

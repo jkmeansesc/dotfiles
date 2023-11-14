@@ -1,12 +1,12 @@
 local keymap = vim.keymap
 
-keymap.set("n", "<leader>bp", "<Cmd>BufferLineTogglePin<CR>", { desc = "toggle pin" })
-keymap.set("n", "<leader>bp", "<cmd>bufferlinegroupclose ungrouped<cr>", { desc = "delete non-pinned buffers" })
-keymap.set("n", "<leader>bo", "<cmd>bufferlinecloseothers<cr>", { desc = "delete other buffers" })
-keymap.set("n", "<leader>br", "<cmd>bufferlinecloseright<cr>", { desc = "delete buffers to the right" })
-keymap.set("n", "<leader>bl", "<cmd>bufferlinecloseleft<cr>", { desc = "delete buffers to the left" })
-keymap.set("n", "<S-h>", "<cmd>BufferLineCyclePrev<cr>", { desc = "prev buffer" })
-keymap.set("n", "<S-l>", "<cmd>BufferLineCycleNext<cr>", { desc = "next buffer" })
+keymap.set("n", "<leader>bp", "<Cmd>BufferLineTogglePin<CR>", { desc = "Toggle pin" })
+keymap.set("n", "<leader>bp", "<cmd>bufferlinegroupclose ungrouped<cr>", { desc = "Close non-pinned buffers" })
+keymap.set("n", "<leader>bo", "<cmd>bufferlinecloseothers<cr>", { desc = "Close other buffers" })
+keymap.set("n", "<leader>br", "<cmd>bufferlinecloseright<cr>", { desc = "Close buffers to the right" })
+keymap.set("n", "<leader>bl", "<cmd>bufferlinecloseleft<cr>", { desc = "Close buffers to the left" })
+keymap.set("n", "<S-h>", "<cmd>BufferLineCyclePrev<cr>", { desc = "Prev buffer" })
+keymap.set("n", "<S-l>", "<cmd>BufferLineCycleNext<cr>", { desc = "Next buffer" })
 
 require("bufferline").setup {
     options = {
