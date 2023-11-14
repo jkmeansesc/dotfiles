@@ -50,4 +50,21 @@ return {
         cmd = "Telescope",
         config = require(path .. ".telescope"),
     },
+
+    {
+        "williamboman/mason.nvim",
+        dependencies = {
+            "williamboman/mason-lspconfig.nvim",
+            -- "WhoIsSethDaniel/mason-tool-installer.nvim",
+        },
+        config = require(path .. ".mason"),
+    },
+
+    {
+        "nvimtools/none-ls.nvim",
+        lazy = true,
+        event = { "BufReadPre", "BufNewFile" },
+        dependencies = { "jay-babu/mason-null-ls.nvim" },
+        config = require(path .. ".none-ls"),
+    },
 }

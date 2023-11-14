@@ -1,5 +1,6 @@
 return function()
     local telescope = require "telescope"
+    local actions = require "telescope.actions"
     telescope.setup {
         defaults = {
             vimgrep_arguments = {
@@ -20,7 +21,12 @@ return function()
             color_devicons = true,
             set_env = { ["COLORTERM"] = "truecolor" }, -- default = nil,
             mappings = {
-                n = { ["q"] = require("telescope.actions").close },
+                n = { ["q"] = actions.close },
+                i = {
+                    ["<C-k>"] = actions.move_selection_previous, -- move to prev result
+                    ["<C-j>"] = actions.move_selection_next,     -- move to next result
+                    ["<C-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
+                },
             },
         },
         extensions_list = { "themes", "terms", "fzf" },
@@ -33,7 +39,7 @@ return function()
             },
         },
     }
-    telescope.load_extension("fzf")
+    telescope.load_extension "fzf"
 
     vim.keymap.set(
         "n",
@@ -79,7 +85,12 @@ return function()
         function() require("telescope.builtin").grep_string() end,
         { desc = "Find word under cursor" }
     )
-    vim.keymap.set("n", "<leader>fC", function() require("telescope.builtin").commands() end, { desc = "Find commands" })
+    vim.keymap.set(
+        "n",
+        "<leader>fC",
+        function() require("telescope.builtin").commands() end,
+        { desc = "Find commands" }
+    )
     vim.keymap.set("n", "<leader>ff", function() require("telescope.builtin").find_files() end, { desc = "Find files" })
     vim.keymap.set(
         "n",
@@ -97,7 +108,12 @@ return function()
         { desc = "Find notifications" }
     )
     vim.keymap.set("n", "<leader>fo", function() require("telescope.builtin").oldfiles() end, { desc = "Find history" })
-    vim.keymap.set("n", "<leader>fr", function() require("telescope.builtin").registers() end, { desc = "Find registers" })
+    vim.keymap.set(
+        "n",
+        "<leader>fr",
+        function() require("telescope.builtin").registers() end,
+        { desc = "Find registers" }
+    )
     vim.keymap.set(
         "n",
         "<leader>ft",
