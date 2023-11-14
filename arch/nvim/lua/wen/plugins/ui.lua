@@ -1,4 +1,4 @@
-local path = "plugins.config"
+local path = "wen.plugins.config"
 
 return {
     {
