@@ -12,8 +12,8 @@ return function()
         ["<leader>b"] = { name = " 󰓩.buffer" },
         ["<leader>s"] = { name = " 󰤼 split" },
         ["<leader>g"] = { name = "  git" },
-        ["f"] = { name = "  telescope" },
-        ["l"] = { name = "  lsp" },
+        ["<leader>f"] = { name = "  telescope" },
+        ["<leader>l"] = { name = "  lsp" },
         ["gc"] = { name = "comment toggle linewise" },
         ["gb"] = { name = "comment toggle blockwise" },
     }
