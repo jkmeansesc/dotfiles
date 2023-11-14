@@ -9,6 +9,9 @@ local function opts(desc, expr)
     }
 end
 
+-- vim.api.nvim_set_var('mapleader', ' ')
+vim.g.mapleader = " "
+
 -- Basic keymap
 keymap.set("n", "j", "v:count == 0 ? 'gj' : 'j'", opts("Move cursor down", true))
 keymap.set("n", "k", "v:count == 0 ? 'gk' : 'k'", opts("Move cursor up", true))

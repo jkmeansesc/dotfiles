@@ -6,14 +6,14 @@ return function()
         "n",
         "<leader>/",
         function() require("Comment.api").toggle.linewise.count(vim.v.count > 0 and vim.v.count or 1) end,
-        { desc = "toggle comment" }
+        { desc = "Toggle comment" }
     )
 
     keymap.set(
         "v",
         "<leader>/",
         "<ESC><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>",
-        { desc = "toggle comment" }
+        { desc = "Toggle comment" }
     )
 
     local ts_context_commentstring = require "ts_context_commentstring.integrations.comment_nvim"
