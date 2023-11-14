@@ -4,7 +4,7 @@ return {
     {
         "folke/which-key.nvim",
         event = "VeryLazy",
-        config = function() require(path .. ".which-key") end,
+        config = require(path .. ".which-key"),
     },
 
     {
