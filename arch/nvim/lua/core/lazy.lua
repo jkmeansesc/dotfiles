@@ -10,7 +10,7 @@ vim.opt.rtp:prepend(vim.env.LAZY or lazypath)
 require("lazy").setup {
     spec = {
         -- { "LazyVim/LazyVim", import = "lazyvim.plugins" },
-        { import = "wen.plugins" },
+        { import = "plugins" },
     },
 
     defaults = { version = false }, -- always use the latest git commit
