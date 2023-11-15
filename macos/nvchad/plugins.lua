@@ -38,12 +38,12 @@ local plugins = {
 		opts = overrides.nvimtree,
 	},
 
-	{
-		"folke/which-key.nvim",
-		event = "VeryLazy",
-		init = overrides.whichkeyinit,
-		config = overrides.whichkeyconfig,
-	},
+	-- {
+	-- 	"folke/which-key.nvim",
+	-- 	event = "VeryLazy",
+	-- 	init = overrides.whichkeyinit,
+	-- 	config = overrides.whichkeyconfig,
+	-- },
 
 	-- ui
 	-- {
