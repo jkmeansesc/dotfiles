@@ -1,5 +1,7 @@
 local overrides = require("custom.configs.overrides")
 
+-- FIX
+-- TODO
 ---@type NvPluginSpec[]
 local plugins = {
 
@@ -102,7 +104,15 @@ local plugins = {
 
 	{
 		"stevearc/dressing.nvim",
-		config = require("custom.configs.dressing"),
+		lazy = true,
+		init = require("custom.configs.dressing"),
+	},
+
+	{
+		"folke/todo-comments.nvim",
+		event = "VeryLazy",
+		dependencies = { "nvim-lua/plenary.nvim" },
+		opts = {},
 	},
 }
 
