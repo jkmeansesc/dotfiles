@@ -38,7 +38,7 @@ return {
       "MunifTanjim/nui.nvim",
       "rcarriga/nvim-notify",
     },
-    config = require(path .. ".noice.lua"),
+    config = require(path .. ".noice"),
   },
   -- {
   --     "inkarkat/vim-ReplaceWithRegister", -- replace with register contents using motion (gr + motion)
