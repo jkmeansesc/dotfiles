@@ -37,6 +37,10 @@ M.general = {
     ["<C-s>"] = { "<cmd>w!<CR>", "Save (force)" },
     ["<leader>w"] = { "<cmd>w<CR>", "Save" },
 
+    -- quit
+    ["<C-q>"] = { "<cmd>qa<CR>", "Quit" },
+    ["<C-Q>"] = { "<cmd>qa!<CR>", "Quit (force)" },
+
     -- copy all
     ["<leader>y"] = { "<cmd> %y+ <CR>", "Yank all" },
 
@@ -50,15 +54,16 @@ M.general = {
     ["<Down>"] = { 'v:count || mode(1)[0:1] == "no" ? "j" : "gj"', "Move down", opts = { expr = true } },
 
     -- Insert a blank line below or above current line (do not move the cursor),
-    -- see https://stackoverflow.com/a/16136133/6064933
+    -- see https://stackoverflow.com/a/16136134/6064933
     ["<leader>o"] = { "printf('m`%so<ESC>``', v:count1)", "Insert line below", opts = { expr = true } },
     ["<leader>O"] = { "printf('m`%sO<ESC>``', v:count1)", "Insert line above", opts = { expr = true } },
 
     -- Do not move my cursor when joining lines.
-    ["J"] = {
-      function() vim.cmd [[ normal! mzJ`z delmarks z]] end,
-      "Join line",
-    },
+    ["J"] = { function() vim.cmd [[ normal! mzJ`z delmarks z]] end, "Join line" },
+
+    -- Package management
+    ["<leader>ml"] = { "<cmd>Lazy<CR>", "Lazy" },
+    ["<leader>mm"] = { "<cmd>Mason<CR>", "Mason" },
   },
 
   v = {

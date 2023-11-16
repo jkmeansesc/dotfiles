@@ -1,5 +1,3 @@
-local path = "plugins.config"
-
 return {
   {
     "williamboman/mason.nvim",

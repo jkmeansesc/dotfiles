@@ -39,6 +39,9 @@ return {
               ["<C-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
               ["<C-c>"] = actions.close, -- close telescope
             },
+            n = {
+              ["q"] = actions.close, -- close telescope
+            },
           },
         },
         extensions_list = { "themes", "terms", "fzf" },
