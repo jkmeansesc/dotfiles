@@ -31,6 +31,17 @@ return {
     config = require(path .. ".guess-indent"),
   },
 
+  {
+    "folke/noice.nvim",
+    event = "VeryLazy",
+    dependencies = {
+      "MunifTanjim/nui.nvim",
+      "rcarriga/nvim-notify",
+    },
+    config = require(path .. ".noice"),
+  },
+
+  { "karb94/neoscroll.nvim", event = "VeryLazy", opts = {} },
   -- {
   --     "inkarkat/vim-ReplaceWithRegister", -- replace with register contents using motion (gr + motion)
   --     event = "InsertEnter",

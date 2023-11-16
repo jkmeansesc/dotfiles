@@ -51,8 +51,8 @@ M.general = {
 
     -- Insert a blank line below or above current line (do not move the cursor),
     -- see https://stackoverflow.com/a/16136133/6064933
-    ["<leader>o"] = { "o<Esc>k", "Insert line below", opts = { expr = true } },
-    ["<leader>O"] = { "o<Esc>j", "Insert line above", opts = { expr = true } },
+    ["<leader>o"] = { "printf('m`%so<ESC>``', v:count1)", "Insert line below", opts = { expr = true } },
+    ["<leader>O"] = { "printf('m`%sO<ESC>``', v:count1)", "Insert line above", opts = { expr = true } },
 
     -- Do not move my cursor when joining lines.
     ["J"] = {
@@ -293,6 +293,11 @@ M.lspconfig = {
       function() print(vim.inspect(vim.lsp.buf.list_workspace_folders())) end,
       "List workspace folders",
     },
+
+    ["<leader>lf"] = {
+      function() vim.lsp.buf.format { async = true } end,
+      "LSP formatting",
+    },
   },
 
   v = {
@@ -329,8 +334,6 @@ M.telescope = {
     -- pick a hidden term
     ["<leader>ft"] = { "<cmd> Telescope terms <CR>", "Pick hidden term" },
 
-    -- theme switcher
-    ["<leader>mt"] = { "<cmd> Telescope themes <CR>", "Nvchad themes" },
     ["<leader>fm"] = { "<cmd> Telescope marks <CR>", "telescope bookmarks" },
   },
 }

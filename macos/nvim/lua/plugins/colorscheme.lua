@@ -5,7 +5,7 @@ return {
     name = "catppuccin",
     opts = {
       flavour = "mocha",
-      transparent_background = false,
+      transparent_background = true,
       term_colors = true,
       integrations = {
         alpha = true,
@@ -29,6 +29,12 @@ return {
         headlines = true,
       },
     },
-    config = function() vim.cmd [[colorscheme catppuccin]] end,
+    -- config = function() vim.cmd [[colorscheme catppuccin]] end,
+  },
+
+  {
+    "rebelot/kanagawa.nvim",
+    lazy = true,
+    config = function() vim.cmd [[colorscheme kanagawa]] end,
   },
 }
