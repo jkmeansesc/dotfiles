@@ -40,6 +40,8 @@ return {
     },
     config = require(path .. ".noice"),
   },
+
+  { "karb94/neoscroll.nvim", event = "VeryLazy", opts = {} },
   -- {
   --     "inkarkat/vim-ReplaceWithRegister", -- replace with register contents using motion (gr + motion)
   --     event = "InsertEnter",
