@@ -14,6 +14,8 @@ end
 local options = {
   g = {
     encoding = "UTF-8", -- utf8
+    mapleader = " ", -- set leader key
+    gmaplocalleader = " ", -- set default local leader key
   },
   opt = {
     autoindent = true, -- copy indent from current line when starting a new line.
@@ -61,7 +63,7 @@ local options = {
     swapfile = false, -- disable swap files.
     tabstop = 2, -- number of space in a tab
     termguicolors = true, -- enable 24-bit RGB color in the TUI
-    timeoutlen = 500, -- shorten key timeout length a little bit for which-key
+    timeoutlen = 400, -- shorten key timeout length a little bit for which-key
     undofile = true, -- enable persistent undo
     updatetime = 300, -- length of time to wait before triggering the plugin
     virtualedit = "block", -- allow going past end of line in visual block mode
@@ -69,6 +71,7 @@ local options = {
     wildmenu = true, -- enhanced command-line completion.
     wrap = false, -- disable wrapping of lines longer than the width of window
     writebackup = false, -- disable making a backup before overwriting a file
+    timeout = true,
   },
 }
 
