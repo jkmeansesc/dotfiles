@@ -329,8 +329,6 @@ M.telescope = {
     -- pick a hidden term
     ["<leader>ft"] = { "<cmd> Telescope terms <CR>", "Pick hidden term" },
 
-    -- theme switcher
-    ["<leader>mt"] = { "<cmd> Telescope themes <CR>", "Nvchad themes" },
     ["<leader>fm"] = { "<cmd> Telescope marks <CR>", "telescope bookmarks" },
   },
 }
