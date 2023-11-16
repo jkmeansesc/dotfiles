@@ -7,13 +7,6 @@ return {
     config = require(path .. ".which-key"),
   },
 
-  -- {
-  --     "nvim-tree/nvim-tree.lua",
-  --     lazy = false,
-  --     dependencies = { "nvim-tree/nvim-web-devicons" },
-  --     config = require(path .. ".nvim-tree"),
-  -- },
-
   {
     "nvim-neo-tree/neo-tree.nvim",
     branch = "v3.x",
