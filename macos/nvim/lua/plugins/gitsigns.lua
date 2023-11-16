@@ -1,18 +1,8 @@
 return {
   "lewis6991/gitsigns.nvim",
-  enabled = vim.fn.executable "git" == 1,
+  -- event = { "BufReadPre", "BufNewFile" },
   ft = { "gitcommit", "diff" },
-  otps = {
-    signs = {
-      add = { text = "│" },
-      change = { text = "│" },
-      delete = { text = "󰍵" },
-      topdelete = { text = "‾" },
-      changedelete = { text = "~" },
-      untracked = { text = "│" },
-    },
-  },
-  config = function()
+  init = function()
     -- load gitsigns only when a git file is opened
     vim.api.nvim_create_autocmd({ "BufRead" }, {
       group = vim.api.nvim_create_augroup("GitSignsLazyLoad", { clear = true }),
@@ -25,4 +15,15 @@ return {
       end,
     })
   end,
+  otps = {
+    signs = {
+      add = { text = "▎" },
+      change = { text = "▎" },
+      delete = { text = "▎" },
+      topdelete = { text = "▎" },
+      changedelete = { text = "▎" },
+      untracked = { text = "▎" },
+    },
+  },
+  config = function(_, opts) require("gitsigns").setup(opts) end,
 }

@@ -62,9 +62,11 @@ vim.opt.updatetime = 300 -- length of time to wait before triggering the plugin
 vim.opt.virtualedit = "block" -- allow going past end of line in visual block mode
 vim.opt.whichwrap = "<,>,[,],h,l" -- allow certain keys to move to the next line or scroll horizontally.
 vim.opt.wildmenu = true -- enhanced command-line completion.
-vim.opt.wrap = false -- disable wrapping of lines longer than the width of window
 vim.opt.writebackup = false -- disable making a backup before overwriting a file
 vim.opt.timeout = true
 vim.opt.viewoptions:remove "curdir" -- disable saving current directory with views
 vim.opt.shortmess:append { s = true, I = true } -- disable search count wrap and startup messages
 vim.opt.backspace:append { "nostop" } -- don't stop backspace at insert
+
+vim.opt.wrap = true -- soft wrap lines
+vim.opt.showbreak = "↪ "

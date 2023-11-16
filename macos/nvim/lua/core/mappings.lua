@@ -59,7 +59,14 @@ M.general = {
     ["<leader>O"] = { "printf('m`%sO<ESC>``', v:count1)", "Insert line above", opts = { expr = true } },
 
     -- Do not move my cursor when joining lines.
-    ["J"] = { function() vim.cmd [[ normal! mzJ`z delmarks z]] end, "Join line" },
+    ["J"] = {
+      function()
+        vim.cmd [[
+        normal! mzJ`z
+        delmarks z]]
+      end,
+      "Join line",
+    },
 
     -- Package management
     ["<leader>ml"] = { "<cmd>Lazy<CR>", "Lazy" },
@@ -81,6 +88,12 @@ M.general = {
     -- Don't copy the replaced text after pasting in visual mode
     -- https://vim.fandom.com/wiki/Replace_a_word_with_yanked_text#Alternative_mapping_for_paste
     ["p"] = { 'p:let @+=@0<CR>:let @"=@0<CR>', "Dont copy replaced text", opts = { silent = true } },
+  },
+}
+
+M.increname = {
+  n = {
+    ["<leader>r"] = { ":IncRename ", "IncRename" },
   },
 }
 
@@ -334,7 +347,7 @@ M.telescope = {
 
     -- git
     ["<leader>gc"] = { "<cmd> Telescope git_commits <CR>", "Git commits" },
-    ["<leader>gt"] = { "<cmd> Telescope git_status <CR>", "Git status" },
+    ["<leader>gs"] = { "<cmd> Telescope git_status <CR>", "Git status" },
 
     -- pick a hidden term
     ["<leader>ft"] = { "<cmd> Telescope terms <CR>", "Pick hidden term" },
@@ -364,48 +377,23 @@ M.blankline = {
 }
 
 M.gitsigns = {
+  -- plugin = true,
   n = {
     -- Navigation through hunks
-    ["]h"] = {
-      function()
-        if vim.wo.diff then return "]h" end
-        vim.schedule(function() require("gitsigns").next_hunk() end)
-        return "<Ignore>"
-      end,
-      "Jump to next hunk",
-      opts = { expr = true },
-    },
-
-    ["[h"] = {
-      function()
-        if vim.wo.diff then return "[h" end
-        vim.schedule(function() require("gitsigns").prev_hunk() end)
-        return "<Ignore>"
-      end,
-      "Jump to prev hunk",
-      opts = { expr = true },
-    },
+    ["]h"] = { function() require("gitsigns").next_hunk() end, "Next hunk", opts = { expr = true } },
+    ["[h"] = { function() require("gitsigns").prev_hunk() end, "Prev hunk", opts = { expr = true } },
 
     -- Actions
-    ["<leader>gr"] = {
-      function() require("gitsigns").reset_hunk() end,
-      "Reset hunk",
-    },
-
-    ["<leader>gp"] = {
-      function() require("gitsigns").preview_hunk() end,
-      "Preview hunk",
-    },
-
-    ["<leader>gb"] = {
-      function() package.loaded.gitsigns.blame_line() end,
-      "Blame line",
-    },
-
-    ["<leader>gt"] = {
-      function() require("gitsigns").toggle_deleted() end,
-      "Toggle deleted",
-    },
+    ["<leader>gr"] = { function() require("gitsigns").reset_hunk() end, "Reset hunk" },
+    ["<leader>gR"] = { function() require("gitsigns").reset_buffer() end, "Reset buffer" },
+    ["<leader>gp"] = { function() require("gitsigns").preview_hunk() end, "Preview hunk" },
+    ["<leader>gs"] = { function() require("gitsigns").stage_hunk() end, "Stage hunk" },
+    ["<leader>gS"] = { function() require("gitsigns").stage_buffer() end, "Stage buffer" },
+    ["<leader>gu"] = { function() require("gitsigns").undo_stage_hunk() end, "Undo hunk" },
+    ["<leader>gb"] = { function() require("gitsigns").blame_line() end, "Blame line" },
+    ["<leader>gB"] = { function() require("gitsigns").blame_line { full = true } end, "Blame buffer" },
+    ["<leader>gd"] = { function() require("gitsigns").diffthis() end, "Git diff" },
+    ["<leader>gt"] = { function() require("gitsigns").toggle_current_line_blame() end, "Toggle line blame" },
   },
 }
 
