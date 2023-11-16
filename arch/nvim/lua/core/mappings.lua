@@ -293,6 +293,11 @@ M.lspconfig = {
       function() print(vim.inspect(vim.lsp.buf.list_workspace_folders())) end,
       "List workspace folders",
     },
+
+    ["<leader>fm"] = {
+      function() vim.lsp.buf.format { async = true } end,
+      "LSP formatting",
+    },
   },
 
   v = {
