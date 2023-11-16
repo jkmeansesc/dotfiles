@@ -13,7 +13,7 @@ end
 
 local options = {
   g = {
-    encoding = "UTF-8", -- utf8
+    -- encoding = "UTF-8", -- utf8
     mapleader = " ", -- set leader key
     gmaplocalleader = " ", -- set default local leader key
   },
