@@ -294,7 +294,7 @@ M.lspconfig = {
       "List workspace folders",
     },
 
-    ["<leader>fm"] = {
+    ["<leader>lf"] = {
       function() vim.lsp.buf.format { async = true } end,
       "LSP formatting",
     },
