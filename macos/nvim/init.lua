@@ -57,5 +57,6 @@ require("lazy").setup {
 }
 
 vim.cmd [[colorscheme catppuccin]]
+
 -- load mapping
 require("core.utils").load_mappings()

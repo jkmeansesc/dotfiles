@@ -5,7 +5,7 @@ env:
 
 window:
   decorations: buttonless
-  opacity: 0.8
+  opacity: 0.9
   startup_mode: Windowed
   title: Alacritty
 
@@ -35,6 +35,6 @@ font:
 
 selection:
   semantic_escape_chars: ",│`|:\"' ()[]{}<>\t@="
-  save_to_clipboard: false
+  save_to_clipboard: true
 
 live_config_reload: true
