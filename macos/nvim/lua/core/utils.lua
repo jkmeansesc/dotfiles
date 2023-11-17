@@ -60,4 +60,36 @@ M.closeForce = function()
   if not bufs[2] then require("alpha").start(true) end
 end
 
+-- Don't know what it does, used in lualine for copilot, copied from Lazyvim
+function M.fg(name)
+  ---@type {foreground?:number}?
+  ---@diagnostic disable-next-line: deprecated
+  local hl = vim.api.nvim_get_hl and vim.api.nvim_get_hl(0, { name = name }) or vim.api.nvim_get_hl_by_name(name, true)
+  ---@diagnostic disable-next-line: undefined-field
+  local fg = hl and (hl.fg or hl.foreground)
+  return fg and { fg = string.format("#%06x", fg) } or nil
+end
+
+-- Don't know what it does, used in lualine for copilot, copied from Lazyvim
+function M.get_clients(opts)
+  local ret = {}
+  if vim.lsp.get_clients then
+    ret = vim.lsp.get_clients(opts)
+  else
+    ret = vim.lsp.get_active_clients(opts)
+    if opts and opts.method then
+      ret = vim.tbl_filter(function(client) return client.supports_method(opts.method, { bufnr = opts.bufnr }) end, ret)
+    end
+  end
+  return opts and opts.filter and vim.tbl_filter(opts.filter, ret) or ret
+end
+
+--- Check if a plugin is defined in lazy. Useful with lazy loading when a plugin is not necessarily loaded yet
+---@param plugin string The plugin to search for
+---@return boolean available # Whether the plugin is available
+function M.is_available(plugin)
+  local lazy_config_avail, lazy_config = pcall(require, "lazy.core.config")
+  return lazy_config_avail and lazy_config.spec.plugins[plugin] ~= nil
+end
+
 return M

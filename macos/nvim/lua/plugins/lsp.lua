@@ -1,6 +1,15 @@
 return {
   {
     "williamboman/mason.nvim",
+    cmd = {
+      "Mason",
+      "MasonInstall",
+      "MasonUninstall",
+      "MasonUninstallAll",
+      "MasonLog",
+      "MasonUpdate",
+      "MasonUpdateAll",
+    },
     dependencies = {
       "williamboman/mason-lspconfig.nvim",
     },
@@ -8,9 +17,9 @@ return {
       require("mason").setup {
         ui = {
           icons = {
-            package_installed = "✓",
-            package_pending = "➜",
-            package_uninstalled = "✗",
+            package_pending = " ",
+            package_installed = "󰄳 ",
+            package_uninstalled = " 󰚌",
           },
         },
       }
