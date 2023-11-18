@@ -5,7 +5,7 @@ return {
     attach_mode = "global",
     backends = { "lsp", "treesitter", "markdown", "man" },
     layout = {
-      resize_to_content = false,
+      resize_to_content = true,
       win_opts = {
         winhl = "Normal:NormalFloat,FloatBorder:NormalFloat,SignColumn:SignColumnSB",
         signcolumn = "yes",

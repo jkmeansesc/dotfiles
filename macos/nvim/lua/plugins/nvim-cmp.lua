@@ -56,6 +56,10 @@ return {
         return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match "%s" == nil
       end
 
+      local border_opts = {
+        border = "rounded",
+        winhighlight = "Normal:NormalFloat,FloatBorder:FloatBorder,CursorLine:PmenuSel,Search:None",
+      }
       -- Disabling cmdline completion for IncRename
       cmp.setup.cmdline(":", {
         enabled = function()
@@ -82,6 +86,10 @@ return {
         -- configure how nvim-cmp interacts with snippet engine
         snippet = { expand = function(args) luasnip.lsp_expand(args.body) end },
 
+        window = {
+          completion = cmp.config.window.bordered(border_opts),
+          documentation = cmp.config.window.bordered(border_opts),
+        },
         mapping = {
           ["<Up>"] = cmp.mapping.select_prev_item { behavior = cmp.SelectBehavior.Select },
           ["<Down>"] = cmp.mapping.select_next_item { behavior = cmp.SelectBehavior.Select },
@@ -131,6 +139,10 @@ return {
             ellipsis_char = "...",
             symbol_map = { Copilot = "" },
           },
+        },
+        experimental = {
+          ghost_text = true,
+          native_menu = false,
         },
       }
     end,

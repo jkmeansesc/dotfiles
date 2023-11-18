@@ -1,6 +1,7 @@
 return {
   {
     "catppuccin/nvim",
+    lazy = false,
     priority = 1000,
     name = "catppuccin",
     opts = {
@@ -24,7 +25,7 @@ return {
         treesitter_context = true,
         telescope = {
           enabled = true,
-          style = "nvchad",
+          -- style = "nvchad",
         },
         which_key = true,
         headlines = true,
@@ -35,7 +36,7 @@ return {
         },
       },
     },
-    -- config = function() vim.cmd [[colorscheme catppuccin]] end,
+    config = function() vim.cmd [[colorscheme catppuccin]] end,
   },
 
   { "rebelot/kanagawa.nvim", lazy = true },

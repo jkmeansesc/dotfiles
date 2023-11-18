@@ -12,7 +12,8 @@ return {
       ["<leader>g"] = { name = "  Git" },
       ["<leader>f"] = { name = "  Find" },
       ["<leader>l"] = { name = "  Lsp" },
-      ["<leader>m"] = { name = "  Manage" },
+      ["<leader>m"] = { name = " 󰏓 Manage" },
+      ["<leader>t"] = { name = "  Terminal" },
     }
   end,
 }
