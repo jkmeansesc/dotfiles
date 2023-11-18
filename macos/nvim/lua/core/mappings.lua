@@ -404,4 +404,19 @@ M.minibufremove = {
   },
 }
 
+M.aerial = {
+
+  n = {
+    ["<leader>A"] = { "<cmd>AerialToggle<cr>", "Aerial (Symbols)" },
+  },
+}
+
+M.toggleterm = {
+  n = {
+    ["<leader>tt"] = { "<cmd>ToggleTerm direction=float<cr>", "ToggleTerm float" },
+    ["<leader>th"] = { "<cmd>ToggleTerm size=10 direction=horizontal<cr>", "ToggleTerm horizontal split" },
+    ["<leader>tv"] = { "<cmd>ToggleTerm size=80 direction=vertical<cr>", "ToggleTerm vertical split" },
+    ["<leader>gg"] = { function() require("core.utils").toggle_term_cmd() end, "Lazygit" },
+  },
+}
 return M

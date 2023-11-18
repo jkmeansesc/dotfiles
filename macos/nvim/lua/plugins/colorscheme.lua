@@ -8,6 +8,7 @@ return {
       transparent_background = false,
       term_colors = true,
       integrations = {
+        aerial = true,
         alpha = true,
         cmp = true,
         gitsigns = true,

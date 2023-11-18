@@ -1,7 +1,7 @@
 local M = {}
 local merge_tb = vim.tbl_deep_extend
 
-M.load_mappings = function(section, mapping_opt)
+function M.load_mappings(section, mapping_opt)
   vim.schedule(function()
     local function set_section_map(section_values)
       if section_values.plugin then return end
@@ -35,7 +35,7 @@ M.load_mappings = function(section, mapping_opt)
   end)
 end
 
-M.close = function()
+function M.close()
   local bd = require("mini.bufremove").delete
   local bufs = vim.fn.getbufinfo { buflisted = true }
   if vim.bo.modified then
@@ -53,7 +53,7 @@ M.close = function()
   if not bufs[2] then require("alpha").start(true) end
 end
 
-M.closeForce = function()
+function M.closeForce()
   local bufs = vim.fn.getbufinfo { buflisted = true }
   require("mini.bufremove").delete(0, true)
   -- open alpha automatically when no more buffers
@@ -90,6 +90,12 @@ end
 function M.is_available(plugin)
   local lazy_config_avail, lazy_config = pcall(require, "lazy.core.config")
   return lazy_config_avail and lazy_config.spec.plugins[plugin] ~= nil
+end
+
+function M.toggle_term_cmd()
+  local Terminal = require("toggleterm.terminal").Terminal
+  local lazygit = Terminal:new { cmd = "lazygit", hidden = true }
+  lazygit:toggle()
 end
 
 return M
