@@ -344,6 +344,7 @@ M.telescope = {
     ["<leader>fh"] = { "<cmd> Telescope help_tags <CR>", "Help page" },
     ["<leader>fo"] = { "<cmd> Telescope oldfiles <CR>", "Find oldfiles" },
     ["<leader>fz"] = { "<cmd> Telescope current_buffer_fuzzy_find <CR>", "Find in current buffer" },
+    ["<leader>fm"] = { "<cmd> Telescope marks <CR>", "Telescope bookmarks" },
 
     -- git
     ["<leader>gc"] = { "<cmd> Telescope git_commits <CR>", "Git commits" },
@@ -352,7 +353,8 @@ M.telescope = {
     -- pick a hidden term
     ["<leader>ft"] = { "<cmd> Telescope terms <CR>", "Pick hidden term" },
 
-    ["<leader>fm"] = { "<cmd> Telescope marks <CR>", "telescope bookmarks" },
+    -- noice history
+    ["<leader>fn"] = { "<cmd> Noice telescope<CR>", "Noice history" },
   },
 }
 
