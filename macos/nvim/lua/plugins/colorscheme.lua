@@ -36,7 +36,7 @@ return {
         },
       },
     },
-    config = function() vim.cmd [[colorscheme catppuccin]] end,
+    -- config = function() vim.cmd [[colorscheme catppuccin]] end,
   },
 
   { "rebelot/kanagawa.nvim", lazy = true },

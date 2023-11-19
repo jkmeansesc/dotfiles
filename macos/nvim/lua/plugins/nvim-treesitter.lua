@@ -10,9 +10,11 @@ return {
     "nvim-treesitter/nvim-treesitter-textobjects",
     "JoosepAlviste/nvim-ts-context-commentstring",
   },
-  cmd = { "TSUpdateSync", "TSUpdate", "TSInstall" },
   opts = {
-    highlight = { enable = true },
+    highlight = {
+      enable = true,
+      use_languagetree = true,
+    },
     indent = { enable = true },
     ensure_installed = {
       "bash",
@@ -55,4 +57,5 @@ return {
     -- enable nvim-ts-context-commentstring plugin for commenting tsx and jsx
     context_commentstring = { enable = true, enable_autocmd = false },
   },
+  config = function(_, opts) require("nvim-treesitter.configs").setup { opts } end,
 }
