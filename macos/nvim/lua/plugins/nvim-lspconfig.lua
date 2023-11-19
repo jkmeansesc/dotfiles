@@ -93,10 +93,10 @@ return {
       on_attach = on_attach,
     }
 
-    lspconfig["docker_compose_language_server"].setup {
-      capabilities = capabilities,
-      on_attach = on_attach,
-    }
+    -- lspconfig["docker_compose_language_server"].setup {
+    --   capabilities = capabilities,
+    --   on_attach = on_attach,
+    -- }
 
     lspconfig["dockerls"].setup {
       capabilities = capabilities,
