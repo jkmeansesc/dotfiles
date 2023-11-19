@@ -92,12 +92,14 @@ M.general = {
 }
 
 M.increname = {
+  plugin = true,
   n = {
     ["<leader>r"] = { ":IncRename ", "IncRename" },
   },
 }
 
 M.bufferline = {
+  plugin = true,
   n = {
     ["<leader>bt"] = {
       "<Cmd>BufferLineTogglePin<CR>",
@@ -137,7 +139,7 @@ M.bufferline = {
 }
 
 M.smartsplits = {
-
+  plugin = true,
   n = {
     ["<A-h>"] = {
       function() require("smart-splits").resize_left() end,
@@ -190,6 +192,7 @@ M.smartsplits = {
   },
 }
 M.comment = {
+  plugin = true,
 
   -- toggle comment in both modes
   n = {
@@ -207,115 +210,46 @@ M.comment = {
   },
 }
 
-M.lspconfig = {
-
-  -- See `<cmd> :help vim.lsp.*` for documentation on any of the below functions
-
+M.on_attach = {
+  plugin = true,
   n = {
-    ["gD"] = {
-      function() vim.lsp.buf.declaration() end,
-      "LSP declaration",
-    },
+    ["gD"] = { function() vim.lsp.buf.declaration() end, "LSP declaration" },
+    ["gd"] = { function() vim.lsp.buf.definition() end, "LSP definition" },
+    ["K"] = { function() vim.lsp.buf.hover() end, "LSP hover" },
+    ["gi"] = { function() vim.lsp.buf.implementation() end, "LSP implementation" },
+    ["gr"] = { function() vim.lsp.buf.references() end, "LSP references" },
+    ["[d"] = { function() vim.diagnostic.goto_prev { float = { border = "rounded" } } end, "Goto prev diagnostic" },
+    ["]d"] = { function() vim.diagnostic.goto_next { float = { border = "rounded" } } end, "Goto next diagnostic" },
+  },
+}
 
-    ["<leader>lD"] = {
-      function() vim.lsp.buf.declaration() end,
-      "LSP declaration",
-    },
+M.on_attach_cpp = {
 
-    ["gd"] = {
-      function() vim.lsp.buf.definition() end,
-      "LSP definition",
-    },
+  plugin = true,
+  n = {
+    ["<leader>lR"] = { "<cmd>ClangdSwitchSourceHeader<cr>", "Switch Source/Header (C/C++)" },
+  },
+}
 
-    ["<leader>ld"] = {
-      function() vim.lsp.buf.definition() end,
-      "LSP definition",
-    },
-
-    ["K"] = {
-      function() vim.lsp.buf.hover() end,
-      "LSP hover",
-    },
-
-    ["<leader>lK"] = {
-      function() vim.lsp.buf.hover() end,
-      "LSP hover",
-    },
-
-    ["gi"] = {
-      function() vim.lsp.buf.implementation() end,
-      "LSP implementation",
-    },
-
-    ["<leader>li"] = {
-      function() vim.lsp.buf.implementation() end,
-      "LSP implementation",
-    },
-
-    ["<leader>ls"] = {
-      function() vim.lsp.buf.signature_help() end,
-      "LSP signature help",
-    },
-
-    ["<leader>D"] = {
-      function() vim.lsp.buf.type_definition() end,
-      "LSP definition type",
-    },
-
-    ["<leader>la"] = {
-      function() vim.lsp.buf.code_action() end,
-      "LSP code action",
-    },
-
-    ["gr"] = {
-      function() vim.lsp.buf.references() end,
-      "LSP references",
-    },
-
-    ["<leader>lr"] = {
-      function() vim.lsp.buf.references() end,
-      "LSP references",
-    },
-
-    ["<leader>lh"] = {
-      function() vim.diagnostic.open_float { border = "rounded" } end,
-      "Floating diagnostic",
-    },
-
-    ["[d"] = {
-      function() vim.diagnostic.goto_prev { float = { border = "rounded" } } end,
-      "Goto prev",
-    },
-
-    ["]d"] = {
-      function() vim.diagnostic.goto_next { float = { border = "rounded" } } end,
-      "Goto next",
-    },
-
-    ["<leader>lq"] = {
-      function() vim.diagnostic.setloclist() end,
-      "Diagnostic setloclist",
-    },
-
-    ["<leader>lA"] = {
-      function() vim.lsp.buf.add_workspace_folder() end,
-      "Add workspace folder",
-    },
-
-    ["<leader>lx"] = {
-      function() vim.lsp.buf.remove_workspace_folder() end,
-      "Remove workspace folder",
-    },
-
+M.lsp_default = {
+  n = {
+    ["<leader>lD"] = { function() vim.lsp.buf.declaration() end, "LSP declaration" },
+    ["<leader>ld"] = { function() vim.lsp.buf.definition() end, "LSP definition" },
+    ["<leader>lK"] = { function() vim.lsp.buf.hover() end, "LSP hover" },
+    ["<leader>li"] = { function() vim.lsp.buf.implementation() end, "LSP implementation" },
+    ["<leader>ls"] = { function() vim.lsp.buf.signature_help() end, "LSP signature help" },
+    ["<leader>la"] = { function() vim.lsp.buf.code_action() end, "LSP code action" },
+    ["<leader>lr"] = { function() vim.lsp.buf.references() end, "LSP references" },
+    ["<leader>lh"] = { function() vim.diagnostic.open_float { border = "rounded" } end, "Floating diagnostic" },
+    ["<leader>lq"] = { function() vim.diagnostic.setloclist() end, "Diagnostic setloclist" },
+    ["<leader>lA"] = { function() vim.lsp.buf.add_workspace_folder() end, "Add workspace folder" },
+    ["<leader>lx"] = { function() vim.lsp.buf.remove_workspace_folder() end, "Remove workspace folder" },
+    ["<leader>lf"] = { function() vim.lsp.buf.format { async = true } end, "LSP formatting" },
     ["<leader>ll"] = {
       function() print(vim.inspect(vim.lsp.buf.list_workspace_folders())) end,
       "List workspace folders",
     },
-
-    ["<leader>lf"] = {
-      function() vim.lsp.buf.format { async = true } end,
-      "LSP formatting",
-    },
+    ["<leader>lt"] = { function() vim.lsp.buf.type_definition() end, "LSP definition type" },
   },
 
   v = {
@@ -327,7 +261,7 @@ M.lspconfig = {
 }
 
 M.neotree = {
-
+  plugin = true,
   n = {
     ["<leader>e"] = { "<cmd>Neotree toggle<CR>", "Toggle explorer" },
   },
@@ -335,6 +269,7 @@ M.neotree = {
 
 M.telescope = {
 
+  plugin = true,
   n = {
     -- find
     ["<leader>ff"] = { "<cmd> Telescope find_files <CR>", "Find files" },
@@ -360,6 +295,7 @@ M.telescope = {
 
 M.blankline = {
 
+  plugin = true,
   n = {
     ["<leader>j"] = {
       function()
@@ -379,7 +315,7 @@ M.blankline = {
 }
 
 M.gitsigns = {
-  -- plugin = true,
+  plugin = true,
   n = {
     -- Navigation through hunks
     ["]h"] = { function() require("gitsigns").next_hunk() end, "Next hunk", opts = { expr = true } },
@@ -400,6 +336,7 @@ M.gitsigns = {
 }
 
 M.minibufremove = {
+  plugin = true,
   n = {
     ["<leader>q"] = { function() require("wen.core.utils").close() end, "Close buffer" },
     ["<leader>Q"] = { function() require("wen.core.utils").closeForce() end, "Close buffer (force)" },
@@ -407,13 +344,14 @@ M.minibufremove = {
 }
 
 M.aerial = {
-
+  plugin = true,
   n = {
     ["<leader>A"] = { "<cmd>AerialToggle<cr>", "Aerial (Symbols)" },
   },
 }
 
 M.toggleterm = {
+  plugin = true,
   n = {
     ["<leader>tt"] = { "<cmd>ToggleTerm direction=float<cr>", "ToggleTerm float" },
     ["<leader>th"] = { "<cmd>ToggleTerm size=10 direction=horizontal<cr>", "ToggleTerm horizontal split" },

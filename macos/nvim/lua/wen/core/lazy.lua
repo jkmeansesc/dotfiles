@@ -12,6 +12,7 @@ require("lazy").setup {
   spec = {
     -- { "LazyVim/LazyVim", import = "lazyvim.plugins" },
     { import = "wen.plugins" },
+    { import = "wen.plugins.lsp" },
   },
 
   defaults = { version = false }, -- always use the latest git commit

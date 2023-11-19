@@ -6,7 +6,7 @@ return {
     name = "catppuccin",
     opts = {
       flavour = "mocha",
-      transparent_background = false,
+      transparent_background = true,
       term_colors = true,
       integrations = {
         aerial = true,
@@ -36,9 +36,15 @@ return {
         },
       },
     },
-    -- config = function() vim.cmd [[colorscheme catppuccin]] end,
   },
 
   { "rebelot/kanagawa.nvim", lazy = true },
   { "projekt0n/github-nvim-theme", lazy = true },
+  { "bluz71/vim-nightfly-guicolors", lazy = true },
+  { "folke/tokyonight.nvim", lazy = true },
+  { "NLKNguyen/papercolor-theme", lazy = true },
+  { "morhetz/gruvbox", lazy = true },
+  { "kepano/flexoki-neovim", lazy = true, name = "flexoki" },
+  { "savq/melange-nvim", lazy = true },
+  { "ellisonleao/gruvbox.nvim", lazy = true, opts = { transparent_mode = false } },
 }

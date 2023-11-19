@@ -16,13 +16,12 @@ return {
     },
     indent = { enable = true },
     ensure_installed = {
+      -- general
       "bash",
-      "c",
       "css",
       "dockerfile",
       "gitignore",
       "html",
-      "java",
       "javascript",
       "jsdoc",
       "json",
@@ -31,8 +30,6 @@ return {
       "lua",
       "luadoc",
       "luap",
-      "markdown",
-      "markdown_inline",
       "python",
       "query",
       "regex",
@@ -42,6 +39,17 @@ return {
       "vim",
       "vimdoc",
       "yaml",
+      -- markdown
+      "markdown",
+      "markdown_inline",
+      -- java
+      "java",
+      -- c++
+      "c",
+      "cpp",
+      "objc",
+      "cuda",
+      "proto",
     },
     incremental_selection = {
       enable = true,

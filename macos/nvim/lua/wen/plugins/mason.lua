@@ -12,6 +12,7 @@ return {
   dependencies = {
     "williamboman/mason-lspconfig.nvim",
     "jay-babu/mason-null-ls.nvim",
+    { "jay-babu/mason-nvim-dap.nvim", dependencies = { "nvim-dap" } },
   },
   config = function()
     require("mason").setup {
@@ -39,6 +40,7 @@ return {
         "dockerls", -- docker
         "jdtls", -- java
         "lemminx", -- xml
+        "clangd", -- c/c++
       },
       automatic_installation = true,
     }
@@ -55,6 +57,14 @@ return {
         "ansiblelint", -- ansible linter
         "hadolint", -- dockerfile linter
         "google_java_format", -- java formatter
+      },
+    }
+
+    require("mason-nvim-dap").setup {
+      ensure_installed = {
+        "javadbg", -- java debugger
+        "javatest", -- java test runner
+        "codelldb", -- c/c++ debugger
       },
     }
   end,

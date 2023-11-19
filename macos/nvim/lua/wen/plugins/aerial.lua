@@ -1,6 +1,7 @@
 return {
   "stevearc/aerial.nvim",
   event = { "BufReadPre", "BufNewFile" },
+  init = function() require("wen.core.utils").load_mappings "aerial" end,
   opts = {
     attach_mode = "global",
     backends = { "lsp", "treesitter", "markdown", "man" },

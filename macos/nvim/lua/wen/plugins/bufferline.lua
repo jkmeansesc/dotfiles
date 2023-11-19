@@ -1,6 +1,7 @@
 return {
   "akinsho/bufferline.nvim",
   event = "VeryLazy",
+  init = function() require("wen.core.utils").load_mappings "bufferline" end,
   opts = {
     options = {
       close_command = function() require("wen.core.utils").close() end,

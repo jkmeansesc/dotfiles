@@ -7,6 +7,7 @@ return {
     "MunifTanjim/nui.nvim",
   },
   cmd = "Neotree",
+  init = function() require("wen.core.utils").load_mappings "neotree" end,
   opts = {
     close_if_last_window = true,
     hide_root_node = true,
