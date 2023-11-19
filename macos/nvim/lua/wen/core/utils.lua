@@ -22,7 +22,7 @@ function M.load_mappings(section, mapping_opt)
       end
     end
 
-    local mappings = require "core.mappings"
+    local mappings = require "wen.core.mappings"
 
     if type(section) == "string" then
       mappings[section]["plugin"] = nil

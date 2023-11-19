@@ -25,7 +25,7 @@ return {
         treesitter_context = true,
         telescope = {
           enabled = true,
-          -- style = "nvchad",
+          style = "nvchad",
         },
         which_key = true,
         headlines = true,

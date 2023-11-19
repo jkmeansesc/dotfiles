@@ -5,7 +5,7 @@ return {
   config = function()
     local lazy_status = require "lazy.status"
 
-    local utils = require "core.utils"
+    local utils = require "wen.core.utils"
     local colors = {
       [""] = utils.fg "Special",
       ["Normal"] = utils.fg "Special",

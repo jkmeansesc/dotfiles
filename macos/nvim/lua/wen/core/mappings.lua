@@ -401,8 +401,8 @@ M.gitsigns = {
 
 M.minibufremove = {
   n = {
-    ["<leader>q"] = { function() require("core.utils").close() end, "Close buffer" },
-    ["<leader>Q"] = { function() require("core.utils").closeForce() end, "Close buffer (force)" },
+    ["<leader>q"] = { function() require("wen.core.utils").close() end, "Close buffer" },
+    ["<leader>Q"] = { function() require("wen.core.utils").closeForce() end, "Close buffer (force)" },
   },
 }
 
@@ -418,7 +418,7 @@ M.toggleterm = {
     ["<leader>tt"] = { "<cmd>ToggleTerm direction=float<cr>", "ToggleTerm float" },
     ["<leader>th"] = { "<cmd>ToggleTerm size=10 direction=horizontal<cr>", "ToggleTerm horizontal split" },
     ["<leader>tv"] = { "<cmd>ToggleTerm size=80 direction=vertical<cr>", "ToggleTerm vertical split" },
-    ["<leader>gg"] = { function() require("core.utils").toggle_term_cmd() end, "Lazygit" },
+    ["<leader>gg"] = { function() require("wen.core.utils").toggle_term_cmd() end, "Lazygit" },
   },
 }
 return M
