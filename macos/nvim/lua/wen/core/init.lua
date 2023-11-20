@@ -12,7 +12,7 @@ vim.g.mapleader = " " -- set leader key
 vim.g.gmaplocalleader = " " -- set default local leader key
 
 vim.g.git_worktrees = {
-  toplevel = vim.env.HOME,
+  toplevel = vim.env.HOME .. "/git/dotfiles",
   gitdir = vim.env.HOME .. "/git/dotfiles/macos/nvim",
 }
 

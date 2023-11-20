@@ -1,12 +1,12 @@
 return {
   {
     "catppuccin/nvim",
-    lazy = false,
+    lazy = true,
     priority = 1000,
     name = "catppuccin",
     opts = {
       flavour = "mocha",
-      transparent_background = true,
+      transparent_background = false,
       term_colors = true,
       integrations = {
         aerial = true,
@@ -39,12 +39,20 @@ return {
   },
 
   { "rebelot/kanagawa.nvim", lazy = true },
-  { "projekt0n/github-nvim-theme", lazy = true },
-  { "bluz71/vim-nightfly-guicolors", lazy = true },
+  { "bluz71/vim-nightfly-guicolors", lazy = false },
   { "folke/tokyonight.nvim", lazy = true },
   { "NLKNguyen/papercolor-theme", lazy = true },
-  { "morhetz/gruvbox", lazy = true },
   { "kepano/flexoki-neovim", lazy = true, name = "flexoki" },
   { "savq/melange-nvim", lazy = true },
   { "ellisonleao/gruvbox.nvim", lazy = true, opts = { transparent_mode = false } },
+  { "navarasu/onedark.nvim", lazy = true },
+  { "sainnhe/edge", lazy = true },
+  { "sainnhe/sonokai", lazy = true },
+  { "sainnhe/gruvbox-material", lazy = true },
+  { "shaunsingh/nord.nvim", lazy = true },
+  { "EdenEast/nightfox.nvim", lazy = true },
+  { "olimorris/onedarkpro.nvim", lazy = true },
+  { "tanvirtin/monokai.nvim", lazy = true },
+  { "marko-cerovac/material.nvim", lazy = true },
+  { "rose-pine/neovim", name = "rose-pine", lazy = true },
 }

@@ -24,7 +24,7 @@ return {
 
     require("lualine").setup {
       extensions = { "quickfix", "lazy", "mason", "nvim-dap-ui", "neo-tree", "toggleterm", "trouble" },
-      options = { theme = "catppuccin" },
+      -- options = { theme = "catppuccin" },
       sections = {
         -- for copilot
         lualine_c = {
