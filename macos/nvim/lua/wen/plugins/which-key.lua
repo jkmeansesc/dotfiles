@@ -14,6 +14,7 @@ return {
       ["<leader>l"] = { name = "  Lsp" },
       ["<leader>m"] = { name = " 󰏓 Manage" },
       ["<leader>t"] = { name = "  Terminal" },
+      ["<leader>j"] = { name = " 󰬷 Java" },
     }
   end,
 }

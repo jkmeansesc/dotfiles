@@ -11,6 +11,11 @@ vim.g.encoding = "UTF-8" -- utf8
 vim.g.mapleader = " " -- set leader key
 vim.g.gmaplocalleader = " " -- set default local leader key
 
+vim.g.git_worktrees = {
+  toplevel = vim.env.HOME,
+  gitdir = vim.env.HOME .. "/git/dotfiles/macos/nvim",
+}
+
 vim.opt.autoindent = true -- copy indent from current line when starting a new line.
 vim.opt.autoread = true -- automatically read the file if it changes outside of Vim.
 vim.opt.backup = false -- disable backup files.

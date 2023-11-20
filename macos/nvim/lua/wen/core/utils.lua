@@ -1,6 +1,7 @@
 local M = {}
 local merge_tb = vim.tbl_deep_extend
 
+-- copied from NvChad
 function M.load_mappings(section, mapping_opt)
   vim.schedule(function()
     local function set_section_map(section_values)
@@ -84,6 +85,7 @@ function M.get_clients(opts)
   return opts and opts.filter and vim.tbl_filter(opts.filter, ret) or ret
 end
 
+-- Copied from Astronvim
 --- Check if a plugin is defined in lazy. Useful with lazy loading when a plugin is not necessarily loaded yet
 ---@param plugin string The plugin to search for
 ---@return boolean available # Whether the plugin is available
@@ -93,9 +95,55 @@ function M.is_available(plugin)
 end
 
 function M.toggle_term_cmd()
-  local Terminal = require("toggleterm.terminal").Terminal
-  local lazygit = Terminal:new { cmd = "lazygit", hidden = true }
+  local worktree = M.file_worktree()
+  local opts = { cmd = "", hidden = true }
+  local flags = worktree and (" --work-tree=%s --git-dir=%s"):format(worktree.toplevel, worktree.gitdir) or ""
+  opts.cmd = "lazygit " .. flags
+  local lazygit = require("toggleterm.terminal").Terminal:new(opts)
   lazygit:toggle()
+end
+
+-- Copied from Astronvim
+--- Get the first worktree that a file belongs to
+---@param file string? the file to check, defaults to the current file
+---@param worktrees table<string, string>[]? an array like table of worktrees with entries `toplevel` and `gitdir`, default retrieves from `vim.g.git_worktrees`
+---@return table<string, string>|nil # a table specifying the `toplevel` and `gitdir` of a worktree or nil if not found
+function M.file_worktree(file, worktrees)
+  worktrees = worktrees or vim.g.git_worktrees
+  if not worktrees then return end
+  file = file or vim.fn.expand "%"
+  for _, worktree in ipairs(worktrees) do
+    if
+      M.cmd({
+        "git",
+        "--work-tree",
+        worktree.toplevel,
+        "--git-dir",
+        worktree.gitdir,
+        "ls-files",
+        "--error-unmatch",
+        file,
+      }, false)
+    then
+      return worktree
+    end
+  end
+end
+
+-- Copied from Astronvim
+--- Run a shell command and capture the output and if the command succeeded or failed
+---@param cmd string|string[] The terminal command to execute
+---@param show_error? boolean Whether or not to show an unsuccessful command as an error to the user
+---@return string|nil # The result of a successfully executed command or nil
+function M.cmd(cmd, show_error)
+  if type(cmd) == "string" then cmd = { cmd } end
+  if vim.fn.has "win32" == 1 then cmd = vim.list_extend({ "cmd.exe", "/C" }, cmd) end
+  local result = vim.fn.system(cmd)
+  local success = vim.api.nvim_get_vvar "shell_error" == 0
+  if not success and (show_error == nil or show_error) then
+    vim.api.nvim_err_writeln(("Error running command %s\nError message:\n%s"):format(table.concat(cmd, " "), result))
+  end
+  return success and result:gsub("[\27\155][][()#;?%d]*[A-PRZcf-ntqry=><~]", "") or nil
 end
 
 return M

@@ -27,6 +27,7 @@ return {
   },
   event = { "BufReadPre", "BufNewFile" },
   config = function()
+    -- for c/c++ debugging
     local dap = require "dap"
     require("dap").adapters["codelldb"] = {
       type = "server",
@@ -58,5 +59,6 @@ return {
         },
       }
     end
+    -- for c/c++ debugging end
   end,
 }

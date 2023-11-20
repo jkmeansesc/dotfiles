@@ -1,30 +1,19 @@
 return {
   "mfussenegger/nvim-jdtls",
   ft = { "java" },
-  dependencies = { "williamboman/mason-lspconfig.nvim" },
-  opts = function(_, opts)
-    -- use this function notation to build some variables
+  config = function()
     local root_markers = { ".git", "mvnw", "gradlew", "pom.xml", "build.gradle", ".project" }
     local root_dir = require("jdtls.setup").find_root(root_markers)
-    -- calculate workspace dir
     local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h:t")
     local workspace_dir = vim.fn.stdpath "data" .. "/site/java/workspace-root/" .. project_name
-    os.execute("mkdir " .. workspace_dir)
+    -- local workspace_dir = os.getenv "HOME" .. "/git/Java/" .. vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h:t")
+    os.execute("mkdir" .. workspace_dir)
 
-    -- get the current OS
-    local os
-    if vim.fn.has "mac" == 1 then
-      os = "mac"
-    elseif vim.fn.has "unix" == 1 then
-      os = "linux"
-    elseif vim.fn.has "win32" == 1 then
-      os = "win"
-    end
+    local jdtls = require "jdtls"
+    local extendedClientCapabilities = jdtls.extendedClientCapabilities
+    extendedClientCapabilities.resolveAdditionalTextEditsSupport = true
 
-    -- ensure that OS is valid
-    if not os or os == "" then vim.notify("jdtls: Could not detect valid OS", vim.log.levels.ERROR) end
-
-    local defaults = {
+    local opts = {
       cmd = {
         "java",
         "-Declipse.application=org.eclipse.jdt.ls.core.id1",
@@ -32,44 +21,80 @@ return {
         "-Declipse.product=org.eclipse.jdt.ls.core.product",
         "-Dlog.protocol=true",
         "-Dlog.level=ALL",
-        "-javaagent:" .. vim.fn.expand "$MASON/share/jdtls/lombok.jar",
         "-Xms1g",
         "--add-modules=ALL-SYSTEM",
         "--add-opens",
         "java.base/java.util=ALL-UNNAMED",
         "--add-opens",
         "java.base/java.lang=ALL-UNNAMED",
+        "-javaagent:" .. vim.fn.expand "$MASON/share/jdtls/lombok.jar",
+        "-Xbootclasspath/a:" .. vim.fn.expand "$MASON/share/jdtls/lombok.jar",
         "-jar",
-        vim.fn.expand "$MASON/share/jdtls/plugins/org.eclipse.equinox.launcher.jar",
+        vim.fn.glob "$MASON/share/jdtls/plugins/org.eclipse.equinox.launcher_*.jar",
         "-configuration",
         vim.fn.expand "$MASON/share/jdtls/config",
         "-data",
         workspace_dir,
       },
+
       root_dir = root_dir,
+
       settings = {
         java = {
-          eclipse = {
-            downloadSources = true,
+          eclipse = { downloadSources = true },
+          configuration = { updateBuildConfiguration = "interactive" },
+          maven = { downloadSources = true, updateSnapshots = true },
+          implementationsCodeLens = { enabled = true },
+          referencesCodeLens = { enabled = true },
+          project = {
+            encoding = "UTF-8",
           },
-          configuration = {
-            updateBuildConfiguration = "interactive",
+          foldingRange = { enabled = true },
+          selectionRange = { enabled = true },
+          import = {
+            gradle = { enabled = true },
+            maven = { enabled = true },
+            exclusions = {
+              "**/node_modules/**",
+              "**/.metadata/**",
+              "**/archetype-resources/**",
+              "**/META-INF/maven/**",
+              "**/.git/**",
+            },
           },
-          maven = {
-            downloadSources = true,
+          inlayhints = {
+            parameterNames = { enabled = true },
           },
-
-          implementationsCodeLens = {
+          autobuild = { enabled = true },
+          templates = {
+            fileHeader = {
+              "/**",
+              " * ${type_name}",
+              " * @author ${user}",
+              " */",
+            },
+            typeComment = {
+              "/**",
+              " * ${type_name}",
+              " * @author ${user}",
+              " */",
+            },
+          },
+          signatureHelp = {
             enabled = true,
+            description = {
+              enabled = true,
+            },
           },
-          referencesCodeLens = {
-            enabled = true,
+          contentProvider = { preferred = "fernflower" },
+        },
+        -- contentProvider = { preferred = "fernflower" },
+        codeGeneration = {
+          toString = {
+            template = "${object.className}{${member.name()}=${member.value}, ${otherMembers}}",
           },
         },
-        signatureHelp = {
-
-          enabled = true,
-        },
+        -- signatureHelp = { enabled = true },
         completion = {
           favoriteStaticMembers = {
             "org.hamcrest.MatcherAssert.assertThat",
@@ -80,6 +105,14 @@ return {
             "java.util.Objects.requireNonNullElse",
             "org.mockito.Mockito.*",
           },
+          filteredTypes = {
+            "com.sun.*",
+            "io.micrometer.shaded.*",
+            "java.awt.*",
+            "org.graalvm.*",
+            "jdk.*",
+            "sun.*",
+          },
         },
         sources = {
           organizeImports = {
@@ -88,50 +121,47 @@ return {
           },
         },
       },
+
+      capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities()),
+
       init_options = {
         bundles = {
-          vim.fn.expand "$MASON/share/java-debug-adapter/com.microsoft.java.debug.plugin.jar",
+          vim.fn.expand "$MASON/packages/java-debug-adapter/com.microsoft.java.debug.plugin.jar",
           -- unpack remaining bundles
-          table.unpack(vim.split(vim.fn.glob "$MASON/share/java-test/*.jar", "\n", {})),
+          table.unpack(vim.split(vim.fn.glob "$MASON/packages/java-test/*.jar", "\n", {})),
         },
+        extendedClientCapabilities = extendedClientCapabilities,
       },
-      handlers = {
-        ["$/progress"] = function()
-          -- disable progress updates.
-        end,
-      },
-      filetypes = { "java" },
-      on_attach = function()
-        require("jdtls").setup_dap { hotcodereplace = "auto" }
-        require("wen.core.utils").load_mappings "on_attach"
-      end,
     }
-    -- send opts to config
-    return opts
-  end,
-  config = function(_, opts)
-    -- setup autocmd on filetype detect java
-    vim.api.nvim_create_autocmd("Filetype", {
-      pattern = "java", -- autocmd to start jdtls
-      callback = function()
-        if opts.root_dir and opts.root_dir ~= "" then
-          require("jdtls").start_or_attach(opts)
-          -- require('jdtls.dap').setup_dap_main_class_configs()
-        else
-          vim.notify("jdtls: root_dir not found. Please specify a root marker", vim.log.levels.ERROR)
+    local function attach_jdtls() require("jdtls").start_or_attach(opts) end
+
+    -- Attach the jdtls for each java buffer. HOWEVER, this plugin loads
+    -- depending on filetype, so this autocmd doesn't run for the first file.
+    -- For that, we call directly below.
+    vim.api.nvim_create_autocmd("FileType", {
+      pattern = { "java" },
+      callback = attach_jdtls,
+    })
+
+    local mason_registry = require "mason-registry"
+    -- Setup keymap and dap after the lsp is fully attached.
+    -- https://github.com/mfussenegger/nvim-jdtls#nvim-dap-configuration
+    -- https://neovim.io/doc/user/lsp.html#LspAttach
+    vim.api.nvim_create_autocmd("LspAttach", {
+      callback = function(args)
+        local client = vim.lsp.get_client_by_id(args.data.client_id)
+        if client and client.name == "jdtls" then
+          if mason_registry.is_installed "java-debug-adapter" and mason_registry.is_installed "java-test" then
+            require("jdtls").setup_dap { hotcodereplace = "auto" }
+            require("jdtls.dap").setup_dap_main_class_configs()
+            require("wen.core.utils").load_mappings "on_attach"
+            require("wen.core.utils").load_mappings "on_attach_java"
+          end
         end
       end,
     })
-    -- create autocmd to load main class configs on LspAttach.
-    -- This ensures that the LSP is fully attached.
-    -- See https://github.com/mfussenegger/nvim-jdtls#nvim-dap-configuration
-    vim.api.nvim_create_autocmd("LspAttach", {
-      pattern = "*.java",
-      callback = function(args)
-        local client = vim.lsp.get_client_by_id(args.data.client_id)
-        -- ensure that only the jdtls client is activated
-        if client.name == "jdtls" then require("jdtls.dap").setup_dap_main_class_configs() end
-      end,
-    })
+
+    -- Avoid race condition by calling attach the first time, since the autocmd won't fire.
+    attach_jdtls()
   end,
 }

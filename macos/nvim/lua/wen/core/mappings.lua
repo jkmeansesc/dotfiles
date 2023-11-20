@@ -224,10 +224,39 @@ M.on_attach = {
 }
 
 M.on_attach_cpp = {
-
   plugin = true,
   n = {
     ["<leader>lR"] = { "<cmd>ClangdSwitchSourceHeader<cr>", "Switch Source/Header (C/C++)" },
+  },
+}
+
+M.on_attach_java = {
+  plugin = true,
+  n = {
+    ["<leader>jv"] = { function() require("jdtls").extract_variable_all() end, "Extract Variable" },
+    ["<leader>jc"] = { function() require("jdtls").extract_constant() end, "Extract Constant" },
+    ["<leader>js"] = { function() require("jdtls").super_implementation() end, "Goto Super" },
+    ["<leader>jS"] = { function() require("jdtls.tests").goto_subjects() end, "Goto Subjects" },
+    ["<leader>jo"] = { function() require("jdtls").organize_imports() end, "Organize Imports" },
+    ["<leader>jT"] = { function() require("jdtls.dap").test_class() end, "Run All Test" },
+    ["<leader>jt"] = { function() require("jdtls.dap").test_nearest_method() end, "Run Nearest Test" },
+    ["<leader>jp"] = { function() require("jdtls.dap").pick_test() end, "Run Test" },
+    ["<leader>jm"] = { function() require("jdtls").extract_constant.extract_method(true) end, "Extract Method" },
+  },
+
+  v = {
+    ["<leader>jm"] = {
+      [[<ESC><CMD>lua require('jdtls').extract_method(true)<CR>]],
+      "Extract Method",
+    },
+    ["<leader>jv"] = {
+      [[<ESC><CMD>lua require('jdtls').extract_variable_all(true)<CR>]],
+      "Extract Variable",
+    },
+    ["<leader>jc"] = {
+      [[<ESC><CMD>lua require('jdtls').extract_constant(true)<CR>]],
+      "Extract Constant",
+    },
   },
 }
 
@@ -280,6 +309,7 @@ M.telescope = {
     ["<leader>fo"] = { "<cmd> Telescope oldfiles <CR>", "Find oldfiles" },
     ["<leader>fz"] = { "<cmd> Telescope current_buffer_fuzzy_find <CR>", "Find in current buffer" },
     ["<leader>fm"] = { "<cmd> Telescope marks <CR>", "Telescope bookmarks" },
+    ["<leader>fu"] = { "<cmd>Telescope undo<CR>", "Find undo" },
 
     -- git
     ["<leader>gc"] = { "<cmd> Telescope git_commits <CR>", "Git commits" },
@@ -297,7 +327,7 @@ M.blankline = {
 
   plugin = true,
   n = {
-    ["<leader>j"] = {
+    ["<leader>J"] = {
       function()
         local ok, start = require("indent_blankline.utils").get_current_context(
           vim.g.indent_blankline_context_patterns,

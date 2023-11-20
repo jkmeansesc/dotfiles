@@ -124,8 +124,8 @@ return {
         },
         -- sources for autocompletion
         sources = cmp.config.sources {
-          { name = "copilot", priority = 1000 },
           { name = "nvim_lsp", priority = 1000 },
+          { name = "copilot", priority = 750 },
           { name = "luasnip", priority = 750 }, -- snippets
           { name = "buffer", priority = 500 }, -- text within current buffer
           { name = "path", priority = 250 }, -- file system paths
