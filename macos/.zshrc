@@ -107,7 +107,7 @@ export MAVEN_HOME="/Users/oneoldmac/Local/apache-maven-3.9.4"
 export PYTHON_HOME="/opt/homebrew/Cellar/python@3.12/3.12.0"
 
 # PATH ENV
-export PATH=".$PATH:$JAVA_HOME/bin:$CLASS_PATH:$PYTHON_HOME/bin:$MAVEN_HOME/bin:/usr/local/bin/:/opt/homebrew/bin:$PATH"
+export PATH="/opt/homebrew/bin:/opt/homebrew/sbin:$PATH:/usr/local/bin:$JAVA_HOME/bin:$CLASS_PATH:$PYTHON_HOME/bin:$MAVEN_HOME/bin"
 
 # 解决ssh到远程服务器中文乱码
 export LC_ALL=en_US.UTF-8
