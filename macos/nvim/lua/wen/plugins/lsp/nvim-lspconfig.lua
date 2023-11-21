@@ -10,9 +10,9 @@ return {
       local lspconfig = require "lspconfig"
       local cmp_nvim_lsp = require "cmp_nvim_lsp"
 
-      local on_attach = function() require("wen.core.utils").load_mappings "on_attach" end
+      local on_attach = function() require("wen.core.utils").load_mappings "on_attach_default" end
       local on_attach_cpp = function()
-        require("wen.core.utils").load_mappings "on_attach"
+        require("wen.core.utils").load_mappings "on_attach_default"
         require("wen.core.utils").load_mappings "on_attach_cpp"
       end
 
@@ -90,7 +90,7 @@ return {
         on_attach = on_attach,
       }
 
-      lspconfig["docker_compose_language_server"].setup {
+      lspconfig["docker_compose_language_service"].setup {
         capabilities = capabilities,
         on_attach = on_attach,
       }

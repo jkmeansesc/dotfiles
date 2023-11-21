@@ -71,6 +71,8 @@ M.general = {
     -- Package management
     ["<leader>ml"] = { "<cmd>Lazy<CR>", "Lazy" },
     ["<leader>mm"] = { "<cmd>Mason<CR>", "Mason" },
+    ["<leader>mi"] = { "<cmd>LspInfo<cr>", "LSP information" },
+    ["<leader>mn"] = { "<cmd>NullLsInfo<cr>", "Null-ls information" },
   },
 
   v = {
@@ -141,19 +143,19 @@ M.bufferline = {
 M.smartsplits = {
   plugin = true,
   n = {
-    ["<A-h>"] = {
+    ["<C-Left>"] = {
       function() require("smart-splits").resize_left() end,
       "Resize left",
     },
-    ["<A-j>"] = {
+    ["<C-Down>"] = {
       function() require("smart-splits").resize_down() end,
       "Resize down",
     },
-    ["<A-k>"] = {
+    ["<C-Up>"] = {
       function() require("smart-splits").resize_up() end,
       "Resize up",
     },
-    ["<A-l>"] = {
+    ["<C-Right>"] = {
       function() require("smart-splits").resize_right() end,
       "Resize right",
     },
@@ -210,19 +212,6 @@ M.comment = {
   },
 }
 
-M.on_attach = {
-  plugin = true,
-  n = {
-    ["gD"] = { function() vim.lsp.buf.declaration() end, "LSP declaration" },
-    ["gd"] = { function() vim.lsp.buf.definition() end, "LSP definition" },
-    ["K"] = { function() vim.lsp.buf.hover() end, "LSP hover" },
-    ["gi"] = { function() vim.lsp.buf.implementation() end, "LSP implementation" },
-    ["gr"] = { function() vim.lsp.buf.references() end, "LSP references" },
-    ["[d"] = { function() vim.diagnostic.goto_prev { float = { border = "rounded" } } end, "Goto prev diagnostic" },
-    ["]d"] = { function() vim.diagnostic.goto_next { float = { border = "rounded" } } end, "Goto next diagnostic" },
-  },
-}
-
 M.on_attach_cpp = {
   plugin = true,
   n = {
@@ -260,32 +249,44 @@ M.on_attach_java = {
   },
 }
 
-M.lsp_default = {
+M.on_attach_default = {
+  plugin = true,
   n = {
-    ["<leader>lD"] = { function() vim.lsp.buf.declaration() end, "LSP declaration" },
-    ["<leader>ld"] = { function() vim.lsp.buf.definition() end, "LSP definition" },
-    ["<leader>lK"] = { function() vim.lsp.buf.hover() end, "LSP hover" },
-    ["<leader>li"] = { function() vim.lsp.buf.implementation() end, "LSP implementation" },
-    ["<leader>ls"] = { function() vim.lsp.buf.signature_help() end, "LSP signature help" },
+    ["[d"] = { function() vim.diagnostic.goto_prev { float = { border = "rounded" } } end, "Goto prev diagnostic" },
+    ["]d"] = { function() vim.diagnostic.goto_next { float = { border = "rounded" } } end, "Goto next diagnostic" },
+    ["gh"] = { function() vim.diagnostic.open_float { border = "rounded" } end, "Floating diagnostic" },
+    ["<leader>ld"] = { function() require("telescope.builtin").diagnostics() end, "Search diagnostics" },
+
+    ["gd"] = { function() vim.lsp.buf.definition() end, "LSP definition" },
+    ["gD"] = { function() vim.lsp.buf.declaration() end, "LSP declaration" },
     ["<leader>la"] = { function() vim.lsp.buf.code_action() end, "LSP code action" },
-    ["<leader>lr"] = { function() vim.lsp.buf.references() end, "LSP references" },
-    ["<leader>lh"] = { function() vim.diagnostic.open_float { border = "rounded" } end, "Floating diagnostic" },
+    ["<leader>lf"] = { function() vim.lsp.buf.format { async = true } end, "LSP formatting" },
+
+    ["<leader>ll"] = { function() vim.lsp.codelens.refresh() end, "LSP CodeLens refresh" },
+    ["<leader>lL"] = { function() vim.lsp.codelens.run() end, "LSP CodeLens run" },
+
+    ["K"] = { function() vim.lsp.buf.hover() end, "Hover symbol details" },
+    ["gi"] = { function() vim.lsp.buf.implementation() end, "LSP implementation" },
+    ["gr"] = { function() vim.lsp.buf.references() end, "LSP references" },
+    -- ["<leader>ld"] = { "<cmd>Telescope lsp_definitions<CR>", "LSP definition (Telescope)" },
+    ["<leader>lK"] = { function() vim.lsp.buf.hover() end, "LSP hover" },
+    ["<leader>lr"] = { "<cmd>Telescope lsp_references<CR>", "LSP references (Telescope)" },
+    ["<leader>li"] = { "<cmd>Telescope lsp_implementation<CR>", "LSP implementation (Telescope)" },
+    ["<leader>ls"] = { "<cmd>Telescope lsp_document_symbols<CR>", "LSP signature help" },
+    ["<leader>lS"] = { function() vim.lsp.buf.signature_help() end, "LSP signature help" },
     ["<leader>lq"] = { function() vim.diagnostic.setloclist() end, "Diagnostic setloclist" },
     ["<leader>lA"] = { function() vim.lsp.buf.add_workspace_folder() end, "Add workspace folder" },
     ["<leader>lx"] = { function() vim.lsp.buf.remove_workspace_folder() end, "Remove workspace folder" },
-    ["<leader>lf"] = { function() vim.lsp.buf.format { async = true } end, "LSP formatting" },
-    ["<leader>ll"] = {
-      function() print(vim.inspect(vim.lsp.buf.list_workspace_folders())) end,
-      "List workspace folders",
-    },
+    -- ["<leader>ll"] = {
+    --   function() print(vim.inspect(vim.lsp.buf.list_workspace_folders())) end,
+    --   "List workspace folders",
+    -- },
     ["<leader>lt"] = { function() vim.lsp.buf.type_definition() end, "LSP definition type" },
   },
 
   v = {
-    ["<leader>la"] = {
-      function() vim.lsp.buf.code_action() end,
-      "LSP code action",
-    },
+    ["<leader>la"] = { function() vim.lsp.buf.code_action() end, "LSP code action" },
+    ["<leader>lf"] = { function() vim.lsp.buf.format { async = true } end, "LSP formatting" },
   },
 }
 
@@ -297,15 +298,15 @@ M.neotree = {
 }
 
 M.telescope = {
-
   plugin = true,
   n = {
     -- find
     ["<leader>ff"] = { "<cmd> Telescope find_files <CR>", "Find files" },
     ["<leader>fa"] = { "<cmd> Telescope find_files follow=true no_ignore=true hidden=true <CR>", "Find all" },
-    ["<leader>fw"] = { "<cmd> Telescope live_grep <CR>", "Live grep" },
+    ["<leader>fg"] = { "<cmd> Telescope live_grep <CR>", "Live grep" },
     ["<leader>fb"] = { "<cmd> Telescope buffers <CR>", "Find buffers" },
     ["<leader>fh"] = { "<cmd> Telescope help_tags <CR>", "Help page" },
+    ["<leader>fH"] = { "<cmd> Telescope highlights <CR>", "Find highlights" },
     ["<leader>fo"] = { "<cmd> Telescope oldfiles <CR>", "Find oldfiles" },
     ["<leader>fz"] = { "<cmd> Telescope current_buffer_fuzzy_find <CR>", "Find in current buffer" },
     ["<leader>fm"] = { "<cmd> Telescope marks <CR>", "Telescope bookmarks" },
@@ -370,13 +371,6 @@ M.minibufremove = {
   n = {
     ["<leader>q"] = { function() require("wen.core.utils").close() end, "Close buffer" },
     ["<leader>Q"] = { function() require("wen.core.utils").closeForce() end, "Close buffer (force)" },
-  },
-}
-
-M.aerial = {
-  plugin = true,
-  n = {
-    ["<leader>A"] = { "<cmd>AerialToggle<cr>", "Aerial (Symbols)" },
   },
 }
 

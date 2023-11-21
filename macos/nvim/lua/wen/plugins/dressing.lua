@@ -10,5 +10,8 @@ return {
       return vim.ui.input(...)
     end
   end,
-  opts = { input = { default_prompt = "➤ " }, select = { backend = { "telescope", "builtin" } } },
+  opts = {
+    input = { default_prompt = "➤ " },
+    select = { backend = { "telescope", "builtin" } },
+  },
 }

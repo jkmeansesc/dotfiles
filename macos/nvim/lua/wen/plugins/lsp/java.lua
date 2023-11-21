@@ -154,7 +154,7 @@ return {
           if mason_registry.is_installed "java-debug-adapter" and mason_registry.is_installed "java-test" then
             require("jdtls").setup_dap { hotcodereplace = "auto" }
             require("jdtls.dap").setup_dap_main_class_configs()
-            require("wen.core.utils").load_mappings "on_attach"
+            require("wen.core.utils").load_mappings "on_attach_default"
             require("wen.core.utils").load_mappings "on_attach_java"
           end
         end

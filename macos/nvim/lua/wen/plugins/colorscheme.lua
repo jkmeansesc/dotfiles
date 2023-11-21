@@ -1,12 +1,12 @@
 return {
   {
     "catppuccin/nvim",
-    lazy = true,
+    lazy = false,
     priority = 1000,
     name = "catppuccin",
     opts = {
       flavour = "mocha",
-      transparent_background = false,
+      transparent_background = true,
       term_colors = true,
       integrations = {
         aerial = true,
@@ -39,7 +39,7 @@ return {
   },
 
   { "rebelot/kanagawa.nvim", lazy = true },
-  { "bluz71/vim-nightfly-guicolors", lazy = false },
+  { "bluz71/vim-nightfly-guicolors", lazy = true },
   { "folke/tokyonight.nvim", lazy = true },
   { "NLKNguyen/papercolor-theme", lazy = true },
   { "kepano/flexoki-neovim", lazy = true, name = "flexoki" },
