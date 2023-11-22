@@ -6,18 +6,45 @@ return {
       "hrsh7th/cmp-nvim-lsp",
       { "antosha417/nvim-lsp-file-operations", config = true },
     },
+    opts = {
+      diagnostics = {
+        underline = true,
+        update_in_insert = false,
+        virtual_text = {
+          spacing = 4,
+          source = "if_many",
+          -- this will set set the prefix to a function that returns the diagnostics icon based on the severity
+          -- this only works on a recent 0.10.0 build. Will be set to "●" when not supported
+          prefix = "icons",
+        },
+        severity_sort = true,
+      },
+      inlay_hints = {
+        enabled = true,
+      },
+    },
+
     config = function()
       local lspconfig = require "lspconfig"
       local cmp_nvim_lsp = require "cmp_nvim_lsp"
 
-      local on_attach = function() require("wen.core.utils").load_mappings "on_attach_default" end
+      local on_attach = function(client, bufnr)
+        if client.server_capabilities.inlayHintProvider then
+          vim.g.inlay_hints_visible = true
+          vim.lsp.inlay_hint.enable(bufnr, true)
+        else
+          print "no inlay hints available"
+        end
+        require("wen.core.utils").load_mappings "on_attach_default"
+      end
+
       local on_attach_cpp = function()
         require("wen.core.utils").load_mappings "on_attach_default"
         require("wen.core.utils").load_mappings "on_attach_cpp"
       end
 
       -- used to enable autocompletion (assign to every lsp server config)
-      local capabilities = cmp_nvim_lsp.default_capabilities()
+      local capabilities = cmp_nvim_lsp.default_capabilities(vim.lsp.protocol.make_client_capabilities())
 
       -- Change the Diagnostic symbols in the sign column (gutter)
       local signs = { Error = " ", Warn = " ", Hint = "󰠠 ", Info = " " }

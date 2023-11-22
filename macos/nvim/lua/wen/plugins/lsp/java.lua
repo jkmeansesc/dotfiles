@@ -12,6 +12,7 @@ return {
     local jdtls = require "jdtls"
     local extendedClientCapabilities = jdtls.extendedClientCapabilities
     extendedClientCapabilities.resolveAdditionalTextEditsSupport = true
+    extendedClientCapabilities.onCompletionItemSelectedCommand = "editor.action.triggerParameterHints"
 
     local opts = {
       cmd = {
@@ -88,7 +89,7 @@ return {
           },
           contentProvider = { preferred = "fernflower" },
         },
-        -- contentProvider = { preferred = "fernflower" },
+
         codeGeneration = {
           toString = {
             template = "${object.className}{${member.name()}=${member.value}, ${otherMembers}}",
@@ -145,8 +146,6 @@ return {
 
     local mason_registry = require "mason-registry"
     -- Setup keymap and dap after the lsp is fully attached.
-    -- https://github.com/mfussenegger/nvim-jdtls#nvim-dap-configuration
-    -- https://neovim.io/doc/user/lsp.html#LspAttach
     vim.api.nvim_create_autocmd("LspAttach", {
       callback = function(args)
         local client = vim.lsp.get_client_by_id(args.data.client_id)
@@ -154,9 +153,13 @@ return {
           if mason_registry.is_installed "java-debug-adapter" and mason_registry.is_installed "java-test" then
             require("jdtls").setup_dap { hotcodereplace = "auto" }
             require("jdtls.dap").setup_dap_main_class_configs()
-            require("wen.core.utils").load_mappings "on_attach_default"
-            require("wen.core.utils").load_mappings "on_attach_java"
           end
+
+          vim.g.inlay_hints_visible = true
+          vim.lsp.inlay_hint.enable(0, true)
+
+          require("wen.core.utils").load_mappings "on_attach_default"
+          require("wen.core.utils").load_mappings "on_attach_java"
         end
       end,
     })

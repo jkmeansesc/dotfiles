@@ -257,31 +257,36 @@ M.on_attach_default = {
     ["gh"] = { function() vim.diagnostic.open_float { border = "rounded" } end, "Floating diagnostic" },
     ["<leader>ld"] = { function() require("telescope.builtin").diagnostics() end, "Search diagnostics" },
 
-    ["gd"] = { function() vim.lsp.buf.definition() end, "LSP definition" },
-    ["gD"] = { function() vim.lsp.buf.declaration() end, "LSP declaration" },
-    ["<leader>la"] = { function() vim.lsp.buf.code_action() end, "LSP code action" },
-    ["<leader>lf"] = { function() vim.lsp.buf.format { async = true } end, "LSP formatting" },
-
-    ["<leader>ll"] = { function() vim.lsp.codelens.refresh() end, "LSP CodeLens refresh" },
-    ["<leader>lL"] = { function() vim.lsp.codelens.run() end, "LSP CodeLens run" },
-
-    ["K"] = { function() vim.lsp.buf.hover() end, "Hover symbol details" },
-    ["gi"] = { function() vim.lsp.buf.implementation() end, "LSP implementation" },
-    ["gr"] = { function() vim.lsp.buf.references() end, "LSP references" },
-    -- ["<leader>ld"] = { "<cmd>Telescope lsp_definitions<CR>", "LSP definition (Telescope)" },
-    ["<leader>lK"] = { function() vim.lsp.buf.hover() end, "LSP hover" },
-    ["<leader>lr"] = { "<cmd>Telescope lsp_references<CR>", "LSP references (Telescope)" },
-    ["<leader>li"] = { "<cmd>Telescope lsp_implementation<CR>", "LSP implementation (Telescope)" },
-    ["<leader>ls"] = { "<cmd>Telescope lsp_document_symbols<CR>", "LSP signature help" },
-    ["<leader>lS"] = { function() vim.lsp.buf.signature_help() end, "LSP signature help" },
-    ["<leader>lq"] = { function() vim.diagnostic.setloclist() end, "Diagnostic setloclist" },
+    ["gd"] = { function() require("telescope.builtin").lsp_definitions() end, "Definition" },
+    ["gD"] = { function() vim.lsp.buf.declaration() end, "Declaration" },
+    ["gr"] = { function() require("telescope.builtin").lsp_references() end, "References" },
+    ["gi"] = { function() require("telescope.builtin").lsp_implementations() end, "Implementation" },
+    ["gy"] = { function() require("telescope.builtin").lsp_type_definitions() end, "Definition of current type" },
+    ["<leader>la"] = { function() vim.lsp.buf.code_action() end, "Code action" },
+    ["<leader>lf"] = { function() vim.lsp.buf.format { async = true } end, "Formatting" },
+    ["<leader>lr"] = { function() vim.lsp.buf.rename() end, "LSP Rename" },
+    ["<leader>lh"] = { function() vim.lsp.buf.signature_help() end, "Signature help" },
     ["<leader>lA"] = { function() vim.lsp.buf.add_workspace_folder() end, "Add workspace folder" },
     ["<leader>lx"] = { function() vim.lsp.buf.remove_workspace_folder() end, "Remove workspace folder" },
-    -- ["<leader>ll"] = {
-    --   function() print(vim.inspect(vim.lsp.buf.list_workspace_folders())) end,
-    --   "List workspace folders",
-    -- },
-    ["<leader>lt"] = { function() vim.lsp.buf.type_definition() end, "LSP definition type" },
+
+    ["<leader>ls"] = {
+      function()
+        vim.ui.input({ prompt = "Symbol Query: (leave empty for word under cursor)" }, function(query)
+          if query then
+            -- word under cursor if given query is empty
+            if query == "" then query = vim.fn.expand "<cword>" end
+            require("telescope.builtin").lsp_workspace_symbols {
+              query = query,
+              prompt_title = ("Find word (%s)"):format(query),
+            }
+          end
+        end)
+      end,
+      "Search workspace symbols",
+    },
+
+    ["<leader>ll"] = { function() vim.lsp.codelens.refresh() end, "CodeLens refresh" },
+    ["<leader>lL"] = { function() vim.lsp.codelens.run() end, "CodeLens run" },
   },
 
   v = {
