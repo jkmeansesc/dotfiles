@@ -44,7 +44,9 @@ return {
             return utils.root_has_file { ".eslintrc.js", ".eslintrc.cjs" } -- only enable if root has .eslintrc.js or .eslintrc.cjs
           end,
         },
-        diagnostics.markdownlint, -- markdown linter
+        diagnostics.markdownlint.with {
+          extra_args = { "--disable MD013" }, -- diable rule: line length
+        }, -- markdown linter
         diagnostics.ansiblelint, --ansible linter
         diagnostics.hadolint, -- dockerfile linter
       },

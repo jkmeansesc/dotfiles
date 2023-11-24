@@ -98,6 +98,11 @@ return {
           if args.position == "left" or args.position == "right" then vim.cmd "wincmd =" end
         end,
       },
+      -- auto close when opening a file
+      {
+        event = "file_opened",
+        handler = function() require("neo-tree.command").execute { action = "close" } end,
+      },
     },
   },
 }
