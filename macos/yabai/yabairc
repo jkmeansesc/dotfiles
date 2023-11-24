@@ -40,9 +40,10 @@ yabai -m rule --add app="^Scroll Reverser$" manageioff
 yabai -m rule --add app="^App Store$" manage=off
 yabai -m rule --add app="^balenaEtcher$" manage=off
 yabai -m rule --add app="^Microsoft Remote Desktop$" manage=off
-yabai -m rule --add app="^Infuse$" title="^Home$" manage=off
+yabai -m rule --add app="^Infuse$" manage=off
 yabai -m rule --add app="^Movist Pro$" manage=off
 yabai -m rule --add app="^Downie 4$" manage=off
+yabai -m rule --add app="^EuDic$" manage=off
 
 yabai -m rule --add title="^Karabiner-Elements Settings$" manage=off
 yabai -m rule --add title="^Karabiner-EventViewer$" manage=off
