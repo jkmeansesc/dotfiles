@@ -1,0 +1,58 @@
+return {
+  {
+    "catppuccin/nvim",
+    lazy = false,
+    priority = 1000,
+    name = "catppuccin",
+    opts = {
+      flavour = "mocha",
+      transparent_background = false,
+      term_colors = true,
+      integrations = {
+        aerial = true,
+        alpha = true,
+        cmp = true,
+        gitsigns = true,
+        treesitter = true,
+        neotree = true,
+        mini = {
+          enabled = true,
+          indentscope_color = "",
+        },
+        mason = true,
+        notify = true,
+        noice = true,
+        treesitter_context = true,
+        -- telescope = {
+        --   enabled = true,
+        --   style = "nvchad",
+        -- },
+        which_key = true,
+        headlines = true,
+        indent_blankline = {
+          enabled = true,
+          scope_color = "", -- catppuccin color (eg. `lavender`) Default: text
+          colored_indent_levels = false,
+        },
+      },
+    },
+  },
+
+  { "rebelot/kanagawa.nvim", lazy = true },
+  { "bluz71/vim-nightfly-guicolors", lazy = true },
+  { "folke/tokyonight.nvim", lazy = true },
+  { "NLKNguyen/papercolor-theme", lazy = true },
+  { "kepano/flexoki-neovim", lazy = true, name = "flexoki" },
+  { "savq/melange-nvim", lazy = true },
+  { "ellisonleao/gruvbox.nvim", lazy = true, opts = { transparent_mode = false } },
+  { "navarasu/onedark.nvim", lazy = true },
+  { "sainnhe/edge", lazy = true },
+  { "sainnhe/sonokai", lazy = true },
+  { "sainnhe/gruvbox-material", lazy = true },
+  { "shaunsingh/nord.nvim", lazy = true },
+  { "EdenEast/nightfox.nvim", lazy = true },
+  { "olimorris/onedarkpro.nvim", lazy = true },
+  { "tanvirtin/monokai.nvim", lazy = true },
+  { "marko-cerovac/material.nvim", lazy = true },
+  { "rose-pine/neovim", name = "rose-pine", lazy = true },
+}
