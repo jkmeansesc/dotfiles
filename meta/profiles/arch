@@ -1,6 +1,6 @@
 arch_alacritty
-arch_tmux
+tmux
 arch_gitconfig
 arch_p10k
 arch_zshrc
-arch_nvim
+nvim
