@@ -26,9 +26,16 @@ return {
       extensions = { "quickfix", "lazy", "mason", "nvim-dap-ui", "neo-tree", "toggleterm", "trouble" },
       options = { theme = "ayu_mirage" },
       sections = {
-        -- for copilot
         lualine_c = {
           { "filename" },
+        },
+        lualine_x = {
+          {
+            lazy_status.updates,
+            cond = lazy_status.has_updates,
+            color = { fg = "#ff9e64" },
+          },
+          -- for copilot
           {
             function()
               local status = require("copilot.api").status.data
@@ -45,13 +52,6 @@ return {
               local status = require("copilot.api").status.data
               return colors[status.status] or colors[""]
             end,
-          },
-        },
-        lualine_x = {
-          {
-            lazy_status.updates,
-            cond = lazy_status.has_updates,
-            color = { fg = "#ff9e64" },
           },
           { "encoding" },
           { "fileformat" },

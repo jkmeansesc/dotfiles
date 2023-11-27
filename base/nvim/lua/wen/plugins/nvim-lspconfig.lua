@@ -4,6 +4,7 @@ return {
     event = { "BufReadPre", "BufNewFile" },
     dependencies = {
       "hrsh7th/cmp-nvim-lsp",
+      { "nvimdev/lspsaga.nvim", config = true },
       { "antosha417/nvim-lsp-file-operations", config = true },
     },
     opts = {
@@ -28,7 +29,9 @@ return {
       local lspconfig = require "lspconfig"
       local cmp_nvim_lsp = require "cmp_nvim_lsp"
 
+      local test = function() end
       local on_attach = function(client, bufnr)
+        -- enable inlay hints
         if client.server_capabilities.inlayHintProvider then
           vim.g.inlay_hints_visible = true
           vim.lsp.inlay_hint.enable(bufnr, true)
