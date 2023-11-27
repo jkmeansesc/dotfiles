@@ -1,0 +1,109 @@
+" .ideavimrc is a configuration file for IdeaVim plugin. It uses
+"   the same commands as the original .vimrc configuration.
+" You can find a list of commands here: https://jb.gg/h38q75
+" Find more examples here: https://jb.gg/share-ideavimrc
+
+" Source your .vimrc
+source ~/.vimrc
+let mapleader = " "
+
+"" -- Suggested options --
+" Show a few lines of context around the cursor. Note that this makes the
+" text scroll if you mouse-click near the start or end of the window.
+" Do incremental searching.
+set incsearch
+set scrolloff=10
+set relativenumber
+set showmode
+set showcmd
+set visualbell
+set clipboard+=unnamed
+
+set ignorecase
+set smartcase
+set incsearch
+set hlsearch
+
+set surround
+set highlightedyank
+set nerdtree
+set which-key
+set timeoutlen=400
+set ideajoin
+
+" let g:WhichKeyDesc_display = "<leader>d Display options"
+
+
+" Don't use Ex mode, use Q for formatting.
+" map Q gq
+
+" --- Enable IdeaVim plugins https://jb.gg/ideavim-plugins
+
+Plug 'machakann/vim-highlightedyank'
+Plug 'tpope/vim-commentary'
+
+
+"" -- Map IDE actions to IdeaVim -- https://jb.gg/abva4t
+map <leader>lf <Action>(ReformatCode)
+
+"" Key mapping
+inoremap jk <Esc>
+
+" Tab navigation
+nnoremap L :tabnext<CR>
+nnoremap H :tabprev<CR>
+
+" Pane navigation
+nnoremap <C-h> <C-w>h
+nnoremap <C-l> <C-w>l
+nnoremap <C-k> <C-w>k
+nnoremap <C-j> <C-w>j
+
+nnoremap <leader>w :w<CR> " Save
+nnoremap <leader>y :%y+<CR> " Yank all
+
+" Insert mode navigation
+inoremap <C-h> <Left>
+inoremap <C-l> <Right>
+inoremap <C-k> <Up>
+inoremap <C-j> <Down>
+
+" Comment lines
+map <leader>/ <action>(CommentByLineComment)
+" Open NERDTree (use q to exit)
+map <leader>e <action>(ActivateProjectToolWindow)
+
+" Window splits
+map \| <Action>(SplitVertically)
+map \\ <Action>(SplitHorizontally)
+map <leader>c <Action>(Unsplit)
+" map <leader>wm <Action>(MoveEditorToOppositeTabGroup)
+
+" File navigation
+map <leader>ff <action>(GotoFile)
+map <leader>fo <action>(RecentFiles)
+map <leader>fc <action>(FindInPath)
+map <leader>fr <Action>(RecentFiles)
+map <leader>fl <action>(RecentLocations)
+map <leader>fs <action>(NewScratchFile)
+
+" Close active tab
+map <leader>q <action>(CloseContent)
+
+" Go to code
+nmap gd <Action>(GotoDeclaration)
+nmap gy <Action>(GotoTypeDeclaration)
+nmap gi <Action>(GotoImplementation)
+nmap gr <Action>(ShowUsages)
+nmap gD <Action>(GotoTest)
+nmap gb <Action>(Back)
+nmap gf <Action>(Forward)
+
+" Git windows
+map <leader>gc <Action>(CheckinProject)
+map <leader>gs <Action>(ActivateVersionControlToolWindow)
+map <leader>gb <Action>(Git.Branches)
+
+" Errors
+map ]e <Action>(ReSharperGotoNextErrorInSolution)
+map [e <Action>(ReSharperGotoPrevErrorInSolution)
