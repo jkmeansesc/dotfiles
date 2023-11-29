@@ -29,7 +29,6 @@ return {
       local lspconfig = require "lspconfig"
       local cmp_nvim_lsp = require "cmp_nvim_lsp"
 
-      local test = function() end
       local on_attach = function(client, bufnr)
         -- enable inlay hints
         if client.server_capabilities.inlayHintProvider then
