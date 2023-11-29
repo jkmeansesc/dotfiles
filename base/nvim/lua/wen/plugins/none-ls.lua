@@ -66,7 +66,6 @@ return {
                 end,
                 bufnr = bufnr,
               }
-              vim.lsp.organize_imports()
             end,
           })
         end
