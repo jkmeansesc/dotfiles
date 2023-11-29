@@ -81,12 +81,6 @@ local plugins = {
 	-- 	end,
 	-- },
 
-	{
-		"goolord/alpha-nvim",
-		event = "VimEnter",
-		config = require("custom.configs.alpha-nvim"),
-	},
-
 	-- editor
 	{ "max397574/better-escape.nvim", event = "InsertCharPre", opts = { timeout = 300 } },
 

@@ -131,7 +131,10 @@ M.general = {
 		-- Do not move my cursor when joining lines.
 		["J"] = {
 			function()
-				vim.cmd([[ normal! mzJ`z delmarks z]])
+				vim.cmd([[ 
+				normal! mzJ`z 
+				delmarks z
+				]])
 			end,
 			"Join line",
 		},
@@ -186,10 +189,10 @@ M.tabufline = {
 				require("nvchad.tabufline").close_buffer()
 
 				-- open alpha automatically when no more buffers
-				local bufs = vim.fn.getbufinfo({ buflisted = true })
-				if not bufs[2] then
-					require("alpha").start(true)
-				end
+				-- local bufs = vim.fn.getbufinfo({ buflisted = true })
+				-- if not bufs[2] then
+				-- 	require("alpha").start(true)
+				-- end
 			end,
 			"Close buffer",
 		},
@@ -199,19 +202,19 @@ M.tabufline = {
 M.smartsplits = {
 
 	n = {
-		["<A-h>"] = {
+		["<C-Left>"] = {
 			function()
 				require("smart-splits").resize_left()
 			end,
 			"Resize left",
 		},
-		["<A-j>"] = {
+		["<C-Down>"] = {
 			function()
 				require("smart-splits").resize_down()
 			end,
 			"Resize down",
 		},
-		["<A-k>"] = {
+		["<C-Up>"] = {
 			function()
 				require("smart-splits").resize_up()
 			end,
