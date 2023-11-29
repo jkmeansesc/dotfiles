@@ -39,7 +39,7 @@ return {
           {
             function()
               local status = require("copilot.api").status.data
-              return "" .. (status.message or "")
+              return "  " .. (status.message or "")
             end,
             cond = function()
               if not package.loaded["copilot"] then return end

@@ -80,8 +80,8 @@ M.general = {
     ["<Down>"] = { 'v:count || mode(1)[0:1] == "no" ? "j" : "gj"', "Move down", opts = { expr = true } },
     ["<"] = { "<gv", "Indent line" },
     [">"] = { ">gv", "Indent line" },
-    ["J"] = { ":move '>+1<CR>gv-gv", "Move text up" },
-    ["K"] = { ":move '<-2<CR>gv-gv", "Move text down" },
+    ["J"] = { ":move '>+1<CR>gv-gv", "Move text down" },
+    ["K"] = { ":move '<-2<CR>gv-gv", "Move text up" },
   },
 
   x = {

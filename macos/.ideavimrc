@@ -42,16 +42,23 @@ set ideajoin
 Plug 'machakann/vim-highlightedyank'
 Plug 'tpope/vim-commentary'
 
-
-"" -- Map IDE actions to IdeaVim -- https://jb.gg/abva4t
+" Lsp actions
 map <leader>lf <Action>(ReformatCode)
+map <leader>la <Action>(ShowIntentionActions)
 
 "" Key mapping
 inoremap jk <Esc>
+" Insert mode navigation
+inoremap <C-h> <Left>
+inoremap <C-l> <Right>
+inoremap <C-k> <Up>
+inoremap <C-j> <Down>
 
-" Tab navigation
-nnoremap L :tabnext<CR>
-nnoremap H :tabprev<CR>
+nnoremap <leader>y :%y+<CR>
+" Yank all
+
+nnoremap <leader>w :w<CR>
+" Save
 
 " Pane navigation
 nnoremap <C-h> <C-w>h
@@ -59,14 +66,17 @@ nnoremap <C-l> <C-w>l
 nnoremap <C-k> <C-w>k
 nnoremap <C-j> <C-w>j
 
-nnoremap <leader>w :w<CR> " Save
-nnoremap <leader>y :%y+<CR> " Yank all
+" Tab navigation
+nnoremap L :tabnext<CR>
+nnoremap H :tabprev<CR>
 
-" Insert mode navigation
-inoremap <C-h> <Left>
-inoremap <C-l> <Right>
-inoremap <C-k> <Up>
-inoremap <C-j> <Down>
+" Add line below && above
+nnoremap <leader>o :set paste<CR>m`o<Esc>``:set nopaste<CR>
+nnoremap <leader>O :set paste<CR>m`O<Esc>``:set nopaste<CR>
+
+" Move line up && down
+vnoremap J :move '>+1<CR>gv-gv'
+vnoremap K :move '<-2<CR>gv-gv'
 
 " Comment lines
 map <leader>/ <action>(CommentByLineComment)
