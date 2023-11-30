@@ -2,19 +2,26 @@
 local M = {}
 
 -- Path to overriding theme and highlights files
-local highlights = require "custom.highlights"
+-- local highlights = require "custom.highlights"
 
 M.ui = {
-  theme = "catppuccin",
-  theme_toggle = { "catppuccin", "one_light" },
+	theme = "onedark",
+	statusline = {
+		theme = "vscode_colored", -- default/vscode/vscode_colored/minimal
 
-  hl_override = highlights.override,
-  hl_add = highlights.add,
+		-- default/round/block/arrow (separators work only for "default" statusline theme;
+		-- round and block will work for the minimal theme only)
+		-- separator_style = "default",
+		-- overriden_modules = nil,
+	},
+	nvdash = {
+		load_on_startup = true,
+	},
+	extended_integrations = { "todo" },
 }
 
 M.plugins = "custom.plugins"
 
--- check core.mappings for table structure
-M.mappings = require "custom.mappings"
+M.mappings = require("custom.mappings")
 
 return M
