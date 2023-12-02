@@ -6,3 +6,5 @@ credentials.*
 *.pkrvars.hcl
 .nvimlog
 lazy-lock.json
+
+**/automatic_backups
