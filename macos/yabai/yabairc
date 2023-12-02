@@ -52,7 +52,6 @@ yabai -m rule --add title="^Add Account$" manage=off
 yabai -m rule --add title="Preferences" manage=off
 yabai -m rule --add title="Settings" manage=off
 yabai -m rule --add title="Software Update" manage=off
-# yabai -m rule --add title="^Outlook Settings$" manage=off
 yabai -m rule --add title="PicList" manage=off
 yabai -m rule --add title="Test" manage=off
 
