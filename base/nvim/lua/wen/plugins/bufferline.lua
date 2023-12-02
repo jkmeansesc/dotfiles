@@ -9,12 +9,12 @@ return {
       diagnostics = "nvim_lsp",
       always_show_bufferline = false,
       separater_style = "slant",
-      -- offsets = {
-      --   {
-      --     filetype = "neo-tree",
-      --     highlight = "Directory",
-      --   },
-      -- },
+      offsets = {
+        {
+          filetype = "neo-tree",
+          highlight = "Directory",
+        },
+      },
     },
   },
 }

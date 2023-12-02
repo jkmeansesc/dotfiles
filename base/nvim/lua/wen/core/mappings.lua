@@ -143,19 +143,19 @@ M.bufferline = {
 M.smartsplits = {
   plugin = true,
   n = {
-    ["<C-Left>"] = {
+    ["<A-h>"] = {
       function() require("smart-splits").resize_left() end,
       "Resize left",
     },
-    ["<C-Down>"] = {
+    ["<A-j>"] = {
       function() require("smart-splits").resize_down() end,
       "Resize down",
     },
-    ["<C-Up>"] = {
+    ["<A-k>"] = {
       function() require("smart-splits").resize_up() end,
       "Resize up",
     },
-    ["<C-Right>"] = {
+    ["<A-l>"] = {
       function() require("smart-splits").resize_right() end,
       "Resize right",
     },
@@ -193,6 +193,7 @@ M.smartsplits = {
     },
   },
 }
+
 M.comment = {
   plugin = true,
 

@@ -24,7 +24,7 @@ return {
 
     require("lualine").setup {
       extensions = { "quickfix", "lazy", "mason", "nvim-dap-ui", "neo-tree", "toggleterm", "trouble" },
-      options = { theme = "ayu_mirage" },
+      options = { theme = "auto" },
       sections = {
         lualine_c = {
           { "filename" },
