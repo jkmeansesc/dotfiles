@@ -8,11 +8,19 @@ return {
       right_mouse_command = function() require("wen.core.utils").close() end,
       diagnostics = "nvim_lsp",
       always_show_bufferline = false,
-      separater_style = "slant",
-      offsets = {
-        {
-          filetype = "neo-tree",
-          highlight = "Directory",
+      separater_style = "thin",
+      -- offsets = {
+      --   {
+      --     filetype = "neo-tree",
+      --     highlight = "Directory",
+      --   },
+      -- },
+    },
+    highlights = {
+      fill = {
+        bg = {
+          attribute = "fg",
+          highlight = "000000",
         },
       },
     },
