@@ -21,9 +21,8 @@ return {
         },
         border = {
           style = "none",
-          padding = { 2, 3 },
+          padding = { 1, 2 },
         },
-        filter_options = {},
         win_options = {
           winhighlight = "NormalFloat:NormalFloat,FloatBorder:FloatBorder",
         },
@@ -56,6 +55,7 @@ return {
         ["cmp.entry.get_documentation"] = true,
       },
     },
+
     routes = {
       { filter = { event = "msg_show", min_height = 20 }, view = "messages" }, -- send long messages to split
       { filter = { event = "msg_show", find = "%d+L,%s%d+B" }, opts = { skip = true } }, -- skip save notifications

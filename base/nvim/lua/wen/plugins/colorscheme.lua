@@ -42,10 +42,11 @@ return {
   },
   {
     "marko-cerovac/material.nvim",
-    lazy = true,
-    -- priority = 1000,
+    lazy = false,
+    priority = 1000,
     config = function()
-      vim.g.material_style = "deep ocean"
+      -- vim.g.material_style = "deep ocean"
+      vim.g.material_style = "darker"
       require("material").setup {
         plugins = { -- Uncomment the plugins that you use to highlight them
           -- Available plugins:

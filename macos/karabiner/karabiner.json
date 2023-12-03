@@ -18,10 +18,10 @@
         },
         "rules": [
           {
-            "description": "Toggle caps_lock by pressing left_shift then right_shift",
+            "description": "left_shift + right_shift = caps_lock",
             "manipulators": [
               {
-               "from": {
+                "from": {
                   "key_code": "left_shift",
                   "modifiers": {
                     "mandatory": ["right_shift"],
@@ -63,7 +63,7 @@
             ]
           },
           {
-            "description": "Right Cmd Key → Hyper Key (⌃⌥⇧⌘)",
+            "description": "right cmd = hyper (⌃⌥⇧⌘)",
             "manipulators": [
               {
                 "from": {
@@ -83,19 +83,15 @@
             ]
           },
           {
-            "description": "Ctrl + Alt + a -> Ctrl + a",
+            "description": "capslock = left control",
             "manipulators": [
               {
                 "from": {
-                  "key_code": "a",
-                  "modifiers": {
-                    "mandatory": ["control", "option"]
-                  }
+                  "key_code": "caps_lock"
                 },
                 "to": [
                   {
-                    "key_code": "a",
-                    "modifiers": ["control"]
+                    "key_code": "left_control"
                   }
                 ],
                 "type": "basic"
@@ -103,66 +99,13 @@
             ]
           },
           {
-            "description": "Press twice caps_lock to activate caps_lock & otherwise held_down and use as CTRL + OPTION",
+            "description": "left control = left control + left option",
             "manipulators": [
               {
-                "conditions": [
-                  {
-                    "name": "caps_lock pressed",
-                    "type": "variable_if",
-                    "value": 1
-                  }
-                ],
                 "from": {
-                  "key_code": "caps_lock",
-                  "modifiers": {
-                    "optional": ["any"]
-                  }
+                  "key_code": "left_control"
                 },
                 "to": [
-                  {
-                    "key_code": "caps_lock"
-                  }
-                ],
-                "type": "basic"
-              },
-              {
-                "from": {
-                  "key_code": "caps_lock",
-                  "modifiers": {
-                    "optional": ["any"]
-                  }
-                },
-                "parameters": {
-                  "basic.to_if_held_down_threshold_milliseconds": 0
-                },
-                "to": [
-                  {
-                    "set_variable": {
-                      "name": "caps_lock pressed",
-                      "value": 1
-                    }
-                  }
-                ],
-                "to_delayed_action": {
-                  "to_if_canceled": [
-                    {
-                      "set_variable": {
-                        "name": "caps_lock pressed",
-                        "value": 0
-                      }
-                    }
-                  ],
-                  "to_if_invoked": [
-                    {
-                      "set_variable": {
-                        "name": "caps_lock pressed",
-                        "value": 0
-                      }
-                    }
-                  ]
-                },
-                "to_if_held_down": [
                   {
                     "key_code": "left_control",
                     "modifiers": ["left_option"]
