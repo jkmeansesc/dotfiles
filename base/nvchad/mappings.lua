@@ -8,6 +8,7 @@ M.disabled = {
 		-- tabufline
 		["<tab>"] = "",
 		["<S-tab>"] = "",
+		["<leader>x"] = "",
 
 		-- line numbers
 		["<leader>n"] = "",
@@ -124,6 +125,7 @@ M.general = {
 
 		-- save
 		["<C-s>"] = { "<cmd>w!<CR>", "Save (force)" },
+		["<leader>w"] = { "<cmd>w<CR>", "Save" },
 
 		-- quit
 		["<C-q>"] = { "<cmd>qa<CR>", "Quit" },
@@ -207,7 +209,7 @@ M.tabufline = {
 		},
 
 		-- close buffer + hide terminal buffer
-		["<leader>x"] = {
+		["<leader>q"] = {
 			function()
 				require("nvchad.tabufline").close_buffer()
 			end,
