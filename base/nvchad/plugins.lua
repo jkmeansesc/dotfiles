@@ -83,6 +83,10 @@ local plugins = {
 	-- },
 
 	-- EDITOR
+	{ "karb94/neoscroll.nvim", event = "VeryLazy", config = true },
+
+	{ "kylechui/nvim-surround", event = "VeryLazy", config = true },
+
 	{ "max397574/better-escape.nvim", event = "InsertCharPre", opts = { timeout = 300 } },
 
 	{
@@ -289,6 +293,12 @@ local plugins = {
 
 	{
 		"neovim/nvim-lspconfig",
+		dependencies = {
+			"hrsh7th/cmp-nvim-lsp",
+			{ "nvimdev/lspsaga.nvim", config = true },
+			{ "antosha417/nvim-lsp-file-operations", config = true },
+		},
+
 		opts = {
 			diagnostics = {
 				underline = true,
@@ -308,6 +318,12 @@ local plugins = {
 		},
 
 		config = require("custom.configs.nvim-lspconfig"),
+	},
+
+	{
+		"goolord/alpha-nvim",
+		event = "VimEnter",
+		config = require("custom.configs.alpha-nvim"),
 	},
 }
 

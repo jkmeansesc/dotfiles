@@ -10,13 +10,12 @@ return function()
 		else
 			print("no inlay hints available")
 		end
-		require("wen.core.utils").load_mappings("on_attach_default")
+		require("core.utils").load_mappings("lspconfig")
 	end
 
-	local on_attach_cpp = function()
-		require("wen.core.utils").load_mappings("on_attach_default")
-		require("wen.core.utils").load_mappings("on_attach_cpp")
-	end
+	-- local on_attach_cpp = function()
+	-- 	require("core.utils").load_mappings("lspconfig")
+	-- end
 
 	-- used to enable autocompletion (assign to every lsp server config)
 	local capabilities = cmp_nvim_lsp.default_capabilities(vim.lsp.protocol.make_client_capabilities())

@@ -88,6 +88,7 @@ return {
               -- make language server aware of runtime files
               library = {
                 [vim.fn.expand "$VIMRUNTIME/lua"] = true,
+                [vim.fn.expand "$VIMRUNTIME/lua/vim/lsp"] = true,
                 [vim.fn.stdpath "config" .. "/lua"] = true,
               },
             },

@@ -5,8 +5,8 @@ local M = {}
 -- local highlights = require "custom.highlights"
 
 M.ui = {
-	theme = "onedark",
-	extended_integrations = { "todo" },
+	theme = "kanagawa",
+	extended_integrations = { "todo", "alpha" },
 }
 
 M.plugins = "custom.plugins"

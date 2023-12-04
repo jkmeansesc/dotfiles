@@ -212,6 +212,11 @@ M.tabufline = {
 		["<leader>q"] = {
 			function()
 				require("nvchad.tabufline").close_buffer()
+				-- open alpha automatically when no more buffers
+				local bufs = vim.fn.getbufinfo({ buflisted = true })
+				if not bufs[2] then
+					require("alpha").start(true)
+				end
 			end,
 			"Close buffer",
 		},
