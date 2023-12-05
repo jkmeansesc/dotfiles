@@ -334,7 +334,6 @@ M.telescope = {
 }
 
 M.blankline = {
-
   plugin = true,
   n = {
     ["<leader>J"] = {
@@ -379,7 +378,8 @@ M.minibufremove = {
   plugin = true,
   n = {
     ["<leader>q"] = { function() require("wen.core.utils").close() end, "Close buffer" },
-    ["<leader>Q"] = { function() require("wen.core.utils").closeForce() end, "Close buffer (force)" },
+    ["<leader>Q"] = { function() require("wen.core.utils").close(0, true) end, "Close buffer (force)" },
+    ["<leader>bq"] = { function() require("wen.core.utils").close_all() end, "Close all buffer" },
   },
 }
 
@@ -389,7 +389,6 @@ M.toggleterm = {
     ["<leader>tt"] = { "<cmd>ToggleTerm direction=float<cr>", "ToggleTerm float" },
     ["<leader>th"] = { "<cmd>ToggleTerm size=10 direction=horizontal<cr>", "ToggleTerm horizontal split" },
     ["<leader>tv"] = { "<cmd>ToggleTerm size=80 direction=vertical<cr>", "ToggleTerm vertical split" },
-    ["<leader>gg"] = { function() require("wen.core.utils").toggle_term_cmd() end, "Lazygit" },
   },
 }
 return M

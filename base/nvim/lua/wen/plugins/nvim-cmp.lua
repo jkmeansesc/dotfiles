@@ -8,6 +8,23 @@ return {
     "onsails/lspkind.nvim", -- vs-code like pictograms
     "hrsh7th/cmp-nvim-lsp",
     {
+      "zbirenbaum/copilot.lua",
+      event = "InsertEnter",
+      cmd = "Copilot",
+      build = ":Copilot auth",
+      opts = {
+        suggestion = { enabled = false },
+        panel = { enabled = false },
+        filetypes = {
+          yaml = true,
+          markdown = true,
+          help = true,
+          ["."] = false,
+        },
+      },
+    },
+    { "zbirenbaum/copilot-cmp", config = true },
+    {
       "L3MON4D3/LuaSnip",
       dependencies = "rafamadriz/friendly-snippets", -- useful snippets
       opts = { history = true, delete_check_events = "TextChanged", region_check_events = "CursorMoved" },
@@ -39,7 +56,6 @@ return {
       },
       config = function(_, opts)
         require("nvim-autopairs").setup(opts)
-
         -- setup cmp for autopairs
         local cmp_autopairs = require "nvim-autopairs.completion.cmp"
         require("cmp").event:on("confirm_done", cmp_autopairs.on_confirm_done())
@@ -55,10 +71,6 @@ return {
       return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match "%s" == nil
     end
 
-    local border_opts = {
-      border = "rounded",
-      winhighlight = "Normal:NormalFloat,FloatBorder:FloatBorder,CursorLine:PmenuSel,Search:None",
-    }
     -- Disabling cmdline completion for IncRename
     cmp.setup.cmdline(":", {
       enabled = function()
@@ -73,22 +85,31 @@ return {
     })
 
     cmp.setup {
-      preselect = cmp.PreselectMode.None,
+      enabled = function()
+        -- disable completion in comments
+        local context = require "cmp.config.context"
+        -- keep command mode completion enabled when cursor is in a comment
+        if vim.api.nvim_get_mode().mode == "c" then
+          return true
+        else
+          return not context.in_treesitter_capture "comment" and not context.in_syntax_group "Comment"
+        end
+      end,
 
-      confirm_opts = {
-        behavior = cmp.ConfirmBehavior.Replace,
-        select = false,
+      completion = { completeopt = "menu,menuone,preview" },
+
+      window = {
+        completion = {
+          scrollbar = false,
+          winhighlight = "Normal:NormalFloat,FloatBorder:FloatBorder,CursorLine:PmenuSel,Search:None",
+        },
+        documentation = {
+          winhighlight = "Normal:NormalFloat,FloatBorder:FloatBorder,CursorLine:PmenuSel,Search:None",
+        },
       },
-
-      completion = { completeopt = "menu,menuone,preview,noselect" },
-
       -- configure how nvim-cmp interacts with snippet engine
       snippet = { expand = function(args) luasnip.lsp_expand(args.body) end },
 
-      window = {
-        completion = cmp.config.window.bordered(border_opts),
-        documentation = cmp.config.window.bordered(border_opts),
-      },
       mapping = {
         ["<Up>"] = cmp.mapping.select_prev_item { behavior = cmp.SelectBehavior.Select },
         ["<Down>"] = cmp.mapping.select_next_item { behavior = cmp.SelectBehavior.Select },
@@ -129,19 +150,29 @@ return {
         { name = "buffer", priority = 500 }, -- text within current buffer
         { name = "path", priority = 250 }, -- file system paths
       },
+
       -- configure lspkind for vs-code like pictograms in completion menu
       formatting = {
         fields = { "kind", "abbr", "menu" },
-        format = lspkind.cmp_format {
-          maxwidth = 50,
-          mode = "symbol",
-          ellipsis_char = "...",
-          symbol_map = { Copilot = "" },
-        },
-      },
-      experimental = {
-        ghost_text = true,
-        native_menu = false,
+        format = function(entry, vim_item)
+          local kind = require("lspkind").cmp_format {
+            mode = "symbol_text",
+            maxwidth = 50,
+            menu = {
+              buffer = "[Buffer]",
+              nvim_lsp = "[LSP]",
+              luasnip = "[LuaSnip]",
+              path = "[Path]",
+              copilot = "[Copilot]",
+            },
+            symbol_map = { Copilot = "" },
+          }(entry, vim_item)
+          local strings = vim.split(kind.kind, "%s", { trimempty = true })
+          kind.kind = " " .. (strings[1] or "") .. " "
+          kind.menu = "    (" .. (strings[2] or "") .. ")"
+
+          return kind
+        end,
       },
     }
   end,

@@ -1,3 +1,4 @@
+---@diagnostic disable: duplicate-set-field
 return {
   "stevearc/dressing.nvim",
   init = function()
