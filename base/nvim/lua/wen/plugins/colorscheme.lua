@@ -23,10 +23,10 @@ return {
         notify = true,
         noice = true,
         treesitter_context = true,
-        -- telescope = {
-        --   enabled = true,
-        --   -- style = "nvchad",
-        -- },
+        telescope = {
+          enabled = true,
+          style = "nvchad",
+        },
         which_key = true,
         indent_blankline = {
           enabled = true,

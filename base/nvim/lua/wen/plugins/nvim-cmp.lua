@@ -65,7 +65,6 @@ return {
   config = function()
     local cmp = require "cmp"
     local luasnip = require "luasnip"
-    local lspkind = require "lspkind"
     local function has_words_before()
       local line, col = table.unpack(vim.api.nvim_win_get_cursor(0))
       return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match "%s" == nil
@@ -84,6 +83,24 @@ return {
       end,
     })
 
+    -- visual studio code dark+ theme colors to the menu
+    -- gray
+    vim.api.nvim_set_hl(0, "CmpItemAbbrDeprecated", { bg = "NONE", strikethrough = true, fg = "#808080" })
+    -- blue
+    vim.api.nvim_set_hl(0, "CmpItemAbbrMatch", { bg = "NONE", fg = "#569CD6" })
+    vim.api.nvim_set_hl(0, "CmpItemAbbrMatchFuzzy", { link = "CmpIntemAbbrMatch" })
+    -- light blue
+    vim.api.nvim_set_hl(0, "CmpItemKindVariable", { bg = "NONE", fg = "#9CDCFE" })
+    vim.api.nvim_set_hl(0, "CmpItemKindInterface", { link = "CmpItemKindVariable" })
+    vim.api.nvim_set_hl(0, "CmpItemKindText", { link = "CmpItemKindVariable" })
+    -- pink
+    vim.api.nvim_set_hl(0, "CmpItemKindFunction", { bg = "NONE", fg = "#C586C0" })
+    vim.api.nvim_set_hl(0, "CmpItemKindMethod", { link = "CmpItemKindFunction" })
+    -- front
+    vim.api.nvim_set_hl(0, "CmpItemKindKeyword", { bg = "NONE", fg = "#D4D4D4" })
+    vim.api.nvim_set_hl(0, "CmpItemKindProperty", { link = "CmpItemKindKeyword" })
+    vim.api.nvim_set_hl(0, "CmpItemKindUnit", { link = "CmpItemKindKeyword" })
+
     cmp.setup {
       enabled = function()
         -- disable completion in comments
@@ -96,8 +113,6 @@ return {
         end
       end,
 
-      completion = { completeopt = "menu,menuone,preview" },
-
       window = {
         completion = {
           scrollbar = false,
@@ -107,6 +122,11 @@ return {
           winhighlight = "Normal:NormalFloat,FloatBorder:FloatBorder,CursorLine:PmenuSel,Search:None",
         },
       },
+
+      completion = {
+        completeopt = "menu,menuone,preview,noselect",
+      },
+
       -- configure how nvim-cmp interacts with snippet engine
       snippet = { expand = function(args) luasnip.lsp_expand(args.body) end },
 
@@ -142,7 +162,7 @@ return {
           end
         end, { "i", "s" }),
       },
-      -- sources for autocompletion
+
       sources = cmp.config.sources {
         { name = "nvim_lsp", priority = 1000 },
         { name = "copilot", priority = 750 },
@@ -151,13 +171,15 @@ return {
         { name = "path", priority = 250 }, -- file system paths
       },
 
-      -- configure lspkind for vs-code like pictograms in completion menu
+      -- get types on the left, and offset the menu
       formatting = {
         fields = { "kind", "abbr", "menu" },
         format = function(entry, vim_item)
           local kind = require("lspkind").cmp_format {
             mode = "symbol_text",
             maxwidth = 50,
+            ellipsis_char = "...",
+            symbol_map = { Copilot = "" },
             menu = {
               buffer = "[Buffer]",
               nvim_lsp = "[LSP]",
@@ -165,12 +187,10 @@ return {
               path = "[Path]",
               copilot = "[Copilot]",
             },
-            symbol_map = { Copilot = "" },
           }(entry, vim_item)
           local strings = vim.split(kind.kind, "%s", { trimempty = true })
           kind.kind = " " .. (strings[1] or "") .. " "
-          kind.menu = "    (" .. (strings[2] or "") .. ")"
-
+          -- kind.menu = "    (" .. (strings[2] or "") .. ")"
           return kind
         end,
       },

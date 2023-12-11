@@ -391,4 +391,16 @@ M.toggleterm = {
     ["<leader>tv"] = { "<cmd>ToggleTerm size=80 direction=vertical<cr>", "ToggleTerm vertical split" },
   },
 }
+
+M.wtf = {
+  plugin = true,
+  n = {
+    ["gw"] = { function() require("wtf").ai() end, "Debug diagnostic with AI" },
+    ["gW"] = { function() require("wtf").search() end, "Search diagnostic with Google" },
+  },
+  x = {
+    ["gw"] = { function() require("wtf").ai() end, "Debug diagnostic with AI" },
+  },
+}
+
 return M
