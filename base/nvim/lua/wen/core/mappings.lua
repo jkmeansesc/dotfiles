@@ -403,4 +403,11 @@ M.wtf = {
   },
 }
 
+M.nvimtree = {
+  plugin = true,
+  n = {
+    ["<leader>e"] = { "<cmd>NvimTreeToggle<CR>", "Toggle explorer" },
+  },
+}
+
 return M
