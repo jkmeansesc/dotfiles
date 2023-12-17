@@ -7,14 +7,16 @@ return {
       close_command = function() require("wen.core.utils").close() end,
       right_mouse_command = function() require("wen.core.utils").close() end,
       diagnostics = "nvim_lsp",
-      always_show_bufferline = false,
+      always_show_bufferline = true,
       separater_style = "thin",
-      -- offsets = {
-      --   {
-      --     filetype = "neo-tree",
-      --     highlight = "Directory",
-      --   },
-      -- },
+      offsets = {
+        {
+          filetype = "neo-tree",
+          highlight = "Directory",
+          text = "File Explorer",
+          text_align = "center",
+        },
+      },
     },
     highlights = {
       fill = {
