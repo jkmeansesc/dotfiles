@@ -1,4 +1,5 @@
 return function()
+	dofile(vim.g.base46_cache .. "alpha")
 	local dashboard = require("alpha.themes.dashboard")
 	local logo = [[
                   ████ ██████           █████      ██
