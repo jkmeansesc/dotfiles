@@ -302,7 +302,7 @@ M.on_attach_default = {
 M.neotree = {
   plugin = true,
   n = {
-    ["<leader>e"] = { "<cmd>Neotree toggle<CR>", "Toggle explorer" },
+    ["<leader>e"] = { "<cmd>Neotree focus<CR>", "Toggle explorer" },
   },
 }
 
@@ -389,17 +389,6 @@ M.toggleterm = {
     ["<leader>tt"] = { "<cmd>ToggleTerm direction=float<cr>", "ToggleTerm float" },
     ["<leader>th"] = { "<cmd>ToggleTerm size=10 direction=horizontal<cr>", "ToggleTerm horizontal split" },
     ["<leader>tv"] = { "<cmd>ToggleTerm size=80 direction=vertical<cr>", "ToggleTerm vertical split" },
-  },
-}
-
-M.wtf = {
-  plugin = true,
-  n = {
-    ["gw"] = { function() require("wtf").ai() end, "Debug diagnostic with AI" },
-    ["gW"] = { function() require("wtf").search() end, "Search diagnostic with Google" },
-  },
-  x = {
-    ["gw"] = { function() require("wtf").ai() end, "Debug diagnostic with AI" },
   },
 }
 
