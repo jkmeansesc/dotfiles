@@ -3,7 +3,7 @@ return {
   enabled = false,
   cmd = { "NvimTreeTottle", "NvimTreeFocus" },
   dependencies = { "nvim-tree/nvim-web-devicons" },
-  init = function() require("wen.core.utils").load_mappings "nvimtree" end,
+  init = function() require("core.utils").load_mappings "nvimtree" end,
   config = function()
     -- auto close nvim when nvim-tree is the last window
     vim.api.nvim_create_autocmd("QuitPre", {

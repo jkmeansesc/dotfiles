@@ -1,7 +1,7 @@
 return {
   "akinsho/toggleterm.nvim",
   cmd = { "ToggleTerm", "TermExec" },
-  init = function() require("wen.core.utils").load_mappings "toggleterm" end,
+  init = function() require("core.utils").load_mappings "toggleterm" end,
   opts = {
     highlights = {
       Normal = { link = "Normal" },

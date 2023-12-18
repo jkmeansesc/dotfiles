@@ -2,7 +2,7 @@ return {
   "lukas-reineke/indent-blankline.nvim",
   version = "2.20.7",
   event = { "BufReadPre", "BufNewFile" },
-  init = function() require("wen.core.utils").load_mappings "blankline" end,
+  init = function() require("core.utils").load_mappings "blankline" end,
   opts = {
     indentLine_enabled = 1,
 

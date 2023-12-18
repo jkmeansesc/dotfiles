@@ -37,12 +37,12 @@ return {
         else
           print "no inlay hints available"
         end
-        require("wen.core.utils").load_mappings "on_attach_default"
+        require("core.utils").load_mappings "on_attach_default"
       end
 
       local on_attach_cpp = function()
-        require("wen.core.utils").load_mappings "on_attach_default"
-        require("wen.core.utils").load_mappings "on_attach_cpp"
+        require("core.utils").load_mappings "on_attach_default"
+        require("core.utils").load_mappings "on_attach_cpp"
       end
 
       -- used to enable autocompletion (assign to every lsp server config)

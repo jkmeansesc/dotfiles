@@ -14,7 +14,7 @@ return {
         end
       end,
     })
-    require("wen.core.utils").load_mappings "gitsigns"
+    require("core.utils").load_mappings "gitsigns"
   end,
   opts = { worktrees = vim.g.git_worktrees },
 }

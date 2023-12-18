@@ -1,5 +1,5 @@
 return {
-  { "echasnovski/mini.bufremove", init = function() require("wen.core.utils").load_mappings "minibufremove" end },
+  { "echasnovski/mini.bufremove", init = function() require("core.utils").load_mappings "minibufremove" end },
   { "folke/neodev.nvim", config = true },
   { "max397574/better-escape.nvim", event = "InsertCharPre", opts = { timeout = 300 } },
   { "karb94/neoscroll.nvim", enabled = false, event = "VeryLazy", opts = {} },

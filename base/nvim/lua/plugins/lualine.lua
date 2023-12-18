@@ -3,7 +3,7 @@ return {
   dependencies = { "nvim-tree/nvim-web-devicons" },
   event = "VeryLazy",
   config = function()
-    local utils = require "wen.core.utils"
+    local utils = require "core.utils"
 
     -- show upgradable lazy plugins
     local lazy_status = require "lazy.status"

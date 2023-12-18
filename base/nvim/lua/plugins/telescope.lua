@@ -11,7 +11,7 @@ return {
       { "nvim-telescope/telescope-fzf-native.nvim", enabled = vim.fn.executable "make" == 1, build = "make" },
     },
     cmd = "Telescope",
-    init = function() require("wen.core.utils").load_mappings "telescope" end,
+    init = function() require("core.utils").load_mappings "telescope" end,
     config = function()
       local telescope = require "telescope"
       local actions = require "telescope.actions"

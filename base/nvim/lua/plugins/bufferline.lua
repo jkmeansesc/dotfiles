@@ -1,11 +1,11 @@
 return {
   "akinsho/bufferline.nvim",
   event = "VeryLazy",
-  init = function() require("wen.core.utils").load_mappings "bufferline" end,
+  init = function() require("core.utils").load_mappings "bufferline" end,
   opts = {
     options = {
-      close_command = function() require("wen.core.utils").close() end,
-      right_mouse_command = function() require("wen.core.utils").close() end,
+      close_command = function() require("core.utils").close() end,
+      right_mouse_command = function() require("core.utils").close() end,
       diagnostics = "nvim_lsp",
       always_show_bufferline = true,
       separater_style = "thin",

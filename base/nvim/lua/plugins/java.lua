@@ -158,8 +158,8 @@ return {
           vim.g.inlay_hints_visible = true
           vim.lsp.inlay_hint.enable(0, true)
 
-          require("wen.core.utils").load_mappings "on_attach_default"
-          require("wen.core.utils").load_mappings "on_attach_java"
+          require("core.utils").load_mappings "on_attach_default"
+          require("core.utils").load_mappings "on_attach_java"
         end
       end,
     })

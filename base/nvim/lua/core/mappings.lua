@@ -377,9 +377,9 @@ M.gitsigns = {
 M.minibufremove = {
   plugin = true,
   n = {
-    ["<leader>q"] = { function() require("wen.core.utils").close() end, "Close buffer" },
-    ["<leader>Q"] = { function() require("wen.core.utils").close(0, true) end, "Close buffer (force)" },
-    ["<leader>bq"] = { function() require("wen.core.utils").close_all() end, "Close all buffer" },
+    ["<leader>q"] = { function() require("core.utils").close() end, "Close buffer" },
+    ["<leader>Q"] = { function() require("core.utils").close(0, true) end, "Close buffer (force)" },
+    ["<leader>bq"] = { function() require("core.utils").close_all() end, "Close all buffer" },
   },
 }
 
