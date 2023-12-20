@@ -3,15 +3,15 @@ return {
   { "max397574/better-escape.nvim", event = "VimEnter", opts = { timeout = 300 } },
   { "karb94/neoscroll.nvim", event = "VeryLazy", config = true },
   { "NvChad/nvim-colorizer.lua", event = { "BufReadPre", "BufNewFile" }, config = true },
+  { "b0o/schemastore.nvim", enabled = false }, -- TODO: try this out when setting up projects
+  { "kylechui/nvim-surround", event = "VeryLazy", config = true },
+  { "keaising/im-select.nvim", lazy = false, config = true },
   {
     "folke/todo-comments.nvim",
     dependencies = { "nvim-lua/plenary.nvim" },
     event = { "BufReadPre", "BufNewFile" },
     config = true,
   },
-  { "b0o/schemastore.nvim", enabled = false }, -- TODO: try this out when setting up projects
-  { "kylechui/nvim-surround", event = "VeryLazy", config = true },
-  { "piersolenski/wtf.nvim", dependencies = { "MunifTanjim/nui.nvim" } },
   {
     "numToStr/Comment.nvim",
     dependencies = { "JoosepAlviste/nvim-ts-context-commentstring" },

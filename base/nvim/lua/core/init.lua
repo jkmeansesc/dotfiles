@@ -77,3 +77,6 @@ vim.opt.backspace:append { "nostop" } -- don't stop backspace at insert
 
 vim.opt.wrap = true -- soft wrap lines
 vim.opt.showbreak = "↪ "
+
+vim.opt.spelllang = "en_us,en_gb,cjk"
+vim.opt.spell = true

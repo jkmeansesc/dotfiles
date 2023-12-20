@@ -3,15 +3,14 @@ return function()
   local null_ls_utils = require "null-ls.utils"
   local formatting = null_ls.builtins.formatting
   local diagnostics = null_ls.builtins.diagnostics
-  -- to setup format on save
   local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 
   null_ls.setup {
     root_dir = null_ls_utils.root_pattern(".null-ls-root", "Makefile", ".git", "package.json"),
     sources = {
-      formatting.prettierd.with {
-        extra_filetypes = { "svelte" },
+      formatting.prettier.with {
         filetypes = {
+          "svelte",
           "javascript",
           "javascriptreact",
           "typescript",
@@ -26,12 +25,12 @@ return function()
           "yaml",
           "graphql",
           "handlebars",
+          "markdown",
         },
       }, -- js/ts formatter
       formatting.stylua, -- lua formatter
       formatting.black, -- python formatter
       formatting.isort, -- python formatter
-      formatting.markdownlint, -- markdown formatter
       formatting.google_java_format, -- java formatter
       diagnostics.pylint, -- python linter
       diagnostics.eslint_d.with { -- js/ts linter
@@ -55,11 +54,11 @@ return function()
           buffer = bufnr,
           callback = function()
             vim.lsp.buf.format {
+              bufnr = bufnr,
               filter = function(client)
                 --  only use null-ls for formatting instead of lsp server
                 return client.name == "null-ls"
               end,
-              bufnr = bufnr,
             }
           end,
         })

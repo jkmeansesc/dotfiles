@@ -16,7 +16,6 @@ return function()
       "emmet_ls", -- html, css
       "lua_ls", -- lua
       "pyright", -- python
-      "marksman", -- markdown
       "yamlls", -- yaml
       "jsonls", -- json
       "ansiblels", -- ansible
@@ -25,6 +24,8 @@ return function()
       "jdtls", -- java
       "lemminx", -- xml
       "clangd", -- c/c++
+      "ltex", -- grammer spell checker + latex
+      "marksman", -- markdown
     },
     automatic_installation = true,
   }
@@ -37,10 +38,11 @@ return function()
       "pylint", -- python linter
       "eslint_d", -- js linter
       "markdownlint", -- markdownlinter
-      "prettierd", -- prettier formatter
+      "prettier", -- prettier formatter
       "ansiblelint", -- ansible linter
       "hadolint", -- dockerfile linter
       "google_java_format", -- java formatter
+      "cspell", -- spell checker
     },
   }
 

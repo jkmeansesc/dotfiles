@@ -4,6 +4,7 @@ return {
     event = { "BufReadPre", "BufNewFile" },
     dependencies = {
       "hrsh7th/cmp-nvim-lsp",
+      "barreiroleo/ltex-extra.nvim",
       { "folke/neodev.nvim", config = true },
       { "nvimdev/lspsaga.nvim", config = true },
       { "antosha417/nvim-lsp-file-operations", config = true },

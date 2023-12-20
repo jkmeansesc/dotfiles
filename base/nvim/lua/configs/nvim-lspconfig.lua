@@ -1,25 +1,28 @@
 return function()
   local lspconfig = require "lspconfig"
   local cmp_nvim_lsp = require "cmp_nvim_lsp"
+  local capabilities = cmp_nvim_lsp.default_capabilities(vim.lsp.protocol.make_client_capabilities())
 
   local on_attach = function(client, bufnr)
+    client.server_capabilities.documentFormattingProvider = false
+    client.server_capabilities.documentRangeFormattingProvider = false
+
     -- enable inlay hints
     if client.server_capabilities.inlayHintProvider then
       vim.g.inlay_hints_visible = true
       vim.lsp.inlay_hint.enable(bufnr, true)
     else
-      print "no inlay hints available"
+      print(client.name .. " has no inlay hints available")
     end
+
+    if client.name == "clangd" then require("core.utils").load_mappings "on_attach_cpp" end
+
+    if client.name == "ltex" then
+      require("ltex_extra").setup { path = vim.api.nvim_call_function("stdpath", { "cache" }) .. "/ltex/" }
+    end
+
     require("core.utils").load_mappings "on_attach_default"
   end
-
-  local on_attach_cpp = function()
-    require("core.utils").load_mappings "on_attach_default"
-    require("core.utils").load_mappings "on_attach_cpp"
-  end
-
-  -- used to enable autocompletion (assign to every lsp server config)
-  local capabilities = cmp_nvim_lsp.default_capabilities(vim.lsp.protocol.make_client_capabilities())
 
   -- Change the Diagnostic symbols in the sign column (gutter)
   local signs = { Error = " ", Warn = " ", Hint = "󰠠 ", Info = " " }
@@ -28,26 +31,32 @@ return function()
     vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
   end
 
-  -- configure html server
-  lspconfig["html"].setup {
-    capabilities = capabilities,
-    on_attach = on_attach,
+  local servers = {
+    "html",
+    "cssls",
+    "pyright",
+    "pyright",
+    "jsonls",
+    "ansiblels",
+    "docker_compose_language_service",
+    "dockerls",
+    "lemminx",
+    "marksman",
   }
 
-  -- configure css server
-  lspconfig["cssls"].setup {
-    capabilities = capabilities,
-    on_attach = on_attach,
-  }
+  for _, lsp in ipairs(servers) do
+    lspconfig[lsp].setup {
+      on_attach = on_attach,
+      capabilities = capabilities,
+    }
+  end
 
-  -- configure emmet language server
   lspconfig["emmet_ls"].setup {
     capabilities = capabilities,
     on_attach = on_attach,
     filetypes = { "html", "typescriptreact", "javascriptreact", "css", "sass", "scss", "less", "svelte" },
   }
 
-  -- configure lua server (with special settings)
   lspconfig["lua_ls"].setup {
     capabilities = capabilities,
     on_attach = on_attach,
@@ -57,15 +66,6 @@ return function()
         diagnostics = { globals = { "vim" } },
       },
     },
-  }
-  lspconfig["pyright"].setup {
-    capabilities = capabilities,
-    on_attach = on_attach,
-  }
-
-  lspconfig["marksman"].setup {
-    capabilities = capabilities,
-    on_attach = on_attach,
   }
 
   lspconfig["yamlls"].setup {
@@ -82,33 +82,8 @@ return function()
     },
   }
 
-  lspconfig["jsonls"].setup {
-    capabilities = capabilities,
-    on_attach = on_attach,
-  }
-
-  lspconfig["ansiblels"].setup {
-    capabilities = capabilities,
-    on_attach = on_attach,
-  }
-
-  lspconfig["docker_compose_language_service"].setup {
-    capabilities = capabilities,
-    on_attach = on_attach,
-  }
-
-  lspconfig["dockerls"].setup {
-    capabilities = capabilities,
-    on_attach = on_attach,
-  }
-
-  lspconfig["lemminx"].setup {
-    capabilities = capabilities,
-    on_attach = on_attach,
-  }
-
   lspconfig["clangd"].setup {
-    on_attach = on_attach_cpp,
+    on_attach = on_attach,
     root_dir = function(fname)
       return require("lspconfig.util").root_pattern(
         "Makefile",
@@ -139,5 +114,11 @@ return function()
       completeUnimported = true,
       clangdFileStatus = true,
     },
+  }
+
+  lspconfig["ltex"].setup {
+    capabilities = capabilities,
+    on_attach = on_attach,
+    filetypes = { "latex", "tex", "bib", "markdown", "gitcommit", "text" },
   }
 end
