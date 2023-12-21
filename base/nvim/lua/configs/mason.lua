@@ -42,7 +42,6 @@ return function()
       "ansiblelint", -- ansible linter
       "hadolint", -- dockerfile linter
       "google_java_format", -- java formatter
-      "cspell", -- spell checker
     },
   }
 

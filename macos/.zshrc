@@ -119,6 +119,7 @@ export XDG_CONFIG_HOME=$HOME/.config
 # Aliases
 ## Jekyll
 alias pb="bundle exec jekyll s"
+alias pbd="bundle exec jekyll serve --drafts"
 alias cb="cd ~/git/minicoderwen.github.io/"
 
 ## Neovim

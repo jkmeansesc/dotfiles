@@ -12,6 +12,7 @@ return function()
     ["InProgress"] = utils.fg "DiagnosticWarn",
   }
 
+  -- show LSP client
   local stbufnr = function() return vim.api.nvim_win_get_buf(0) end
   local LSP_status = function()
     if rawget(vim, "lsp") then
@@ -24,7 +25,6 @@ return function()
   end
 
   vim.g.lualine_laststatus = vim.o.laststatus
-
   if vim.fn.argc(-1) > 0 then
     -- set an empty statusline till lualine loads
     vim.o.statusline = " "
@@ -40,7 +40,7 @@ return function()
       globalstatus = true,
     },
     sections = {
-      lualine_c = { "filename", { LSP_status } },
+      lualine_c = { "filename", LSP_status },
       lualine_x = {
         -- for lazy status
         {
