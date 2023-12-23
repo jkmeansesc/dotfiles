@@ -1,11 +1,10 @@
-astronvim
 nvim
 tmux
-mac_karabiner
-mac_skhd
-mac_yabai
+karabiner
+iterm2
+skhd
+yabai
 mac_zshrc
 mac_gitconfig
 mac_p10k
-mac_alacritty
 mac_ideavim

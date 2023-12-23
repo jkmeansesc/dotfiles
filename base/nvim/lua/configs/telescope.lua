@@ -26,7 +26,7 @@ return function()
   telescope.setup {
     defaults = {
       git_worktrees = vim.g.git_worktrees,
-      prompt_prefix = "   ",
+      prompt_prefix = "   ",
       layout_config = {
         horizontal = { prompt_position = "bottom", preview_width = 0.70 },
         vertical = { mirror = false },
