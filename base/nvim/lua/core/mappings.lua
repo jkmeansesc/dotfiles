@@ -17,9 +17,6 @@ M.general = {
 
     -- Turn the current word into title case
     ["<C-t>"] = { "<Esc>b~lea" },
-
-    --  HACK: Fuck this
-    ["<C-[>"] = { "<Esc>" },
   },
 
   n = {

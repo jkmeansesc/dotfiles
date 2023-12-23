@@ -18,3 +18,4 @@ push
 dotfile
 gitignore
 LSP
+lualine

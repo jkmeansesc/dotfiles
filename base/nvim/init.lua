@@ -53,7 +53,7 @@ local opts = {
 
 require("lazy").setup("plugins", opts)
 
-vim.cmd [[colorscheme kanagawa]]
+vim.cmd [[colorscheme catppuccin]]
 
 -- load mapping
 require("core.utils").load_mappings()
