@@ -7,7 +7,7 @@ return function()
     ["<leader>b"] = { name = " 󰓩.Buffer" },
     ["<leader>s"] = { name = " 󰤼 Split" },
     ["<leader>g"] = { name = "  Git" },
-    ["<leader>f"] = { name = "  Find" },
+    ["<leader>f"] = { name = "  Find" },
     ["<leader>l"] = { name = "  Lsp" },
     ["<leader>m"] = { name = " 󰏓 Manage" },
     ["<leader>t"] = { name = "  Terminal" },

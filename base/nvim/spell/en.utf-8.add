@@ -19,3 +19,5 @@ dotfile
 gitignore
 LSP
 lualine
+statusline
+lsp
