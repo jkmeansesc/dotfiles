@@ -53,6 +53,8 @@ return {
     { filter = { event = "msg_show", find = "^%d+ fewer lines$" }, opts = { skip = true } }, -- skip delete notifications
     { filter = { event = "msg_show", find = "^%d+ lines yanked$" }, opts = { skip = true } }, -- skip yank notifications
     { filter = { event = "msg_show", kind = "search_count" }, opts = { skip = true } }, -- hide search virtual text
+    { filter = { event = "msg_show", kind = "", find = "written" }, opts = { skip = true } }, -- hide written message
+    { view = "notify", filter = { event = "msg_showmode" } },
   },
 
   presets = {
@@ -61,5 +63,16 @@ return {
     long_message_to_split = true, -- long messages will be sent to a split
     inc_rename = true, -- enables an input dialog for inc-rename.nvim
     lsp_doc_border = false, -- add a border to hover docs and signature help
+  },
+
+  cmdline = {
+    format = {
+      cmdline = { pattern = "^:", icon = "", lang = "vim" },
+      search_down = { kind = "search", pattern = "^/", icon = " ", lang = "regex" },
+      search_up = { kind = "search", pattern = "^%?", icon = " ", lang = "regex" },
+      filter = { pattern = "^:%s*!", icon = "$", lang = "bash" },
+      lua = { pattern = { "^:%s*lua%s+", "^:%s*lua%s*=%s*", "^:%s*=%s*" }, icon = "", lang = "lua" },
+      help = { pattern = "^:%s*he?l?p?%s+", icon = "" },
+    },
   },
 }

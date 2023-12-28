@@ -3,6 +3,11 @@ return function()
   local cmp_nvim_lsp = require "cmp_nvim_lsp"
   local capabilities = cmp_nvim_lsp.default_capabilities(vim.lsp.protocol.make_client_capabilities())
 
+  -- reduce excessive notifications
+  vim.diagnostic.config {
+    update_in_insert = false,
+  }
+
   local on_attach = function(client, bufnr)
     client.server_capabilities.documentFormattingProvider = false
     client.server_capabilities.documentRangeFormattingProvider = false

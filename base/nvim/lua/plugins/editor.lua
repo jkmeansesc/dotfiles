@@ -1,8 +1,7 @@
 return {
   { "echasnovski/mini.bufremove", init = function() require("core.utils").load_mappings "minibufremove" end },
   { "max397574/better-escape.nvim", event = "VimEnter", opts = { timeout = 300 } },
-  { "karb94/neoscroll.nvim", event = "VeryLazy", config = true },
-  { "NvChad/nvim-colorizer.lua", event = { "BufReadPre", "BufNewFile" }, config = true },
+  { "karb94/neoscroll.nvim", enabled = false, event = "VeryLazy", config = true },
   { "b0o/schemastore.nvim", enabled = false }, -- TODO: try this out when setting up projects
   { "kylechui/nvim-surround", event = "VeryLazy", config = true },
   { "keaising/im-select.nvim", enabled = false, lazy = false, config = true },
@@ -37,13 +36,6 @@ return {
     config = require "configs.guess-indent",
   },
   {
-    "lukas-reineke/indent-blankline.nvim",
-    version = "2.20.7",
-    event = { "BufReadPre", "BufNewFile" },
-    init = function() require("core.utils").load_mappings "blankline" end,
-    opts = require "configs.indent-blankline",
-  },
-  {
     "folke/noice.nvim",
     event = "VeryLazy",
     dependencies = {
@@ -59,10 +51,5 @@ return {
     "mrjones2014/smart-splits.nvim",
     init = function() require("core.utils").load_mappings "smartsplits" end,
     opts = require "configs.smart-splits",
-  },
-  {
-    "RRethy/vim-illuminate",
-    event = { "BufReadPre", "BufNewFile" },
-    config = require "configs.vim-illuminate",
   },
 }

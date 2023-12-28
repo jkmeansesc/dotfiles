@@ -19,4 +19,17 @@ return {
     event = "VeryLazy",
     config = require "configs.lualine",
   },
+  {
+    "lukas-reineke/indent-blankline.nvim",
+    version = "2.20.7",
+    event = { "BufReadPre", "BufNewFile" },
+    init = function() require("core.utils").load_mappings "blankline" end,
+    opts = require "configs.indent-blankline",
+  },
+  { "NvChad/nvim-colorizer.lua", event = { "BufReadPre", "BufNewFile" }, config = true },
+  {
+    "RRethy/vim-illuminate",
+    event = { "BufReadPre", "BufNewFile" },
+    config = require "configs.vim-illuminate",
+  },
 }

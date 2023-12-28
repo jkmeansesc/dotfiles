@@ -135,12 +135,36 @@ return function()
       },
       lualine_x = {
         {
-          "filetype",
-          color = { fg = colors.fg, gui = "bold" },
-        },
-        {
           "filename",
           cond = conditions.buffer_not_empty,
+          color = function()
+            -- auto change color according to neovims mode
+            local mode_color = {
+              n = colors.red,
+              i = colors.green,
+              v = colors.blue,
+              V = colors.blue,
+              c = colors.magenta,
+              no = colors.red,
+              s = colors.orange,
+              S = colors.orange,
+              [""] = colors.orange,
+              ic = colors.yellow,
+              R = colors.violet,
+              Rv = colors.violet,
+              cv = colors.red,
+              ce = colors.red,
+              r = colors.cyan,
+              rm = colors.cyan,
+              ["r?"] = colors.cyan,
+              ["!"] = colors.red,
+              t = colors.red,
+            }
+            return { fg = mode_color[vim.fn.mode()] }
+          end,
+        },
+        {
+          "filetype",
           color = { fg = colors.fg, gui = "bold" },
         },
         {
