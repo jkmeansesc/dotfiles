@@ -86,11 +86,6 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 
-# Ruby added
-source /opt/homebrew/opt/chruby/share/chruby/chruby.sh
-source /opt/homebrew/opt/chruby/share/chruby/auto.sh
-chruby ruby-3.2.2
-
 # User configuration
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
@@ -108,6 +103,10 @@ export PYTHON_HOME="/opt/homebrew/Cellar/python@3.12/3.12.0"
 
 # PATH ENV
 export PATH="/opt/homebrew/bin:/opt/homebrew/sbin:$PATH:/usr/local/bin:$JAVA_HOME/bin:$CLASS_PATH:$PYTHON_HOME/bin:$MAVEN_HOME/bin"
+if [ -d "/opt/homebrew/opt/ruby/bin" ]; then
+  export PATH=/opt/homebrew/opt/ruby/bin:$PATH
+  export PATH=`gem environment gemdir`/bin:$PATH
+fi
 
 # 解决ssh到远程服务器中文乱码
 export LC_ALL=en_US.UTF-8
