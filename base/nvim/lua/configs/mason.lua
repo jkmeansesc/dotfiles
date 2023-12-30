@@ -10,6 +10,7 @@ return function()
   }
 
   require("mason-lspconfig").setup {
+    automatic_installation = true,
     ensure_installed = {
       "html",
       "cssls",
@@ -27,10 +28,10 @@ return function()
       "ltex", -- grammer spell checker + latex
       "marksman", -- markdown
     },
-    automatic_installation = true,
   }
 
   require("mason-null-ls").setup {
+    automatic_installation = true,
     ensure_installed = {
       "stylua", -- lua formatter
       "black", -- python formatter
@@ -46,6 +47,7 @@ return function()
   }
 
   require("mason-nvim-dap").setup {
+    automatic_installation = true,
     ensure_installed = {
       "javadbg", -- java debugger
       "javatest", -- java test runner

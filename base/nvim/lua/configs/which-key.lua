@@ -12,5 +12,6 @@ return function()
     ["<leader>m"] = { name = " 󰏓 Manage" },
     ["<leader>t"] = { name = "  Terminal" },
     ["<leader>j"] = { name = " 󰬷 Java" },
+    ["<leader>d"] = { name = "  Debug" },
   }
 end

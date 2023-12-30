@@ -11,6 +11,29 @@ return function()
   extendedClientCapabilities.resolveAdditionalTextEditsSupport = true
   extendedClientCapabilities.onCompletionItemSelectedCommand = "editor.action.triggerParameterHints"
 
+  local mason_registry = require "mason-registry"
+  local bundles = {} ---@type string[]
+  if mason_registry.is_installed "java-debug-adapter" then
+    local java_dbg_pkg = mason_registry.get_package "java-debug-adapter"
+    local java_dbg_path = java_dbg_pkg:get_install_path()
+    local jar_patterns = {
+      java_dbg_path .. "/extension/server/com.microsoft.java.debug.plugin-*.jar",
+    }
+    -- java-test also depends on java-debug-adapter.
+    if mason_registry.is_installed "java-test" then
+      local java_test_pkg = mason_registry.get_package "java-test"
+      local java_test_path = java_test_pkg:get_install_path()
+      vim.list_extend(jar_patterns, {
+        java_test_path .. "/extension/server/*.jar",
+      })
+    end
+    for _, jar_pattern in ipairs(jar_patterns) do
+      for _, bundle in ipairs(vim.split(vim.fn.glob(jar_pattern), "\n")) do
+        table.insert(bundles, bundle)
+      end
+    end
+  end
+
   local opts = {
     cmd = {
       "java",
@@ -123,14 +146,12 @@ return function()
     capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities()),
 
     init_options = {
-      bundles = {
-        vim.fn.expand "$MASON/packages/java-debug-adapter/com.microsoft.java.debug.plugin.jar",
-        -- unpack remaining bundles
-        table.unpack(vim.split(vim.fn.glob "$MASON/packages/java-test/*.jar", "\n", {})),
-      },
+      bundles = bundles,
       extendedClientCapabilities = extendedClientCapabilities,
     },
+    handlers = { ["$/progress"] = function() end }, -- disable progress updates.
   }
+
   local function attach_jdtls() require("jdtls").start_or_attach(opts) end
 
   -- Attach the jdtls for each java buffer. HOWEVER, this plugin loads
@@ -141,14 +162,13 @@ return function()
     callback = attach_jdtls,
   })
 
-  local mason_registry = require "mason-registry"
   -- Setup keymap and dap after the lsp is fully attached.
   vim.api.nvim_create_autocmd("LspAttach", {
     callback = function(args)
       local client = vim.lsp.get_client_by_id(args.data.client_id)
       if client and client.name == "jdtls" then
         if mason_registry.is_installed "java-debug-adapter" and mason_registry.is_installed "java-test" then
-          require("jdtls").setup_dap { hotcodereplace = "auto" }
+          require("jdtls").setup_dap { hotcodereplace = "auto", config_overrides = {} }
           require("jdtls.dap").setup_dap_main_class_configs()
         end
 

@@ -5,7 +5,7 @@ return {
     dependencies = {
       "hrsh7th/cmp-nvim-lsp",
       "barreiroleo/ltex-extra.nvim",
-      { "folke/neodev.nvim", config = true },
+      { "folke/neodev.nvim", opts = { library = { plugins = { "nvim-dap-ui" }, types = true } } },
       { "nvimdev/lspsaga.nvim", config = true },
       { "antosha417/nvim-lsp-file-operations", config = true },
     },
@@ -27,20 +27,6 @@ return {
       },
     },
     config = require "configs.nvim-lspconfig",
-  },
-  {
-    "mfussenegger/nvim-dap",
-    enabled = vim.fn.has "win32" == 0,
-    dependencies = {
-      { "rcarriga/nvim-dap-ui", config = require "configs.nvim-dap-ui" },
-      {
-        "rcarriga/cmp-dap",
-        dependencies = { "nvim-cmp" },
-        config = require "configs.cmp-dap",
-      },
-    },
-    event = { "BufReadPre", "BufNewFile" },
-    config = require "configs.nvim-dap",
   },
   {
     "mfussenegger/nvim-jdtls",

@@ -4,6 +4,9 @@ return function()
   dap.listeners.before.event_terminated["dapui_config"] = function() dapui.close() end
   dap.listeners.before.event_exited["dapui_config"] = function() dapui.close() end
   dapui.setup {
-    floating = { border = "rounded" },
+    floating = {
+      border = "rounded",
+    },
   }
+  require("core.utils").load_mappings "dap"
 end
