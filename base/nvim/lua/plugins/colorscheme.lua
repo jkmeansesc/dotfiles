@@ -118,4 +118,5 @@ return {
   { "olimorris/onedarkpro.nvim", lazy = true },
   { "tanvirtin/monokai.nvim", lazy = true },
   { "rose-pine/neovim", name = "rose-pine", lazy = true },
+  { "lunarvim/darkplus.nvim", lazy = false },
 }
