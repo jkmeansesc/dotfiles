@@ -139,5 +139,9 @@ alias tl="tmux ls"
 alias ta="tmux attach -t"
 alias td="tmux detach"
 
+## eza
+alias l="eza -la --icons=auto"
+alias ls="eza -a --icons=auto"
+
 # To customize prompt, run `p10k configure` or edit ~/git/dotfiles/macos/.p10k.zsh.
 [[ ! -f ~/git/dotfiles/macos/.p10k.zsh ]] || source ~/git/dotfiles/macos/.p10k.zsh
