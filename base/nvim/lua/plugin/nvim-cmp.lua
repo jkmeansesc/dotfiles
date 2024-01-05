@@ -12,15 +12,58 @@ local M = {
       event = "InsertEnter",
       cmd = "Copilot",
       build = ":Copilot auth",
-      opts = require "configs.copilot",
+      opts = {
+        suggestion = { enabled = false },
+        panel = { enabled = false },
+        filetypes = {
+          yaml = true,
+          markdown = true,
+          help = true,
+          gitcommit = true,
+          gitrebase = true,
+        },
+      },
     },
     { "zbirenbaum/copilot-cmp", config = true },
     {
       "L3MON4D3/LuaSnip",
       dependencies = "rafamadriz/friendly-snippets", -- useful snippets
-      config = require "configs.luasnip",
+      config = function()
+        require("luasnip").config.setup {
+          history = true,
+          delete_check_events = "TextChanged",
+          region_check_events = "CursorMoved",
+        }
+        vim.tbl_map(
+          function(type) require("luasnip.loaders.from_" .. type).lazy_load() end,
+          { "vscode", "snipmate", "lua" }
+        )
+        vim.api.nvim_create_autocmd("InsertLeave", {
+          callback = function()
+            if
+              require("luasnip").session.current_nodes[vim.api.nvim_get_current_buf()]
+              and not require("luasnip").session.jump_active
+            then
+              require("luasnip").unlink_current()
+            end
+          end,
+        })
+      end,
     }, -- snippet engine
-    { "windwp/nvim-autopairs", config = require "configs.nvim-autopairs" },
+    {
+      "windwp/nvim-autopairs",
+      config = function()
+        require("nvim-autopairs").setup {
+          fast_wrap = {},
+          check_ts = true,
+          ts_config = { java = false },
+          disable_filetype = { "TelescopePrompt", "vim" },
+        }
+        -- setup cmp for autopairs
+        local cmp_autopairs = require "nvim-autopairs.completion.cmp"
+        require("cmp").event:on("confirm_done", cmp_autopairs.on_confirm_done())
+      end,
+    },
   },
 }
 

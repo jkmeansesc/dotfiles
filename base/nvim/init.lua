@@ -72,7 +72,5 @@ spec "plugin.nvim-dap"
 -- bootstrap lazy
 require "core.lazy"
 
-vim.cmd [[colorscheme darkplus]]
-
 -- load mapping
 require("core.utils").load_mappings()
