@@ -253,7 +253,7 @@ M.on_attach_java = {
 M.on_attach_default = {
   plugin = true,
   n = {
-    ["K"] = { "<cmd>Lspsaga hover_doc<CR>", "Hover doc" },
+    -- ["K"] = { "<cmd>Lspsaga hover_doc<CR>", "Hover doc" },
     ["[d"] = { "<cmd>Lspsaga diagnostic_jump_prev<CR>", "Goto prev diagnostic" },
     ["]d"] = { "<cmd>Lspsaga diagnostic_jump_next<CR>", "Goto next diagnostic" },
     ["gh"] = { function() vim.diagnostic.open_float { border = "rounded" } end, "Floating diagnostic" },
