@@ -395,7 +395,7 @@ M.toggleterm = {
 M.nvimtree = {
   plugin = true,
   n = {
-    ["<leader>e"] = { "<cmd>NvimTreeToggle<CR>", "Toggle explorer" },
+    ["<leader>e"] = { "<cmd>NvimTreeFocus<CR>", "Focus NvimTree" },
   },
 }
 

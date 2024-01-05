@@ -6,9 +6,23 @@ return {
   },
   {
     "akinsho/bufferline.nvim",
+    enabled = false,
     event = "VeryLazy",
     init = function() require("core.utils").load_mappings "bufferline" end,
     opts = require "configs.bufferline",
+  },
+  {
+    "SmiteshP/nvim-navic",
+    commit = "0ffa7ffe6588f3417e680439872f5049e38a24db",
+    config = require "configs.nvim-navic",
+  },
+  {
+    "LunarVim/breadcrumbs.nvim",
+    event = { "BufReadPre", "BufNewFile" },
+    dependencies = {
+      { "SmiteshP/nvim-navic" },
+    },
+    config = function() require("breadcrumbs").setup() end,
   },
   {
     "nvim-lualine/lualine.nvim",

@@ -6,7 +6,7 @@ return {
       "hrsh7th/cmp-nvim-lsp",
       "barreiroleo/ltex-extra.nvim",
       { "folke/neodev.nvim", opts = { library = { plugins = { "nvim-dap-ui" }, types = true } } },
-      { "nvimdev/lspsaga.nvim", config = true },
+      -- { "nvimdev/lspsaga.nvim", config = true },
       { "antosha417/nvim-lsp-file-operations", config = true },
     },
     opts = {

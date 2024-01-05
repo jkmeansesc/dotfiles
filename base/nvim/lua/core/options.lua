@@ -51,14 +51,16 @@ vim.opt.showmode = false -- disable showing modes in command line
 vim.opt.signcolumn = "yes" -- always show the sign column
 vim.opt.smartcase = true -- case sensitive searching
 vim.opt.smartindent = true -- do smart autoindenting.
-vim.opt.showtabline = 2 -- always display tabline
+
 vim.opt.shiftwidth = 2 -- number of space inserted for indentation
 vim.opt.softtabstop = 2 -- number of spaces that a <Tab> counts for.
 vim.opt.tabstop = 2 -- number of space in a tab
 vim.opt.scrolloff = 15 -- minimum number of lines to keep above and below the cursor.
 vim.opt.sidescrolloff = 8 -- minimum number of columns to keep to the left and right of the cursor.
+
 vim.opt.splitbelow = true -- splitting a new window below the current one
 vim.opt.splitright = true -- splitting a new window at the right of the current one
+
 vim.opt.swapfile = false -- disable swap files.
 vim.opt.termguicolors = true -- enable 24-bit RGB color in the TUI
 vim.opt.undofile = true -- enable persistent undo

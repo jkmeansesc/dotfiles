@@ -1,4 +1,33 @@
-return function()
+local M = {
+  "neovim/nvim-lspconfig",
+  event = { "BufReadPre", "BufNewFile" },
+  dependencies = {
+    "hrsh7th/cmp-nvim-lsp",
+    "barreiroleo/ltex-extra.nvim",
+    { "folke/neodev.nvim", opts = { library = { plugins = { "nvim-dap-ui" }, types = true } } },
+    -- { "nvimdev/lspsaga.nvim", config = true },
+    { "antosha417/nvim-lsp-file-operations", config = true },
+  },
+  opts = {
+    diagnostics = {
+      underline = true,
+      update_in_insert = false,
+      virtual_text = {
+        spacing = 4,
+        source = "if_many",
+        -- this will set set the prefix to a function that returns the diagnostics icon based on the severity
+        -- this only works on a recent 0.10.0 build. Will be set to "●" when not supported
+        prefix = "icons",
+      },
+      severity_sort = true,
+    },
+    inlay_hints = {
+      enabled = true,
+    },
+  },
+}
+
+function M.config()
   local lspconfig = require "lspconfig"
   local cmp_nvim_lsp = require "cmp_nvim_lsp"
   -- local utils = require "core.utils"
@@ -132,3 +161,5 @@ return function()
     filetypes = { "latex", "tex", "bib", "markdown", "gitcommit", "text" },
   }
 end
+
+return M

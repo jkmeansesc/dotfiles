@@ -1,4 +1,11 @@
-return function()
+local M = {
+  "nvim-tree/nvim-tree.lua",
+  -- enabled = false,
+  cmd = { "NvimTreeToggle", "NvimTreeFocus" },
+  dependencies = { "nvim-tree/nvim-web-devicons" },
+  init = function() require("core.utils").load_mappings "nvimtree" end,
+}
+function M.config()
   local api = require "nvim-tree.api"
 
   -- h&l operation
@@ -18,3 +25,5 @@ return function()
     on_attach = on_attach,
   }
 end
+
+return M

@@ -38,7 +38,7 @@ return {
   },
   {
     "nvim-neo-tree/neo-tree.nvim",
-    -- enabled = false,
+    enabled = false,
     branch = "v3.x",
     dependencies = {
       "nvim-lua/plenary.nvim",
@@ -51,8 +51,8 @@ return {
   },
   {
     "nvim-tree/nvim-tree.lua",
-    enabled = false,
-    cmd = { "NvimTreeTottle", "NvimTreeFocus" },
+    -- enabled = false,
+    cmd = { "NvimTreeToggle", "NvimTreeFocus" },
     dependencies = { "nvim-tree/nvim-web-devicons" },
     init = function() require("core.utils").load_mappings "nvimtree" end,
     config = require "configs.nvim-tree",

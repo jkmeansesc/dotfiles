@@ -1,4 +1,12 @@
-return function()
+local M = {
+  "nvim-lualine/lualine.nvim",
+  dependencies = {
+    "nvim-tree/nvim-web-devicons",
+    "AndreM222/copilot-lualine",
+  },
+  event = "VeryLazy",
+}
+function M.config()
   -- set an empty statusline till lualine loads
   -- hide the statusline on the starter page
   vim.g.lualine_laststatus = vim.o.laststatus
@@ -183,3 +191,5 @@ return function()
     },
   }
 end
+
+return M
