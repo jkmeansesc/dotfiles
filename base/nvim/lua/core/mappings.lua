@@ -93,13 +93,6 @@ M.general = {
   },
 }
 
-M.increname = {
-  plugin = true,
-  n = {
-    ["<leader>r"] = { ":IncRename ", "IncRename" },
-  },
-}
-
 M.bufferline = {
   plugin = true,
   n = {
@@ -213,92 +206,6 @@ M.comment = {
   },
 }
 
-M.on_attach_cpp = {
-  plugin = true,
-  n = {
-    ["<leader>lR"] = { "<cmd>ClangdSwitchSourceHeader<cr>", "Switch Source/Header (C/C++)" },
-  },
-}
-
-M.on_attach_java = {
-  plugin = true,
-  n = {
-    ["<leader>jv"] = { function() require("jdtls").extract_variable_all() end, "Extract Variable" },
-    ["<leader>jc"] = { function() require("jdtls").extract_constant() end, "Extract Constant" },
-    ["<leader>js"] = { function() require("jdtls").super_implementation() end, "Goto Super" },
-    ["<leader>jS"] = { function() require("jdtls.tests").goto_subjects() end, "Goto Subjects" },
-    ["<leader>jo"] = { function() require("jdtls").organize_imports() end, "Organize Imports" },
-    ["<leader>jT"] = { function() require("jdtls.dap").test_class() end, "Run All Test" },
-    ["<leader>jt"] = { function() require("jdtls.dap").test_nearest_method() end, "Run Nearest Test" },
-    ["<leader>jr"] = { function() require("jdtls.dap").pick_test() end, "Run Test" },
-    ["<leader>jm"] = { function() require("jdtls").extract_constant.extract_method(true) end, "Extract Method" },
-  },
-
-  v = {
-    ["<leader>jm"] = {
-      [[<ESC><CMD>lua require('jdtls').extract_method(true)<CR>]],
-      "Extract Method",
-    },
-    ["<leader>jv"] = {
-      [[<ESC><CMD>lua require('jdtls').extract_variable_all(true)<CR>]],
-      "Extract Variable",
-    },
-    ["<leader>jc"] = {
-      [[<ESC><CMD>lua require('jdtls').extract_constant(true)<CR>]],
-      "Extract Constant",
-    },
-  },
-}
-
-M.on_attach_default = {
-  plugin = true,
-  n = {
-    -- ["K"] = { "<cmd>Lspsaga hover_doc<CR>", "Hover doc" },
-    ["[d"] = { "<cmd>Lspsaga diagnostic_jump_prev<CR>", "Goto prev diagnostic" },
-    ["]d"] = { "<cmd>Lspsaga diagnostic_jump_next<CR>", "Goto next diagnostic" },
-    ["gh"] = { function() vim.diagnostic.open_float { border = "rounded" } end, "Floating diagnostic" },
-    ["<leader>ld"] = { "<cmd>Lspsaga peek_definition<CR>", "Peek definition" },
-    ["<leader>lD"] = { function() require("telescope.builtin").diagnostics() end, "Search diagnostics" },
-
-    ["gd"] = { function() require("telescope.builtin").lsp_definitions() end, "Definition" },
-    ["gD"] = { function() vim.lsp.buf.declaration() end, "Declaration" },
-    ["gr"] = { function() require("telescope.builtin").lsp_references() end, "References" },
-    ["gi"] = { function() require("telescope.builtin").lsp_implementations() end, "Implementation" },
-    ["gy"] = { function() require("telescope.builtin").lsp_type_definitions() end, "Definition of current type" },
-    ["<leader>ly"] = { "<cmd>Lspsaga peek_type_definition<CR>", "Peek type definition" },
-    ["<leader>la"] = { "<cmd>Lspsaga code_action<CR>", "Code action" },
-    ["<leader>lf"] = { function() vim.lsp.buf.format { async = true } end, "Formatting" },
-    ["<leader>lr"] = { function() vim.lsp.buf.rename() end, "LSP Rename" },
-    ["<leader>lh"] = { function() vim.lsp.buf.signature_help() end, "Signature help" },
-    ["<leader>lA"] = { function() vim.lsp.buf.add_workspace_folder() end, "Add workspace folder" },
-    ["<leader>lx"] = { function() vim.lsp.buf.remove_workspace_folder() end, "Remove workspace folder" },
-
-    ["<leader>ls"] = {
-      function()
-        vim.ui.input({ prompt = "Symbol Query: (leave empty for word under cursor)" }, function(query)
-          if query then
-            -- word under cursor if given query is empty
-            if query == "" then query = vim.fn.expand "<cword>" end
-            require("telescope.builtin").lsp_workspace_symbols {
-              query = query,
-              prompt_title = ("Find word (%s)"):format(query),
-            }
-          end
-        end)
-      end,
-      "Search workspace symbols",
-    },
-
-    ["<leader>ll"] = { function() vim.lsp.codelens.refresh() end, "CodeLens refresh" },
-    ["<leader>lL"] = { function() vim.lsp.codelens.run() end, "CodeLens run" },
-  },
-
-  v = {
-    ["<leader>la"] = { function() vim.lsp.buf.code_action() end, "LSP code action" },
-    ["<leader>lf"] = { function() vim.lsp.buf.format { async = true } end, "LSP formatting" },
-  },
-}
-
 M.neotree = {
   plugin = true,
   n = {
@@ -399,6 +306,52 @@ M.nvimtree = {
   },
 }
 
+M.lspconfig = {
+  plugin = true,
+  n = {
+    ["[d"] = { function() vim.diagnostic.goto_prev() end, "Goto prev diagnostic" },
+    ["]d"] = { function() vim.diagnostic.goto_next() end, "Goto next diagnostic" },
+    ["gh"] = { function() vim.diagnostic.open_float { border = "rounded" } end, "Floating diagnostic" },
+  },
+}
+
+M.cpp = {
+  plugin = true,
+  n = {
+    ["<leader>lR"] = { "<cmd>ClangdSwitchSourceHeader<cr>", "Switch Source/Header (C/C++)" },
+  },
+}
+
+M.java = {
+  plugin = true,
+  n = {
+    ["<leader>jv"] = { function() require("jdtls").extract_variable_all() end, "Extract Variable" },
+    ["<leader>jc"] = { function() require("jdtls").extract_constant() end, "Extract Constant" },
+    ["<leader>js"] = { function() require("jdtls").super_implementation() end, "Goto Super" },
+    ["<leader>jS"] = { function() require("jdtls.tests").goto_subjects() end, "Goto Subjects" },
+    ["<leader>jo"] = { function() require("jdtls").organize_imports() end, "Organize Imports" },
+    ["<leader>jT"] = { function() require("jdtls.dap").test_class() end, "Run All Test" },
+    ["<leader>jt"] = { function() require("jdtls.dap").test_nearest_method() end, "Run Nearest Test" },
+    ["<leader>jr"] = { function() require("jdtls.dap").pick_test() end, "Run Test" },
+    ["<leader>jm"] = { function() require("jdtls").extract_constant.extract_method(true) end, "Extract Method" },
+  },
+
+  v = {
+    ["<leader>jm"] = {
+      [[<ESC><CMD>lua require('jdtls').extract_method(true)<CR>]],
+      "Extract Method",
+    },
+    ["<leader>jv"] = {
+      [[<ESC><CMD>lua require('jdtls').extract_variable_all(true)<CR>]],
+      "Extract Variable",
+    },
+    ["<leader>jc"] = {
+      [[<ESC><CMD>lua require('jdtls').extract_constant(true)<CR>]],
+      "Extract Constant",
+    },
+  },
+}
+
 M.dap = {
   plugin = true,
   n = {
@@ -429,4 +382,5 @@ M.dap = {
     ["<leader>de"] = { function() require("dapui").toggle() end, "Eval" },
   },
 }
+
 return M

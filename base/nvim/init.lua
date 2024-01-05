@@ -1,31 +1,34 @@
 -- set default options
 require "core.options"
 
+-- load mapping
+require("core.utils").load_mappings()
+
 -- bootstrap plugin specs
 LAZY_PLUGIN_SPEC = {}
 local spec = function(item) table.insert(LAZY_PLUGIN_SPEC, { import = item }) end
 
-----------plugins start----------
+----------plugins spec start----------
 
 -- colorschemes
--- spec "plugin.catppuccin"
--- spec "plugin.material"
--- spec "plugin.kanagawa"
--- spec "plugin.vim-nightfly-color"
--- spec "plugin.tokyonight"
--- spec "plugin.papercolor-theme"
--- spec "plugin.flexoki-neovim"
--- spec "plugin.melange-nvim"
--- spec "plugin.gruvbox"
--- spec "plugin.edge"
--- spec "plugin.sonokai"
--- spec "plugin.gruvbox-material"
--- spec "plugin.nord"
--- spec "plugin.nightfox"
--- spec "plugin.onedarkpro"
--- spec "plugin.monokai"
--- spec "plugin.rose-pine"
-spec "plugin.darkplus"
+-- spec "plugin.colorschemes.catppuccin"
+-- spec "plugin.colorschemes.smaterial"
+-- spec "plugin.colorschemes.kanagawa"
+-- spec "plugin.colorschemes.vim-nightfly-color"
+-- spec "plugin.colorschemes.tokyonight"
+-- spec "plugin.colorschemes.papercolor-theme"
+-- spec "plugin.colorschemes.flexoki-neovim"
+-- spec "plugin.colorschemes.melange-nvim"
+-- spec "plugin.colorschemes.gruvbox"
+-- spec "plugin.colorschemes.edge"
+-- spec "plugin.colorschemes.sonokai"
+-- spec "plugin.colorschemes.gruvbox-material"
+-- spec "plugin.colorschemes.nord"
+-- spec "plugin.colorschemes.nightfox"
+-- spec "plugin.colorschemes.onedarkpro"
+-- spec "plugin.colorschemes.monokai"
+-- spec "plugin.colorschemes.rose-pine"
+spec "plugin.colorschemes.darkplus"
 
 -- UI
 spec "plugin.alpha-nvim"
@@ -53,7 +56,6 @@ spec "plugin.which-key"
 spec "plugin.editor"
 spec "plugin.todo-comments"
 spec "plugin.comment"
-spec "plugin.inc-rename"
 spec "plugin.guess-indent"
 spec "plugin.noice"
 spec "plugin.smart-splits"
@@ -67,10 +69,7 @@ spec "plugin.clangd_extensions"
 -- DAP
 spec "plugin.nvim-dap"
 
-----------plugins end------------
+----------plugins spec end------------
 
 -- bootstrap lazy
 require "core.lazy"
-
--- load mapping
-require("core.utils").load_mappings()

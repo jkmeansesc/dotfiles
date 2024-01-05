@@ -10,7 +10,7 @@ end
 vim.g.encoding = "UTF-8" -- utf8
 vim.g.mapleader = " " -- set leader key
 vim.g.gmaplocalleader = " " -- set default local leader key
-
+vim.g.codelens_enabled = true -- enable or disable automatic codelens refreshing for lsp that support it.
 vim.g.git_worktrees = {
   toplevel = vim.env.HOME .. "/git/dotfiles",
   gitdir = vim.env.HOME .. "/git/dotfiles/macos/nvim",
@@ -82,3 +82,9 @@ vim.opt.showbreak = "↪ "
 
 vim.opt.spelllang = "en_us,en_gb,cjk"
 vim.opt.spell = true
+
+-- for ufo
+vim.o.foldcolumn = "1" -- '0' is not bad
+vim.o.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value
+vim.o.foldlevelstart = 99
+vim.o.foldenable = true

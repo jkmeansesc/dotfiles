@@ -33,7 +33,7 @@ function M.config()
         horizontal = {
           size = {
             width = "90%",
-            height = "60%",
+            height = "80%",
           },
         },
         vertical = {

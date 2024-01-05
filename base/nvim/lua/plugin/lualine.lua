@@ -6,6 +6,23 @@ local M = {
   },
   event = "VeryLazy",
 }
+-- colors for highlights
+local colors = {
+  bg = "#202328",
+  fg = "#bbc2cf",
+  yellow = "#ECBE7B",
+  cyan = "#008080",
+  darkblue = "#081633",
+  green = "#98be65",
+  orange = "#FF8800",
+  violet = "#a9a1e1",
+  magenta = "#c678dd",
+  blue = "#51afef",
+  red = "#ec5f67",
+}
+
+local icons = require "core.icons"
+
 function M.config()
   -- set an empty statusline till lualine loads
   -- hide the statusline on the starter page
@@ -15,21 +32,6 @@ function M.config()
   else
     vim.o.laststatus = 0
   end
-
-  -- colors for highlights
-  local colors = {
-    bg = "#202328",
-    fg = "#bbc2cf",
-    yellow = "#ECBE7B",
-    cyan = "#008080",
-    darkblue = "#081633",
-    green = "#98be65",
-    orange = "#FF8800",
-    violet = "#a9a1e1",
-    magenta = "#c678dd",
-    blue = "#51afef",
-    red = "#ec5f67",
-  }
 
   -- lsp client
   local LSP_status = function()
@@ -133,7 +135,12 @@ function M.config()
         {
           "diagnostics",
           sources = { "nvim_diagnostic" },
-          symbols = { error = " ", warn = " ", info = " " },
+          symbols = {
+            error = icons.diagnostic.DiagnosticError .. " ",
+            warn = icons.diagnostic.DiagnosticWarn .. " ",
+            info = icons.diagnostic.DiagnosticInfo .. " ",
+            hint = icons.diagnostic.DiagnosticHint .. " ",
+          },
           diagnostics_color = {
             color_error = { fg = colors.red },
             color_warn = { fg = colors.yellow },
