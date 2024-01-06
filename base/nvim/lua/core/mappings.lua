@@ -306,6 +306,39 @@ M.nvimtree = {
   },
 }
 
+M.trouble = {
+  plugin = true,
+  n = {
+    ["<leader>xx"] = { "<cmd>TroubleToggle document_diagnostics<cr>", "Document Diagnostics (Trouble)" },
+    ["<leader>xX"] = { "<cmd>TroubleToggle workspace_diagnostics<cr>", "Workspace Diagnostics (Trouble)" },
+    ["<leader>xL"] = { "<cmd>TroubleToggle loclist<cr>", "Location List (Trouble)" },
+    ["<leader>xQ"] = { "<cmd>TroubleToggle quickfix<cr>", "Quickfix List (Trouble)" },
+    ["<leader>xt"] = { "<cmd>TodoTrouble<cr>", "Todo (Trouble)" },
+    ["<leader>xT"] = { "<cmd>TodoTrouble keywords=TODO,FIX,FIXME<cr>", "Todo/Fix/Fixme (Trouble)" },
+    ["[q"] = {
+      function()
+        if require("trouble").is_open() then
+          require("trouble").previous { skip_groups = true, jump = true }
+        else
+          local ok, err = pcall(vim.cmd.cprev)
+          if not ok then vim.notify(err, vim.log.levels.ERROR) end
+        end
+      end,
+      "Previous trouble/quickfix item",
+    },
+    ["]q"] = {
+      function()
+        if require("trouble").is_open() then
+          require("trouble").next { skip_groups = true, jump = true }
+        else
+          local ok, err = pcall(vim.cmd.cnext)
+          if not ok then vim.notify(err, vim.log.levels.ERROR) end
+        end
+      end,
+      "Next trouble/quickfix item",
+    },
+  },
+}
 M.lspconfig = {
   plugin = true,
   n = {
@@ -363,7 +396,23 @@ M.dap = {
     },
     ["<leader>db"] = { function() require("dap").toggle_breakpoint() end, "Toggle Breakpoint" },
     ["<leader>dc"] = { function() require("dap").continue() end, "Continue" },
-    ["<leader>da"] = { function() require("dap").continue { before = get_args } end, "Run with Args" },
+    ["<leader>da"] = {
+      function()
+        require("dap").continue {
+          before = function(config)
+            local args = type(config.args) == "function" and (config.args() or {}) or config.args or {}
+            config = vim.deepcopy(config)
+            ---@cast args string[]
+            config.args = function()
+              local new_args = vim.fn.input("Run with args: ", table.concat(args, " ")) --[[@as string]]
+              return vim.split(vim.fn.expand(new_args) --[[@as string]], " ")
+            end
+            return config
+          end,
+        }
+      end,
+      "Run with Args",
+    },
     ["<leader>dC"] = { function() require("dap").run_to_cursor() end, "Run to Cursor" },
     ["<leader>dg"] = { function() require("dap").goto_() end, "Go to line (no execute)" },
     ["<leader>di"] = { function() require("dap").step_into() end, "Step Into" },

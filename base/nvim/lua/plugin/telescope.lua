@@ -19,6 +19,7 @@ function M.config()
   local Popup = require "nui.popup"
   local telescope = require "telescope"
   local TSLayout = require "telescope.pickers.layout"
+  local trouble = require "trouble.providers.telescope"
   local function make_popup(options)
     local popup = Popup(options)
     function popup.border:change_title(title) popup.border.set_text(popup.border, "top", title) end
@@ -73,12 +74,14 @@ function M.config()
         i = {
           ["<C-k>"] = actions.move_selection_previous, -- move to prev result
           ["<C-j>"] = actions.move_selection_next, -- move to next result
-          ["<C-c>"] = actions.close, -- close telescope
+          ["<C-e>"] = actions.close, -- close telescope
           ["<C-n>"] = actions.cycle_history_next, -- cycle previewer next
           ["<C-p>"] = actions.cycle_history_prev, -- cycle previewer prev
+          ["<C-t>"] = trouble.open_with_trouble,
         },
         n = {
           ["q"] = actions.close, -- close telescope
+          ["<C-t>"] = trouble.open_with_trouble,
         },
       },
 

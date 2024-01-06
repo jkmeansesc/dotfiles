@@ -51,6 +51,7 @@ spec "plugin.nvim-treesitter"
 spec "plugin.telescope"
 spec "plugin.toggleterm"
 spec "plugin.which-key"
+spec "plugin.trouble"
 
 -- EDITOR
 spec "plugin.editor"
