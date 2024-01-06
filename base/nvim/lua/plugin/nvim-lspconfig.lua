@@ -6,10 +6,12 @@ local M = {
     "barreiroleo/ltex-extra.nvim",
     "smjonas/inc-rename.nvim", -- LSP renaming with immediate visual feedback
     "folke/neodev.nvim",
+    "folke/neoconf.nvim",
+    "b0o/schemastore.nvim",
   },
 }
 
-local function add_buffer_autocmd(augroup, bufnr, autocmds)
+function M.add_buffer_autocmd(augroup, bufnr, autocmds)
   if not vim.tbl_islist(autocmds) then autocmds = { autocmds } end
   local cmds_found, cmds = pcall(vim.api.nvim_get_autocmds, { group = augroup, buffer = bufnr })
   if not cmds_found or vim.tbl_isempty(cmds) then
@@ -24,12 +26,12 @@ local function add_buffer_autocmd(augroup, bufnr, autocmds)
   end
 end
 
-local function del_buffer_autocmd(augroup, bufnr)
+function M.del_buffer_autocmd(augroup, bufnr)
   local cmds_found, cmds = pcall(vim.api.nvim_get_autocmds, { group = augroup, buffer = bufnr })
   if cmds_found then vim.tbl_map(function(cmd) vim.api.nvim_del_autocmd(cmd.id) end, cmds) end
 end
 
-local function on_attach(client, bufnr)
+M.on_attach = function(client, bufnr)
   client.server_capabilities.documentFormattingProvider = false
   client.server_capabilities.documentRangeFormattingProvider = false
 
@@ -54,12 +56,12 @@ local function on_attach(client, bufnr)
   end
 
   if client.supports_method "textDocument/codeLens" then
-    add_buffer_autocmd("lsp_codelens_refresh", bufnr, {
+    M.add_buffer_autocmd("lsp_codelens_refresh", bufnr, {
       events = { "InsertLeave", "BufEnter" },
       desc = "Refresh codelens",
       callback = function()
         if not utils.has_capability("textDocument/codeLens", { bufnr = bufnr }) then
-          del_buffer_autocmd("lsp_codelens_refresh", bufnr)
+          M.del_buffer_autocmd("lsp_codelens_refresh", bufnr)
           return
         end
         if vim.g.codelens_enabled then vim.lsp.codelens.refresh() end
@@ -176,13 +178,13 @@ local function on_attach(client, bufnr)
   end
 
   if client.supports_method "textDocument/documentHighlight" then
-    add_buffer_autocmd("lsp_document_highlight", bufnr, {
+    M.add_buffer_autocmd("lsp_document_highlight", bufnr, {
       {
         events = { "CursorHold", "CursorHoldI" },
         desc = "highlight references when cursor holds",
         callback = function()
           if not utils.has_capability("textDocument/documentHighlight", { bufnr = bufnr }) then
-            del_buffer_autocmd("lsp_document_highlight", bufnr)
+            M.del_buffer_autocmd("lsp_document_highlight", bufnr)
             return
           end
           vim.lsp.buf.document_highlight()
@@ -212,9 +214,10 @@ local function on_attach(client, bufnr)
   end
 end
 
+M.capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
+
 function M.config()
   local lspconfig = require "lspconfig"
-  local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
   local icons = require("core.icons").diagnostic
   local signs = {
     { name = "DiagnosticSignError", text = icons.DiagnosticError, texthl = "DiagnosticSignError" },
@@ -267,12 +270,14 @@ function M.config()
     "ltex",
   }
 
+  require("neoconf").setup()
+
   for _, server in ipairs(servers) do
     local opts = {
-      on_attach = on_attach,
-      capabilities = capabilities,
+      on_attach = M.on_attach,
+      capabilities = M.capabilities,
     }
-    local require_ok, settings = pcall(require, "user.lspsettings." .. server)
+    local require_ok, settings = pcall(require, "plugin.lspsettings." .. server)
     if require_ok then opts = vim.tbl_deep_extend("force", settings, opts) end
     if server == "lua_ls" then
       require("neodev").setup {
@@ -282,7 +287,7 @@ function M.config()
     if server == "clangd" then opts.capabilities = {
       offsetEncoding = { "utf-16" },
     } end
-    lspconfig[server].setup { opts }
+    lspconfig[server].setup(opts)
   end
 end
 
