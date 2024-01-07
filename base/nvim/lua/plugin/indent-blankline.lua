@@ -2,7 +2,6 @@ local M = {
   "lukas-reineke/indent-blankline.nvim",
   version = "2.20.7",
   event = { "BufReadPre", "BufNewFile" },
-  init = function() require("core.utils").load_mappings "blankline" end,
 }
 
 M.opts = {

@@ -7,6 +7,7 @@ local M = {
     "nvim-tree/nvim-web-devicons",
     "debugloop/telescope-undo.nvim",
     "nvim-telescope/telescope-ui-select.nvim",
+    { "2kabhishek/nerdy.nvim", cmd = "Nerdy" },
     { "nvim-telescope/telescope-fzf-native.nvim", enabled = vim.fn.executable "make" == 1, build = "make" },
   },
   cmd = "Telescope",

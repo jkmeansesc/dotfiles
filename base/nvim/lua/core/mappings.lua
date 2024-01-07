@@ -2,7 +2,7 @@ local M = {}
 
 M.general = {
   i = {
-    -- go to  beginning and end
+    -- go to beginning and end
     ["<C-b>"] = { "<ESC>^i", "Beginning of line" },
     ["<C-e>"] = { "<End>", "End of line" },
 
@@ -27,22 +27,26 @@ M.general = {
     ["|"] = { "<C-w>v", "Split vertically" },
     ["\\"] = { "<C-w>s", "Split horizontally" },
     ["<leader>c"] = { "<cmd>close<CR>", "Close" },
-    ["<leader>s|"] = { "<C-w>v", "Split vertically" },
-    ["<leader>s\\"] = { "<C-w>s", "Split horizontally" },
-    ["<leader>s="] = { "<C-w>=", "Equal size window" },
+    ["<leader>b|"] = { "<C-w>v", "Split vertically" },
+    ["<leader>b\\"] = { "<C-w>s", "Split horizontally" },
+    ["<leader>b="] = { "<C-w>=", "Equal size window" },
 
     ["<Esc>"] = { "<cmd> noh <CR>", "Clear highlights" },
 
     -- save
     ["<C-s>"] = { "<cmd>w!<CR>", "Save (force)" },
-    ["<leader>w"] = { "<cmd>w<CR>", "Save" },
+    ["<leader>w"] = { "<cmd>update<CR>", "Save" },
 
     -- quit
-    ["<C-q>"] = { "<cmd>qa<CR>", "Quit" },
+    ["<C-q>"] = { "<cmd>x<CR>", "Save and Quit" },
     ["<C-Q>"] = { "<cmd>qa!<CR>", "Quit (force)" },
 
     -- copy all
     ["<leader>y"] = { "<cmd> %y+ <CR>", "Yank all" },
+
+    -- move to start/end of line
+    ["H"] = { "^", "Start of line" },
+    ["L"] = { "g_", "End of line" },
 
     -- Allow moving the cursor through wrapped lines with j, k, <Up> and <Down>
     -- http://www.reddit.com/r/vim/comments/2k4cbr/problem_with_gj_and_gk/
@@ -73,6 +77,17 @@ M.general = {
     ["<leader>mm"] = { "<cmd>Mason<CR>", "Mason" },
     ["<leader>mi"] = { "<cmd>LspInfo<cr>", "LSP information" },
     ["<leader>mn"] = { "<cmd>NullLsInfo<cr>", "Null-ls information" },
+    ["<leader>mr"] = {
+      function()
+        vim.cmd [[
+      update $MYVIMRC
+      source $MYVIMRC
+    ]]
+        vim.notify("Nvim config successfully reloaded!", vim.log.levels.INFO, { title = "nvim-config" })
+      end,
+      "Reload nvim config",
+      opts = { silent = true },
+    },
   },
 
   v = {
@@ -90,6 +105,13 @@ M.general = {
     -- Don't copy the replaced text after pasting in visual mode
     -- https://vim.fandom.com/wiki/Replace_a_word_with_yanked_text#Alternative_mapping_for_paste
     ["p"] = { 'p:let @+=@0<CR>:let @"=@0<CR>', "Dont copy replaced text", opts = { silent = true } },
+
+    ["<"] = { "<gv", "Indent line" },
+    [">"] = { ">gv", "Indent line" },
+
+    -- move to start/end of line
+    ["H"] = { "^", "Start of line" },
+    ["L"] = { "g_", "End of line" },
   },
 }
 
@@ -168,19 +190,19 @@ M.smartsplits = {
       function() require("smart-splits").move_cursor_right() end,
       "Move cursor right",
     },
-    ["<leader>sh"] = {
+    ["<leader>bh"] = {
       function() require("smart-splits").swap_buf_left() end,
       "Swap left",
     },
-    ["<leader>sj"] = {
+    ["<leader>bj"] = {
       function() require("smart-splits").swap_buf_down() end,
       "Swap down",
     },
-    ["<leader>sk"] = {
+    ["<leader>bk"] = {
       function() require("smart-splits").swap_buf_up() end,
       "Swap up",
     },
-    ["<leader>sl"] = {
+    ["<leader>bl"] = {
       function() require("smart-splits").swap_buf_right() end,
       "Swap right",
     },
@@ -227,6 +249,7 @@ M.telescope = {
     ["<leader>fz"] = { "<cmd> Telescope current_buffer_fuzzy_find <CR>", "Find in current buffer" },
     ["<leader>fm"] = { "<cmd> Telescope marks <CR>", "Telescope bookmarks" },
     ["<leader>fu"] = { "<cmd>Telescope undo<CR>", "Find undo" },
+    ["<leader>fi"] = { "<cmd>Nerdy<CR>", "Find icons" },
 
     -- git
     ["<leader>gc"] = { "<cmd> Telescope git_commits <CR>", "Git commits" },
@@ -237,26 +260,6 @@ M.telescope = {
 
     -- noice history
     ["<leader>fn"] = { "<cmd> Noice telescope<CR>", "Noice history" },
-  },
-}
-
-M.blankline = {
-  plugin = true,
-  n = {
-    ["<leader>J"] = {
-      function()
-        local ok, start = require("indent_blankline.utils").get_current_context(
-          vim.g.indent_blankline_context_patterns,
-          vim.g.indent_blankline_use_treesitter_scope
-        )
-
-        if ok then
-          vim.api.nvim_win_set_cursor(vim.api.nvim_get_current_win(), { start, 0 })
-          vim.cmd [[normal! _]]
-        end
-      end,
-      "Jump to current context",
-    },
   },
 }
 

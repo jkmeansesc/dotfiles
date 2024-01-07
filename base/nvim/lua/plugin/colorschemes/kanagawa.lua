@@ -1,5 +1,6 @@
 local M = {
   "rebelot/kanagawa.nvim",
+  enabled = false,
   lazy = false,
   priority = 1000,
 }
@@ -25,4 +26,5 @@ M.opts = {
   end,
 }
 
+function M.config() vim.cmd [[colorscheme kanagawa]] end
 return M

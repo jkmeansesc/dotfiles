@@ -1,5 +1,6 @@
 local M = {
   "marko-cerovac/material.nvim",
+  enabled = false,
   lazy = false,
   priority = 1000,
 }
@@ -37,6 +38,7 @@ function M.config()
       "which-key",
     },
   }
+  vim.cmd [[colorscheme material]]
 end
 
 return M

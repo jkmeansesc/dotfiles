@@ -1,5 +1,6 @@
 local M = {
   "catppuccin/nvim",
+  enabled = false,
   lazy = false,
   priority = 1000,
   name = "catppuccin",
@@ -40,4 +41,7 @@ M.opts = {
     },
   },
 }
+
+function M.config() vim.cmd [[colorscheme catppuccin]] end
+
 return M
