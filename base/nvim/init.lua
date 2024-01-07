@@ -61,6 +61,8 @@ spec "plugin.comment"
 spec "plugin.guess-indent"
 spec "plugin.noice"
 spec "plugin.smart-splits"
+spec "plugin.ssr"
+spec "plugin.harpoon"
 
 -- LSP
 spec "plugin.nvim-lspconfig"

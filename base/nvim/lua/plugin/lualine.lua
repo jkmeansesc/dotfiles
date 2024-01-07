@@ -9,16 +9,15 @@ local M = {
 -- colors for highlights
 local colors = {
   bg = "#202328",
-  fg = "#bbc2cf",
-  yellow = "#ECBE7B",
-  cyan = "#008080",
-  darkblue = "#081633",
-  green = "#98be65",
-  orange = "#FF8800",
-  violet = "#a9a1e1",
-  magenta = "#c678dd",
-  blue = "#51afef",
-  red = "#ec5f67",
+  fg = "#BBC2CF",
+  yellow = "#F9E2AF",
+  cyan = "#74C7EC",
+  green = "#A6E3A1",
+  orange = "#FAB387",
+  violet = "#B4BEFE",
+  magenta = "#C678DD",
+  blue = "#89B4FA",
+  red = "#F38BA8",
 }
 
 local icons = require "core.icons"
@@ -90,7 +89,7 @@ function M.config()
         {
           "diff",
           cond = conditions.hide_in_width,
-          symbols = { added = " ", modified = "󰝤 ", removed = " " },
+          symbols = { added = " ", modified = " ", removed = " " },
           diff_color = {
             added = { fg = colors.green },
             modified = { fg = colors.orange },
@@ -108,10 +107,10 @@ function M.config()
           symbols = {
             status = {
               icons = {
-                enabled = "",
-                disabled = "",
-                warning = "",
-                unknown = "",
+                enabled = icons.CopilotEnabled,
+                disabled = icons.CopilotDisabled,
+                warning = icons.CopilotWarning,
+                unknown = icons.CopilotUnknown,
               },
               hl = {
                 enabled = "#50FA7B",
@@ -129,17 +128,17 @@ function M.config()
         { function() return "%=" end },
         {
           LSP_status,
-          icon = "  LSP:",
+          icon = icons.Lsp .. " LSP:",
           color = { fg = "#ffffff", gui = "bold" },
         },
         {
           "diagnostics",
           sources = { "nvim_diagnostic" },
           symbols = {
-            error = icons.diagnostic.DiagnosticError .. " ",
-            warn = icons.diagnostic.DiagnosticWarn .. " ",
-            info = icons.diagnostic.DiagnosticInfo .. " ",
-            hint = icons.diagnostic.DiagnosticHint .. " ",
+            error = icons.DiagnosticError .. " ",
+            warn = icons.DiagnosticWarn .. " ",
+            info = icons.DiagnosticInfo .. " ",
+            hint = icons.DiagnosticHint .. " ",
           },
           diagnostics_color = {
             color_error = { fg = colors.red },
@@ -188,12 +187,8 @@ function M.config()
           cond = conditions.hide_in_width,
           color = { fg = colors.fg, gui = "bold" },
         },
-        {
-          "progress",
-          color = { fg = colors.fg, gui = "bold" },
-        },
       },
-      lualine_y = { { "location", color = { gui = "bold" } } },
+      lualine_y = { { "progress", color = { gui = "bold" } } },
       lualine_z = {},
     },
   }

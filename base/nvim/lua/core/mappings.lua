@@ -21,28 +21,28 @@ M.general = {
 
   n = {
     -- buffer management
-    ["<leader>bb"] = { "<cmd> enew <CR>", "New buffer" },
+    ["<Leader>bb"] = { "<CMD> enew <CR>", "New buffer" },
 
     -- window management
     ["|"] = { "<C-w>v", "Split vertically" },
     ["\\"] = { "<C-w>s", "Split horizontally" },
-    ["<leader>c"] = { "<cmd>close<CR>", "Close" },
-    ["<leader>b|"] = { "<C-w>v", "Split vertically" },
-    ["<leader>b\\"] = { "<C-w>s", "Split horizontally" },
-    ["<leader>b="] = { "<C-w>=", "Equal size window" },
+    ["<Leader>c"] = { "<CMD>close<CR>", "Close" },
+    ["<Leader>b|"] = { "<C-w>v", "Split vertically" },
+    ["<Leader>b\\"] = { "<C-w>s", "Split horizontally" },
+    ["<Leader>b="] = { "<C-w>=", "Equal size window" },
 
-    ["<Esc>"] = { "<cmd> noh <CR>", "Clear highlights" },
+    ["<Esc>"] = { "<CMD> noh <CR>", "Clear highlights" },
 
     -- save
-    ["<C-s>"] = { "<cmd>w!<CR>", "Save (force)" },
-    ["<leader>w"] = { "<cmd>update<CR>", "Save" },
+    ["<C-s>"] = { "<CMD>w!<CR>", "Save (force)" },
+    ["<Leader>w"] = { "<CMD>update<CR>", "Save" },
 
     -- quit
-    ["<C-q>"] = { "<cmd>x<CR>", "Save and Quit" },
-    ["<C-Q>"] = { "<cmd>qa!<CR>", "Quit (force)" },
+    ["<C-q>"] = { "<CMD>x<CR>", "Save and Quit" },
+    ["<C-Q>"] = { "<CMD>qa!<CR>", "Quit (force)" },
 
     -- copy all
-    ["<leader>y"] = { "<cmd> %y+ <CR>", "Yank all" },
+    ["<Leader>y"] = { "<CMD> %y+ <CR>", "Yank all" },
 
     -- move to start/end of line
     ["H"] = { "^", "Start of line" },
@@ -50,7 +50,7 @@ M.general = {
 
     -- Allow moving the cursor through wrapped lines with j, k, <Up> and <Down>
     -- http://www.reddit.com/r/vim/comments/2k4cbr/problem_with_gj_and_gk/
-    -- empty mode is same as using <cmd> :map
+    -- empty mode is same as using <CMD> :map
     -- also don't use g[j|k] when in operator pending mode, so it doesn't alter d, y or c behaviour
     ["j"] = { 'v:count || mode(1)[0:1] == "no" ? "j" : "gj"', "Move down", opts = { expr = true } },
     ["k"] = { 'v:count || mode(1)[0:1] == "no" ? "k" : "gk"', "Move up", opts = { expr = true } },
@@ -59,8 +59,8 @@ M.general = {
 
     -- Insert a blank line below or above current line (do not move the cursor),
     -- see https://stackoverflow.com/a/16136134/6064933
-    ["<leader>o"] = { "printf('m`%so<ESC>``', v:count1)", "Insert line below", opts = { expr = true } },
-    ["<leader>O"] = { "printf('m`%sO<ESC>``', v:count1)", "Insert line above", opts = { expr = true } },
+    ["<Leader>o"] = { "printf('m`%so<ESC>``', v:count1)", "Insert line below", opts = { expr = true } },
+    ["<Leader>O"] = { "printf('m`%sO<ESC>``', v:count1)", "Insert line above", opts = { expr = true } },
 
     -- Do not move my cursor when joining lines.
     ["J"] = {
@@ -73,11 +73,11 @@ M.general = {
     },
 
     -- Package management
-    ["<leader>ml"] = { "<cmd>Lazy<CR>", "Lazy" },
-    ["<leader>mm"] = { "<cmd>Mason<CR>", "Mason" },
-    ["<leader>mi"] = { "<cmd>LspInfo<cr>", "LSP information" },
-    ["<leader>mn"] = { "<cmd>NullLsInfo<cr>", "Null-ls information" },
-    ["<leader>mr"] = {
+    ["<Leader>ml"] = { "<CMD>Lazy<CR>", "Lazy" },
+    ["<Leader>mm"] = { "<CMD>Mason<CR>", "Mason" },
+    ["<Leader>mi"] = { "<CMD>LspInfo<CR>", "LSP information" },
+    ["<Leader>mn"] = { "<CMD>NullLsInfo<CR>", "Null-ls information" },
+    ["<Leader>mr"] = {
       function()
         vim.cmd [[
       update $MYVIMRC
@@ -118,38 +118,38 @@ M.general = {
 M.bufferline = {
   plugin = true,
   n = {
-    ["<leader>bt"] = {
-      "<Cmd>BufferLineTogglePin<CR>",
+    ["<Leader>bt"] = {
+      "<CMD>BufferLineTogglePin<CR>",
       "Toggle pin",
     },
 
-    ["<leader>bp"] = {
-      "<cmd>BufferLineGroupCloseUngrouped<cr>",
+    ["<Leader>bp"] = {
+      "<CMD>BufferLineGroupCloseUngrouped<CR>",
       "Close non-pinned buffers",
     },
 
-    ["<leader>bo"] = {
-      "<cmd>BufferLineCloseOthers<cr>",
+    ["<Leader>bo"] = {
+      "<CMD>BufferLineCloseOthers<CR>",
       "Close other buffers",
     },
 
-    ["<leader>br"] = {
-      "<cmd>BufferLineCloseRight<cr>",
+    ["<Leader>br"] = {
+      "<CMD>BufferLineCloseRight<CR>",
       "Close buffers to the right",
     },
 
-    ["<leader>bl"] = {
-      "<cmd>BufferLineCloseLeft<cr>",
+    ["<Leader>bl"] = {
+      "<CMD>BufferLineCloseLeft<CR>",
       "Close buffers to the left",
     },
 
     ["<S-h>"] = {
-      "<cmd>BufferLineCyclePrev<cr>",
+      "<CMD>BufferLineCyclePrev<CR>",
       "Prev buffer",
     },
 
     ["<S-l>"] = {
-      "<cmd>BufferLineCycleNext<cr>",
+      "<CMD>BufferLineCycleNext<CR>",
       "Next buffer",
     },
   },
@@ -190,19 +190,19 @@ M.smartsplits = {
       function() require("smart-splits").move_cursor_right() end,
       "Move cursor right",
     },
-    ["<leader>bh"] = {
+    ["<Leader>bh"] = {
       function() require("smart-splits").swap_buf_left() end,
       "Swap left",
     },
-    ["<leader>bj"] = {
+    ["<Leader>bj"] = {
       function() require("smart-splits").swap_buf_down() end,
       "Swap down",
     },
-    ["<leader>bk"] = {
+    ["<Leader>bk"] = {
       function() require("smart-splits").swap_buf_up() end,
       "Swap up",
     },
-    ["<leader>bl"] = {
+    ["<Leader>bl"] = {
       function() require("smart-splits").swap_buf_right() end,
       "Swap right",
     },
@@ -214,15 +214,15 @@ M.comment = {
 
   -- toggle comment in both modes
   n = {
-    ["<leader>/"] = {
+    ["<Leader>/"] = {
       function() require("Comment.api").toggle.linewise.current() end,
       "Toggle comment",
     },
   },
 
   v = {
-    ["<leader>/"] = {
-      "<ESC><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>",
+    ["<Leader>/"] = {
+      "<ESC><CMD>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>",
       "Toggle comment",
     },
   },
@@ -231,7 +231,7 @@ M.comment = {
 M.neotree = {
   plugin = true,
   n = {
-    ["<leader>e"] = { "<cmd>Neotree focus<CR>", "Toggle explorer" },
+    ["<Leader>e"] = { "<CMD>Neotree focus<CR>", "Toggle explorer" },
   },
 }
 
@@ -239,27 +239,27 @@ M.telescope = {
   plugin = true,
   n = {
     -- find
-    ["<leader>ff"] = { "<cmd> Telescope find_files <CR>", "Find files" },
-    ["<leader>fa"] = { "<cmd> Telescope find_files follow=true no_ignore=true hidden=true <CR>", "Find all" },
-    ["<leader>fg"] = { "<cmd> Telescope live_grep <CR>", "Live grep" },
-    ["<leader>fb"] = { "<cmd> Telescope buffers <CR>", "Find buffers" },
-    ["<leader>fh"] = { "<cmd> Telescope help_tags <CR>", "Help page" },
-    ["<leader>fH"] = { "<cmd> Telescope highlights <CR>", "Find highlights" },
-    ["<leader>fo"] = { "<cmd> Telescope oldfiles <CR>", "Find oldfiles" },
-    ["<leader>fz"] = { "<cmd> Telescope current_buffer_fuzzy_find <CR>", "Find in current buffer" },
-    ["<leader>fm"] = { "<cmd> Telescope marks <CR>", "Telescope bookmarks" },
-    ["<leader>fu"] = { "<cmd>Telescope undo<CR>", "Find undo" },
-    ["<leader>fi"] = { "<cmd>Nerdy<CR>", "Find icons" },
+    ["<Leader>ff"] = { "<CMD> Telescope find_files <CR>", "Find files" },
+    ["<Leader>fa"] = { "<CMD> Telescope find_files follow=true no_ignore=true hidden=true <CR>", "Find all" },
+    ["<Leader>fg"] = { "<CMD> Telescope live_grep <CR>", "Live grep" },
+    ["<Leader>fb"] = { "<CMD> Telescope buffers <CR>", "Find buffers" },
+    ["<Leader>fh"] = { "<CMD> Telescope help_tags <CR>", "Help page" },
+    ["<Leader>fH"] = { "<CMD> Telescope highlights <CR>", "Find highlights" },
+    ["<Leader>fo"] = { "<CMD> Telescope oldfiles <CR>", "Find oldfiles" },
+    ["<Leader>fz"] = { "<CMD> Telescope current_buffer_fuzzy_find <CR>", "Find in current buffer" },
+    ["<Leader>fM"] = { "<CMD> Telescope marks <CR>", "Telescope bookmarks" },
+    ["<Leader>fu"] = { "<CMD>Telescope undo<CR>", "Find undo" },
+    ["<Leader>fi"] = { "<CMD>Nerdy<CR>", "Find icons" },
 
     -- git
-    ["<leader>gc"] = { "<cmd> Telescope git_commits <CR>", "Git commits" },
-    ["<leader>gs"] = { "<cmd> Telescope git_status <CR>", "Git status" },
+    ["<Leader>gc"] = { "<CMD> Telescope git_commits <CR>", "Git commits" },
+    ["<Leader>gs"] = { "<CMD> Telescope git_status <CR>", "Git status" },
 
     -- pick a hidden term
-    ["<leader>ft"] = { "<cmd> Telescope terms <CR>", "Pick hidden term" },
+    ["<Leader>ft"] = { "<CMD> Telescope terms <CR>", "Pick hidden term" },
 
     -- noice history
-    ["<leader>fn"] = { "<cmd> Noice telescope<CR>", "Noice history" },
+    ["<Leader>fn"] = { "<CMD> Noice telescope<CR>", "Noice history" },
   },
 }
 
@@ -271,53 +271,53 @@ M.gitsigns = {
     ["[h"] = { function() require("gitsigns").prev_hunk() end, "Prev hunk", opts = { expr = true } },
 
     -- Actions
-    ["<leader>gr"] = { function() require("gitsigns").reset_hunk() end, "Reset hunk" },
-    ["<leader>gR"] = { function() require("gitsigns").reset_buffer() end, "Reset buffer" },
-    ["<leader>gp"] = { function() require("gitsigns").preview_hunk() end, "Preview hunk" },
-    ["<leader>gs"] = { function() require("gitsigns").stage_hunk() end, "Stage hunk" },
-    ["<leader>gS"] = { function() require("gitsigns").stage_buffer() end, "Stage buffer" },
-    ["<leader>gu"] = { function() require("gitsigns").undo_stage_hunk() end, "Undo hunk" },
-    ["<leader>gb"] = { function() require("gitsigns").blame_line() end, "Blame line" },
-    ["<leader>gB"] = { function() require("gitsigns").blame_line { full = true } end, "Blame buffer" },
-    ["<leader>gd"] = { function() require("gitsigns").diffthis() end, "Git diff" },
-    ["<leader>gt"] = { function() require("gitsigns").toggle_current_line_blame() end, "Toggle line blame" },
+    ["<Leader>gr"] = { function() require("gitsigns").reset_hunk() end, "Reset hunk" },
+    ["<Leader>gR"] = { function() require("gitsigns").reset_buffer() end, "Reset buffer" },
+    ["<Leader>gp"] = { function() require("gitsigns").preview_hunk() end, "Preview hunk" },
+    ["<Leader>gs"] = { function() require("gitsigns").stage_hunk() end, "Stage hunk" },
+    ["<Leader>gS"] = { function() require("gitsigns").stage_buffer() end, "Stage buffer" },
+    ["<Leader>gu"] = { function() require("gitsigns").undo_stage_hunk() end, "Undo hunk" },
+    ["<Leader>gb"] = { function() require("gitsigns").blame_line() end, "Blame line" },
+    ["<Leader>gB"] = { function() require("gitsigns").blame_line { full = true } end, "Blame buffer" },
+    ["<Leader>gd"] = { function() require("gitsigns").diffthis() end, "Git diff" },
+    ["<Leader>gt"] = { function() require("gitsigns").toggle_current_line_blame() end, "Toggle line blame" },
   },
 }
 
 M.minibufremove = {
   plugin = true,
   n = {
-    ["<leader>q"] = { function() require("core.utils").close() end, "Close buffer" },
-    ["<leader>Q"] = { function() require("core.utils").close(0, true) end, "Close buffer (force)" },
-    ["<leader>bq"] = { function() require("core.utils").close_all() end, "Close all buffer" },
+    ["<Leader>q"] = { function() require("core.utils").close() end, "Close buffer" },
+    ["<Leader>Q"] = { function() require("core.utils").close(0, true) end, "Close buffer (force)" },
+    ["<Leader>bq"] = { function() require("core.utils").close_all() end, "Close all buffer" },
   },
 }
 
 M.toggleterm = {
   plugin = true,
   n = {
-    ["<leader>tt"] = { "<cmd>ToggleTerm direction=float<cr>", "ToggleTerm float" },
-    ["<leader>th"] = { "<cmd>ToggleTerm size=10 direction=horizontal<cr>", "ToggleTerm horizontal split" },
-    ["<leader>tv"] = { "<cmd>ToggleTerm size=80 direction=vertical<cr>", "ToggleTerm vertical split" },
+    ["<Leader>bt"] = { "<CMD>ToggleTerm direction=float<CR>", "ToggleTerm float" },
+    -- ["<Leader>th"] = { "<CMD>ToggleTerm size=10 direction=horizontal<CR>", "ToggleTerm horizontal split" },
+    -- ["<Leader>tv"] = { "<CMD>ToggleTerm size=80 direction=vertical<CR>", "ToggleTerm vertical split" },
   },
 }
 
 M.nvimtree = {
   plugin = true,
   n = {
-    ["<leader>e"] = { "<cmd>NvimTreeFocus<CR>", "Focus NvimTree" },
+    ["<Leader>e"] = { "<CMD>NvimTreeFocus<CR>", "Focus NvimTree" },
   },
 }
 
 M.trouble = {
   plugin = true,
   n = {
-    ["<leader>xx"] = { "<cmd>TroubleToggle document_diagnostics<cr>", "Document Diagnostics (Trouble)" },
-    ["<leader>xX"] = { "<cmd>TroubleToggle workspace_diagnostics<cr>", "Workspace Diagnostics (Trouble)" },
-    ["<leader>xL"] = { "<cmd>TroubleToggle loclist<cr>", "Location List (Trouble)" },
-    ["<leader>xQ"] = { "<cmd>TroubleToggle quickfix<cr>", "Quickfix List (Trouble)" },
-    ["<leader>xt"] = { "<cmd>TodoTrouble<cr>", "Todo (Trouble)" },
-    ["<leader>xT"] = { "<cmd>TodoTrouble keywords=TODO,FIX,FIXME<cr>", "Todo/Fix/Fixme (Trouble)" },
+    ["<Leader>xx"] = { "<CMD>TroubleToggle document_diagnostics<CR>", "Document Diagnostics (Trouble)" },
+    ["<Leader>xX"] = { "<CMD>TroubleToggle workspace_diagnostics<CR>", "Workspace Diagnostics (Trouble)" },
+    ["<Leader>xL"] = { "<CMD>TroubleToggle loclist<CR>", "Location List (Trouble)" },
+    ["<Leader>xQ"] = { "<CMD>TroubleToggle quickfix<CR>", "Quickfix List (Trouble)" },
+    ["<Leader>xt"] = { "<CMD>TodoTrouble<CR>", "Todo (Trouble)" },
+    ["<Leader>xT"] = { "<CMD>TodoTrouble keywords=TODO,FIX,FIXME<CR>", "Todo/Fix/Fixme (Trouble)" },
     ["[q"] = {
       function()
         if require("trouble").is_open() then
@@ -342,6 +342,37 @@ M.trouble = {
     },
   },
 }
+
+M.ssr = {
+  n = {
+    ["<Leader>r"] = { function() require("ssr").open() end, "Open SSR" },
+  },
+  x = {
+    ["<Leader>r"] = { function() require("ssr").open() end, "Open SSR" },
+  },
+  v = {
+    ["<Leader>r"] = { function() require("ssr").open() end, "Open SSR" },
+  },
+}
+
+M.harpoon = {
+  n = {
+    ["<Leader>a"] = { "<CMD>lua require('harpoon.mark').add_file()<CR>", "Harpoon add file" },
+    ["<Leader>fm"] = { "<CMD>Telescope harpoon marks<CR>", "Harpoon marks" },
+    ["<C-x>"] = {
+      function()
+        vim.ui.input({ prompt = "Harpoon mark index: " }, function(input)
+          local num = tonumber(input)
+          if num then require("harpoon.ui").nav_file(num) end
+        end)
+      end,
+      "Goto index of mark",
+    },
+    ["<C-p>"] = { function() require("harpoon.ui").nav_prev() end, "Goto previous mark" },
+    ["<C-n>"] = { function() require("harpoon.ui").nav_next() end, "Goto next mark" },
+  },
+}
+
 M.lspconfig = {
   plugin = true,
   n = {
@@ -354,34 +385,34 @@ M.lspconfig = {
 M.cpp = {
   plugin = true,
   n = {
-    ["<leader>lR"] = { "<cmd>ClangdSwitchSourceHeader<cr>", "Switch Source/Header (C/C++)" },
+    ["<Leader>lR"] = { "<CMD>ClangdSwitchSourceHeader<CR>", "Switch Source/Header (C/C++)" },
   },
 }
 
 M.java = {
   plugin = true,
   n = {
-    ["<leader>jv"] = { function() require("jdtls").extract_variable_all() end, "Extract Variable" },
-    ["<leader>jc"] = { function() require("jdtls").extract_constant() end, "Extract Constant" },
-    ["<leader>js"] = { function() require("jdtls").super_implementation() end, "Goto Super" },
-    ["<leader>jS"] = { function() require("jdtls.tests").goto_subjects() end, "Goto Subjects" },
-    ["<leader>jo"] = { function() require("jdtls").organize_imports() end, "Organize Imports" },
-    ["<leader>jT"] = { function() require("jdtls.dap").test_class() end, "Run All Test" },
-    ["<leader>jt"] = { function() require("jdtls.dap").test_nearest_method() end, "Run Nearest Test" },
-    ["<leader>jr"] = { function() require("jdtls.dap").pick_test() end, "Run Test" },
-    ["<leader>jm"] = { function() require("jdtls").extract_constant.extract_method(true) end, "Extract Method" },
+    ["<Leader>jv"] = { function() require("jdtls").extract_variable_all() end, "Extract Variable" },
+    ["<Leader>jc"] = { function() require("jdtls").extract_constant() end, "Extract Constant" },
+    ["<Leader>js"] = { function() require("jdtls").super_implementation() end, "Goto Super" },
+    ["<Leader>jS"] = { function() require("jdtls.tests").goto_subjects() end, "Goto Subjects" },
+    ["<Leader>jo"] = { function() require("jdtls").organize_imports() end, "Organize Imports" },
+    ["<Leader>jT"] = { function() require("jdtls.dap").test_class() end, "Run All Test" },
+    ["<Leader>jt"] = { function() require("jdtls.dap").test_nearest_method() end, "Run Nearest Test" },
+    ["<Leader>jr"] = { function() require("jdtls.dap").pick_test() end, "Run Test" },
+    ["<Leader>jm"] = { function() require("jdtls").extract_constant.extract_method(true) end, "Extract Method" },
   },
 
   v = {
-    ["<leader>jm"] = {
+    ["<Leader>jm"] = {
       [[<ESC><CMD>lua require('jdtls').extract_method(true)<CR>]],
       "Extract Method",
     },
-    ["<leader>jv"] = {
+    ["<Leader>jv"] = {
       [[<ESC><CMD>lua require('jdtls').extract_variable_all(true)<CR>]],
       "Extract Variable",
     },
-    ["<leader>jc"] = {
+    ["<Leader>jc"] = {
       [[<ESC><CMD>lua require('jdtls').extract_constant(true)<CR>]],
       "Extract Constant",
     },
@@ -391,15 +422,15 @@ M.java = {
 M.dap = {
   plugin = true,
   n = {
-    ["<leader>du"] = { function() require("dapui").toggle() end, "Dap UI" },
-    ["<leader>de"] = { function() require("dapui").toggle() end, "Eval" },
-    ["<leader>dB"] = {
+    ["<Leader>du"] = { function() require("dapui").toggle() end, "Dap UI" },
+    ["<Leader>de"] = { function() require("dapui").toggle() end, "Eval" },
+    ["<Leader>dB"] = {
       function() require("dap").set_breakpoint(vim.fn.input "Breakpoint condition: ") end,
       "Breakpoint Condition",
     },
-    ["<leader>db"] = { function() require("dap").toggle_breakpoint() end, "Toggle Breakpoint" },
-    ["<leader>dc"] = { function() require("dap").continue() end, "Continue" },
-    ["<leader>da"] = {
+    ["<Leader>db"] = { function() require("dap").toggle_breakpoint() end, "Toggle Breakpoint" },
+    ["<Leader>dc"] = { function() require("dap").continue() end, "Continue" },
+    ["<Leader>da"] = {
       function()
         require("dap").continue {
           before = function(config)
@@ -416,22 +447,22 @@ M.dap = {
       end,
       "Run with Args",
     },
-    ["<leader>dC"] = { function() require("dap").run_to_cursor() end, "Run to Cursor" },
-    ["<leader>dg"] = { function() require("dap").goto_() end, "Go to line (no execute)" },
-    ["<leader>di"] = { function() require("dap").step_into() end, "Step Into" },
-    ["<leader>dj"] = { function() require("dap").down() end, "Down" },
-    ["<leader>dk"] = { function() require("dap").up() end, "Up" },
-    ["<leader>dl"] = { function() require("dap").run_last() end, "Run Last" },
-    ["<leader>do"] = { function() require("dap").step_out() end, "Step Out" },
-    ["<leader>dO"] = { function() require("dap").step_over() end, "Step Over" },
-    ["<leader>dp"] = { function() require("dap").pause() end, "Pause" },
-    ["<leader>dr"] = { function() require("dap").repl.toggle() end, "Toggle REPL" },
-    ["<leader>ds"] = { function() require("dap").session() end, "Session" },
-    ["<leader>dt"] = { function() require("dap").terminate() end, "Terminate" },
-    ["<leader>dw"] = { function() require("dap.ui.widgets").hover() end, "Widgets" },
+    ["<Leader>dC"] = { function() require("dap").run_to_cursor() end, "Run to Cursor" },
+    ["<Leader>dg"] = { function() require("dap").goto_() end, "Go to line (no execute)" },
+    ["<Leader>di"] = { function() require("dap").step_into() end, "Step Into" },
+    ["<Leader>dj"] = { function() require("dap").down() end, "Down" },
+    ["<Leader>dk"] = { function() require("dap").up() end, "Up" },
+    ["<Leader>dl"] = { function() require("dap").run_last() end, "Run Last" },
+    ["<Leader>do"] = { function() require("dap").step_out() end, "Step Out" },
+    ["<Leader>dO"] = { function() require("dap").step_over() end, "Step Over" },
+    ["<Leader>dp"] = { function() require("dap").pause() end, "Pause" },
+    ["<Leader>dr"] = { function() require("dap").repl.toggle() end, "Toggle REPL" },
+    ["<Leader>ds"] = { function() require("dap").session() end, "Session" },
+    ["<Leader>dt"] = { function() require("dap").terminate() end, "Terminate" },
+    ["<Leader>dw"] = { function() require("dap.ui.widgets").hover() end, "Widgets" },
   },
   v = {
-    ["<leader>de"] = { function() require("dapui").toggle() end, "Eval" },
+    ["<Leader>de"] = { function() require("dapui").toggle() end, "Eval" },
   },
 }
 

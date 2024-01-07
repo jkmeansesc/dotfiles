@@ -218,7 +218,7 @@ M.capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.m
 
 function M.config()
   local lspconfig = require "lspconfig"
-  local icons = require("core.icons").diagnostic
+  local icons = require "core.icons"
   local signs = {
     { name = "DiagnosticSignError", text = icons.DiagnosticError, texthl = "DiagnosticSignError" },
     { name = "DiagnosticSignWarn", text = icons.DiagnosticWarn, texthl = "DiagnosticSignWarn" },

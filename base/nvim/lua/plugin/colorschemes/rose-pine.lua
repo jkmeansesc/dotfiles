@@ -1,6 +1,6 @@
 local M = {
   "rose-pine/neovim",
-  enabled = false,
+  -- enabled = false,
   name = "rose-pine",
   lazy = false,
   priority = 1000,
