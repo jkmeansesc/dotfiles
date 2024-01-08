@@ -5,6 +5,7 @@ local M = {
     "saadparwaiz1/cmp_luasnip", -- for autocompletion
     "hrsh7th/cmp-buffer", -- source for text in buffer
     "hrsh7th/cmp-path", -- source for file system paths
+    "hrsh7th/cmp-cmdline", -- source for vim's cmdline
     "onsails/lspkind.nvim", -- vs-code like pictograms
     "hrsh7th/cmp-nvim-lsp",
     { "kawre/neotab.nvim", opts = { tabkey = "" } },
@@ -49,6 +50,20 @@ local M = {
             end
           end,
         })
+        -- friendly-snippets - enable standardized comments snippets
+        require("luasnip").filetype_extend("typescript", { "tsdoc" })
+        require("luasnip").filetype_extend("javascript", { "jsdoc" })
+        require("luasnip").filetype_extend("lua", { "luadoc" })
+        require("luasnip").filetype_extend("python", { "pydoc" })
+        require("luasnip").filetype_extend("rust", { "rustdoc" })
+        require("luasnip").filetype_extend("cs", { "csharpdoc" })
+        require("luasnip").filetype_extend("java", { "javadoc" })
+        require("luasnip").filetype_extend("c", { "cdoc" })
+        require("luasnip").filetype_extend("cpp", { "cppdoc" })
+        require("luasnip").filetype_extend("php", { "phpdoc" })
+        require("luasnip").filetype_extend("kotlin", { "kdoc" })
+        require("luasnip").filetype_extend("ruby", { "rdoc" })
+        require("luasnip").filetype_extend("sh", { "shelldoc" })
       end,
     }, -- snippet engine
     {
@@ -90,23 +105,24 @@ function M.config()
     end,
   })
 
-  -- visual studio code dark+ theme colors to the menu
   -- gray
   vim.api.nvim_set_hl(0, "CmpItemAbbrDeprecated", { bg = "NONE", strikethrough = true, fg = "#808080" })
   -- blue
-  vim.api.nvim_set_hl(0, "CmpItemAbbrMatch", { bg = "NONE", fg = "#569CD6" })
+  vim.api.nvim_set_hl(0, "CmpItemAbbrMatch", { bg = "NONE", fg = "#89B4FA" })
   vim.api.nvim_set_hl(0, "CmpItemAbbrMatchFuzzy", { link = "CmpIntemAbbrMatch" })
   -- light blue
-  vim.api.nvim_set_hl(0, "CmpItemKindVariable", { bg = "NONE", fg = "#9CDCFE" })
+  vim.api.nvim_set_hl(0, "CmpItemKindVariable", { bg = "NONE", fg = "#89DCEB" })
   vim.api.nvim_set_hl(0, "CmpItemKindInterface", { link = "CmpItemKindVariable" })
   vim.api.nvim_set_hl(0, "CmpItemKindText", { link = "CmpItemKindVariable" })
   -- pink
-  vim.api.nvim_set_hl(0, "CmpItemKindFunction", { bg = "NONE", fg = "#C586C0" })
+  vim.api.nvim_set_hl(0, "CmpItemKindFunction", { bg = "NONE", fg = "#F5C2E7" })
   vim.api.nvim_set_hl(0, "CmpItemKindMethod", { link = "CmpItemKindFunction" })
   -- front
-  vim.api.nvim_set_hl(0, "CmpItemKindKeyword", { bg = "NONE", fg = "#D4D4D4" })
+  vim.api.nvim_set_hl(0, "CmpItemKindKeyword", { bg = "NONE", fg = "#F2CDCD" })
   vim.api.nvim_set_hl(0, "CmpItemKindProperty", { link = "CmpItemKindKeyword" })
   vim.api.nvim_set_hl(0, "CmpItemKindUnit", { link = "CmpItemKindKeyword" })
+  -- copilot
+  vim.api.nvim_set_hl(0, "CmpItemKindCopilot", { fg = "#A6E3A1" })
 
   cmp.setup {
     enabled = function()
@@ -120,13 +136,23 @@ function M.config()
       end
     end,
 
+    confirm_opts = {
+      behavior = cmp.ConfirmBehavior.Replace,
+      select = false,
+    },
+
     window = {
       completion = {
+        border = "rounded",
+        winhighlight = "Normal:Pmenu,CursorLine:PmenuSel,FloatBorder:FloatBorder,Search:None",
+        col_offset = -3,
+        side_padding = 1,
         scrollbar = false,
-        winhighlight = "Normal:NormalFloat,FloatBorder:FloatBorder,CursorLine:PmenuSel,Search:None",
+        scrolloff = 8,
       },
       documentation = {
-        winhighlight = "Normal:NormalFloat,FloatBorder:FloatBorder,CursorLine:PmenuSel,Search:None",
+        border = "rounded",
+        winhighlight = "Normal:Pmenu,FloatBorder:FloatBorder,Search:None",
       },
     },
 
@@ -136,6 +162,10 @@ function M.config()
 
     -- configure how nvim-cmp interacts with snippet engine
     snippet = { expand = function(args) luasnip.lsp_expand(args.body) end },
+
+    view = {
+      entries = { name = "custom", selection_order = "near_cursor" },
+    },
 
     mapping = {
       ["<Up>"] = cmp.mapping.select_prev_item { behavior = cmp.SelectBehavior.Select },
@@ -171,11 +201,21 @@ function M.config()
     },
 
     sources = cmp.config.sources {
-      { name = "nvim_lsp", priority = 1000 },
-      { name = "copilot", priority = 750 },
-      { name = "luasnip", priority = 750 }, -- snippets
-      { name = "buffer", priority = 500 }, -- text within current buffer
-      { name = "path", priority = 250 }, -- file system paths
+      {
+        name = "nvim_lsp",
+        priority = 1000,
+        entry_filter = function(entry, ctx)
+          local kind = require("cmp.types.lsp").CompletionItemKind[entry:get_kind()]
+          if ctx.prev_context.filetype == "markdown" then return true end
+          if kind == "Text" then return false end
+          return true
+        end,
+      },
+      { name = "copilot", priority = 900 },
+      { name = "luasnip", priority = 800 }, -- snippets
+      { name = "buffer", priority = 700 }, -- text within current buffer
+      { name = "cmdline", priority = 600 }, -- cmd
+      { name = "path", priority = 500 }, -- file system paths
     },
 
     -- get types on the left, and offset the menu
@@ -193,11 +233,11 @@ function M.config()
             luasnip = "[LuaSnip]",
             path = "[Path]",
             copilot = "[Copilot]",
+            cmdline = "[Cmdline]",
           },
         }(entry, vim_item)
         local strings = vim.split(kind.kind, "%s", { trimempty = true })
         kind.kind = " " .. (strings[1] or "") .. " "
-        -- kind.menu = "    (" .. (strings[2] or "") .. ")"
         return kind
       end,
     },

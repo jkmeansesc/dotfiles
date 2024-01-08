@@ -344,6 +344,7 @@ M.trouble = {
 }
 
 M.ssr = {
+  plugin = true,
   n = {
     ["<Leader>r"] = { function() require("ssr").open() end, "Open SSR" },
   },
@@ -356,17 +357,12 @@ M.ssr = {
 }
 
 M.harpoon = {
+  plugin = true,
   n = {
     ["<Leader>a"] = { "<CMD>lua require('harpoon.mark').add_file()<CR>", "Harpoon add file" },
-    ["<Leader>fm"] = { "<CMD>Telescope harpoon marks<CR>", "Harpoon marks" },
     ["<C-x>"] = {
-      function()
-        vim.ui.input({ prompt = "Harpoon mark index: " }, function(input)
-          local num = tonumber(input)
-          if num then require("harpoon.ui").nav_file(num) end
-        end)
-      end,
-      "Goto index of mark",
+      function() require("harpoon.ui").toggle_quick_menu() end,
+      "Toggle harpoon menu",
     },
     ["<C-p>"] = { function() require("harpoon.ui").nav_prev() end, "Goto previous mark" },
     ["<C-n>"] = { function() require("harpoon.ui").nav_next() end, "Goto next mark" },

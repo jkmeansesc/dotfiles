@@ -46,12 +46,12 @@ vim.opt.pumheight = 10 -- height of the pop up menu
 vim.opt.number = true -- show numberline
 vim.opt.relativenumber = true -- show relative numberline
 
-vim.opt.shiftround = true -- round indent to a multiple of 'shiftwidth'.
 vim.opt.showmode = false -- disable showing modes in command line
 vim.opt.signcolumn = "yes" -- always show the sign column
 vim.opt.smartcase = true -- case sensitive searching
 vim.opt.smartindent = true -- do smart autoindenting.
 
+vim.opt.shiftround = true -- round indent to a multiple of 'shiftwidth'.
 vim.opt.shiftwidth = 2 -- number of space inserted for indentation
 vim.opt.softtabstop = 2 -- number of spaces that a <Tab> counts for.
 vim.opt.tabstop = 2 -- number of space in a tab

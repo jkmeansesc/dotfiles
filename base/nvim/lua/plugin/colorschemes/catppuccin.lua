@@ -8,7 +8,7 @@ local M = {
 
 M.opts = {
   flavour = "mocha",
-  transparent_background = false,
+  transparent_background = true,
   term_colors = true,
   integrations = {
     aerial = true,
