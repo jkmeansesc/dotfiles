@@ -7,6 +7,7 @@ local M = {
 }
 function M.config()
   local api = require "nvim-tree.api"
+  local icons = require "core.icons"
 
   -- h&l operation
   local function on_attach(bufnr)
@@ -43,6 +44,46 @@ function M.config()
 
   require("nvim-tree").setup {
     on_attach = on_attach,
+    filesystem_watchers = {
+      ignore_dirs = {
+        "node_modules",
+      },
+    },
+    renderer = {
+      highlight_opened_files = "none",
+      indent_width = 2,
+      icons = {
+        git_placement = "before",
+        padding = " ",
+        symlink_arrow = " ➛ ",
+        glyphs = {
+          default = icons.Text,
+          symlink = icons.FileSymlink,
+          bookmark = icons.BookMark,
+          folder = {
+            arrow_closed = icons.ChevronRight,
+            arrow_open = icons.ChevronShortDown,
+            default = icons.Folder,
+            open = icons.FolderOpen,
+            empty = icons.EmptyFolder,
+            empty_open = icons.EmptyFolderOpen,
+            symlink = icons.FolderSymlink,
+            symlink_open = icons.FolderOpen,
+          },
+          git = {
+            unstaged = icons.GitUnstaged,
+            staged = icons.GitStaged,
+            unmerged = icons.GitUnmerged,
+            renamed = icons.GitRenamed,
+            untracked = icons.GitUntracked,
+            deleted = icons.GitRemoved,
+            ignored = icons.GitIgnored,
+          },
+        },
+      },
+      special_files = { "Makefile", "README.md", "readme.md" },
+      symlink_destination = true,
+    },
   }
 end
 

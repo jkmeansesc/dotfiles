@@ -89,7 +89,11 @@ function M.config()
         {
           "diff",
           cond = conditions.hide_in_width,
-          symbols = { added = " ", modified = " ", removed = " " },
+          symbols = {
+            added = icons.GitAdd .. " ",
+            modified = icons.GitModified .. " ",
+            removed = icons.GitRemoved .. " ",
+          },
           diff_color = {
             added = { fg = colors.green },
             modified = { fg = colors.orange },
