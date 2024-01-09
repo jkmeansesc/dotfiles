@@ -99,10 +99,10 @@ export CLASS_PATH="$JAVA_HOME/lib"
 export MAVEN_HOME="/Users/oneoldmac/Local/apache-maven-3.9.4"
 
 # PYTHON ENV
-export PYTHON_HOME="/opt/homebrew/Cellar/python@3.12/3.12.0"
+# export PYTHON_HOME="/opt/homebrew/Cellar/python@3.12/3.12.0"
 
 # PATH ENV
-export PATH="/opt/homebrew/bin:/opt/homebrew/sbin:$PATH:/usr/local/bin:$JAVA_HOME/bin:$CLASS_PATH:$PYTHON_HOME/bin:$MAVEN_HOME/bin"
+export PATH="/opt/homebrew/bin:/opt/homebrew/sbin:$PATH:/usr/local/bin:$JAVA_HOME/bin:$CLASS_PATH:$MAVEN_HOME/bin"
 if [ -d "/opt/homebrew/opt/ruby/bin" ]; then
   export PATH=/opt/homebrew/opt/ruby/bin:$PATH
   export PATH=`gem environment gemdir`/bin:$PATH
@@ -128,7 +128,7 @@ alias view="nvim -R"
 alias vimdiff="nvim -d"
 
 ## Python
-alias python="$PYTHON_HOME/bin/python3.12"
+# alias python="$PYTHON_HOME/bin/python3.12"
 
 ## Git
 alias config='$(which git) --git-dir=$HOME/github/dotfiles/ --work-tree=$HOME'
@@ -142,6 +142,9 @@ alias td="tmux detach"
 ## eza
 alias l="eza -la --icons=always"
 alias ls="eza -a --icons=always"
+
+## Jekyll
+alias j="bundle exec jekyll"
 
 # To customize prompt, run `p10k configure` or edit ~/git/dotfiles/macos/.p10k.zsh.
 [[ ! -f ~/git/dotfiles/macos/.p10k.zsh ]] || source ~/git/dotfiles/macos/.p10k.zsh
