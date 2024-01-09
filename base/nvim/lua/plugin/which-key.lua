@@ -18,6 +18,7 @@ function M.config()
     ["<leader>j"] = { name = icons.Java .. " Java" },
     ["<leader>d"] = { name = icons.Debug .. " Debug" },
     ["<leader>x"] = { name = icons.Trouble .. " Trouble" },
+    ["<leader>t"] = { name = icons.Trouble .. " Terminal" },
   }
 end
 

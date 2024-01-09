@@ -32,6 +32,7 @@ return {
   Java = "",
   Debug = "",
   Trouble = "󰌵",
+  Terminal = "",
   -- nvim-tree
   Text = "",
   FileSymlink = "󱅷",

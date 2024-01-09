@@ -296,9 +296,9 @@ M.minibufremove = {
 M.toggleterm = {
   plugin = true,
   n = {
-    ["<Leader>bt"] = { "<CMD>ToggleTerm direction=float<CR>", "ToggleTerm float" },
-    -- ["<Leader>th"] = { "<CMD>ToggleTerm size=10 direction=horizontal<CR>", "ToggleTerm horizontal split" },
-    -- ["<Leader>tv"] = { "<CMD>ToggleTerm size=80 direction=vertical<CR>", "ToggleTerm vertical split" },
+    ["<Leader>tt"] = { "<CMD>ToggleTerm direction=float<CR>", "ToggleTerm float" },
+    ["<Leader>th"] = { "<CMD>ToggleTerm size=10 direction=horizontal<CR>", "ToggleTerm horizontal split" },
+    ["<Leader>tv"] = { "<CMD>ToggleTerm size=80 direction=vertical<CR>", "ToggleTerm vertical split" },
   },
 }
 

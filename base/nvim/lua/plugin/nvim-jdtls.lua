@@ -147,6 +147,7 @@ function M.config()
       },
     },
 
+    on_attach = require("core.utils").on_attach,
     capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities()),
 
     init_options = {
