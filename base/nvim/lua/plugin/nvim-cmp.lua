@@ -5,7 +5,6 @@ local M = {
     "saadparwaiz1/cmp_luasnip", -- for autocompletion
     "hrsh7th/cmp-buffer", -- source for text in buffer
     "hrsh7th/cmp-path", -- source for file system paths
-    "hrsh7th/cmp-cmdline", -- source for vim's cmdline
     "onsails/lspkind.nvim", -- vs-code like pictograms
     "hrsh7th/cmp-nvim-lsp",
     { "kawre/neotab.nvim", opts = { tabkey = "" } },
@@ -214,7 +213,6 @@ function M.config()
       { name = "copilot", priority = 900 },
       { name = "luasnip", priority = 800 }, -- snippets
       { name = "buffer", priority = 700 }, -- text within current buffer
-      { name = "cmdline", priority = 600 }, -- cmd
       { name = "path", priority = 500 }, -- file system paths
     },
 

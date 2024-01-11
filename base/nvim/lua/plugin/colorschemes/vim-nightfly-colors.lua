@@ -1,3 +1,4 @@
+-- vim.cmd [[colorscheme nightfly]]
 local M = {
   "bluz71/vim-nightfly-colors",
   enabled = false,
@@ -5,5 +6,4 @@ local M = {
   lazy = false,
   priority = 1000,
 }
-function M.config() vim.cmd [[colorscheme nightfly]] end
 return M

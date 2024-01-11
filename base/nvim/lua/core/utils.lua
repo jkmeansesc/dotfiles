@@ -370,11 +370,7 @@ function M.on_attach(client, bufnr)
   end
 
   if client.name == "clangd" then M.load_mappings "cpp" end
-  if client.name == "ltex" then
-    require("ltex_extra").setup {
-      path = vim.api.nvim_call_function("stdpath", { "cache" }) .. "/ltex/",
-    }
-  end
+  if client.name == "ltex" then require("ltex_extra").setup() end
 end
 
 return M

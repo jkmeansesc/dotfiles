@@ -2,40 +2,32 @@ local M = {
   "mfussenegger/nvim-dap",
   enabled = vim.fn.has "win32" == 0,
   dependencies = {
-    {
-      "rcarriga/nvim-dap-ui",
-      config = function()
-        local dap, dapui = require "dap", require "dapui"
-        dap.listeners.after.event_initialized["dapui_config"] = function() dapui.open() end
-        dap.listeners.before.event_terminated["dapui_config"] = function() dapui.close() end
-        dap.listeners.before.event_exited["dapui_config"] = function() dapui.close() end
-        dapui.setup {
-          floating = {
-            border = "rounded",
-          },
-        }
-        require("core.utils").load_mappings "dap"
-      end,
-    },
-    {
-      "rcarriga/cmp-dap",
-      dependencies = { "nvim-cmp" },
-      config = function()
-        require("cmp").setup.filetype({ "dap-repl", "dapui_watches", "dapui_hover" }, {
-          sources = {
-            { name = "dap" },
-          },
-        })
-      end,
-    },
+    "rcarriga/nvim-dap-ui",
+    { "rcarriga/cmp-dap", dependencies = { "nvim-cmp" } },
     { "theHamsta/nvim-dap-virtual-text", config = true },
   },
   event = { "BufReadPre", "BufNewFile" },
+  init = function() require("core.utils").load_mappings "dap" end,
 }
 
 function M.config()
-  -- for c/c++ debugging
-  local dap = require "dap"
+  local dap, dapui = require "dap", require "dapui"
+
+  require("cmp").setup.filetype({ "dap-repl", "dapui_watches", "dapui_hover" }, {
+    sources = {
+      { name = "dap" },
+    },
+  })
+
+  dap.listeners.after.event_initialized["dapui_config"] = function() dapui.open() end
+  dap.listeners.before.event_terminated["dapui_config"] = function() dapui.close() end
+  dap.listeners.before.event_exited["dapui_config"] = function() dapui.close() end
+  dapui.setup {
+    floating = {
+      border = "rounded",
+    },
+  }
+
   require("dap").adapters["codelldb"] = {
     type = "server",
     host = "localhost",

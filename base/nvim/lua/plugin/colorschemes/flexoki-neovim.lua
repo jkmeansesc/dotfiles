@@ -1,3 +1,4 @@
+-- vim.cmd [[colorscheme flexoki-dark]]
 local M = {
   "kepano/flexoki-neovim",
   enabled = false,
@@ -5,5 +6,4 @@ local M = {
   priority = 1000,
   name = "flexoki",
 }
-function M.config() vim.cmd [[colorscheme flexoki-dark]] end
 return M

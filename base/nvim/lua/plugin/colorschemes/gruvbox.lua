@@ -1,3 +1,4 @@
+-- vim.cmd [[colorscheme gruvbox]]
 local M = {
   "ellisonleao/gruvbox.nvim",
   enabled = false,
@@ -6,5 +7,4 @@ local M = {
 }
 
 M.opts = { transparent_mode = false }
-function M.config() vim.cmd [[colorscheme gruvbox]] end
 return M

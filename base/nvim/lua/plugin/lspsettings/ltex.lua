@@ -9,7 +9,10 @@ return {
     ltex = {
       dictionary = {
         ["en-US"] = words,
+        ["en-GB"] = words,
       },
+      setenceCacheSize = 2000,
+      disabledRules = {},
     },
   },
 }

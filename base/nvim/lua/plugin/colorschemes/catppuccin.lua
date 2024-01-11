@@ -1,6 +1,7 @@
+-- vim.cmd [[colorscheme catppuccin]]
 local M = {
   "catppuccin/nvim",
-  enabled = false,
+  -- enabled = false,
   lazy = false,
   priority = 1000,
   name = "catppuccin",
@@ -8,7 +9,7 @@ local M = {
 
 M.opts = {
   flavour = "mocha",
-  transparent_background = true,
+  transparent_background = false,
   term_colors = true,
   integrations = {
     aerial = true,
@@ -41,7 +42,5 @@ M.opts = {
     },
   },
 }
-
-function M.config() vim.cmd [[colorscheme catppuccin]] end
 
 return M

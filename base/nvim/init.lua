@@ -44,8 +44,8 @@ spec "plugin.vim-illuminate"
 -- CORE
 spec "plugin.gitsigns"
 spec "plugin.mason"
--- spec "plugin.neo-tree"
-spec "plugin.nvim-tree"
+spec "plugin.neo-tree"
+-- spec "plugin.nvim-tree"
 spec "plugin.none-ls"
 spec "plugin.nvim-cmp"
 spec "plugin.nvim-treesitter"
@@ -77,3 +77,5 @@ spec "plugin.nvim-dap"
 
 -- bootstrap lazy
 require "core.lazy"
+
+vim.cmd [[colorscheme catppuccin]]

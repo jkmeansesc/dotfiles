@@ -15,6 +15,7 @@ return {
   CopilotDsiabled = "",
   CopilotWarning = "",
   CopilotUnknown = "",
+  Dot = "",
   Git = "",
   GitAdd = "",
   GitModified = "",
@@ -25,6 +26,7 @@ return {
   GitRenamed = "➜",
   GitUntracked = "",
   GitIgnored = "◌",
+  GitConflict = "",
   -- which-key
   Buffer = "",
   Find = "",
@@ -35,6 +37,7 @@ return {
   Terminal = "",
   -- nvim-tree
   Text = "",
+  File = "󰈙",
   FileSymlink = "󱅷",
   BookMark = "",
   ChevronRight = "",
