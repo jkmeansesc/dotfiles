@@ -53,6 +53,7 @@ spec "plugin.telescope"
 spec "plugin.toggleterm"
 spec "plugin.which-key"
 spec "plugin.trouble"
+spec "plugin.vim-fugitive"
 
 -- EDITOR
 spec "plugin.editor"
