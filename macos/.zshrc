@@ -122,6 +122,7 @@ alias pbd="bundle exec jekyll serve --drafts"
 alias cb="cd ~/git/minicoderwen.github.io/"
 
 ## Neovim
+alias cn="cd ~/.config/nvim"
 alias vi="nvim"
 alias vim="nvim"
 alias view="nvim -R"
