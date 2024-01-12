@@ -7,6 +7,7 @@ return {
   filetypes = { "latex", "tex", "bib", "markdown", "gitcommit", "text" },
   settings = {
     ltex = {
+      language = "en-GB",
       dictionary = {
         ["en-US"] = words,
         ["en-GB"] = words,

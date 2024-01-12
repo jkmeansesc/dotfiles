@@ -60,7 +60,6 @@ function M.config()
     "docker_compose_language_service",
     "dockerls",
     "lemminx",
-    "marksman",
     "clangd",
     "ltex",
   }

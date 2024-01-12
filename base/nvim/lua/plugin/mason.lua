@@ -44,7 +44,6 @@ function M.config()
       "lemminx", -- xml
       "clangd", -- c/c++
       "ltex", -- grammer spell checker + latex
-      "marksman", -- markdown
     },
   }
 
