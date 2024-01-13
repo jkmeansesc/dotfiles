@@ -3,7 +3,6 @@ local M = {
   event = { "BufReadPre", "BufNewFile" },
   dependencies = {
     "hrsh7th/cmp-nvim-lsp",
-    "barreiroleo/ltex-extra.nvim",
     "smjonas/inc-rename.nvim", -- LSP renaming with immediate visual feedback
     "folke/neodev.nvim",
     "folke/neoconf.nvim",

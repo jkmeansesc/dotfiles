@@ -49,6 +49,11 @@ return {
   FolderSymlink = "",
   Selected = "❯",
   Search = "",
+  Command = "",
+  Down = "",
+  Up = "",
+  Lua = "",
+  Question = "",
 
   navic = {
     File = "󰈔 ",

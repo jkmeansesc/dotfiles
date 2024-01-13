@@ -70,6 +70,9 @@ function M.config()
     end,
   }
 
+  -- noice
+  local noice = require("noice").api.statusline.mode
+
   require("lualine").setup {
     extensions = { "quickfix", "lazy", "mason", "nvim-dap-ui", "toggleterm", "quickfix" },
     options = {
@@ -128,6 +131,11 @@ function M.config()
           },
           show_colors = true,
           show_loading = true,
+        },
+        {
+          noice.get,
+          cond = noice.has,
+          color = { fg = colors.orange },
         },
         { function() return "%=" end },
         {

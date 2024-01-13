@@ -56,7 +56,7 @@ spec "plugin.trouble"
 spec "plugin.vim-fugitive"
 
 -- EDITOR
-spec "plugin.editor"
+spec "plugin.editor" -- one line plugins
 spec "plugin.todo-comments"
 spec "plugin.comment"
 spec "plugin.guess-indent"
@@ -67,9 +67,9 @@ spec "plugin.harpoon"
 
 -- LSP
 spec "plugin.nvim-lspconfig"
-spec "plugin.nvim-jdtls"
-spec "plugin.cmake-tools"
-spec "plugin.clangd_extensions"
+spec "plugin.nvim-jdtls" -- java
+spec "plugin.cmake-tools" -- cpp
+spec "plugin.clangd_extensions" -- cpp
 
 -- DAP
 spec "plugin.nvim-dap"
