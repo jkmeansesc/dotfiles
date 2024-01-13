@@ -1,6 +1,6 @@
 local M = {}
 
-M.general = {
+M.bootstrap = {
   i = {
     -- go to beginning and end
     ["<C-b>"] = { "<ESC>^i", "Beginning of line" },
@@ -20,33 +20,45 @@ M.general = {
   },
 
   n = {
-    -- buffer management
-    ["<Leader>bb"] = { "<CMD> enew <CR>", "New buffer" },
-
     -- window management
     ["|"] = { "<C-w>v", "Split vertically" },
     ["\\"] = { "<C-w>s", "Split horizontally" },
-    ["<Leader>c"] = { "<CMD>close<CR>", "Close" },
-    ["<Leader>b|"] = { "<C-w>v", "Split vertically" },
-    ["<Leader>b\\"] = { "<C-w>s", "Split horizontally" },
-    ["<Leader>b="] = { "<C-w>=", "Equal size window" },
+    ["<C-c>"] = { "<CMD>close<CR>", "Close" },
 
-    ["<Esc>"] = { "<CMD> noh <CR>", "Clear highlights" },
-
-    -- save
-    ["<C-s>"] = { "<CMD>w!<CR>", "Save (force)" },
-    ["<Leader>w"] = { "<CMD>update<CR>", "Save" },
-
-    -- quit
+    -- save && quit
+    ["<C-s>"] = { "<CMD>update<CR>", "Save" },
     ["<C-q>"] = { "<CMD>x<CR>", "Save and Quit" },
-    ["<C-Q>"] = { "<CMD>qa!<CR>", "Quit (force)" },
 
-    -- copy all
-    ["<Leader>y"] = { "<CMD> %y+ <CR>", "Yank all" },
+    -- format
+    ["<C-f>"] = {
+      function(bufnr)
+        vim.lsp.buf.format {
+          bufnr = bufnr,
+          filter = function(client)
+            --  only use null-ls for formatting instead of lsp server
+            return client.name == "null-ls"
+          end,
+        }
+      end,
+      "Format",
+    },
 
     -- move to start/end of line
     ["H"] = { "^", "Start of line" },
     ["L"] = { "g_", "End of line" },
+
+    -- Do not move my cursor when joining lines.
+    ["J"] = {
+      function()
+        vim.cmd [[
+        normal! mzJ`z
+        delmarks z]]
+      end,
+      "Join line",
+    },
+
+    -- clear highlights
+    ["<Esc>"] = { "<CMD> noh <CR>", "Clear highlights" },
 
     -- Allow moving the cursor through wrapped lines with j, k, <Up> and <Down>
     -- http://www.reddit.com/r/vim/comments/2k4cbr/problem_with_gj_and_gk/
@@ -62,15 +74,11 @@ M.general = {
     ["<Leader>o"] = { "printf('m`%so<ESC>``', v:count1)", "Insert line below", opts = { expr = true } },
     ["<Leader>O"] = { "printf('m`%sO<ESC>``', v:count1)", "Insert line above", opts = { expr = true } },
 
-    -- Do not move my cursor when joining lines.
-    ["J"] = {
-      function()
-        vim.cmd [[
-        normal! mzJ`z
-        delmarks z]]
-      end,
-      "Join line",
-    },
+    -- copy all
+    ["<Leader>y"] = { "<CMD>%y+<CR>", "Yank all" },
+
+    -- buffer management
+    ["<Leader>bb"] = { "<CMD> enew <CR>", "New buffer" },
 
     -- Package management
     ["<Leader>ml"] = { "<CMD>Lazy<CR>", "Lazy" },
@@ -209,29 +217,10 @@ M.smartsplits = {
   },
 }
 
-M.comment = {
-  plugin = true,
-
-  -- toggle comment in both modes
-  n = {
-    ["<Leader>/"] = {
-      function() require("Comment.api").toggle.linewise.current() end,
-      "Toggle comment",
-    },
-  },
-
-  v = {
-    ["<Leader>/"] = {
-      "<ESC><CMD>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>",
-      "Toggle comment",
-    },
-  },
-}
-
 M.neotree = {
   plugin = true,
   n = {
-    ["<Leader>e"] = { "<CMD>Neotree focus<CR>", "Toggle explorer" },
+    ["<Leader>e"] = { "<CMD>Neotree focus<CR>", "Toggle Neo-tree" },
   },
 }
 
