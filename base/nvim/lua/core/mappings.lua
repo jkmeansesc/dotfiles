@@ -248,12 +248,12 @@ M.telescope = {
     ["<Leader>fo"] = { "<CMD> Telescope oldfiles <CR>", "Find oldfiles" },
     ["<Leader>fz"] = { "<CMD> Telescope current_buffer_fuzzy_find <CR>", "Find in current buffer" },
     ["<Leader>fM"] = { "<CMD> Telescope marks <CR>", "Telescope bookmarks" },
-    ["<Leader>fu"] = { "<CMD>Telescope undo<CR>", "Find undo" },
-    ["<Leader>fi"] = { "<CMD>Nerdy<CR>", "Find icons" },
+    ["<Leader>fu"] = { "<CMD> Telescope undo<CR>", "Find undo" },
+    ["<Leader>fi"] = { "<CMD> Nerdy<CR>", "Find icons" },
 
     -- git
     ["<Leader>gc"] = { "<CMD> Telescope git_commits <CR>", "Git commits" },
-    ["<Leader>gs"] = { "<CMD> Telescope git_status <CR>", "Git status" },
+    ["<Leader>gS"] = { "<CMD> Telescope git_status <CR>", "Git status" },
 
     -- pick a hidden term
     ["<Leader>ft"] = { "<CMD> Telescope terms <CR>", "Pick hidden term" },
@@ -372,8 +372,8 @@ M.harpoon = {
 M.lspconfig = {
   plugin = true,
   n = {
-    ["[d"] = { function() vim.diagnostic.goto_prev() end, "Goto prev diagnostic" },
-    ["]d"] = { function() vim.diagnostic.goto_next() end, "Goto next diagnostic" },
+    ["[d"] = { function() vim.diagnostic.goto_prev() end, "Prev diagnostic" },
+    ["]d"] = { function() vim.diagnostic.goto_next() end, "Next diagnostic" },
     ["gh"] = { function() vim.diagnostic.open_float { border = "rounded" } end, "Floating diagnostic" },
   },
 }
@@ -462,4 +462,13 @@ M.dap = {
   },
 }
 
+M.gen = {
+  plugin = true,
+  n = {
+    ["<C-g>"] = { ":Gen<CR>", "Gen" },
+  },
+  v = {
+    ["<C-g>"] = { ":Gen<CR>", "Gen" },
+  },
+}
 return M

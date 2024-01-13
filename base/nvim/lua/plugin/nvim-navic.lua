@@ -1,6 +1,7 @@
 local M = {
   "SmiteshP/nvim-navic",
-  commit = "0ffa7ffe6588f3417e680439872f5049e38a24db",
+  event = { "BufReadPre", "BufNewFile" },
+  dependencies = { { "LunarVim/breadcrumbs.nvim", config = true } },
 }
 
 function M.config()
@@ -14,5 +15,4 @@ function M.config()
     click = true,
   }
 end
-
 return M

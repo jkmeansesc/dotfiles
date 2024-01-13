@@ -34,8 +34,7 @@ spec "plugin.colorschemes.oxocarbon"
 -- UI
 spec "plugin.alpha-nvim"
 -- spec "plugin.bufferline"
-spec "plugin.nvim-navic" -- together
-spec "plugin.breadcrumbs" -- together
+spec "plugin.nvim-navic"
 spec "plugin.lualine"
 spec "plugin.indent-blankline"
 spec "plugin.nvim-colorizer"
@@ -64,6 +63,7 @@ spec "plugin.noice"
 spec "plugin.smart-splits"
 spec "plugin.ssr"
 spec "plugin.harpoon"
+spec "plugin.gen" -- Ollama AI assistant
 
 -- LSP
 spec "plugin.nvim-lspconfig"

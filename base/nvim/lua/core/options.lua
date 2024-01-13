@@ -1,7 +1,3 @@
-if vim.fn.has "nvim-0.9" == 1 then
-  vim.opt.diffopt:append "linematch:60" -- enable linematch diff algorithm
-end
-
 -- disable some default providers
 for _, provider in ipairs { "node", "perl", "python3", "ruby" } do
   vim.g["loaded_" .. provider .. "_provider"] = 0
@@ -82,9 +78,3 @@ vim.opt.showbreak = "↪ "
 
 vim.opt.spelllang = "en_us,en_gb,cjk"
 vim.opt.spell = true
-
--- for ufo
-vim.o.foldcolumn = "1" -- '0' is not bad
-vim.o.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value
-vim.o.foldlevelstart = 99
-vim.o.foldenable = true

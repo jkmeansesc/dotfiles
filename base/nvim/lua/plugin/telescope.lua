@@ -10,7 +10,7 @@ local M = {
     { "2kabhishek/nerdy.nvim", cmd = "Nerdy" },
     { "nvim-telescope/telescope-fzf-native.nvim", enabled = vim.fn.executable "make" == 1, build = "make" },
   },
-  cmd = "Telescope",
+  event = "VimEnter",
   init = function() require("core.utils").load_mappings "telescope" end,
 }
 
