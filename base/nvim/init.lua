@@ -79,4 +79,4 @@ spec "plugin.nvim-dap"
 -- bootstrap lazy
 require "core.lazy"
 
-vim.cmd [[colorscheme catppuccin]]
+vim.cmd [[colorscheme darkplus]]

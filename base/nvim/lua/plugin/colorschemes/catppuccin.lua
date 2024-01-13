@@ -1,7 +1,7 @@
 -- vim.cmd [[colorscheme catppuccin]]
 local M = {
   "catppuccin/nvim",
-  -- enabled = false,
+  enabled = false,
   lazy = false,
   priority = 1000,
   name = "catppuccin",

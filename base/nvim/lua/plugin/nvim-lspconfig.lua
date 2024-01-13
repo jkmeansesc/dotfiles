@@ -61,7 +61,6 @@ function M.config()
     "dockerls",
     "lemminx",
     "clangd",
-    "ltex",
   }
 
   require("neoconf").setup()

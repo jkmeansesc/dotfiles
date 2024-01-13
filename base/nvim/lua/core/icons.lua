@@ -47,6 +47,8 @@ return {
   EmptyFolder = "",
   EmptyFolderOpen = "",
   FolderSymlink = "",
+  Selected = "❯",
+  Search = "",
 
   navic = {
     File = "󰈔 ",

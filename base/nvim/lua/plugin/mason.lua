@@ -43,7 +43,6 @@ function M.config()
       "jdtls", -- java
       "lemminx", -- xml
       "clangd", -- c/c++
-      "ltex", -- grammer spell checker + latex
     },
   }
 

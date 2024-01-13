@@ -9,6 +9,14 @@ local M = {
 
 function M.config()
   require("noice").setup {
+    lsp = {
+      -- override markdown rendering so that **cmp** and other plugins use **Treesitter**
+      override = {
+        ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
+        ["vim.lsp.util.stylize_markdown"] = true,
+        ["cmp.entry.get_documentation"] = true,
+      },
+    },
     routes = {
       {
         filter = {
@@ -39,7 +47,7 @@ function M.config()
     cmdline = {
       view = "cmdline",
       format = {
-        cmdline = { pattern = "^:", icon = "", lang = "vim" },
+        cmdline = { pattern = "^:", icon = "󰁕", lang = "vim" },
         search_down = { kind = "search", pattern = "^/", icon = " ", lang = "regex" },
         search_up = { kind = "search", pattern = "^%?", icon = " ", lang = "regex" },
         filter = { pattern = "^:%s*!", icon = "$", lang = "bash" },

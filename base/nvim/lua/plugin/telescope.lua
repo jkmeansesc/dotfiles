@@ -18,27 +18,29 @@ function M.config()
   local actions = require "telescope.actions"
   local telescope = require "telescope"
   local trouble = require "trouble.providers.telescope"
+  local icons = require "core.icons"
 
   telescope.setup {
     defaults = {
       git_worktrees = vim.g.git_worktrees,
-      prompt_prefix = "   ",
+      prompt_prefix = icons.Search .. "  ",
+      selection_caret = icons.Selected .. "  ",
       layout_config = {
         horizontal = {
-          size = {
-            width = "90%",
-            height = "80%",
-          },
+          preview_width = 0.55,
+          results_width = 0.8,
         },
         vertical = {
-          size = {
-            width = "90%",
-            height = "90%",
-          },
+          mirror = false,
         },
+        width = 0.95,
+        height = 0.90,
+        preview_cutoff = 120,
       },
       winblend = 0,
       color_devicons = true,
+      path_display = { "truncate" },
+      borderchars = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
       vimgrep_arguments = {
         "rg",
         "-L",
