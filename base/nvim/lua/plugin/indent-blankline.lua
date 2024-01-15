@@ -8,6 +8,7 @@ function M.config()
   hooks.register(hooks.type.WHITESPACE, hooks.builtin.hide_first_space_indent_level)
   require("ibl").setup {
     indent = { char = "│" },
+    -- scope = { char = "│" },
     scope = { show_start = false, show_end = false },
     exclude = {
       buftypes = {
