@@ -12,25 +12,25 @@ local spec = function(item) table.insert(LAZY_PLUGIN_SPEC, { import = item }) en
 
 -- colorschemes
 spec "plugin.colorschemes.catppuccin"
-spec "plugin.colorschemes.material"
-spec "plugin.colorschemes.kanagawa"
-spec "plugin.colorschemes.vim-nightfly-colors"
-spec "plugin.colorschemes.tokyonight"
-spec "plugin.colorschemes.papercolor-theme"
-spec "plugin.colorschemes.flexoki-neovim"
-spec "plugin.colorschemes.melange-nvim"
-spec "plugin.colorschemes.gruvbox"
-spec "plugin.colorschemes.edge"
-spec "plugin.colorschemes.sonokai"
-spec "plugin.colorschemes.gruvbox-material"
-spec "plugin.colorschemes.nord"
-spec "plugin.colorschemes.nightfox"
-spec "plugin.colorschemes.onedarkpro"
-spec "plugin.colorschemes.monokai"
-spec "plugin.colorschemes.rose-pine"
 spec "plugin.colorschemes.darkplus"
-spec "plugin.colorschemes.oxocarbon"
+spec "plugin.colorschemes.edge"
+spec "plugin.colorschemes.flexoki-neovim"
+spec "plugin.colorschemes.gruvbox"
+spec "plugin.colorschemes.gruvbox-material"
+spec "plugin.colorschemes.kanagawa"
+spec "plugin.colorschemes.material"
+spec "plugin.colorschemes.melange-nvim"
+spec "plugin.colorschemes.monokai"
+spec "plugin.colorschemes.nightfox"
+spec "plugin.colorschemes.nord"
 spec "plugin.colorschemes.onedark"
+spec "plugin.colorschemes.onedarkpro"
+spec "plugin.colorschemes.oxocarbon"
+spec "plugin.colorschemes.papercolor-theme"
+spec "plugin.colorschemes.rose-pine"
+spec "plugin.colorschemes.sonokai"
+spec "plugin.colorschemes.tokyonight"
+spec "plugin.colorschemes.vim-nightfly-colors"
 
 -- UI
 spec "plugin.alpha-nvim"
@@ -81,4 +81,4 @@ spec "plugin.nvim-dap"
 -- bootstrap lazy
 require "core.lazy"
 
-vim.cmd [[colorscheme darkplus]]
+vim.cmd [[colorscheme catppuccin]]
