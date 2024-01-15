@@ -55,7 +55,7 @@ spec "plugin.trouble"
 spec "plugin.vim-fugitive"
 
 -- EDITOR
-spec "plugin.editor" -- one line plugins
+spec "plugin.better-escape"
 spec "plugin.todo-comments"
 spec "plugin.comment"
 spec "plugin.guess-indent"
@@ -64,6 +64,7 @@ spec "plugin.smart-splits"
 spec "plugin.ssr"
 spec "plugin.harpoon"
 spec "plugin.gen" -- Ollama AI assistant
+spec "plugin.bufdelete"
 
 -- LSP
 spec "plugin.nvim-lspconfig"

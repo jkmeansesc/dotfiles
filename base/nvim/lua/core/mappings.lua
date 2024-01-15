@@ -25,9 +25,8 @@ M.bootstrap = {
     ["\\"] = { "<C-w>s", "Split horizontally" },
     ["<C-c>"] = { "<CMD>close<CR>", "Close" },
 
-    -- save && quit
+    -- save
     ["<C-s>"] = { "<CMD>update<CR>", "Save" },
-    ["<C-q>"] = { "<CMD>x<CR>", "Save and Quit" },
 
     -- format
     ["<C-f>"] = {
@@ -76,6 +75,10 @@ M.bootstrap = {
 
     -- copy all
     ["<Leader>y"] = { "<CMD>%y+<CR>", "Yank all" },
+
+    -- quit
+    ["<Leader>q"] = { "<CMD>x<CR>", "Save and Quit" },
+    ["<Leader>Q"] = { "<CMD>wqa!<CR>", "Save and Quit (Force)" },
 
     -- buffer management
     ["<Leader>bb"] = { "<CMD> enew <CR>", "New buffer" },
@@ -244,9 +247,6 @@ M.telescope = {
     ["<Leader>gc"] = { "<CMD> Telescope git_commits <CR>", "Git commits" },
     ["<Leader>gS"] = { "<CMD> Telescope git_status <CR>", "Git status" },
 
-    -- pick a hidden term
-    ["<Leader>ft"] = { "<CMD> Telescope terms <CR>", "Pick hidden term" },
-
     -- noice history
     ["<Leader>fn"] = { "<CMD> Noice telescope<CR>", "Noice history" },
   },
@@ -270,15 +270,6 @@ M.gitsigns = {
     ["<Leader>gB"] = { function() require("gitsigns").blame_line { full = true } end, "Blame buffer" },
     ["<Leader>gd"] = { function() require("gitsigns").diffthis() end, "Git diff" },
     ["<Leader>gt"] = { function() require("gitsigns").toggle_current_line_blame() end, "Toggle line blame" },
-  },
-}
-
-M.minibufremove = {
-  plugin = true,
-  n = {
-    ["<Leader>q"] = { function() require("core.utils").close() end, "Close buffer" },
-    ["<Leader>Q"] = { function() require("core.utils").close(0, true) end, "Close buffer (force)" },
-    ["<Leader>bq"] = { function() require("core.utils").close_all() end, "Close all buffer" },
   },
 }
 
@@ -324,6 +315,7 @@ M.trouble = {
           require("trouble").next { skip_groups = true, jump = true }
         else
           local ok, err = pcall(vim.cmd.cnext)
+          ---@diagnostic disable-next-line: param-type-mismatch
           if not ok then vim.notify(err, vim.log.levels.ERROR) end
         end
       end,
@@ -460,4 +452,22 @@ M.gen = {
     ["<C-g>"] = { ":Gen<CR>", "Gen" },
   },
 }
+
+M.bufdelete = {
+  plugin = true,
+  n = {
+    ["<C-q>"] = { function() require("bufdelete").bufdelete() end, "Delete buffer" },
+    ["<Leader>bq"] = { function() require("bufdelete").bufdelete(0, true) end, "Delete buffer (force)" },
+    ["<Leader>ba"] = {
+      function()
+        local buffers = require("core.utils").get_listed_buffers()
+        for _, bufnr in ipairs(buffers) do
+          require("bufdelete").bufdelete(bufnr, false)
+        end
+      end,
+      "Delete all buffers",
+    },
+  },
+}
+
 return M

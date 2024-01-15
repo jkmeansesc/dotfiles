@@ -2,6 +2,21 @@
 local M = {}
 local merge_tb = vim.tbl_deep_extend
 
+--- get the bufnr of all opened buffers
+---@author kikito
+---@see https://codereview.stackexchange.com/questions/268130/get-list-of-buffers-from-current-neovim-instance
+function M.get_listed_buffers()
+  local buffers = {}
+  local len = 0
+  for buffer = 1, vim.fn.bufnr "$" do
+    if vim.fn.buflisted(buffer) == 1 then
+      len = len + 1
+      buffers[len] = buffer
+    end
+  end
+  return buffers
+end
+
 -- copied from NvChad
 function M.load_mappings(section, mapping_opt)
   vim.schedule(function()
@@ -35,49 +50,6 @@ function M.load_mappings(section, mapping_opt)
       set_section_map(sect)
     end
   end)
-end
-
---- copied from AstroNvim
---- Close a given buffer
----@param bufnr? number The buffer to close or the current buffer if not provided
----@param force? boolean Whether or not to foce close the buffers or confirm changes (default: false)
-function M.close(bufnr, force)
-  if not bufnr or bufnr == 0 then bufnr = vim.api.nvim_get_current_buf() end
-  if M.is_available "mini.bufremove" and M.is_valid(bufnr) then
-    if not force and vim.api.nvim_get_option_value("modified", { buf = bufnr }) then
-      local bufname = vim.fn.expand "%"
-      local empty = bufname == ""
-      if empty then bufname = "Untitled" end
-      local confirm = vim.fn.confirm(('Save changes to "%s"?'):format(bufname), "&Yes\n&No\n&Cancel", 1, "Question")
-      if confirm == 1 then
-        if empty then return end
-        vim.cmd.write()
-      elseif confirm == 2 then
-        force = true
-      else
-        return
-      end
-    end
-    require("mini.bufremove").delete(bufnr, force)
-  else
-    local buftype = vim.api.nvim_get_option_value("buftype", { buf = bufnr })
-    vim.cmd(("silent! %s %d"):format((force or buftype == "terminal") and "bdelete!" or "confirm bdelete", bufnr))
-  end
-  local bufs = vim.fn.getbufinfo { buflisted = 1 }
-  if M.is_available "alpha-nvim" and not bufs[2] then require("alpha").start(true) end
-end
-
---- Close all buffers
----@param keep_current? boolean Whether or not to keep the current buffer (default: false)
----@param force? boolean Whether or not to foce close the buffers or confirm changes (default: false)
-function M.close_all(keep_current, force)
-  if keep_current == nil then keep_current = false end
-  local current = vim.api.nvim_get_current_buf()
-  for _, bufnr in ipairs(vim.api.nvim_list_bufs()) do
-    if not keep_current or bufnr ~= current then M.close(bufnr, force) end
-  end
-  local bufs = vim.fn.getbufinfo { buflisted = 1 }
-  if M.is_available "alpha-nvim" and not bufs[2] then require("alpha").start(true) end
 end
 
 -- Copied from LazyVim
