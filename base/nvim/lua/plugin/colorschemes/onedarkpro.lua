@@ -1,4 +1,7 @@
--- vim.cmd [[colorscheme onedarkpro]]
+-- vim.cmd [[colorscheme onedark]]
+-- vim.cmd [[colorscheme onelight]]
+-- vim.cmd [[colorscheme onedark_vivid]]
+-- vim.cmd [[colorscheme onedark_dark]]
 local M = {
   "olimorris/onedarkpro.nvim",
   enabled = false,

@@ -30,6 +30,7 @@ spec "plugin.colorschemes.monokai"
 spec "plugin.colorschemes.rose-pine"
 spec "plugin.colorschemes.darkplus"
 spec "plugin.colorschemes.oxocarbon"
+spec "plugin.colorschemes.onedark"
 
 -- UI
 spec "plugin.alpha-nvim"
