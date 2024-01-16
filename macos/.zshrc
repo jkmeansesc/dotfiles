@@ -98,9 +98,6 @@ export CLASS_PATH="$JAVA_HOME/lib"
 # MAVEN ENV
 export MAVEN_HOME="/Users/oneoldmac/Local/apache-maven-3.9.4"
 
-# PYTHON ENV
-# export PYTHON_HOME="/opt/homebrew/Cellar/python@3.12/3.12.0"
-
 # PATH ENV
 export PATH="/opt/homebrew/bin:/opt/homebrew/sbin:$PATH:/usr/local/bin:$JAVA_HOME/bin:$CLASS_PATH:$MAVEN_HOME/bin"
 if [ -d "/opt/homebrew/opt/ruby/bin" ]; then
@@ -127,9 +124,6 @@ alias vi="nvim"
 alias vim="nvim"
 alias view="nvim -R"
 alias vimdiff="nvim -d"
-
-## Python
-# alias python="$PYTHON_HOME/bin/python3.12"
 
 ## Git
 alias config='$(which git) --git-dir=$HOME/github/dotfiles/ --work-tree=$HOME'
