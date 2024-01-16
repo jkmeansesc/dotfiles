@@ -83,10 +83,9 @@ plugins=(
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
-
+export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
-# export LANG=zh_CN.UTF-8
-export LANGUAGE=zh_CN:en_US
+
 # Aliases
 
 ## Neovim
