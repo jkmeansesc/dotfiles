@@ -60,6 +60,7 @@ function M.config()
     "dockerls",
     "lemminx",
     "clangd",
+    "marksman",
   }
 
   require("neoconf").setup()
