@@ -117,6 +117,7 @@ export XDG_CONFIG_HOME=$HOME/.config
 alias pb="bundle exec jekyll s"
 alias pbd="bundle exec jekyll serve --drafts"
 alias cb="cd ~/git/minicoderwen.github.io/"
+alias j="bundle exec jekyll"
 
 ## Neovim
 alias cn="cd ~/.config/nvim"
@@ -131,15 +132,22 @@ alias config='$(which git) --git-dir=$HOME/github/dotfiles/ --work-tree=$HOME'
 ## Tmux
 alias tn="tmux new -s"
 alias tl="tmux ls"
-alias ta="tmux attach -t"
 alias td="tmux detach"
+ta() {
+    local session_name="WEN"
+
+    # Check if the session already exists
+    if tmux has-session -t $session_name 2>/dev/null; then
+        tmux attach-session -t $session_name
+    else
+        # If the session doesn't exist, create and attach to it
+        tmux new-session -s $session_name
+    fi
+}
 
 ## eza
 alias l="eza -la --icons=always"
 alias ls="eza -a --icons=always"
-
-## Jekyll
-alias j="bundle exec jekyll"
 
 # To customize prompt, run `p10k configure` or edit ~/git/dotfiles/macos/.p10k.zsh.
 [[ ! -f ~/git/dotfiles/macos/.p10k.zsh ]] || source ~/git/dotfiles/macos/.p10k.zsh

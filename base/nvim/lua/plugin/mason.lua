@@ -43,6 +43,7 @@ function M.config()
       "jdtls", -- java
       "lemminx", -- xml
       "clangd", -- c/c++
+      "marksman", -- markdown
     },
   }
 
