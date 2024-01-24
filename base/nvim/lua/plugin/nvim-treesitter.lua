@@ -6,7 +6,7 @@ local M = {
     require("lazy.core.loader").add_to_rtp(plugin)
     require "nvim-treesitter.query_predicates"
   end,
-  dependencies = { "nvim-treesitter/nvim-treesitter-textobjects" },
+  dependencies = { "nvim-treesitter/nvim-treesitter-textobjects", "luckasRanarison/tree-sitter-hyprlang" },
 }
 
 M.opts = {
@@ -39,17 +39,15 @@ M.opts = {
     "vim",
     "vimdoc",
     "yaml",
-    -- markdown
     "markdown",
     "markdown_inline",
-    -- java
     "java",
-    -- c++
     "c",
     "cpp",
     "objc",
     "cuda",
     "proto",
+    "hyprlang", -- hyprland parser
   },
   incremental_selection = {
     enable = true,

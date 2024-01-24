@@ -86,12 +86,44 @@ source $ZSH/oh-my-zsh.sh
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
+# Install Ruby Gems
+export GEM_HOME="$(ruby -e 'puts Gem.user_dir')"
+export PATH="$PATH:$GEM_HOME/bin"
+
+# fcitx5
+export GTK_IM_MODULE=fcitx
+export QT_IM_MODULE=fcitx
+export XMODIFIERS=@im=fcitx
+
 # Aliases
+## Jekyll
+alias cb="cd ~/git/minicoderwen.github.io"
+alias pb="sudo bundle exec jekyll serve"
+alias pbd="sudo bundle exec jekyll serve --draft"
 
 ## Neovim
 alias vim="nvim"
 alias view="nvim -R"
 alias vimdiff="nvim -d"
+alias cn="cd ~/.config/nvim"
+
+## Tmux
+alias tn="tmux new -s"
+alias tl="tmux ls"
+alias td="tmux detach"
+
+ta() {
+    local session_name="WEN"
+    if tmux has-session -t $session_name 2>/dev/null; then
+        tmux attach-session -t $session_name
+    else
+        tmux new-session -s $session_name
+    fi
+}
+
+## eza
+alias l="eza -la --icons=always"
+alias ls="eza -a --icons=always"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
