@@ -146,8 +146,10 @@ ta() {
 }
 
 ## eza
-alias l="eza -la --icons=always"
-alias ls="eza -a --icons=always"
+alias ll='eza -lh  --icons=auto' # long list
+alias ls='eza -a   --icons=auto' # short list
+alias l='eza -lha --icons=auto --sort=name --group-directories-first' # long list all
+alias ld='eza -lhD --icons=auto' # long list dirs
 
 # To customize prompt, run `p10k configure` or edit ~/git/dotfiles/macos/.p10k.zsh.
 [[ ! -f ~/git/dotfiles/macos/.p10k.zsh ]] || source ~/git/dotfiles/macos/.p10k.zsh
