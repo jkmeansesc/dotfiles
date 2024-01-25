@@ -115,12 +115,14 @@ function M.config()
             status = {
               icons = {
                 enabled = icons.CopilotEnabled,
+                sleep = icons.CopilotEnabled,
                 disabled = icons.CopilotDisabled,
                 warning = icons.CopilotWarning,
                 unknown = icons.CopilotUnknown,
               },
               hl = {
                 enabled = "#50FA7B",
+                sleep = "#AEB7D0",
                 disabled = "#6272A4",
                 warning = "#FFB86C",
                 unknown = "#FF5555",

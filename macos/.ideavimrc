@@ -57,7 +57,7 @@ inoremap <C-j> <Down>
 nnoremap <leader>y :%y+<CR>
 " Yank all
 
-nnoremap <leader>w :w<CR>
+nnoremap <C-s> :w<CR>
 " Save
 
 " Pane navigation
@@ -98,7 +98,7 @@ map <leader>fl <action>(RecentLocations)
 map <leader>fs <action>(NewScratchFile)
 
 " Close active tab
-map <leader>q <action>(CloseContent)
+map <C-q> <action>(CloseContent)
 
 " Go to code
 nmap gd <Action>(GotoDeclaration)
