@@ -223,7 +223,7 @@ M.smartsplits = {
 M.neotree = {
   plugin = true,
   n = {
-    ["<Leader>e"] = { "<CMD>Neotree focus<CR>", "Toggle Neo-tree" },
+    ["<Leader>e"] = { "<CMD>Neotree position=float toggle=true<CR>", "Toggle Neo-tree" },
   },
 }
 
