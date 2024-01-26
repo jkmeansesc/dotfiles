@@ -142,7 +142,7 @@ function M.config()
         { function() return "%=" end },
         {
           LSP_status,
-          icon = icons.Lsp .. " LSP:",
+          icon = icons.Lsp .. "  LSP:",
           color = { fg = "#ffffff", gui = "bold" },
         },
         {
