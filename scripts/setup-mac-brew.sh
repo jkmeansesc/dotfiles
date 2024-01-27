@@ -26,6 +26,7 @@ brew install --formula yabai
 brew install --formula php
 brew install --formula ruby
 brew install --formula node
+brew install --cask microsoft-openjdk
 
 # Apps
 brew install --cask alfred

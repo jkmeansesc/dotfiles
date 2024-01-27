@@ -26,9 +26,9 @@ source $ZSH/oh-my-zsh.sh
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # JAVA ENV
-export JAVA_HOME="/Users/oneoldmac/Library/Java/JavaVirtualMachines/openjdk-20.0.2/Contents/Home"
-export CLASS_PATH="$JAVA_HOME/lib"
-export PATH="$PATH:$JAVA_HOME/bin:$CLASS_PATH:$MAVEN_HOME/bin"
+# export JAVA_HOME="/Users/oneoldmac/Library/Java/JavaVirtualMachines/openjdk-20.0.2/Contents/Home"
+# export CLASS_PATH="$JAVA_HOME/lib"
+# export PATH="$PATH:$JAVA_HOME/bin:$CLASS_PATH:$MAVEN_HOME/bin"
 
 # MAVEN ENV
 export MAVEN_HOME="/Users/oneoldmac/Local/apache-maven-3.9.4"
