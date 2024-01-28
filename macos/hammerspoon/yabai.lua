@@ -7,107 +7,89 @@ local function execYabai(args)
 	os.execute(command)
 end
 
--- "directions" for vim keybindings
-local directions = {
-	h = "west",
-	l = "east",
-	k = "north",
-	j = "south",
-}
-for key, direction in pairs(directions) do
-	-- focus windows
-	-- cmd + ctrl
-	hs.hotkey.bind({ "cmd", "ctrl" }, key, function()
-		execYabai(string.format("-m window --focus %s", direction))
-	end)
-	-- move windows
-	-- cmd + shift
-	hs.hotkey.bind({ "cmd", "shift" }, key, function()
-		execYabai(string.format("-m window --warp %s", direction))
-	end)
-	-- swap windows
-	-- alt + shift
-	hs.hotkey.bind({ "shift", "alt" }, key, function()
-		execYabai(string.format("-m window --swap %s", direction))
-	end)
-end
-
--- window float settings
--- alt + shift
-local floating = {
-	-- full
-	up = "1:1:0:0:1:1",
-	-- left half
-	left = "1:2:0:0:1:1",
-	-- right half
-	right = "1:2:1:0:1:1",
-}
-for key, gridConfig in pairs(floating) do
-	hs.hotkey.bind({ "alt", "shift" }, key, function()
-		execYabai(string.format("--grid %s", gridConfig))
-	end)
-end
--- balance window size
-hs.hotkey.bind({ "alt", "shift" }, "0", function()
-	execYabai("-m space --balance")
-end)
-
--- layout settings
-local layouts = {
-	a = "bsp",
-	d = "float",
-}
-for key, layout in pairs(layouts) do
-	hs.hotkey.bind({ "alt", "shift" }, key, function()
-		execYabai(string.format("-m space --layout %s", layout))
-	end)
-end
-
--- toggle settings
-local toggleArgs = {
-	a = "-m space --toggle padding; yabai -m space --toggle gap",
-	d = "-m window --toggle zoom-parent",
-	e = "-m window --toggle split",
-	f = "-m window --toggle zoom-fullscreen",
-	o = "-m window --toggle topmost",
-	r = "-m space --rotate 90",
-	s = "-m window --toggle sticky",
-	x = "-m space --mirror x-axis",
-	y = "-m space --mirror y-axis",
-}
-for key, args in pairs(toggleArgs) do
+local function alt(key, commands)
 	hs.hotkey.bind({ "alt" }, key, function()
-		execYabai(args)
+		execYabai(commands)
 	end)
 end
 
--- throw/focus monitors
-local targets = {
-	x = "recent",
-	z = "prev",
-	c = "next",
-}
-for key, target in pairs(targets) do
-	hs.hotkey.bind({ "ctrl", "alt" }, key, function()
-		execYabai(string.format("-m display --focus %s", target))
-	end)
-	hs.hotkey.bind({ "ctrl", "cmd" }, key, function()
-		execYabai(string.format("-m window --display %s", target))
-		execYabai(string.format("-m display --focus %s", target))
-	end)
-end
--- numbered monitors
-for i = 1, 5 do
-	hs.hotkey.bind({ "ctrl", "alt" }, tostring(i), function()
-		execYabai(string.format("-m display --focus %s", i))
-	end)
-	hs.hotkey.bind({ "ctrl", "cmd" }, tostring(i), function()
-		execYabai(string.format("-m window --display %s", i))
-		execYabai(string.format("-m display --focus %s", i))
+local function alt_shift(key, commands)
+	hs.hotkey.bind({ "alt", "shift" }, key, function()
+		execYabai(commands)
 	end)
 end
 
-return {
-	yabai = yabai,
-	execYabai = execYabai,
-}
+local function alt_ctrl(key, commands)
+	hs.hotkey.bind({ "alt", "ctrl" }, key, function()
+		execYabai(commands)
+	end)
+end
+
+-- change window focus within space
+alt("j", "-m window --focus south")
+alt("k", "-m window --focus north")
+alt("h", "-m window --focus west")
+alt("l", "-m window --focus east")
+
+-- change focus between external displays (left and right)
+alt("w", "-m display --focus west")
+alt("e", "-m display --focus east")
+
+-- rotate layout clockwise
+alt("r", "-m space --rotate 270")
+
+-- flip along y-axis
+alt("y", "-m space --mirror y-axis")
+
+-- flip along x-axis
+alt("x", "-m space --mirror x-axis")
+
+-- toggle window float
+alt("t", "-m window --toggle float --grid 4:4:1:1:2:2")
+
+-- maximize a window
+alt("f", "-m window --toggle zoom-fullscreen")
+
+-- balance out tree of windows (resize to occupy same area)
+alt("=", "-m space --balance")
+
+-- stack config
+alt("s", "-m window --stack next")
+alt("n", "-m window --focus stack.next")
+alt("p", "-m window --focus stack.prev")
+
+-- swap windows
+alt_shift("j", "-m window --swap south")
+alt_shift("k", "-m window --swap north")
+alt_shift("h", "-m window --swap west")
+alt_shift("l", "-m window --swap east")
+
+-- move window to display left and right
+alt_shift("w", "-m window --display west display --focus west")
+alt_shift("e", "-m window --display east display --focus east")
+
+-- move window to prev and next space
+alt_shift("p", "-m window --space prev")
+alt_shift("n", "-m window --space next")
+
+-- move window to space #
+alt_shift("1", "-m window --space 1 space --focus 1")
+alt_shift("2", "-m window --space 2 space --focus 2")
+alt_shift("3", "-m window --space 3 space --focus 3")
+alt_shift("4", "-m window --space 4 space --focus 4")
+alt_shift("5", "-m window --space 5 space --focus 5")
+alt_shift("6", "-m window --space 6 space --focus 6")
+alt_shift("7", "-m window --space 7 space --focus 7")
+alt_shift("8", "-m window --space 8 space --focus 8")
+alt_shift("9", "-m window --space 9 space --focus 9")
+
+-- stop/start/restart yabai
+alt_shift("q", "--stop-service")
+alt_shift("s", "--start-service")
+alt_shift("r", "--restart-service")
+
+-- warp windows
+alt_ctrl("j", "-m window --warp south")
+alt_ctrl("k", "-m window --warp north")
+alt_ctrl("h", "-m window --warp west")
+alt_ctrl("l", "-m window --warp east")

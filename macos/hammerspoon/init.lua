@@ -1,7 +1,6 @@
-local hs = require("hs")
-
 -- install hammerspoon cli
 hs.ipc.cliInstall()
 
--- require("yabai")
-require("stackline")
+require("yabai")
+local stackline = require("stackline")
+stackline:init()
