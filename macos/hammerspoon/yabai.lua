@@ -59,37 +59,37 @@ alt("n", "-m window --focus stack.next")
 alt("p", "-m window --focus stack.prev")
 
 -- swap windows
-alt_shift("j", "-m window --swap south")
-alt_shift("k", "-m window --swap north")
-alt_shift("h", "-m window --swap west")
-alt_shift("l", "-m window --swap east")
+alt_ctrl("j", "-m window --swap south")
+alt_ctrl("k", "-m window --swap north")
+alt_ctrl("h", "-m window --swap west")
+alt_ctrl("l", "-m window --swap east")
 
 -- move window to display left and right
-alt_shift("w", "-m window --display west display --focus west")
-alt_shift("e", "-m window --display east display --focus east")
+alt_ctrl("w", "-m window --display west display --focus west")
+alt_ctrl("e", "-m window --display east display --focus east")
 
 -- move window to prev and next space
-alt_shift("p", "-m window --space prev")
-alt_shift("n", "-m window --space next")
+alt_ctrl("p", "-m window --space prev")
+alt_ctrl("n", "-m window --space next")
 
 -- move window to space #
-alt_shift("1", "-m window --space 1 space --focus 1")
-alt_shift("2", "-m window --space 2 space --focus 2")
-alt_shift("3", "-m window --space 3 space --focus 3")
-alt_shift("4", "-m window --space 4 space --focus 4")
-alt_shift("5", "-m window --space 5 space --focus 5")
-alt_shift("6", "-m window --space 6 space --focus 6")
-alt_shift("7", "-m window --space 7 space --focus 7")
-alt_shift("8", "-m window --space 8 space --focus 8")
-alt_shift("9", "-m window --space 9 space --focus 9")
+alt_ctrl("1", "-m window --space 1 space --focus 1")
+alt_ctrl("2", "-m window --space 2 space --focus 2")
+alt_ctrl("3", "-m window --space 3 space --focus 3")
+alt_ctrl("4", "-m window --space 4 space --focus 4")
+alt_ctrl("5", "-m window --space 5 space --focus 5")
+alt_ctrl("6", "-m window --space 6 space --focus 6")
+alt_ctrl("7", "-m window --space 7 space --focus 7")
+alt_ctrl("8", "-m window --space 8 space --focus 8")
+alt_ctrl("9", "-m window --space 9 space --focus 9")
 
 -- stop/start/restart yabai
-alt_shift("q", "--stop-service")
-alt_shift("s", "--start-service")
-alt_shift("r", "--restart-service")
+alt_ctrl("q", "--stop-service")
+alt_ctrl("s", "--start-service")
+alt_ctrl("r", "--restart-service")
 
 -- warp windows
-alt_ctrl("j", "-m window --warp south")
-alt_ctrl("k", "-m window --warp north")
-alt_ctrl("h", "-m window --warp west")
-alt_ctrl("l", "-m window --warp east")
+alt_shift("j", "-m window --warp south")
+alt_shift("k", "-m window --warp north")
+alt_shift("h", "-m window --warp west")
+alt_shift("l", "-m window --warp east")
