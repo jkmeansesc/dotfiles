@@ -28,7 +28,7 @@ brew tap koekeishiya/formulae # yabai
 install_formula git
 install_formula neovim --HEAD
 install_formula tmux
-install_cask iterm2
+install_cask wezterm
 install_cask firefox
 
 # Fonts
@@ -50,7 +50,8 @@ defaults write org.hammerspoon.Hammerspoon MJConfigFile "~/.config/hammerspoon/i
 install_formula php
 install_formula ruby
 install_formula node
-install_cask microsoft-openjdk
+# install_formula ollama
+# install_cask microsoft-openjdk
 
 # Apps
 install_cask alfred

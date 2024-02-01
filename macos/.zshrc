@@ -25,10 +25,12 @@ source $ZSH/oh-my-zsh.sh
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
+# set EDITOR
+export EDITOR='nvim'
+
 # JAVA ENV
-# export JAVA_HOME="/Users/oneoldmac/Library/Java/JavaVirtualMachines/openjdk-20.0.2/Contents/Home"
-# export CLASS_PATH="$JAVA_HOME/lib"
-# export PATH="$PATH:$JAVA_HOME/bin:$CLASS_PATH:$MAVEN_HOME/bin"
+export PATH="/opt/homebrew/opt/openjdk@11/bin:$PATH"
+export CPPFLAGS="-I/opt/homebrew/opt/openjdk@11/include"
 
 # MAVEN ENV
 export MAVEN_HOME="/Users/oneoldmac/Local/apache-maven-3.9.4"
@@ -88,6 +90,9 @@ alias ld='eza -lhD --icons=auto' # long list dirs
 
 ## dotfiles
 alias cdd="cd $HOME/git/dotfiles"
+
+## ChatGPT
+source ~/.config/secrets.sh
 
 # To customize prompt, run `p10k configure` or edit ~/git/dotfiles/macos/.p10k.zsh.
 [[ ! -f ~/git/dotfiles/macos/.p10k.zsh ]] || source ~/git/dotfiles/macos/.p10k.zsh

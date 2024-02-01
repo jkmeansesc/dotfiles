@@ -64,8 +64,9 @@ spec "plugin.noice"
 spec "plugin.smart-splits"
 spec "plugin.ssr"
 spec "plugin.harpoon"
-spec "plugin.gen" -- Ollama AI assistant
+-- spec "plugin.gen" -- Ollama AI assistant
 spec "plugin.bufdelete"
+spec "plugin.gp" -- ChatGPT
 
 -- LSP
 spec "plugin.nvim-lspconfig"

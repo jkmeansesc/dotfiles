@@ -470,4 +470,10 @@ M.bufdelete = {
   },
 }
 
+M.gp = {
+  plugin = true,
+  n = {
+    ["<C-g>"] = { "<CMD>GpChatToggle popup<CR>", "GPT" },
+  },
+}
 return M

@@ -4778,13 +4778,13 @@
 			<key>Name</key>
 			<string>Wen</string>
 			<key>Non Ascii Font</key>
-			<string>HackNF-Bold 18</string>
+			<string>HackNF-Bold 20</string>
 			<key>Non-ASCII Anti Aliased</key>
 			<true/>
 			<key>Non-ASCII Ligatures</key>
 			<true/>
 			<key>Normal Font</key>
-			<string>Sarasa-Fixed-SC-SemiBold 18</string>
+			<string>Sarasa-Fixed-SC-SemiBold 20</string>
 			<key>Only The Default BG Color Uses Transparency</key>
 			<true/>
 			<key>Option Key Sends</key>
