@@ -474,6 +474,7 @@ M.gp = {
   plugin = true,
   n = {
     ["<C-g>"] = { "<CMD>GpChatToggle popup<CR>", "GPT" },
+    ["<Leader>fc"] = { "<CMD>GpChatFinder<CR>", "Find GPT chat" },
   },
 }
 return M
