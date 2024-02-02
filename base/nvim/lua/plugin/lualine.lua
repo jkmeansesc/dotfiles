@@ -76,14 +76,19 @@ function M.config()
   require("lualine").setup {
     extensions = { "quickfix", "lazy", "mason", "nvim-dap-ui", "toggleterm", "quickfix" },
     options = {
-      theme = "auto",
+      theme = require("core.utils").theme(),
       globalstatus = true,
       component_separators = "",
       section_separators = "",
     },
     sections = {
-      lualine_a = {},
-      lualine_b = { { "mode", color = { gui = "bold" } } },
+      lualine_a = {
+        {
+          "mode",
+          color = { gui = "bold" },
+        },
+      },
+      lualine_b = {},
       lualine_c = {
         {
           "branch",
@@ -202,8 +207,13 @@ function M.config()
           color = { fg = colors.fg, gui = "bold" },
         },
       },
-      lualine_y = { { "progress", color = { gui = "bold" } } },
-      lualine_z = {},
+      lualine_y = {},
+      lualine_z = {
+        {
+          "progress",
+          color = { gui = "bold" },
+        },
+      },
     },
   }
 end
