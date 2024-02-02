@@ -50,11 +50,9 @@ defaults write org.hammerspoon.Hammerspoon MJConfigFile "~/.config/hammerspoon/i
 install_formula php
 install_formula ruby
 install_formula node
-# install_formula ollama
 # install_cask microsoft-openjdk
 
 # Apps
-install_cask alfred
 install_cask balenaetcher
 install_cask intellij-idea
 install_cask movist-pro
@@ -63,6 +61,8 @@ install_cask squirrel
 install_cask the-unarchiver
 install_cask zoom
 install_cask cleanmymac-zh
+install_cask obsidian
+install_cask raycast
 
 # Microsoft office
 install_cask microsoft-outlook
