@@ -63,6 +63,8 @@ install_cask zoom
 install_cask cleanmymac-zh
 install_cask obsidian
 install_cask raycast
+install_cask torguard
+install_cask scroll-reverser
 
 # Microsoft office
 install_cask microsoft-outlook
