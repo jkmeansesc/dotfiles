@@ -1,5 +1,6 @@
 tmux
+nvim
+arch_wezterm
 arch_gitconfig
 arch_p10k
 arch_zshrc
-nvim

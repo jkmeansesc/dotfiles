@@ -6,17 +6,14 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 # Path to your oh-my-zsh installation.
-ZSH=/usr/share/oh-my-zsh/
-
-# Path to powerlevel10k theme
-source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
+ZSH=~/.local/share/oh-my-zsh/
+ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # List of plugins used
 plugins=(
 	git 
 	zsh-syntax-highlighting
 	zsh-autosuggestions
-	z
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -111,6 +108,3 @@ alias vim="nvim"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
-#Display Pokemon
-pokemon-colorscripts --no-title -r 1,3,6
