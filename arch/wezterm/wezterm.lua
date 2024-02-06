@@ -33,7 +33,7 @@ config.window_padding = {
 }
 
 -- font settings
-config.font = wezterm.font({ family = "Sarasa Fixed SC", weight = "Bold" })
+config.font = wezterm.font("Sarasa Fixed SC", { weight = "DemiBold", stretch = "Normal", style = "Normal" }) -- /usr/share/fonts/sarasa-gothic/Sarasa-SemiBold.ttc index=37 variation=0, FontConfig
 config.allow_square_glyphs_to_overflow_width = "Always"
 config.font_size = 16.0
 

@@ -71,6 +71,7 @@ alias pb="bundle exec jekyll s"
 alias pbd="bundle exec jekyll serve --drafts"
 alias cb="cd ~/git/minicoderwen.github.io/"
 alias j="bundle exec jekyll"
+
 ## eza
 alias ll='eza -lh  --icons=auto' # long list
 alias ls='eza -a   --icons=auto' # short list
@@ -105,6 +106,9 @@ function ta {
 alias cn="cd ~/.config/nvim"
 alias vi="nvim"
 alias vim="nvim"
+
+## Dotfiles
+alias cdd="cd ~/git/dotfiles"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
