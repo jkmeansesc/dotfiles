@@ -6,7 +6,7 @@ local M = {
 function M.config()
   local icons = require "core.icons"
   require("which-key").setup {
-    icons = { group = "", separator = "" },
+    icons = { group = "", separator = "" },
     disable = { filetypes = { "TelescopePrompt" } },
   }
   require("which-key").register {
@@ -18,7 +18,7 @@ function M.config()
     ["<leader>j"] = { name = icons.Java .. " Java" },
     ["<leader>d"] = { name = icons.Debug .. " Debug" },
     ["<leader>x"] = { name = icons.Trouble .. " Trouble" },
-    ["<leader>t"] = { name = icons.Trouble .. " Terminal" },
+    ["<leader>t"] = { name = icons.Terminal .. " Terminal" },
   }
 end
 
