@@ -1,3 +1,5 @@
 [user]
 	email = 373441770@qq.com
 	name = minicoderwen
+[core]
+	editor = /usr/bin/nvim

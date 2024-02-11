@@ -7,7 +7,6 @@ local M = {
     "nvim-tree/nvim-web-devicons",
     "debugloop/telescope-undo.nvim",
     "nvim-telescope/telescope-ui-select.nvim",
-    "nvim-telescope/telescope-frecency.nvim",
     { "2kabhishek/nerdy.nvim", cmd = "Nerdy" },
     { "nvim-telescope/telescope-fzf-native.nvim", enabled = vim.fn.executable "make" == 1, build = "make" },
   },
@@ -95,7 +94,6 @@ function M.config()
   telescope.load_extension "fzf"
   telescope.load_extension "undo"
   telescope.load_extension "ui-select"
-  telescope.load_extension "frecency" -- intelligent prioritization when selecting files from your editing history
 end
 
 return M

@@ -6,12 +6,15 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 # Path to your oh-my-zsh installation.
-ZSH=~/.local/share/oh-my-zsh/
-ZSH_THEME="powerlevel10k/powerlevel10k"
+ZSH=/usr/share/oh-my-zsh/
+
+# Path to powerlevel10k theme
+source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
 
 # List of plugins used
 plugins=(
 	git 
+	sudo
 	zsh-syntax-highlighting
 	zsh-autosuggestions
 )
@@ -58,12 +61,18 @@ function in {
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
+# set editor
+EDITOR=nvim
+
 # Set $XDG_CONFIG_HOME
 export XDG_CONFIG_HOME=$HOME/.config
 
 # ruby gem
 export GEM_HOME="$(ruby -e 'puts Gem.user_dir')"
 export PATH="$PATH:$GEM_HOME/bin"
+
+# miniconda3
+[ -f /opt/miniconda3/etc/profile.d/conda.sh ] && source /opt/miniconda3/etc/profile.d/conda.sh
 
 # Aliases
 ## Jekyll
