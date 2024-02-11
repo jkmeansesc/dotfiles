@@ -58,12 +58,18 @@ function in {
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
+# set editor
+EDITOR=nvim
+
 # Set $XDG_CONFIG_HOME
 export XDG_CONFIG_HOME=$HOME/.config
 
 # ruby gem
 export GEM_HOME="$(ruby -e 'puts Gem.user_dir')"
 export PATH="$PATH:$GEM_HOME/bin"
+
+# miniconda3
+[ -f /opt/miniconda3/etc/profile.d/conda.sh ] && source /opt/miniconda3/etc/profile.d/conda.sh
 
 # Aliases
 ## Jekyll
