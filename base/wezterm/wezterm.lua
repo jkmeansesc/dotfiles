@@ -9,7 +9,7 @@ config.automatically_reload_config = true
 config.disable_default_key_bindings = false
 
 -- set color scheme
-config.color_scheme = "Dark+"
+config.color_scheme = "Catppuccin Mocha"
 
 -- hide tab bar
 config.enable_tab_bar = false
