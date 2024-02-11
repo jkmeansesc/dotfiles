@@ -17,6 +17,8 @@ return {
         checkThirdParty = false,
         library = {
           [vim.fn.expand "$VIMRUNTIME/lua"] = true,
+          [vim.fn.expand "$HOME/.config/wezterm/lua"] = true,
+          [vim.fn.expand "$HOME/.config/hammerspoon/lua"] = true,
           [vim.fn.stdpath "config" .. "/lua"] = true,
         },
       },
