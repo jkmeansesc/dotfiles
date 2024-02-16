@@ -54,11 +54,14 @@ inoremap <C-l> <Right>
 inoremap <C-k> <Up>
 inoremap <C-j> <Down>
 
-nnoremap <leader>y :%y+<CR>
 " Yank all
+nnoremap <leader>y :%y+<CR>
 
-nnoremap <C-s> :w<CR>
 " Save
+nnoremap <C-s> :w<CR>
+
+" Quit
+nnoremap <C-q> :q<CR>
 
 " Pane navigation
 nnoremap <C-h> <C-w>h

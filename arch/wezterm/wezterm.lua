@@ -17,8 +17,8 @@ config.color_scheme = "Catppuccin Mocha"
 config.webgpu_power_preference = "HighPerformance"
 
 -- set transparency
-config.window_background_opacity = 0.7
-config.text_background_opacity = 0.5
+-- config.window_background_opacity = 0.7
+-- config.text_background_opacity = 0.5
 
 -- set window options
 config.window_close_confirmation = "AlwaysPrompt"
@@ -33,7 +33,7 @@ config.window_padding = {
 -- font settings
 config.font = wezterm.font("Sarasa Fixed SC", { weight = "DemiBold", stretch = "Normal", style = "Normal" }) -- /usr/share/fonts/sarasa-gothic/Sarasa-SemiBold.ttc index=37 variation=0, FontConfig
 config.allow_square_glyphs_to_overflow_width = "Always"
-config.font_size = 10.0
+config.font_size = 12.0
 
 -- cursor
 config.cursor_blink_ease_in = "Constant"
