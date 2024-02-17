@@ -4,6 +4,7 @@ dunst
 tmux
 nvim
 ideavim
+fontconfig
 arch_wezterm
 arch_gitconfig
 arch_p10k

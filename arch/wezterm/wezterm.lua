@@ -33,7 +33,7 @@ config.window_padding = {
 -- font settings
 config.font = wezterm.font("Hack Nerd Font", { weight = "DemiBold", stretch = "Normal", style = "Normal" }) -- /usr/share/fonts/sarasa-gothic/Sarasa-SemiBold.ttc index=37 variation=0, FontConfig
 config.allow_square_glyphs_to_overflow_width = "Always"
-config.font_size = 14.0
+config.font_size = 12.0
 
 -- cursor
 config.cursor_blink_ease_in = "Constant"

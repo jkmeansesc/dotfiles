@@ -227,7 +227,7 @@ exec --no-startup-id blueberry-tray
 exec --no-startup-id betterlockscreen -w
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec "xautolock -detectsleep -time 10 -locker \"betterlockscreen -l blur\""
-exec_always xrandr --output eDP --mode 2560x1600 --scale 0.7x0.7
+exec_always xrandr --output eDP --mode 2560x1600 --scale 0.6x0.6
 exec_always --no-startup-id dunst
 exec_always feh --bg-fill ~/.config/i3/wallpaper.jpg
 exec_always picom -f
