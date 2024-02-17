@@ -35,7 +35,7 @@ spec "plugin.colorschemes.vim-nightfly-colors"
 -- UI
 spec "plugin.alpha-nvim"
 -- spec "plugin.bufferline"
-spec "plugin.nvim-navic"
+spec "plugin.barbecue" -- VS Code like winbar
 spec "plugin.lualine"
 spec "plugin.indent-blankline"
 spec "plugin.nvim-colorizer"
