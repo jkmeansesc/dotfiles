@@ -7,19 +7,23 @@ font pango:Noto Sans Regular 14
 gaps inner 12
 gaps outer 6
 
-# Backlight setting using dunst osc
+default_border none
+
+# backlight control
 bindsym XF86MonBrightnessUp exec --no-startup-id ~/.config/i3/scripts/volume_brightness.sh brightness_up
 bindsym XF86MonBrightnessDown exec --no-startup-id ~/.config/i3/scripts/volume_brightness.sh brightness_down
-# use meta keys showing osc using dunst
+
+# volume control
 bindsym XF86AudioRaiseVolume exec --no-startup-id ~/.config/i3/scripts/volume_brightness.sh volume_up
 bindsym XF86AudioLowerVolume exec --no-startup-id ~/.config/i3/scripts/volume_brightness.sh volume_down
-# use meta keys showing osc using dunst
 bindsym XF86AudioMute exec --no-startup-id ~/.config/i3/scripts/volume_brightness.sh volume_mute
+
 # audio control
 bindsym XF86AudioPlay exec --no-startup-id playerctl play
 bindsym XF86AudioPause exec --no-startup-id playerctl pause
 bindsym XF86AudioNext exec --no-startup-id playerctl next
 bindsym XF86AudioPrev exec --no-startup-id playerctl previous
+bindsym XF86AudioMicMute exec amixer sset Capture toggle
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -30,18 +34,20 @@ tiling_drag modifier titlebar
 
 # start apps
 bindsym $mod+Return workspace $ws2; exec --no-startup-id wezterm
+
 # rofi
 bindsym $mod+space exec --no-startup-id rofi -modi drun -show drun \
 		-config ~/.config/rofi/rofidmenu.rasi
+bindsym $mod+Shift+p exec --no-startup-id ~/.config/i3/scripts/power-profiles
 # bindsym $mod+t exec --no-startup-id rofi -show window \
 # 		-config ~/.config/rofi/rofidmenu.rasi
-# TODO: power profile
-bindsym $mod+Shift+p exec --no-startup-id ~/.config/i3/scripts/power-profiles
+
+# lock by blurring the screen:
+bindsym $mod+Ctrl+q exec betterlockscreen -l blur
 
 # kill focused window
 bindsym $mod+q kill
 
-		
 # change focus
 bindsym $mod+h focus left
 bindsym $mod+j focus down
@@ -76,9 +82,6 @@ bindsym $mod+t floating toggle
 # focus the parent container
 bindsym $mod+a focus parent
 
-# lock by blurring the screen:
-bindsym $mod+Ctrl+q exec --no-startup-id ~/.config/i3/scripts/blur-lock
-
 # focus the child container
 #bindsym $mod+d focus child
 
@@ -97,7 +100,6 @@ set $ws10 "10"
 
 for_window [class="firefox"] move to workspace $ws1
 for_window [class="org.wezfurlong.wezterm"] move to workspace $ws2
-
 
 # switch to workspace
 bindsym Ctrl+1 workspace number $ws1
@@ -138,16 +140,16 @@ mode "resize" {
         # Pressing right will grow the window’s width.
         # Pressing up will shrink the window’s height.
         # Pressing down will grow the window’s height.
-        bindsym h resize shrink width 10 px or 10 ppt
-        bindsym k resize grow height 10 px or 10 ppt
-        bindsym j resize shrink height 10 px or 10 ppt
-        bindsym l resize grow width 10 px or 10 ppt
+        bindsym h resize shrink width 5 px or 5 ppt
+        bindsym k resize grow height 5 px or 5 ppt
+        bindsym j resize shrink height 5 px or 5 ppt
+        bindsym l resize grow width 5 px or 5 ppt
 
         # same bindings, but for the arrow keys
-        bindsym Left resize shrink width 10 px or 10 ppt
-        bindsym Down resize grow height 10 px or 10 ppt
-        bindsym Up resize shrink height 10 px or 10 ppt
-        bindsym Right resize grow width 10 px or 10 ppt
+        bindsym Left resize shrink width 5 px or 5 ppt
+        bindsym Down resize grow height 5 px or 5 ppt
+        bindsym Up resize shrink height 5 px or 5 ppt
+        bindsym Right resize grow width 5 px or 5 ppt
 
         # back to normal: Enter or Escape or $mod+r
         bindsym Return mode "default"
@@ -157,41 +159,80 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
+######################################
+# color settings for bar and windows #
+######################################
+
+# Define colors variables:
+set $darkbluetrans	#08052be6
+set $darkblue		#08052b
+set $lightblue		#5294e2
+set $urgentred		#e53935
+set $white		#ffffff
+set $black		#000000
+set $purple		#e345ff
+set $darkgrey		#383c4a
+set $grey		#b0b5bd
+set $mediumgrey		#8b8b8b
+set $yellowbrown	#e1b700
+
+# define colors for windows:
+#class		        	border		bground		text		indicator	child_border
+client.focused		    	$lightblue	$darkblue	$white		$mediumgrey	$mediumgrey
+client.unfocused	    	$darkblue	$darkblue	$grey		$darkgrey	$darkgrey
+client.focused_inactive		$darkblue	$darkblue	$grey		$black		$black
+client.urgent		    	$urgentred	$urgentred	$white		$yellowbrown	$yellowbrown
+
+############################################
+# bar settings (input comes from i3blocks) #
+############################################
+
+# Start i3bar to display a workspace bar
+# (plus the system information i3status finds out, if available)
 bar {
-        status_command i3status
+		font pango: Noto Sans Regular 10
+		status_command i3blocks -c ~/.config/i3/i3blocks.conf
+	    	position bottom
+#	    	i3bar_command i3bar --transparency
+# it could be that you have no primary display set: set one (xrandr --output <output> --primary)
+# reference: https://i3wm.org/docs/userguide.html#_tray_output
+		    #tray_output primary
+		    tray_padding 0
+
+# When strip_workspace_numbers is set to yes,
+# any workspace that has a name of the form
+# “[n][:][NAME]” will display only the name.
+strip_workspace_numbers yes
+##strip_workspace_name no
+
+		    colors {
+		    separator          $purple
+		    background         $darkgrey
+		    statusline         $white
+#                          		border 		        bg		txt		indicator
+		focused_workspace	$mediumgrey	   	$grey		$darkgrey	$purple
+		active_workspace	$lightblue      	$mediumgrey	$darkgrey	$purple
+		inactive_workspace	$darkgrey   		$darkgrey	$grey		$purple
+		urgent_workspace	$urgentred	    	$urgentred	$white		$purple
+	}
 }
 
-default_border none
 
-# switch capslock and ctrl
 exec --no-startup-id /usr/bin/setxkbmap -option "ctrl:swapcaps"
-# set key repeat rate
 exec --no-startup-id xset r rate 200 25
-# mute the annoying speaker beep
 exec --no-startup-id xset -b
-# set resolution
-exec_always xrandr --output eDP --mode 2560x1600 --scale 0.7x0.7
-# set powersavings for display:
 exec --no-startup-id xset s 480 dpms 600 600 600
-# network manager system tray
 exec --no-startup-id nm-applet
-# bluetooth devices system tray
 exec --no-startup-id blueberry-tray
-# notification daemon
+exec --no-startup-id betterlockscreen -w
+exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+exec "xautolock -detectsleep -time 10 -locker \"betterlockscreen -l blur\""
+exec_always xrandr --output eDP --mode 2560x1600 --scale 0.7x0.7
 exec_always --no-startup-id dunst
-# set wallpaper
 exec_always feh --bg-fill ~/.config/i3/wallpaper.jpg
-# compositor
 exec_always picom -f
-# input method
-exec fcitx5 -d
-# eww menu bar
-exec eww daemon
-
-exec --no-startup-id eww
+exec_always fcitx5 -d
 
 # autostart apps
-exec --no-startup-id sleep 5 && firefox
-exec --no-startup-id sleep 5 && wezterm
+exec --no-startup-id firefox
+exec --no-startup-id wezterm

@@ -4,7 +4,7 @@ local config = {}
 
 config.disable_default_key_bindings = false
 config.automatically_reload_config = true
-config.term = "xterm-256color"
+-- config.term = "xterm-256color"
 config.animation_fps = 60
 config.max_fps = 60
 config.enable_wayland = true
@@ -31,9 +31,9 @@ config.window_padding = {
 }
 
 -- font settings
-config.font = wezterm.font("Sarasa Fixed SC", { weight = "DemiBold", stretch = "Normal", style = "Normal" }) -- /usr/share/fonts/sarasa-gothic/Sarasa-SemiBold.ttc index=37 variation=0, FontConfig
+config.font = wezterm.font("Hack Nerd Font", { weight = "DemiBold", stretch = "Normal", style = "Normal" }) -- /usr/share/fonts/sarasa-gothic/Sarasa-SemiBold.ttc index=37 variation=0, FontConfig
 config.allow_square_glyphs_to_overflow_width = "Always"
-config.font_size = 12.0
+config.font_size = 14.0
 
 -- cursor
 config.cursor_blink_ease_in = "Constant"
