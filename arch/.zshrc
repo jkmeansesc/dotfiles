@@ -6,9 +6,10 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 # Path to your oh-my-zsh installation.
-ZSH=$HOME/.local/share/oh-my-zsh
+ZSH=/usr/share/oh-my-zsh/
 
-ZSH_THEME="powerlevel10k/powerlevel10k"
+# powerlevel10k theme
+source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
 
 # List of plugins used
 plugins=(
