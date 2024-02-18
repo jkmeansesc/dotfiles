@@ -33,10 +33,10 @@ yabai -m mouse_drop_action swap
 # Disable specific apps from being managed
 yabai -m rule --add app="^(System Settings|Calculator|CleanMyMac X|Dictionary|Activity Monitor|Scroll Reverser|App Store|balenaEtcher|Microsoft Remote Desktop|Infuse|Movist Pro|Downie 4|EuDic|迅雷|Alfred|PicList|Stickies|Raycast)$" manage=off
 
-yabai -m rule --add title="(Preferences|Settings|Software Update|Hammerspoon Console)" manage=off
+yabai -m rule --add title="(Preferences|Settings|Software Update|Hammerspoon Console|Chris)" manage=off
 # Intellij Idea
 yabai -m rule --add title="(Project Structure)" manage=off
 
 # Web browsers
 yabai -m rule --add app="^(Google Chrome|Safari|Firefox)$" space=1
-yabai -m rule --add app="^Notes$" space=4
+yabai -m rule --add app="^Notes$" space=3

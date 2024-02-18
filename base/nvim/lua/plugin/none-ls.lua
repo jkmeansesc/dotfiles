@@ -39,6 +39,7 @@ function M.config()
       formatting.black, -- python formatter
       formatting.isort, -- python formatter
       formatting.google_java_format, -- java formatter
+      formatting.shfmt, -- shell formatter
       diagnostics.pylint, -- python linter
       diagnostics.eslint_d.with { -- js/ts linter
         condition = function(utils)

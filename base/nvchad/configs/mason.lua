@@ -34,6 +34,7 @@ return function(_, opts)
 			"ansiblelint", -- ansible linter
 			"hadolint", -- dockerfile linter
 			"google_java_format", -- java formatter
+			"shfmt", -- shell formatter
 		},
 	})
 

@@ -29,7 +29,6 @@ install_formula git
 install_formula neovim --HEAD
 install_formula tmux
 install_cask wezterm
-install_cask firefox
 
 # Fonts
 install_cask font-hack-nerd-font
@@ -62,7 +61,7 @@ install_cask the-unarchiver
 install_cask zoom
 install_cask cleanmymac-zh
 install_cask obsidian
-install_cask raycast
+install_cask alfred
 install_cask torguard
 install_cask scroll-reverser
 
