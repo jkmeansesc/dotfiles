@@ -1,9 +1,9 @@
 #!/usr/bin/env sh
 
 # wallpaper var
-EnableWallDcol=1
+EnableWallDcol=0
 ConfDir="${XDG_CONFIG_HOME:-$HOME/.config}"
-CloneDir="/home/xuhaifan/git/hyprdots"
+CloneDir="/home/xuhaifan/git/otherdotfiles/hyprdots"
 ThemeCtl="$ConfDir/hypr/theme.ctl"
 cacheDir="$HOME/.cache/hyprdots"
 
