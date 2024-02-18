@@ -1,11 +1,5 @@
 #!/bin/bash
 
-# Check if the script is run as root
-if [ "$(id -u)" -ne 0 ]; then
-	echo "Please run this script as root"
-	exit 1
-fi
-
 # Function to install yay
 install_yay() {
 	# Check if yay is already installed
@@ -39,7 +33,7 @@ install_packages_with_yay() {
 	# Read the package list from the specified file
 	while read -r package; do
 		# Install the package using yay
-		yay -S --noconfirm "$package"
+		yay -S --needed --noconfirm "$package"
 	done <"$1"
 }
 
