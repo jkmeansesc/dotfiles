@@ -1,2 +1,5 @@
 - link:
-    $HOME/.config/hypr: arch/hyprland
+    $HOME/.config/hypr/hyprland.conf: arch/hyprland/hyprland.conf
+    $HOME/.config/hypr/keybindings.conf: arch/hyprland/keybindings.conf
+    $HOME/.config/hypr/monitors.conf: arch/hyprland/monitors.conf
+    $HOME/.config/hypr/userprefs.conf: arch/hyprland/userprefs.conf
