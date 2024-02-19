@@ -1,67 +1,45 @@
 #!/bin/bash
 
-# Function to install yay
-install_yay() {
-	# Check if yay is already installed
-	if yay --version &>/dev/null; then
-		echo "yay is already installed"
-		return 0
-	fi
+# Install base-devel if it is not installed
+if ! pacman -Qqg base-devel &>/dev/null; then
+	echo "base-devel is not installed. Installing..."
+	sudo pacman -S --needed --noconfirm base-devel
+	echo "base-devel is now installed."
+fi
 
-	# Install base-devel and git if not already installed
-	pacman -Sy --needed --noconfirm base-devel git
+# Install git if it is not installed
+if ! command -v git &>/dev/null; then
+	echo "git is not installed. Installing..."
+	sudo pacman -S --needed --noconfirm git
+	echo "git is now installed."
+fi
 
-	# Clone yay from AUR and install it
+# Install yay if it is not installed
+if ! command -v yay &>/dev/null; then
+	echo "yay is not installed. Installing..."
 	git clone https://aur.archlinux.org/yay-bin.git /tmp/buildyay &&
 		cd /tmp/buildyay &&
 		makepkg -o &&
 		makepkg -si --noconfirm &&
 		cd "$OLDPWD" &&
 		rm -rf /tmp/buildyay
+	echo "yay is now installed."
+fi
 
-	# Check if yay installation was successful
-	if yay --version &>/dev/null; then
-		echo "yay installed successfully"
-	else
-		echo "Failed to install yay"
-		exit 1
-	fi
-}
+# Check if a filename was provided
+if [ -z "$1" ]; then
+	echo "No filename provided. Please provide a filename as an argument."
+	exit 1
+fi
 
-# Function to install packages using yay
-install_packages_with_yay() {
-	# Read the package list from the specified file
-	while read -r package; do
-		# Install the package using yay
-		yay -S --needed --noconfirm "$package"
-	done <"$1"
-}
+# Check if the provided filename exists
+if [ ! -f "$1" ]; then
+	echo "File not found. Please provide a valid filename."
+	exit 1
+fi
 
-# Main function
-main() {
-	# Check if an argument is provided
-	if [ $# -ne 1 ]; then
-		echo "Usage: $0 <prefix>"
-		exit 1
-	fi
+# Read packages from the file into an array
+mapfile -t packages <"$1"
 
-	prefix="$1"
-	conf_file="${prefix}.conf"
-
-	# Check if the file exists
-	if [ ! -f "$conf_file" ]; then
-		echo "File '$conf_file' not found"
-		exit 1
-	fi
-
-	# Install yay if not already installed
-	install_yay
-
-	# Install packages using yay
-	install_packages_with_yay "$conf_file"
-
-	echo "Packages installation complete"
-}
-
-# Run the main function with the provided argument
-main "$@"
+# Install all packages at once
+yay -S --needed --noconfirm "${packages[@]}"
