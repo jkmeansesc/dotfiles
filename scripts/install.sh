@@ -39,7 +39,7 @@ if [ ! -f "$1" ]; then
 fi
 
 # Read packages from the file into an array
-mapfile -t packages <"$1"
+mapfile -t packages < <(grep -v '^#' "$1")
 
 # Install all packages at once
 yay -S --needed --noconfirm "${packages[@]}"
