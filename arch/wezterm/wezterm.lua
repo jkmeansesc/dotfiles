@@ -7,7 +7,7 @@ config.automatically_reload_config = true
 config.term = "xterm-256color"
 config.animation_fps = 60
 config.max_fps = 60
-config.enable_wayland = true
+config.enable_wayland = false
 
 config.enable_scroll_bar = false
 config.enable_tab_bar = false
