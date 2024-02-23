@@ -18,8 +18,8 @@ config.enable_tab_bar = false
 config.enable_scroll_bar = false
 
 -- set transparency
-config.window_background_opacity = 0.6
-config.text_background_opacity = 0.75
+config.window_background_opacity = 0.8
+config.text_background_opacity = 1.0
 config.macos_window_background_blur = 20
 
 -- set window options
@@ -33,9 +33,13 @@ config.window_padding = {
 }
 
 -- font settings
-config.font = wezterm.font({ family = "Sarasa Fixed SC", weight = "Bold" })
+-- config.font = wezterm.font({ family = "Sarasa Fixed SC", weight = "Bold" })
+config.font = wezterm.font_with_fallback({
+	{ family = "Hack Nerd Font", weight = "Bold" },
+	{ family = "Sarasa Fixed SC", weight = "Bold" },
+})
 config.allow_square_glyphs_to_overflow_width = "Always"
-config.font_size = 20.0
+config.font_size = 18.0
 
 -- other settings
 config.scrollback_lines = 3000

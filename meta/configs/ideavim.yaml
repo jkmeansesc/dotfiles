@@ -1,2 +1,2 @@
 - link:
-    $HOME/.ideavimrc: base/.ideavimrc
+    $HOME/.config/ideavim: base/ideavim

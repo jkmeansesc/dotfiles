@@ -2,26 +2,26 @@
 
 # Function to install formula if not already installed
 install_formula() {
-    local formula="$1"
-    if brew list --formula | grep -q "^$formula$"; then
-        echo "$formula is already installed. Skipping installation."
-    else
-        brew install --formula "$formula"
-    fi
+	local formula="$1"
+	if brew list --formula | grep -q "^$formula$"; then
+		echo "$formula is already installed. Skipping installation."
+	else
+		brew install --formula "$formula"
+	fi
 }
 
 # Function to install cask if not already installed
 install_cask() {
-    local cask="$1"
-    if brew list --cask | grep -q "^$cask$"; then
-        echo "$cask is already installed. Skipping installation."
-    else
-        brew install --cask "$cask"
-    fi
+	local cask="$1"
+	if brew list --cask | grep -q "^$cask$"; then
+		echo "$cask is already installed. Skipping installation."
+	else
+		brew install --cask "$cask"
+	fi
 }
 
 # Tap repositories
-brew tap homebrew/cask-fonts # nerd-fonts
+brew tap homebrew/cask-fonts  # nerd-fonts
 brew tap koekeishiya/formulae # yabai
 
 # Essentials
@@ -33,7 +33,6 @@ install_cask wezterm
 # Fonts
 install_cask font-hack-nerd-font
 install_cask font-sarasa-gothic
-
 
 # Useful tools
 install_formula eza
@@ -51,6 +50,10 @@ install_formula ruby
 install_formula node
 # install_cask microsoft-openjdk
 
+# Temporary for GU
+install_formula openjdk@11
+install_cask miniconda
+
 # Apps
 install_cask balenaetcher
 install_cask intellij-idea
@@ -60,13 +63,9 @@ install_cask squirrel
 install_cask the-unarchiver
 install_cask zoom
 install_cask cleanmymac-zh
-install_cask obsidian
 install_cask alfred
 install_cask torguard
 install_cask scroll-reverser
-
-# Microsoft office
-install_cask microsoft-outlook
 install_cask microsoft-word
 install_cask microsoft-excel
 install_cask microsoft-powerpoint
