@@ -43,7 +43,7 @@ bindsym $mod+Shift+p exec --no-startup-id ~/.config/i3/scripts/power-profiles
 # 		-config ~/.config/rofi/rofidmenu.rasi
 
 # lock by blurring the screen:
-bindsym $mod+Ctrl+q exec betterlockscreen -l blur
+bindsym $mod+Ctrl+q exec --no-startup-id ~/.config/i3/scripts/blur-lock
 
 # kill focused window
 bindsym $mod+q kill
@@ -87,10 +87,10 @@ bindsym $mod+a focus parent
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
-set $ws1 "1"
-set $ws2 "2"
-set $ws3 "3"
-set $ws4 "4"
+set $ws1 "1:"
+set $ws2 "2:"
+set $ws3 "3:"
+set $ws4 "4:󰊻"
 set $ws5 "5"
 set $ws6 "6"
 set $ws7 "7"
@@ -100,6 +100,11 @@ set $ws10 "10"
 
 for_window [class="firefox"] move to workspace $ws1
 for_window [class="org.wezfurlong.wezterm"] move to workspace $ws2
+for_window [class="jetbrains-idea"] move to workspace $ws3
+for_window [class="discord"] move to workspace $ws4
+for_window [class="Microsoft Teams - Preview"] move to workspace $ws4
+for_window [class="org.telegram.desktop"] move to workspace $ws4
+for_window [class="com.cisco.anyconnect.gui"] move to workspace $ws9
 
 # switch to workspace
 bindsym Ctrl+1 workspace number $ws1
@@ -223,13 +228,12 @@ exec --no-startup-id xset r rate 200 25
 exec --no-startup-id xset -b
 exec --no-startup-id xset s 480 dpms 600 600 600
 exec --no-startup-id nm-applet
-exec --no-startup-id blueberry-tray
-exec --no-startup-id betterlockscreen -w
+exec --no-startup-id blueman-applet
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec "xautolock -detectsleep -time 10 -locker \"betterlockscreen -l blur\""
 exec --no-startup-id picom -b
-exec_always xrandr --output eDP --mode 2560x1600 --scale 0.7x0.7
-# exec_always xrandr --output eDP --mode 1920x1200
+exec_always xrandr --output eDP --mode 2560x1600
+exec_always echo "Xft.dpi: 160" | xrdb -merge
 exec_always --no-startup-id dunst
 exec_always feh --bg-fill ~/.config/i3/wallpaper.jpg
 exec_always fcitx5 -d
@@ -237,3 +241,7 @@ exec_always fcitx5 -d
 # autostart apps
 exec --no-startup-id firefox
 exec --no-startup-id wezterm
+exec --no-startup-id discord
+exec --no-startup-id teams
+exec --no-startup-id telegram-desktop
+exec --no-startup-id /opt/intellij-idea-ultimate-edition/bin/idea.sh

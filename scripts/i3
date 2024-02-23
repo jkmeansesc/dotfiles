@@ -13,6 +13,8 @@ i3-wm
 i3blocks
 i3lock
 i3status
+zsh
+tmux
 jq
 sddm
 mpv
@@ -39,6 +41,14 @@ fcitx5-im
 fcitx5-rime
 neovim-nightly-bin
 bat
+eza
+lxappearance-gtk3
+catppuccin-cursors-mocha
+catppuccin-gtk-theme-mocha
+catppuccin-fcitx5-git
+qogir-cursor-theme-git
+ttf-hack-nerd
+ttf-sarasa-gothic
 ripgrep
 ruby
 nodejs
