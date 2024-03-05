@@ -48,7 +48,7 @@ defaults write org.hammerspoon.Hammerspoon MJConfigFile "~/.config/hammerspoon/i
 install_formula php
 install_formula ruby
 install_formula node
-# install_cask microsoft-openjdk
+install_cask microsoft-openjdk
 
 # Temporary for GU
 install_formula openjdk@11

@@ -51,6 +51,9 @@ inoremap <C-l> <Right>
 inoremap <C-k> <Up>
 inoremap <C-j> <Down>
 
+" Clear highlights
+nnoremap <Esc> :nohl<CR>
+
 " Yank all
 nnoremap <leader>y :%y+<CR>
 

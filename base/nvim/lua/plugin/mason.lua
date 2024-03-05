@@ -60,6 +60,7 @@ function M.config()
       "ansiblelint", -- ansible linter
       "hadolint", -- dockerfile linter
       "google_java_format", -- java formatter
+      "djlint", -- django linter and formatter
     },
   }
 

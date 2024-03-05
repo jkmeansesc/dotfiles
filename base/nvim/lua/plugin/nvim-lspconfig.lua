@@ -53,7 +53,6 @@ function M.config()
     "cssls",
     "emmet_ls",
     "pyright",
-    "pyright",
     "jsonls",
     "ansiblels",
     "docker_compose_language_service",

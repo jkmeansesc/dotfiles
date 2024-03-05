@@ -2,7 +2,10 @@ local M = {
   "nvimtools/none-ls.nvim",
   lazy = true,
   event = { "BufReadPre", "BufNewFile" },
-  dependencies = { "jay-babu/mason-null-ls.nvim" },
+  dependencies = {
+    "jay-babu/mason-null-ls.nvim",
+    "nvimtools/none-ls-extras.nvim",
+  },
 }
 
 function M.config()
@@ -11,6 +14,7 @@ function M.config()
   local formatting = null_ls.builtins.formatting
   local diagnostics = null_ls.builtins.diagnostics
   local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
+  local eslint_d = require "none-ls.diagnostics.eslint_d"
 
   null_ls.setup {
     root_dir = null_ls_utils.root_pattern(".null-ls-root", "Makefile", ".git", "package.json"),
@@ -40,12 +44,10 @@ function M.config()
       formatting.isort, -- python formatter
       formatting.google_java_format, -- java formatter
       formatting.shfmt, -- shell formatter
+      formatting.djlint, -- django formatter
+      diagnostics.djlint, -- django linter
       diagnostics.pylint, -- python linter
-      diagnostics.eslint_d.with { -- js/ts linter
-        condition = function(utils)
-          return utils.root_has_file { ".eslintrc.js", ".eslintrc.cjs" } -- only enable if root has .eslintrc.js or .eslintrc.cjs
-        end,
-      },
+      eslint_d, -- js linter
       diagnostics.markdownlint.with {
         extra_args = { "--disable MD013" }, -- diable rule: line length
       }, -- markdown linter

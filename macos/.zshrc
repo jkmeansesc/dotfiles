@@ -28,15 +28,10 @@ source $ZSH/oh-my-zsh.sh
 # set EDITOR
 export EDITOR='nvim'
 
-# JAVA ENV
-export PATH="/opt/homebrew/opt/openjdk@11/bin:$PATH"
-export CPPFLAGS="-I/opt/homebrew/opt/openjdk@11/include"
-
 # MAVEN ENV
 export MAVEN_HOME="/Users/oneoldmac/Local/apache-maven-3.9.4"
 
 # PATH
-
 export PATH="/opt/homebrew/bin:/opt/homebrew/sbin:$PATH"
 export PATH="$PATH:/usr/local/bin"
 
@@ -96,3 +91,18 @@ source ~/.config/secrets.sh
 
 # To customize prompt, run `p10k configure` or edit ~/git/dotfiles/macos/.p10k.zsh.
 [[ ! -f ~/git/dotfiles/macos/.p10k.zsh ]] || source ~/git/dotfiles/macos/.p10k.zsh
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/opt/homebrew/Caskroom/miniconda/base/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/opt/homebrew/Caskroom/miniconda/base/etc/profile.d/conda.sh" ]; then
+        . "/opt/homebrew/Caskroom/miniconda/base/etc/profile.d/conda.sh"
+    else
+        export PATH="/opt/homebrew/Caskroom/miniconda/base/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
