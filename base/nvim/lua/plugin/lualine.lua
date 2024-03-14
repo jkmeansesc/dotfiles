@@ -61,13 +61,6 @@ function M.config()
     buffer_not_empty = function() return vim.fn.empty(vim.fn.expand "%:t") ~= 1 end,
     hide_in_width = function() return vim.fn.winwidth(0) > 80 end,
     lazy_status = lazy_status.has_updates,
-    is_copilot = function()
-      local utils = require "core.utils"
-      if not package.loaded["copilot"] then return end
-      local ok, clients = pcall(utils.get_clients, { name = "copilot", bufnr = 0 })
-      if not ok then return false end
-      return ok and #clients > 0
-    end,
   }
 
   -- noice
@@ -115,7 +108,6 @@ function M.config()
         },
         {
           "copilot",
-          cond = conditions.is_copilot,
           symbols = {
             status = {
               icons = {
@@ -126,15 +118,15 @@ function M.config()
                 unknown = icons.CopilotUnknown,
               },
               hl = {
-                enabled = "#50FA7B",
-                sleep = "#AEB7D0",
-                disabled = "#6272A4",
-                warning = "#FFB86C",
-                unknown = "#FF5555",
+                enabled = "#A6E3A1",
+                sleep = "#A6E3A1",
+                disabled = "#F9E2AF",
+                warning = "#FAB387",
+                unknown = "#F38BA8",
               },
             },
             spinners = require("copilot-lualine.spinners").dots,
-            spinner_color = "#6272A4",
+            spinner_color = "#F9E2AF",
           },
           show_colors = true,
           show_loading = true,

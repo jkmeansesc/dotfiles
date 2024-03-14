@@ -50,10 +50,6 @@ install_formula ruby
 install_formula node
 install_cask microsoft-openjdk
 
-# Temporary for GU
-install_formula openjdk@11
-install_cask miniconda
-
 # Apps
 install_cask balenaetcher
 install_cask intellij-idea

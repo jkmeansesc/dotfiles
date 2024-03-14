@@ -67,6 +67,7 @@ spec "plugin.harpoon"
 -- spec "plugin.gen" -- Ollama AI assistant
 spec "plugin.bufdelete"
 spec "plugin.gp" -- ChatGPT
+spec "plugin.carbon-now" -- screenshot code
 
 -- LSP
 spec "plugin.nvim-lspconfig"

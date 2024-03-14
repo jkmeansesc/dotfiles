@@ -33,13 +33,13 @@ config.window_padding = {
 }
 
 -- font settings
-config.font = wezterm.font({ family = "Sarasa Fixed SC", weight = "Bold" })
--- config.font = wezterm.font_with_fallback({
--- 	{ family = "Hack Nerd Font", weight = "Bold" },
--- 	{ family = "Sarasa Fixed SC", weight = "Bold" },
--- })
+-- config.font = wezterm.font({ family = "Sarasa Fixed SC", weight = "Bold" })
+config.font = wezterm.font_with_fallback({
+	{ family = "JetBrainsMono Nerd Font", weight = "Bold" },
+	{ family = "Sarasa Fixed SC", weight = "Bold" },
+})
 config.allow_square_glyphs_to_overflow_width = "Always"
-config.font_size = 20.0
+config.font_size = 16.0
 
 -- other settings
 config.scrollback_lines = 3000
