@@ -1,6 +1,5 @@
 local M = {
   "robitx/gp.nvim",
-  init = function() require("core.utils").load_mappings "gp" end,
   cmd = { "GpChatNew", "GpChatPaste", "GpChatToggle", "GpChatFinder" },
 }
 

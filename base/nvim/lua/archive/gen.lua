@@ -1,7 +1,6 @@
 local M = {
   "David-Kunz/gen.nvim",
   cmd = "Gen",
-  init = function() require("core.utils").load_mappings "gen" end,
 }
 
 function M.config()

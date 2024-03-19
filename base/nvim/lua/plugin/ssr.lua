@@ -3,8 +3,12 @@
 local M = {
   "cshuaimin/ssr.nvim",
   name = "ssr",
-  init = function() require("core.utils").load_mappings "ssr" end,
 }
+
+function M.init()
+  local map = require("core.utils").map
+  map({ "n", "v", "x" }, "<Leader>r", function() require("ssr").open() end, { desc = "Open SSR" })
+end
 
 function M.config()
   require("ssr").setup {

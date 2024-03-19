@@ -1,8 +1,8 @@
 -- set default options
 require "core.options"
 
--- load mapping
-require("core.utils").load_mappings()
+-- load mappings
+require "core.keymaps"
 
 -- bootstrap plugin specs
 LAZY_PLUGIN_SPEC = {}
@@ -11,30 +11,30 @@ local spec = function(item) table.insert(LAZY_PLUGIN_SPEC, { import = item }) en
 ----------plugins spec start----------
 
 -- colorschemes
-spec "plugin.colorschemes.catppuccin"
-spec "plugin.colorschemes.darkplus"
-spec "plugin.colorschemes.edge"
-spec "plugin.colorschemes.flexoki-neovim"
-spec "plugin.colorschemes.gruvbox"
-spec "plugin.colorschemes.gruvbox-material"
-spec "plugin.colorschemes.kanagawa"
-spec "plugin.colorschemes.material"
-spec "plugin.colorschemes.melange-nvim"
-spec "plugin.colorschemes.monokai"
-spec "plugin.colorschemes.nightfox"
-spec "plugin.colorschemes.nord"
-spec "plugin.colorschemes.onedark"
-spec "plugin.colorschemes.onedarkpro"
-spec "plugin.colorschemes.oxocarbon"
-spec "plugin.colorschemes.papercolor-theme"
-spec "plugin.colorschemes.rose-pine"
-spec "plugin.colorschemes.sonokai"
-spec "plugin.colorschemes.tokyonight"
-spec "plugin.colorschemes.vim-nightfly-colors"
+spec "colorschemes.catppuccin"
+spec "colorschemes.darkplus"
+spec "colorschemes.edge"
+spec "colorschemes.flexoki-neovim"
+spec "colorschemes.gruvbox"
+spec "colorschemes.gruvbox-material"
+spec "colorschemes.kanagawa"
+spec "colorschemes.material"
+spec "colorschemes.melange-nvim"
+spec "colorschemes.monokai"
+spec "colorschemes.nightfox"
+spec "colorschemes.nord"
+spec "colorschemes.onedarkpro"
+spec "colorschemes.oxocarbon"
+spec "colorschemes.papercolor-theme"
+spec "colorschemes.rose-pine"
+spec "colorschemes.sonokai"
+spec "colorschemes.tokyonight"
+spec "colorschemes.vim-nightfly-colors"
+spec "colorschemes.cyberdream"
+spec "colorschemes.citruszest"
 
 -- UI
 spec "plugin.alpha-nvim"
--- spec "plugin.bufferline"
 spec "plugin.barbecue" -- VS Code like winbar
 spec "plugin.lualine"
 spec "plugin.indent-blankline"
@@ -45,14 +45,12 @@ spec "plugin.vim-illuminate"
 spec "plugin.gitsigns"
 spec "plugin.mason"
 spec "plugin.neo-tree"
--- spec "plugin.nvim-tree"
 spec "plugin.none-ls"
 spec "plugin.nvim-cmp"
 spec "plugin.nvim-treesitter"
 spec "plugin.telescope"
 spec "plugin.toggleterm"
 spec "plugin.which-key"
-spec "plugin.trouble"
 spec "plugin.vim-fugitive"
 
 -- EDITOR
@@ -64,9 +62,7 @@ spec "plugin.noice"
 spec "plugin.smart-splits"
 spec "plugin.ssr"
 spec "plugin.harpoon"
--- spec "plugin.gen" -- Ollama AI assistant
 spec "plugin.bufdelete"
-spec "plugin.gp" -- ChatGPT
 spec "plugin.carbon-now" -- screenshot code
 
 -- LSP
@@ -83,4 +79,4 @@ spec "plugin.nvim-dap"
 -- bootstrap lazy
 require "core.lazy"
 
-vim.cmd [[colorscheme catppuccin]]
+vim.cmd [[colorscheme kanagawa]]

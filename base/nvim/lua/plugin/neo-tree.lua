@@ -7,8 +7,12 @@ local M = {
     "MunifTanjim/nui.nvim",
   },
   cmd = "Neotree",
-  init = function() require("core.utils").load_mappings "neotree" end,
 }
+
+function M.init()
+  local map = require("core.utils").map
+  map("n", "<Leader>e", "<CMD>Neotree position=float toggle=true<CR>", { desc = "Toggle Neo-tree" })
+end
 
 function M.config()
   local icons = require "core.icons"

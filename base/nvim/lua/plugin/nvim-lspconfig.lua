@@ -49,15 +49,7 @@ function M.config()
   local servers = {
     "lua_ls",
     "yamlls",
-    "html",
-    "cssls",
-    "emmet_ls",
-    "pyright",
     "jsonls",
-    "ansiblels",
-    "docker_compose_language_service",
-    "dockerls",
-    "lemminx",
     "clangd",
     "marksman",
   }
@@ -65,7 +57,8 @@ function M.config()
   require("neoconf").setup()
 
   local on_attach = require("core.utils").on_attach
-  local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
+  local capabilities = vim.lsp.protocol.make_client_capabilities()
+  capabilities = vim.tbl_deep_extend("force", capabilities, require("cmp_nvim_lsp").default_capabilities())
 
   for _, server in ipairs(servers) do
     local opts = {

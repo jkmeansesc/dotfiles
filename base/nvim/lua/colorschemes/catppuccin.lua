@@ -10,12 +10,12 @@ local M = {
 function M.config()
   require("catppuccin").setup {
     flavour = "mocha",
-    transparent_background = true,
+    transparent_background = false,
     term_colors = true,
     integrations = {
       aerial = true,
       alpha = true,
-      -- cmp = true,
+      cmp = true,
       gitsigns = true,
       treesitter = true,
       neotree = true,

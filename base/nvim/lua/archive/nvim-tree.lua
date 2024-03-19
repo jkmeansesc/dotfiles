@@ -2,7 +2,6 @@ local M = {
   "nvim-tree/nvim-tree.lua",
   cmd = { "NvimTreeToggle", "NvimTreeFocus" },
   dependencies = { "nvim-tree/nvim-web-devicons" },
-  init = function() require("core.utils").load_mappings "nvimtree" end,
 }
 function M.config()
   local api = require "nvim-tree.api"

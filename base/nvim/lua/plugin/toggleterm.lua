@@ -1,8 +1,14 @@
 local M = {
   "akinsho/toggleterm.nvim",
   cmd = { "ToggleTerm", "TermExec" },
-  init = function() require("core.utils").load_mappings "toggleterm" end,
 }
+
+function M.init()
+  local map = reuqire("core.utils").map
+  map("n", "<Leader>tt", "<CMD>ToggleTerm direction=float<CR>", { desc = "ToggleTerm float" })
+  map("n", "<Leader>th", "<CMD>ToggleTerm size=10 direction=horizontal<CR>", { desc = "ToggleTerm horizontal split" })
+  map("n", "<Leader>tv", "<CMD>ToggleTerm size=80 direction=vertical<CR>", { desc = "ToggleTerm vertical split" })
+end
 
 function M.config()
   function _G.set_terminal_keymaps()

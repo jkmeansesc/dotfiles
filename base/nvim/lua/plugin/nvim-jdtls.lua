@@ -180,8 +180,29 @@ function M.config()
         vim.g.inlay_hints_visible = true
         vim.lsp.inlay_hint.enable(0, true)
 
-        require("core.utils").load_mappings "lspconfig"
-        require("core.utils").load_mappings "java"
+        local map = require("core.utils").map
+        map("n", "<Leader>jv", function() require("jdtls").extract_variable_all() end, { desc = "Extract Variable" })
+        map("n", "<Leader>jc", function() require("jdtls").extract_constant() end, { desc = "Extract Constant" })
+        map("n", "<Leader>js", function() require("jdtls").super_implementation() end, { desc = "Goto Super" })
+        map("n", "<Leader>jS", function() require("jdtls.tests").goto_subjects() end, { desc = "Goto Subjects" })
+        map("n", "<Leader>jo", function() require("jdtls").organize_imports() end, { desc = "Organize Imports" })
+        map("n", "<Leader>jT", function() require("jdtls.dap").test_class() end, { desc = "Run All Test" })
+        map("n", "<Leader>jt", function() require("jdtls.dap").test_nearest_method() end, { desc = "Run Nearest Test" })
+        map("n", "<Leader>jr", function() require("jdtls.dap").pick_test() end, { desc = "Run Test" })
+        map("n", "<Leader>jm", function() require("jdtls").extract_method(true) end, { desc = "Extract Method" })
+        map("v", "<Leader>jm", [[<ESC><CMD>lua require('jdtls').extract_method(true)<CR>]], { desc = "Extract Method" })
+        map(
+          "v",
+          "<Leader>jv",
+          [[<ESC><CMD>lua require('jdtls').extract_variable_all(true)<CR>]],
+          { desc = "Extract Variable" }
+        )
+        map(
+          "v",
+          "<Leader>jc",
+          [[<ESC><CMD>lua require('jdtls').extract_constant(true)<CR>]],
+          { desc = "Extract Constant" }
+        )
       end
     end,
   })

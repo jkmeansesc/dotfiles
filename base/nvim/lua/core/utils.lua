@@ -1,6 +1,14 @@
----@diagnostic disable: deprecated
 local M = {}
 local merge_tb = vim.tbl_deep_extend
+
+function M.map(mode, lhs, rhs, opts)
+  local options = { noremap = true, silent = true }
+  mode = mode or "n"
+
+  if opts then options = vim.tbl_extend("force", options, opts) end
+
+  vim.keymap.set(mode, lhs, rhs, options)
+end
 
 --- get the bufnr of all opened buffers
 ---@author kikito
@@ -15,41 +23,6 @@ function M.get_listed_buffers()
     end
   end
   return buffers
-end
-
--- copied from NvChad
-function M.load_mappings(section, mapping_opt)
-  vim.schedule(function()
-    local function set_section_map(section_values)
-      if section_values.plugin then return end
-
-      section_values.plugin = nil
-
-      for mode, mode_values in pairs(section_values) do
-        local default_opts = merge_tb("force", { mode = mode }, mapping_opt or {})
-        for keybind, mapping_info in pairs(mode_values) do
-          -- merge default + user opts
-          local opts = merge_tb("force", default_opts, mapping_info.opts or {})
-
-          mapping_info.opts, opts.mode = nil, nil
-          opts.desc = mapping_info[2]
-
-          vim.keymap.set(mode, keybind, mapping_info[1], opts)
-        end
-      end
-    end
-
-    local mappings = require "core.mappings"
-
-    if type(section) == "string" then
-      mappings[section]["plugin"] = nil
-      mappings = { mappings[section] }
-    end
-
-    for _, sect in pairs(mappings) do
-      set_section_map(sect)
-    end
-  end)
 end
 
 -- Copied from LazyVim
@@ -169,28 +142,21 @@ function M.del_buffer_autocmd(augroup, bufnr)
 end
 
 function M.on_attach(client, bufnr)
+  local map = require("core.utils").map
   client.server_capabilities.documentFormattingProvider = false
   client.server_capabilities.documentRangeFormattingProvider = false
 
-  -- load unconditional lsp keymaps
-  M.load_mappings "lspconfig"
+  -- lsp globals
+  map("n", "[d", function() vim.diagnostic.goto_prev() end, { desc = "Prev diagnostic" })
+  map("n", "]d", function() vim.diagnostic.goto_next() end, { desc = "Next diagnostic" })
+  map("n", "gh", function() vim.diagnostic.open_float { border = "rounded" } end, { desc = "Floating diagnostic" })
 
   if client.supports_method "textDocument/codeAction" then
-    vim.keymap.set(
-      "n",
-      "<leader>la",
-      function() vim.lsp.buf.code_action() end,
-      { desc = "LSP code action", noremap = true, silent = true }
-    )
-    vim.keymap.set(
-      "v",
-      "<leader>la",
-      function() vim.lsp.buf.code_action() end,
-      { desc = "LSP code action", noremap = true, silent = true }
-    )
+    map({ "n", "v" }, "<leader>la", function() vim.lsp.buf.code_action() end, { desc = "LSP code action" })
   end
 
   if client.supports_method "textDocument/codeLens" then
+    vim.g.codelens_enabled = true
     M.add_buffer_autocmd("lsp_codelens_refresh", bufnr, {
       events = { "InsertLeave", "BufEnter" },
       desc = "Refresh codelens",
@@ -203,102 +169,47 @@ function M.on_attach(client, bufnr)
       end,
     })
     if vim.g.codelens_enabled then vim.lsp.codelens.refresh() end
-    vim.keymap.set(
-      "n",
-      "<leader>ll",
-      function() vim.lsp.codelens.refresh() end,
-      { desc = "LSP CodeLens refresh", noremap = true, silent = true }
-    )
+    map("n", "<leader>ll", function() vim.lsp.codelens.refresh() end, { desc = "LSP CodeLens refresh" })
 
-    vim.keymap.set(
-      "n",
-      "<leader>lL",
-      function() vim.lsp.codelens.run() end,
-      { desc = "LSP CodeLens run", noremap = true, silent = true }
-    )
+    map("n", "<leader>lL", function() vim.lsp.codelens.run() end, { desc = "LSP CodeLens run" })
   end
 
   if client.supports_method "textDocument/declaration" then
-    vim.keymap.set(
-      "n",
-      "gD",
-      function() vim.lsp.buf.declaration() end,
-      { desc = "LSP declaration", noremap = true, silent = true }
-    )
+    map("n", "gD", function() vim.lsp.buf.declaration() end, { desc = "LSP declaration" })
   end
 
   if client.supports_method "textDocument/definition" then
-    vim.keymap.set(
-      "n",
-      "gd",
-      function() require("telescope.builtin").lsp_definitions() end,
-      { desc = "LSP definition", noremap = true, silent = true }
-    )
+    map("n", "gd", function() require("telescope.builtin").lsp_definitions() end, { desc = "LSP definition" })
   end
 
   if client.supports_method "textDocument/formatting" then
-    vim.keymap.set(
-      "n",
-      "<leader>lf",
-      function() vim.lsp.buf.format(M.format_opts) end,
-      { desc = "Format buffer", noremap = true, silent = true }
-    )
-    vim.keymap.set(
-      "v",
-      "<leader>lf",
-      function() vim.lsp.buf.format(M.format_opts) end,
-      { desc = "Format buffer", noremap = true, silent = true }
-    )
+    map("n", "<leader>lf", function() vim.lsp.buf.format(M.format_opts) end, { desc = "Format buffer" })
+    map("v", "<leader>lf", function() vim.lsp.buf.format(M.format_opts) end, { desc = "Format buffer" })
   end
 
   if client.supports_method "textDocument/implementation" then
-    vim.keymap.set(
-      "n",
-      "gi",
-      function() require("telescope.builtin").lsp_implementations() end,
-      { desc = "LSP implementation", noremap = true, silent = true }
-    )
+    map("n", "gi", function() require("telescope.builtin").lsp_implementations() end, { desc = "LSP implementation" })
   end
 
   if client.supports_method "textDocument/references" then
-    vim.keymap.set(
-      "n",
-      "gr",
-      function() require("telescope.builtin").lsp_references() end,
-      { desc = "LSP references", noremap = true, silent = true }
-    )
+    map("n", "gr", function() require("telescope.builtin").lsp_references() end, { desc = "LSP references" })
   end
 
   if client.supports_method "textDocument/rename" then
     require("inc_rename").setup()
-    vim.keymap.set(
-      "n",
-      "<leader>lr",
-      function() return ":IncRename " .. vim.fn.expand "<cword>" end,
-      { desc = "LSP rename", noremap = true, silent = true }
-    )
+    map("n", "<leader>lr", function() return ":IncRename " .. vim.fn.expand "<cword>" end, { desc = "LSP rename" })
   end
 
   if client.supports_method "textDocument/signatureHelp" then
-    vim.keymap.set(
-      "n",
-      "<leader>lh",
-      function() vim.lsp.buf.signature_help() end,
-      { desc = "Signature help", noremap = true, silent = true }
-    )
+    map("n", "<leader>lh", function() vim.lsp.buf.signature_help() end, { desc = "Signature help" })
   end
 
   if client.supports_method "textDocument/typeDefinition" then
-    vim.keymap.set(
-      "n",
-      "gy",
-      function() require("telescope.builtin").lsp_type_definitions() end,
-      { desc = "LSP type definition", noremap = true, silent = true }
-    )
+    map("n", "gy", function() require("telescope.builtin").lsp_type_definitions() end, { desc = "LSP type definition" })
   end
 
   if client.supports_method "workspace/symbol" then
-    vim.keymap.set("n", "<leader>ls", function()
+    map("n", "<leader>ls", function()
       vim.ui.input({ prompt = "Symbol Query: (leave empty for word under cursor)" }, function(query)
         if query then
           -- word under cursor if given query is empty
@@ -309,7 +220,7 @@ function M.on_attach(client, bufnr)
           }
         end
       end)
-    end, { desc = "Search workspace symbols", noremap = true, silent = true })
+    end, { desc = "Search workspace symbols" })
   end
 
   if client.supports_method "textDocument/documentHighlight" then
@@ -341,7 +252,9 @@ function M.on_attach(client, bufnr)
     print(client.name .. " does not support inlay hints")
   end
 
-  if client.name == "clangd" then M.load_mappings "cpp" end
+  if client.name == "clangd" then
+    map("n", "<Leader>lR", "<CMD>ClangdSwitchSourceHeader<CR>", { desc = "Switch Source/Header (C/C++)" })
+  end
 end
 
 -- Transparent background for lualine

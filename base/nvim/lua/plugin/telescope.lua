@@ -11,13 +11,33 @@ local M = {
     { "nvim-telescope/telescope-fzf-native.nvim", enabled = vim.fn.executable "make" == 1, build = "make" },
   },
   event = "VimEnter",
-  init = function() require("core.utils").load_mappings "telescope" end,
 }
+function M.init()
+  local map = require("core.utils").map
+  -- find
+  map("n", "<Leader>ff", "<CMD>Telescope find_files<CR>", { desc = "Find files" })
+  map("n", "<Leader>fa", "<CMD>Telescope find_files follow=true no_ignore=true hidden=true<CR>", { desc = "Find all" })
+  map("n", "<Leader>fg", "<CMD>Telescope live_grep<CR>", { desc = "Live grep" })
+  map("n", "<Leader>fb", "<CMD>Telescope buffers<CR>", { desc = "Find buffers" })
+  map("n", "<Leader>fh", "<CMD>Telescope help_tags<CR>", { desc = "Help page" })
+  map("n", "<Leader>fH", "<CMD>Telescope highlights<CR>", { desc = "Find highlights" })
+  map("n", "<Leader>fo", "<CMD>Telescope oldfiles<CR>", { desc = "Find oldfiles" })
+  map("n", "<Leader>fz", "<CMD>Telescope current_buffer_fuzzy_find<CR>", { desc = "Find in current buffer" })
+  map("n", "<Leader>fM", "<CMD>Telescope marks<CR>", { desc = "Telescope bookmarks" })
+  map("n", "<Leader>fu", "<CMD>Telescope undo<CR>", { desc = "Find undo" })
+  map("n", "<Leader>fi", "<CMD>Nerdy<CR>", { desc = "Find icons" })
+
+  -- git
+  map("n", "<Leader>gc", "<CMD>Telescope git_commits<CR>", { desc = "Git commits" })
+  map("n", "<Leader>gS", "<CMD>Telescope git_status<CR>", { desc = "Git status" })
+
+  -- noice history
+  map("n", "<Leader>fn", "<CMD>Noice telescope<CR>", { desc = "Noice history" })
+end
 
 function M.config()
   local actions = require "telescope.actions"
   local telescope = require "telescope"
-  local trouble = require "trouble.providers.telescope"
   local icons = require "core.icons"
 
   telescope.setup {
@@ -72,11 +92,9 @@ function M.config()
           ["<C-e>"] = actions.close, -- close telescope
           ["<C-n>"] = actions.cycle_history_next, -- cycle previewer next
           ["<C-p>"] = actions.cycle_history_prev, -- cycle previewer prev
-          ["<C-t>"] = trouble.open_with_trouble,
         },
         n = {
           ["q"] = actions.close, -- close telescope
-          ["<C-t>"] = trouble.open_with_trouble,
         },
       },
     },

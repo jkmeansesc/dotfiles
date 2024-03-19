@@ -30,18 +30,10 @@ function M.config()
   require("mason-lspconfig").setup {
     automatic_installation = true,
     ensure_installed = {
-      "html",
-      "cssls",
-      "emmet_ls", -- html, css
       "lua_ls", -- lua
-      "pyright", -- python
       "yamlls", -- yaml
       "jsonls", -- json
-      "ansiblels", -- ansible
-      "docker_compose_language_service", -- docker compose
-      "dockerls", -- docker
       "jdtls", -- java
-      "lemminx", -- xml
       "clangd", -- c/c++
       "marksman", -- markdown
     },
@@ -51,16 +43,9 @@ function M.config()
     automatic_installation = true,
     ensure_installed = {
       "stylua", -- lua formatter
-      "black", -- python formatter
-      "isort", -- python formatter
-      "pylint", -- python linter
-      "eslint_d", -- js linter
       "markdownlint", -- markdownlinter
       "prettier", -- prettier formatter
-      "ansiblelint", -- ansible linter
-      "hadolint", -- dockerfile linter
       "google_java_format", -- java formatter
-      "djlint", -- django linter and formatter
     },
   }
 
