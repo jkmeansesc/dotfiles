@@ -10,6 +10,9 @@ config.disable_default_key_bindings = false
 
 -- set color scheme
 config.color_scheme = "Catppuccin Mocha"
+config.colors = {
+	background = "#11111b",
+}
 
 -- hide tab bar
 config.enable_tab_bar = false
