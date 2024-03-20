@@ -1,13 +1,44 @@
 local M = {}
-local merge_tb = vim.tbl_deep_extend
 
+--- Simplify the mapping of keys.
+--- @param mode string|table The mode(s) under which the key mapping will be active. A single mode as a
+--- string or a table of modes.
+--- @param lhs string The left-hand side of the map, i.e., the key combination that triggers the action.
+--- @param rhs string|function The right-hand side of the map, i.e., the command or Lua function to execute when the
+--- key combination is pressed.
+--- @param opts table? An optional table of options that will override the default mapping options. These options are
+--- passed directly to `vim.keymap.set`.
 function M.map(mode, lhs, rhs, opts)
   local options = { noremap = true, silent = true }
   mode = mode or "n"
-
   if opts then options = vim.tbl_extend("force", options, opts) end
-
   vim.keymap.set(mode, lhs, rhs, options)
+end
+
+--- Check if a lua plugin can be required without causing an error.
+--- @param name string The plugin name to check for availability.
+--- @return boolean `true` if the module can be loaded, `false` otherwise.
+function M.is_available(name)
+  local ok, _ = pcall(require, name)
+  return ok
+end
+
+--- Reloads the entire Neovim configuration without restarting Neovim.
+function M.reload_config()
+  -- Unloads all loaded Lua modules except 'vim' prefixed ones
+  for name, _ in pairs(package.loaded) do
+    if name:match "^_" or not name:match "^vim" then package.loaded[name] = nil end
+  end
+
+  -- Reloads the init file
+  dofile(vim.env.MYVIMRC)
+
+  -- Notifies that the configuration has been reloaded
+  if M.is_available "fidget" then
+    require("fidget").notify("Neovim configuration reloaded!", vim.log.levels.INFO)
+  else
+    vim.notify("Neovim configuration reloaded!", vim.log.levels.INFO)
+  end
 end
 
 --- get the bufnr of all opened buffers
@@ -41,15 +72,6 @@ function M.get_clients(opts)
     end
   end
   return opts and opts.filter and vim.tbl_filter(opts.filter, ret) or ret
-end
-
---- Copied from Astronvim
---- Check if a plugin is defined in lazy. Useful with lazy loading when a plugin is not necessarily loaded yet
----@param plugin string The plugin to search for
----@return boolean available # Whether the plugin is available
-function M.is_available(plugin)
-  local lazy_config_avail, lazy_config = pcall(require, "lazy.core.config")
-  return lazy_config_avail and lazy_config.spec.plugins[plugin] ~= nil
 end
 
 --- Copied from Astronvim
@@ -249,7 +271,9 @@ function M.on_attach(client, bufnr)
     vim.g.inlay_hints_visible = true
     vim.lsp.inlay_hint.enable(bufnr, true)
   else
-    print(client.name .. " does not support inlay hints")
+    if M.is_available "fidget" then
+      require("fidget").notify(client.name .. " does not support inlay hints", vim.log.levels.WARN)
+    end
   end
 
   if client.name == "clangd" then
@@ -260,10 +284,10 @@ end
 -- Transparent background for lualine
 function M.theme()
   local colors = {
-    darkgray = "#16161d",
-    gray = "#727169",
+    mantle = "#181825",
+    overlay2 = "#9399b2",
     innerbg = nil,
-    outerbg = "#16161D",
+    outerbg = nil,
     normal = "#7e9cd8",
     insert = "#98bb6c",
     visual = "#ffa066",
@@ -272,34 +296,34 @@ function M.theme()
   }
   return {
     inactive = {
-      a = { fg = colors.gray, bg = colors.outerbg, gui = "bold" },
-      b = { fg = colors.gray, bg = colors.outerbg },
-      c = { fg = colors.gray, bg = colors.innerbg },
+      a = { fg = colors.overlay2, bg = colors.normal, gui = "bold" },
+      b = { fg = colors.overlay2, bg = colors.outerbg },
+      c = { fg = colors.overlay2, bg = colors.innerbg },
     },
     visual = {
-      a = { fg = colors.darkgray, bg = colors.visual, gui = "bold" },
-      b = { fg = colors.gray, bg = colors.outerbg },
-      c = { fg = colors.gray, bg = colors.innerbg },
+      a = { fg = colors.mantle, bg = colors.visual, gui = "bold" },
+      b = { fg = colors.overlay2, bg = colors.outerbg },
+      c = { fg = colors.overlay2, bg = colors.innerbg },
     },
     replace = {
-      a = { fg = colors.darkgray, bg = colors.replace, gui = "bold" },
-      b = { fg = colors.gray, bg = colors.outerbg },
-      c = { fg = colors.gray, bg = colors.innerbg },
+      a = { fg = colors.mantle, bg = colors.replace, gui = "bold" },
+      b = { fg = colors.overlay2, bg = colors.outerbg },
+      c = { fg = colors.overlay2, bg = colors.innerbg },
     },
     normal = {
-      a = { fg = colors.darkgray, bg = colors.normal, gui = "bold" },
-      b = { fg = colors.gray, bg = colors.outerbg },
-      c = { fg = colors.gray, bg = colors.innerbg },
+      a = { fg = colors.mantle, bg = colors.normal, gui = "bold" },
+      b = { fg = colors.overlay2, bg = colors.outerbg },
+      c = { fg = colors.overlay2, bg = colors.innerbg },
     },
     insert = {
-      a = { fg = colors.darkgray, bg = colors.insert, gui = "bold" },
-      b = { fg = colors.gray, bg = colors.outerbg },
-      c = { fg = colors.gray, bg = colors.innerbg },
+      a = { fg = colors.mantle, bg = colors.insert, gui = "bold" },
+      b = { fg = colors.overlay2, bg = colors.outerbg },
+      c = { fg = colors.overlay2, bg = colors.innerbg },
     },
     command = {
-      a = { fg = colors.darkgray, bg = colors.command, gui = "bold" },
-      b = { fg = colors.gray, bg = colors.outerbg },
-      c = { fg = colors.gray, bg = colors.innerbg },
+      a = { fg = colors.mantle, bg = colors.command, gui = "bold" },
+      b = { fg = colors.overlay2, bg = colors.outerbg },
+      c = { fg = colors.overlay2, bg = colors.innerbg },
     },
   }
 end

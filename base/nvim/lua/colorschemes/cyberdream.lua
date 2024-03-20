@@ -15,4 +15,5 @@ function M.config()
     terminal_colors = true,
   }
 end
+
 return M

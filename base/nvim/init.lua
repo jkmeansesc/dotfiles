@@ -49,7 +49,6 @@ spec "plugin.none-ls"
 spec "plugin.nvim-cmp"
 spec "plugin.nvim-treesitter"
 spec "plugin.telescope"
-spec "plugin.toggleterm"
 spec "plugin.which-key"
 spec "plugin.vim-fugitive"
 
@@ -57,13 +56,14 @@ spec "plugin.vim-fugitive"
 spec "plugin.better-escape"
 spec "plugin.todo-comments"
 spec "plugin.comment"
-spec "plugin.guess-indent"
-spec "plugin.noice"
+spec "plugin.vim-sleuth"
 spec "plugin.smart-splits"
 spec "plugin.ssr"
 spec "plugin.harpoon"
 spec "plugin.bufdelete"
 spec "plugin.carbon-now" -- screenshot code
+spec "plugin.fidget" -- notifications and LSP progress messages.
+spec "plugin.toggleterm"
 
 -- LSP
 spec "plugin.nvim-lspconfig"
@@ -79,4 +79,4 @@ spec "plugin.nvim-dap"
 -- bootstrap lazy
 require "core.lazy"
 
-vim.cmd [[colorscheme kanagawa]]
+vim.cmd [[colorscheme catppuccin]]

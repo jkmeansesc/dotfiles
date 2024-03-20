@@ -4,7 +4,7 @@ local M = {
 }
 
 function M.init()
-  local map = reuqire("core.utils").map
+  local map = require("core.utils").map
   map("n", "<Leader>tt", "<CMD>ToggleTerm direction=float<CR>", { desc = "ToggleTerm float" })
   map("n", "<Leader>th", "<CMD>ToggleTerm size=10 direction=horizontal<CR>", { desc = "ToggleTerm horizontal split" })
   map("n", "<Leader>tv", "<CMD>ToggleTerm size=80 direction=vertical<CR>", { desc = "ToggleTerm vertical split" })
@@ -25,25 +25,6 @@ function M.config()
   -- if you only want these mappings for toggle term use term://*toggleterm#* instead
   vim.cmd "autocmd! TermOpen term://* lua set_terminal_keymaps()"
 
-  require("toggleterm").setup {
-    highlights = {
-      Normal = { link = "Normal" },
-      NormalNC = { link = "NormalNC" },
-      NormalFloat = { link = "NormalFloat" },
-      FloatBorder = { link = "FloatBorder" },
-      StatusLine = { link = "StatusLine" },
-      StatusLineNC = { link = "StatusLineNC" },
-      WinBar = { link = "WinBar" },
-      WinBarNC = { link = "WinBarNC" },
-    },
-    size = 12,
-    on_create = function()
-      vim.opt.foldcolumn = "0"
-      vim.opt.signcolumn = "no"
-    end,
-    shading_factor = 2,
-    direction = "float",
-    float_opts = { border = "rounded" },
-  }
+  require("toggleterm").setup {}
 end
 return M

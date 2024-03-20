@@ -56,6 +56,9 @@ function M.config()
   local lazy_status = require "lazy.status"
   local lazy = function() return lazy_status.updates() end
 
+  -- vim
+  local vim_icon = function() return "" end
+
   -- conditions for components to show
   local conditions = {
     buffer_not_empty = function() return vim.fn.empty(vim.fn.expand "%:t") ~= 1 end,
@@ -63,25 +66,29 @@ function M.config()
     lazy_status = lazy_status.has_updates,
   }
 
-  -- noice
-  local noice = require("noice").api.statusline.mode
-
   require("lualine").setup {
     extensions = { "quickfix", "lazy", "mason", "nvim-dap-ui", "toggleterm", "quickfix" },
     options = {
       theme = require("core.utils").theme(),
       globalstatus = true,
-      component_separators = "",
-      section_separators = "",
+      -- component_separators = "",
+      -- section_separators = "",
+      section_separators = { left = "", right = "" },
+      component_separators = { left = "", right = "" },
     },
     sections = {
       lualine_a = {
         {
-          "mode",
+          vim_icon,
           color = { gui = "bold" },
         },
       },
-      lualine_b = {},
+      lualine_b = {
+        {
+          "filename",
+          cond = conditions.buffer_not_empty,
+        },
+      },
       lualine_c = {
         {
           "branch",
@@ -100,41 +107,6 @@ function M.config()
             modified = { fg = colors.orange },
             removed = { fg = colors.red },
           },
-        },
-        {
-          lazy,
-          cond = conditions.lazy_status,
-          color = { fg = colors.orange },
-        },
-        {
-          "copilot",
-          symbols = {
-            status = {
-              icons = {
-                enabled = icons.CopilotEnabled,
-                sleep = icons.CopilotEnabled,
-                disabled = icons.CopilotDisabled,
-                warning = icons.CopilotWarning,
-                unknown = icons.CopilotUnknown,
-              },
-              hl = {
-                enabled = "#A6E3A1",
-                sleep = "#A6E3A1",
-                disabled = "#F9E2AF",
-                warning = "#FAB387",
-                unknown = "#F38BA8",
-              },
-            },
-            spinners = require("copilot-lualine.spinners").dots,
-            spinner_color = "#F9E2AF",
-          },
-          show_colors = true,
-          show_loading = true,
-        },
-        {
-          noice.get,
-          cond = noice.has,
-          color = { fg = colors.orange },
         },
         { function() return "%=" end },
         {
@@ -160,33 +132,34 @@ function M.config()
       },
       lualine_x = {
         {
-          "filename",
-          cond = conditions.buffer_not_empty,
-          color = function()
-            -- auto change color according to neovims mode
-            local mode_color = {
-              n = colors.red,
-              i = colors.green,
-              v = colors.blue,
-              V = colors.blue,
-              c = colors.magenta,
-              no = colors.red,
-              s = colors.orange,
-              S = colors.orange,
-              [""] = colors.orange,
-              ic = colors.yellow,
-              R = colors.violet,
-              Rv = colors.violet,
-              cv = colors.red,
-              ce = colors.red,
-              r = colors.cyan,
-              rm = colors.cyan,
-              ["r?"] = colors.cyan,
-              ["!"] = colors.red,
-              t = colors.red,
-            }
-            return { fg = mode_color[vim.fn.mode()] }
-          end,
+          lazy,
+          cond = conditions.lazy_status,
+          color = { fg = colors.orange },
+        },
+        {
+          "copilot",
+          symbols = {
+            status = {
+              icons = {
+                enabled = icons.CopilotEnabled,
+                sleep = icons.CopilotEnabled,
+                disabled = icons.CopilotDisabled,
+                warning = icons.CopilotWarning,
+                unknown = icons.CopilotUnknown,
+              },
+              hl = {
+                enabled = "#A6E3A1",
+                sleep = "#FFFFFF",
+                disabled = "#F9E2AF",
+                warning = "#FAB387",
+                unknown = "#F38BA8",
+              },
+            },
+            spinners = require("copilot-lualine.spinners").dots,
+            spinner_color = "#F9E2AF",
+          },
+          show_colors = true,
+          show_loading = true,
         },
         {
           "filetype",

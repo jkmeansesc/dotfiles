@@ -22,7 +22,7 @@ function M.init()
   map("n", "<Leader>fh", "<CMD>Telescope help_tags<CR>", { desc = "Help page" })
   map("n", "<Leader>fH", "<CMD>Telescope highlights<CR>", { desc = "Find highlights" })
   map("n", "<Leader>fo", "<CMD>Telescope oldfiles<CR>", { desc = "Find oldfiles" })
-  map("n", "<Leader>fz", "<CMD>Telescope current_buffer_fuzzy_find<CR>", { desc = "Find in current buffer" })
+  map("n", "<Leader><Leader>", "<CMD>Telescope current_buffer_fuzzy_find<CR>", { desc = "Find in current buffer" })
   map("n", "<Leader>fM", "<CMD>Telescope marks<CR>", { desc = "Telescope bookmarks" })
   map("n", "<Leader>fu", "<CMD>Telescope undo<CR>", { desc = "Find undo" })
   map("n", "<Leader>fi", "<CMD>Nerdy<CR>", { desc = "Find icons" })
@@ -30,9 +30,6 @@ function M.init()
   -- git
   map("n", "<Leader>gc", "<CMD>Telescope git_commits<CR>", { desc = "Git commits" })
   map("n", "<Leader>gS", "<CMD>Telescope git_status<CR>", { desc = "Git status" })
-
-  -- noice history
-  map("n", "<Leader>fn", "<CMD>Noice telescope<CR>", { desc = "Noice history" })
 end
 
 function M.config()

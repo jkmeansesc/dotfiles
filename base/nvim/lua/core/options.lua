@@ -1,11 +1,18 @@
 vim.g.mapleader = " "
 vim.g.gmaplocalleader = " "
 
+-- set utf-8
+vim.scriptencoding = "utf-8"
+vim.opt.encoding = "utf-8"
+vim.opt.fileencoding = "utf-8"
+
 vim.opt.number = true -- show numberline
 vim.opt.relativenumber = true -- show relative numberline
 
 vim.opt.mouse = "a" -- enable mouse support
 vim.opt.laststatus = 3 -- global statusline
+vim.opt.cmdheight = 1 -- height of the command bar, default: 1
+vim.opt.backup = false -- disable backup
 
 vim.opt.showmode = false -- disable showing modes in command line
 vim.opt.smartindent = true -- do smart autoindenting.

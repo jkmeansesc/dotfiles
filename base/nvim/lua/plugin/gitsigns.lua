@@ -18,8 +18,8 @@ function M.init()
 
   local map = require("core.utils").map
   -- Navigation through hunks
-  map("n", "]h", function() require("gitsigns").next_hunk() end, { desc = "Next hunk", opts = { expr = true } })
-  map("n", "[h", function() require("gitsigns").prev_hunk() end, { desc = "Prev hunk", opts = { expr = true } })
+  map("n", "]h", function() require("gitsigns").next_hunk() end, { desc = "Next hunk", expr = true })
+  map("n", "[h", function() require("gitsigns").prev_hunk() end, { desc = "Prev hunk", expr = true })
 
   -- Actions
   map("n", "<Leader>gr", function() require("gitsigns").reset_hunk() end, { desc = "Reset hunk" })
@@ -36,7 +36,6 @@ end
 
 function M.config()
   require("gitsigns").setup {
-    worktrees = vim.g.git_worktrees,
     signs = {
       add = { text = "▎" },
       change = { text = "▎" },
