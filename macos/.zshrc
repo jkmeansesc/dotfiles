@@ -55,6 +55,7 @@ alias j="bundle exec jekyll"
 
 # Neovim
 alias cn="cd ~/.config/nvim"
+alias v="nvim"
 alias vi="nvim"
 alias vim="nvim"
 

@@ -6,19 +6,55 @@ local M = {
   },
   event = "VeryLazy",
 }
--- colors for highlights
+
+-- Transparent background for lualine
 local colors = {
-  bg = "#202328",
-  fg = "#BBC2CF",
-  yellow = "#F9E2AF",
-  cyan = "#74C7EC",
-  green = "#A6E3A1",
-  orange = "#FAB387",
-  violet = "#B4BEFE",
-  magenta = "#C678DD",
-  blue = "#89B4FA",
-  red = "#F38BA8",
+  white = "#ffffff",
+  mantle = "#181825",
+  text = "#cdd6f4",
+  innerbg = nil,
+  outerbg = nil,
+  pink = "#f5c2e7",
+  green = "#a6e3a1",
+  peach = "#fab387",
+  red = "#f38ba8",
+  yellow = "#f9e2af",
+  lavender = "#b4befe",
 }
+local theme = function()
+  return {
+    inactive = {
+      a = { fg = colors.text, bg = colors.outerbg, gui = "bold" },
+      b = { fg = colors.text, bg = colors.outerbg },
+      c = { fg = colors.text, bg = colors.innerbg },
+    },
+    visual = {
+      a = { fg = colors.mantle, bg = colors.peach, gui = "bold" },
+      b = { fg = colors.peach, bg = colors.outerbg },
+      c = { fg = colors.text, bg = colors.innerbg },
+    },
+    replace = {
+      a = { fg = colors.mantle, bg = colors.red, gui = "bold" },
+      b = { fg = colors.red, bg = colors.outerbg },
+      c = { fg = colors.text, bg = colors.innerbg },
+    },
+    normal = {
+      a = { fg = colors.mantle, bg = colors.pink, gui = "bold" },
+      b = { fg = colors.pink, bg = colors.outerbg },
+      c = { fg = colors.text, bg = colors.innerbg },
+    },
+    insert = {
+      a = { fg = colors.mantle, bg = colors.green, gui = "bold" },
+      b = { fg = colors.green, bg = colors.outerbg },
+      c = { fg = colors.text, bg = colors.innerbg },
+    },
+    command = {
+      a = { fg = colors.mantle, bg = colors.yellow, gui = "bold" },
+      b = { fg = colors.yellow, bg = colors.outerbg },
+      c = { fg = colors.text, bg = colors.innerbg },
+    },
+  }
+end
 
 local icons = require "core.icons"
 
@@ -69,10 +105,8 @@ function M.config()
   require("lualine").setup {
     extensions = { "quickfix", "lazy", "mason", "nvim-dap-ui", "toggleterm", "quickfix" },
     options = {
-      theme = require("core.utils").theme(),
+      theme = theme,
       globalstatus = true,
-      -- component_separators = "",
-      -- section_separators = "",
       section_separators = { left = "", right = "" },
       component_separators = { left = "", right = "" },
     },
@@ -87,12 +121,13 @@ function M.config()
         {
           "filename",
           cond = conditions.buffer_not_empty,
+          color = { gui = "bold" },
         },
       },
       lualine_c = {
         {
           "branch",
-          color = { fg = "#ffffff", gui = "bold" },
+          color = { gui = "bold" },
         },
         {
           "diff",
@@ -104,15 +139,15 @@ function M.config()
           },
           diff_color = {
             added = { fg = colors.green },
-            modified = { fg = colors.orange },
+            modified = { fg = colors.peach },
             removed = { fg = colors.red },
           },
         },
         { function() return "%=" end },
         {
           LSP_status,
-          icon = icons.Lsp .. " LSP:",
-          color = { fg = "#ffffff", gui = "bold" },
+          icon = icons.Lsp .. " :",
+          color = { fg = colors.white, gui = "bold" },
         },
         {
           "diagnostics",
@@ -126,7 +161,7 @@ function M.config()
           diagnostics_color = {
             color_error = { fg = colors.red },
             color_warn = { fg = colors.yellow },
-            color_info = { fg = colors.cyan },
+            color_info = { fg = colors.lavender },
           },
         },
       },
@@ -134,7 +169,7 @@ function M.config()
         {
           lazy,
           cond = conditions.lazy_status,
-          color = { fg = colors.orange },
+          color = { fg = colors.peach },
         },
         {
           "copilot",
@@ -148,28 +183,28 @@ function M.config()
                 unknown = icons.CopilotUnknown,
               },
               hl = {
-                enabled = "#A6E3A1",
-                sleep = "#FFFFFF",
-                disabled = "#F9E2AF",
-                warning = "#FAB387",
-                unknown = "#F38BA8",
+                enabled = colors.green,
+                sleep = colors.white,
+                disabled = colors.yellow,
+                warning = colors.peach,
+                unknown = colors.red,
               },
             },
             spinners = require("copilot-lualine.spinners").dots,
-            spinner_color = "#F9E2AF",
+            spinner_color = colors.yellow,
           },
           show_colors = true,
           show_loading = true,
         },
         {
           "filetype",
-          color = { fg = colors.fg, gui = "bold" },
+          color = { gui = "bold" },
         },
         {
           "encoding",
           fmt = string.upper,
           cond = conditions.hide_in_width,
-          color = { fg = colors.fg, gui = "bold" },
+          color = { gui = "bold" },
         },
       },
       lualine_y = {},

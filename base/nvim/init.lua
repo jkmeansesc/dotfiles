@@ -58,7 +58,7 @@ spec "plugin.todo-comments"
 spec "plugin.comment"
 spec "plugin.vim-sleuth"
 spec "plugin.smart-splits"
-spec "plugin.ssr"
+spec "plugin.inc-rename"
 spec "plugin.harpoon"
 spec "plugin.bufdelete"
 spec "plugin.carbon-now" -- screenshot code
