@@ -5,9 +5,7 @@ local M = {
 
 function M.init()
   local map = require("core.utils").map
-  map("n", "<Leader>tt", "<CMD>ToggleTerm direction=float<CR>", { desc = "ToggleTerm float" })
-  map("n", "<Leader>th", "<CMD>ToggleTerm size=10 direction=horizontal<CR>", { desc = "ToggleTerm horizontal split" })
-  map("n", "<Leader>tv", "<CMD>ToggleTerm size=80 direction=vertical<CR>", { desc = "ToggleTerm vertical split" })
+  map("n", "<Leader>ht", "<CMD>ToggleTerm direction=float<CR>", { desc = "ToggleTerm float" })
 end
 
 function M.config()

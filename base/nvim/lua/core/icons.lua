@@ -35,6 +35,7 @@ return {
   Debug = "",
   Trouble = "󰌵",
   Terminal = "",
+  Misc = "󰋖",
   -- nvim-tree
   Text = "",
   File = "󰈙",

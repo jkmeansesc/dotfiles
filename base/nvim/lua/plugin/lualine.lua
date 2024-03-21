@@ -71,23 +71,15 @@ function M.config()
   end
 
   -- lsp client
-  local LSP_status = function()
+  local lsp = function()
     local clients = vim.lsp.get_clients()
     local msg = "No Active Lsp"
     if next(clients) == nil then return msg end
-    if rawget(vim, "lsp") then
-      for _, client in ipairs(vim.lsp.get_clients()) do
-        if
-          client.attached_buffers[vim.api.nvim_win_get_buf(0)]
-          and client.name ~= "null-ls"
-          and client.name ~= "copilot"
-        then
-          return client.name
-        else
-          return msg
-        end
-      end
+    local c = {}
+    for _, client in ipairs(clients) do
+      if client.name ~= "null-ls" and client.name ~= "copilot" then table.insert(c, client.name) end
     end
+    return table.concat(c, "|")
   end
 
   -- lazy status
@@ -146,11 +138,6 @@ function M.config()
         },
         { function() return "%=" end },
         {
-          LSP_status,
-          icon = icons.Lsp .. " :",
-          color = { fg = colors.white, gui = "bold" },
-        },
-        {
           "diagnostics",
           sources = { "nvim_diagnostic" },
           symbols = {
@@ -205,7 +192,13 @@ function M.config()
           color = { gui = "bold" },
         },
       },
-      lualine_y = {},
+      lualine_y = {
+        {
+          lsp,
+          icon = icons.Lsp .. " ",
+          color = { gui = "bold" },
+        },
+      },
       lualine_z = {
         {
           "progress",

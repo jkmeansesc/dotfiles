@@ -25,7 +25,7 @@ map("n", "<C-c>", "<CMD>close<CR>", { desc = "Close" })
 map("n", "<C-s>", "<CMD>update<CR>", { desc = "Save" })
 
 -- format
-map("n", "<C-f>", function(bufnr)
+map("n", "<Leader>lf", function(bufnr)
   vim.lsp.buf.format {
     bufnr = bufnr,
     filter = function(client)
@@ -36,8 +36,8 @@ map("n", "<C-f>", function(bufnr)
 end, { desc = "Format" })
 
 -- move to start/end of line
-map({ "n", "x" }, "H", "^", { desc = "Start of line" })
-map({ "n", "x" }, "L", "g_", { desc = "End of line" })
+-- map({ "n", "x" }, "H", "^", { desc = "Start of line" })
+-- map({ "n", "x" }, "L", "g_", { desc = "End of line" })
 
 -- Do not move my cursor when joining lines.
 map("n", "J", function()

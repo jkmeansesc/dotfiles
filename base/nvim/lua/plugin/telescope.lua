@@ -1,6 +1,5 @@
 local M = {
   "nvim-telescope/telescope.nvim",
-  version = false,
   dependencies = {
     "MunifTanjim/nui.nvim",
     "nvim-lua/plenary.nvim",

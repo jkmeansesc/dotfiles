@@ -11,14 +11,13 @@ function M.config()
   }
   require("which-key").register {
     ["<leader>b"] = { name = icons.Buffer .. " Buffer" },
-    ["<leader>g"] = { name = icons.Git .. " Git" },
+    ["<leader>d"] = { name = icons.Debug .. " Debug" },
     ["<leader>f"] = { name = icons.Find .. " Find" },
+    ["<leader>g"] = { name = icons.Git .. " Git" },
+    ["<leader>h"] = { name = icons.Misc .. " Misc" },
+    ["<leader>j"] = { name = icons.Java .. " Java" },
     ["<leader>l"] = { name = icons.Lsp .. " Lsp" },
     ["<leader>m"] = { name = icons.Manage .. " Manage" },
-    ["<leader>j"] = { name = icons.Java .. " Java" },
-    ["<leader>d"] = { name = icons.Debug .. " Debug" },
-    ["<leader>x"] = { name = icons.Trouble .. " Trouble" },
-    ["<leader>t"] = { name = icons.Terminal .. " Terminal" },
   }
 end
 
