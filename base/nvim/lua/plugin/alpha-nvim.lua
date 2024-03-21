@@ -4,6 +4,13 @@ local M = {
 }
 
 function M.config()
+  vim.api.nvim_set_hl(0, "AlphaNeovimLogoBlue", { fg = "#00BFFF" })
+  vim.api.nvim_set_hl(0, "AlphaNeovimLogoGreenFBlueB", { fg = "#70CF67", bg = "#00BFFF" })
+  vim.api.nvim_set_hl(0, "AlphaNeovimLogoGreen", { fg = "#70CF67" })
+  vim.api.nvim_set_hl(0, "AlphaHeader", { fg = "#f9e2af" })
+  vim.api.nvim_set_hl(0, "AlphaButtons", { fg = "#b4befe" })
+  vim.api.nvim_set_hl(0, "AlphaFooter", { fg = "#fab387" })
+  vim.api.nvim_set_hl(0, "AlphaShortcut", { fg = "#a6e3a1" })
   local dashboard = require "alpha.themes.dashboard"
 
   -- ╭──────────────────────────────────────────────────────────╮
@@ -29,14 +36,6 @@ function M.config()
   --   [[                                                                       ]],
   --   [[                                                                       ]],
   -- }
-
-  vim.api.nvim_set_hl(0, "AlphaNeovimLogoBlue", { fg = "#00BFFF" })
-  vim.api.nvim_set_hl(0, "AlphaNeovimLogoGreenFBlueB", { fg = "#70CF67", bg = "#00BFFF" })
-  vim.api.nvim_set_hl(0, "AlphaNeovimLogoGreen", { fg = "#70CF67" })
-  vim.api.nvim_set_hl(0, "AlphaHeader", { fg = "#f9e2af" })
-  vim.api.nvim_set_hl(0, "AlphaButtons", { fg = "#b4befe" })
-  vim.api.nvim_set_hl(0, "AlphaFooter", { fg = "#fab387" })
-  vim.api.nvim_set_hl(0, "AlphaShortcut", { fg = "#a6e3a1" })
 
   local thingy = io.popen 'echo "$(LANG=en_us_88591; date +%a) $(date +%d) $(LANG=en_us_88591; date +%b)" | tr -d "\n"'
   if thingy == nil then return end

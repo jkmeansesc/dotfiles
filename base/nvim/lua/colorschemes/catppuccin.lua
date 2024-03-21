@@ -58,7 +58,7 @@ function M.config()
         sky = "#61BDFF",
         sapphire = "#4BA8FA",
         blue = "#00BFFF",
-        -- lavender = "#00BBCC",
+        lavender = "#00BBCC",
         text = "#C1C9E6",
         subtext1 = "#A3AAC2",
         subtext0 = "#8E94AB",

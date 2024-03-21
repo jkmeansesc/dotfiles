@@ -273,6 +273,8 @@ function M.on_attach(client, bufnr)
   else
     if M.is_available "fidget" then
       require("fidget").notify(client.name .. " does not support inlay hints", vim.log.levels.WARN)
+    else
+      vim.notify(client.name .. " does not support inlay hints", vim.log.levels.WARN)
     end
   end
 

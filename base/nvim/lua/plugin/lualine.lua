@@ -20,7 +20,9 @@ local colors = {
   red = "#f38ba8",
   yellow = "#f9e2af",
   lavender = "#b4befe",
+  blue = "#00BFFF",
 }
+
 local theme = function()
   return {
     inactive = {
@@ -103,7 +105,11 @@ function M.config()
   }
 
   require("lualine").setup {
-    extensions = { "quickfix", "lazy", "mason", "nvim-dap-ui", "toggleterm", "quickfix" },
+    -- extensions = { "quickfix", "lazy", "mason", "nvim-dap-ui", "toggleterm", "quickfix" },
+    disabled_filetypes = {
+      statusline = { "alpha" },
+      winbar = { "alpha", "edgy", "toggleterm", "Trouble", "spectre_panel", "qf", "noice", "dbui" },
+    },
     options = {
       theme = theme,
       globalstatus = true,
@@ -119,16 +125,11 @@ function M.config()
       },
       lualine_b = {
         {
-          "filename",
-          cond = conditions.buffer_not_empty,
+          "branch",
           color = { gui = "bold" },
         },
       },
       lualine_c = {
-        {
-          "branch",
-          color = { gui = "bold" },
-        },
         {
           "diff",
           cond = conditions.hide_in_width,
@@ -161,7 +162,8 @@ function M.config()
           diagnostics_color = {
             color_error = { fg = colors.red },
             color_warn = { fg = colors.yellow },
-            color_info = { fg = colors.lavender },
+            color_info = { fg = colors.green },
+            color_hint = { fg = colors.blue },
           },
         },
       },
@@ -195,10 +197,6 @@ function M.config()
           },
           show_colors = true,
           show_loading = true,
-        },
-        {
-          "filetype",
-          color = { gui = "bold" },
         },
         {
           "encoding",
