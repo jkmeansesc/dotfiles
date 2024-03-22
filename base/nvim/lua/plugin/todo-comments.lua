@@ -1,9 +1,6 @@
-local M = {
+return {
   "folke/todo-comments.nvim",
   dependencies = { "nvim-lua/plenary.nvim" },
   event = { "BufReadPre", "BufNewFile" },
+  opts = {},
 }
-
-function M.config() require("todo-comments").setup() end
-
-return M

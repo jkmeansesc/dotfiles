@@ -2,10 +2,9 @@
 -- vim.cmd [[colorscheme onelight]]
 -- vim.cmd [[colorscheme onedark_vivid]]
 -- vim.cmd [[colorscheme onedark_dark]]
-local M = {
+return {
   "olimorris/onedarkpro.nvim",
   enabled = false,
   lazy = false,
   priority = 1000,
 }
-return M

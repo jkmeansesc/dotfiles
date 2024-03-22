@@ -1,8 +1,7 @@
 -- vim.cmd [[colorscheme PaperColor]]
-local M = {
+return {
   "NLKNguyen/papercolor-theme",
   enabled = false,
   lazy = false,
   priority = 1000,
 }
-return M

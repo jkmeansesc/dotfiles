@@ -1,19 +1,14 @@
 -- vim.cmd [[colorscheme cyberdream]]
-local M = {
+return {
   "scottmckendry/cyberdream.nvim",
   enabled = false,
   lazy = false,
   priority = 1000,
-}
-
-function M.config()
-  require("cyberdream").setup {
+  opts = {
     transparent = false,
     italic_comments = true,
     hide_fillchars = true,
     borderless_telescope = true,
     terminal_colors = true,
-  }
-end
-
-return M
+  },
+}

@@ -1,8 +1,7 @@
 -- vim.cmd [[colorscheme gruvbox-material]]
-local M = {
+return {
   "sainnhe/gruvbox-material",
   enabled = false,
   lazy = false,
   priority = 1000,
 }
-return M

@@ -1,11 +1,11 @@
 -- vim.cmd [[colorscheme oxocarbon]]
-local M = {
+return {
   "nyoom-engineering/oxocarbon.nvim",
   enabled = false,
   lazy = false,
   priority = 1000,
+  opts = function()
+    vim.opt.background = "dark"
+    return {}
+  end,
 }
-
-function M.config() vim.opt.background = "dark" end
-
-return M

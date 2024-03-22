@@ -1,17 +1,11 @@
-local M = {
+return {
   "smjonas/inc-rename.nvim",
-  event = { "BufReadPre", "BufNewFile" },
+  keys = {
+    {
+      "<Leader>r",
+      function() return ":IncRename " .. vim.fn.expand "<cword>" end,
+      desc = "Inc-rename",
+      expr = true,
+    },
+  },
 }
-
-function M.init()
-  require("core.utils").map(
-    "n",
-    "<leader>r",
-    function() return ":IncRename " .. vim.fn.expand "<cword>" end,
-    { desc = "Inc-rename", expr = true }
-  )
-end
-
-function M.config() require("inc_rename").setup() end
-
-return M

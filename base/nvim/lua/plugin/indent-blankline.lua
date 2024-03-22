@@ -1,12 +1,7 @@
-local M = {
+return {
   "lukas-reineke/indent-blankline.nvim",
   event = { "BufReadPre", "BufNewFile" },
-}
-
-function M.config()
-  local hooks = require "ibl.hooks"
-  hooks.register(hooks.type.WHITESPACE, hooks.builtin.hide_first_space_indent_level)
-  require("ibl").setup {
+  opts = {
     indent = { char = "│" },
     -- scope = { char = "│" },
     scope = { show_start = false, show_end = false },
@@ -28,7 +23,10 @@ function M.config()
         "Trouble",
       },
     },
-  }
-end
-
-return M
+  },
+  config = function(_, opts)
+    local hooks = require "ibl.hooks"
+    hooks.register(hooks.type.WHITESPACE, hooks.builtin.hide_first_space_indent_level)
+    require("ibl").setup(opts) -- NOTE: necessary for v3
+  end,
+}

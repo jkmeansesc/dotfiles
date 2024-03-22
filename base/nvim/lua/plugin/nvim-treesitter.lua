@@ -1,4 +1,4 @@
-local M = {
+return {
   "nvim-treesitter/nvim-treesitter",
   build = ":TSUpdate",
   event = { "BufReadPre", "BufNewFile" },
@@ -11,10 +11,7 @@ local M = {
     "nvim-treesitter/nvim-treesitter-context",
     "luckasRanarison/tree-sitter-hyprlang",
   },
-}
-
-function M.config()
-  require("nvim-treesitter.configs").setup {
+  opts = {
     highlight = {
       enable = true,
       use_languagetree = true,
@@ -62,9 +59,9 @@ function M.config()
         scope_incremental = false,
       },
     },
-  }
-
-  require("treesitter-context").setup()
-end
-
-return M
+  },
+  config = function(_, opts)
+    require("nvim-treesitter.configs").setup(opts)
+    require("treesitter-context").setup()
+  end,
+}

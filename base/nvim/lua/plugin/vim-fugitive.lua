@@ -1,5 +1,4 @@
-local M = {
+return {
   "tpope/vim-fugitive",
   lazy = false,
 }
-return M

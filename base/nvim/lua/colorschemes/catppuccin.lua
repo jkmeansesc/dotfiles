@@ -1,14 +1,11 @@
 -- vim.cmd [[colorscheme catppuccin]]
-local M = {
+return {
   "catppuccin/nvim",
   -- enabled = false,
   lazy = false,
   priority = 1000,
   name = "catppuccin",
-}
-
-function M.config()
-  require("catppuccin").setup {
+  opts = {
     flavour = "mocha",
     transparent_background = false,
     term_colors = true,
@@ -73,7 +70,5 @@ function M.config()
         crust = "#191926",
       },
     },
-  }
-end
-
-return M
+  },
+}

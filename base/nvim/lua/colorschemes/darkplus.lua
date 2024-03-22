@@ -1,9 +1,7 @@
 -- vim.cmd [[colorscheme darkplus]]
-local M = {
+return {
   "lunarvim/darkplus.nvim",
   enabled = false,
   lazy = false,
   priority = 1000,
 }
-
-return M

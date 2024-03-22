@@ -1,10 +1,8 @@
 -- vim.cmd [[colorscheme gruvbox]]
-local M = {
+return {
   "ellisonleao/gruvbox.nvim",
   enabled = false,
   lazy = false,
   priority = 1000,
+  opts = { transparent_mode = false },
 }
-
-M.opts = { transparent_mode = false }
-return M

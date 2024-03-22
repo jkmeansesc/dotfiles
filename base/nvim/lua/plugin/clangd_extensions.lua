@@ -1,4 +1,4 @@
-local M = {
+return {
   "p00f/clangd_extensions.nvim",
   init = function()
     -- load clangd extensions when clangd attaches
@@ -14,32 +14,29 @@ local M = {
       end,
     })
   end,
-}
-
-M.opts = {
-  inlay_hints = {
-    inline = true,
-  },
-  ast = {
-    --These require codicons (https://github.com/microsoft/vscode-codicons)
-    role_icons = {
-      type = "",
-      declaration = "",
-      expression = "",
-      specifier = "",
-      statement = "",
-      ["template argument"] = "",
+  opts = {
+    inlay_hints = {
+      inline = true,
     },
-    kind_icons = {
-      Compound = "",
-      Recovery = "",
-      TranslationUnit = "",
-      PackExpansion = "",
-      TemplateTypeParm = "",
-      TemplateTemplateParm = "",
-      TemplateParamObject = "",
+    ast = {
+      --These require codicons (https://github.com/microsoft/vscode-codicons)
+      role_icons = {
+        type = "",
+        declaration = "",
+        expression = "",
+        specifier = "",
+        statement = "",
+        ["template argument"] = "",
+      },
+      kind_icons = {
+        Compound = "",
+        Recovery = "",
+        TranslationUnit = "",
+        PackExpansion = "",
+        TemplateTypeParm = "",
+        TemplateTemplateParm = "",
+        TemplateParamObject = "",
+      },
     },
   },
 }
-
-return M

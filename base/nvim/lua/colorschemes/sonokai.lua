@@ -1,8 +1,7 @@
 -- vim.cmd [[colorscheme sonokai]]
-local M = {
+return {
   "sainnhe/sonokai",
   enabled = false,
   lazy = false,
   priority = 1000,
 }
-return M

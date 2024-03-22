@@ -1,8 +1,7 @@
 -- vim.cmd [[colorscheme nord]]
-local M = {
+return {
   "shaunsingh/nord.nvim",
   enabled = false,
   lazy = false,
   priority = 1000,
 }
-return M

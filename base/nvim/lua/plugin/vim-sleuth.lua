@@ -1,5 +1,4 @@
-local M = {
+return {
   "tpope/vim-sleuth",
   lazy = false,
 }
-return M

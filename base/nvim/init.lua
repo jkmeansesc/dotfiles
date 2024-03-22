@@ -1,12 +1,11 @@
+-- bootstrap plugin specs
+require "core.bootstrap"
+
 -- set default options
 require "core.options"
 
 -- load mappings
 require "core.keymaps"
-
--- bootstrap plugin specs
-LAZY_PLUGIN_SPEC = {}
-local spec = function(item) table.insert(LAZY_PLUGIN_SPEC, { import = item }) end
 
 ----------plugins spec start----------
 
@@ -46,9 +45,9 @@ spec "plugin.gitsigns"
 spec "plugin.mason"
 spec "plugin.nvim-tree"
 spec "plugin.none-ls"
-spec "plugin.nvim-cmp"
+spec "plugin.nvim-cmp" -- TODO:
 spec "plugin.nvim-treesitter"
-spec "plugin.telescope"
+spec "plugin.telescope" -- TODO:
 spec "plugin.which-key"
 spec "plugin.vim-fugitive"
 
@@ -64,15 +63,16 @@ spec "plugin.bufdelete"
 spec "plugin.carbon-now" -- screenshot code
 spec "plugin.fidget" -- notifications and LSP progress messages.
 spec "plugin.toggleterm"
+spec "plugin.treesj" -- splitting/joining blocks of code
 
 -- LSP
-spec "plugin.nvim-lspconfig"
-spec "plugin.nvim-jdtls" -- java
-spec "plugin.cmake-tools" -- cpp
-spec "plugin.clangd_extensions" -- cpp
+spec "plugin.nvim-lspconfig" -- TODO:
+spec "plugin.nvim-jdtls" -- java TODO:
+spec "plugin.cmake-tools" -- cpp TODO:
+spec "plugin.clangd_extensions" -- cpp TODO:
 
 -- DAP
-spec "plugin.nvim-dap"
+spec "plugin.nvim-dap" -- TODO:
 
 ----------plugins spec end------------
 

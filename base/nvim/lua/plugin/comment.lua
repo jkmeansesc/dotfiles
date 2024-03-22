@@ -1,4 +1,4 @@
-local M = {
+return {
   "numToStr/Comment.nvim",
   dependencies = { "JoosepAlviste/nvim-ts-context-commentstring" },
   keys = {
@@ -9,11 +9,10 @@ local M = {
     { "gb", mode = { "n", "o" }, desc = "Comment toggle blockwise" },
     { "gb", mode = "x", desc = "Comment toggle blockwise (visual)" },
   },
+  opts = function()
+    local pre_hook = require("ts_context_commentstring.integrations.comment_nvim").create_pre_hook()
+    return {
+      pre_hook = pre_hook,
+    }
+  end,
 }
-
-function M.config()
-  require("Comment").setup {
-    pre_hook = require("ts_context_commentstring.integrations.comment_nvim").create_pre_hook(),
-  }
-end
-return M

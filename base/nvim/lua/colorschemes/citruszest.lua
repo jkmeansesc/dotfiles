@@ -1,17 +1,14 @@
 -- vim.cmd [[colorscheme citruszest]]
-local M = {
+return {
   "zootedb0t/citruszest.nvim",
   enabled = false,
   lazy = false,
   priority = 1000,
-}
-function M.config()
-  require("citruszest").setup {
+  opts = {
     option = {
       transparent = false,
       bold = false,
       italic = true,
     },
-  }
-end
-return M
+  },
+}

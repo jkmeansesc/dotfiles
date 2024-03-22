@@ -24,27 +24,12 @@ map("n", "<C-c>", "<CMD>close<CR>", { desc = "Close" })
 -- save
 map("n", "<C-s>", "<CMD>update<CR>", { desc = "Save" })
 
--- format
-map("n", "<Leader>lf", function(bufnr)
-  vim.lsp.buf.format {
-    bufnr = bufnr,
-    filter = function(client)
-      --  only use null-ls for formatting instead of lsp server
-      return client.name == "null-ls"
-    end,
-  }
-end, { desc = "Format" })
-
--- move to start/end of line
--- map({ "n", "x" }, "H", "^", { desc = "Start of line" })
--- map({ "n", "x" }, "L", "g_", { desc = "End of line" })
-
--- Do not move my cursor when joining lines.
-map("n", "J", function()
-  vim.cmd [[
-    normal! mzJ`z
-    delmarks z]]
-end, { desc = "Join line" })
+-- Do not move my cursor when joining lines. NOTE: replaced by treesj
+-- map("n", "J", function()
+--   vim.cmd [[
+--     normal! mzJ`z
+--     delmarks z]]
+-- end, { desc = "Join line" })
 
 -- clear highlights
 map("n", "<Esc>", "<CMD>noh<CR>", { desc = "Clear highlights" })

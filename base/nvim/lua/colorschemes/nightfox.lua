@@ -5,15 +5,12 @@
 -- vim.cmd [[colorscheme terafox]]
 -- vim.cmd [[colorscheme carbonfox]]
 
-local M = {
+return {
   "EdenEast/nightfox.nvim",
   enabled = false,
   lazy = false,
   priority = 1000,
-}
-
-function M.config()
-  require("nightfox").setup {
+  opts = {
     options = {
       transparent = false, -- Disable setting background
       dim_inactive = false, -- Non focused panes set to alternative background
@@ -25,7 +22,5 @@ function M.config()
       modules = { -- List of various plugins and additional options
       },
     },
-  }
-end
-
-return M
+  },
+}

@@ -1,13 +1,11 @@
 -- vim.cmd [[colorscheme rose-pine]]
-local M = {
+return {
   "rose-pine/neovim",
   enabled = false,
   name = "rose-pine",
   lazy = false,
   priority = 1000,
-}
-function M.config()
-  require("rose-pine").setup {
+  opts = {
     styles = {
       bold = true,
       italic = true,
@@ -24,6 +22,5 @@ function M.config()
       -- Change palette colour
       if highlight.fg == palette.pine then highlight.fg = palette.foam end
     end,
-  }
-end
-return M
+  },
+}

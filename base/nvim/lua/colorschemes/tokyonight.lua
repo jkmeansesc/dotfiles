@@ -1,17 +1,13 @@
 -- vim.cmd [[colorscheme tokyonight]]
-local M = {
+return {
   "folke/tokyonight.nvim",
   enabled = false,
   lazy = false,
   priority = 1000,
-}
-
-function M.config()
-  require("tokyonight").setup {
+  opts = {
     style = "night", -- The theme comes in three styles, `storm`, `moon`, a darker variant `night` and `day`
     transparent = false, -- Enable this to disable setting the background color
     hide_inactive_statusline = true, -- Enabling this option, will hide inactive statuslines and replace them with a thin border instead. Should work with the standard **StatusLine** and **LuaLine**.
     lualine_bold = true, -- When `true`, section headers in the lualine theme will be bold
-  }
-end
-return M
+  },
+}
