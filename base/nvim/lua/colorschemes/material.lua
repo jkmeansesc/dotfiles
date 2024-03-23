@@ -4,10 +4,10 @@ return {
   enabled = false,
   lazy = false,
   priority = 1000,
-  opts = function()
+  config = function()
     -- vim.g.material_style = "deep ocean"
     vim.g.material_style = "darker"
-    return {
+    require("material").setup {
       plugins = { -- Uncomment the plugins that you use to highlight them
         -- Available plugins:
         "dap",

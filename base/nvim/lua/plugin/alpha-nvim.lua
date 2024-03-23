@@ -1,7 +1,10 @@
 return {
   "goolord/alpha-nvim",
   event = "VimEnter",
-  opts = function()
+  config = function()
+    -- ╭──────────────────────────────────────────────────────────╮
+    -- │ set highlight                                            │
+    -- ╰──────────────────────────────────────────────────────────╯
     vim.api.nvim_set_hl(0, "AlphaNeovimLogoBlue", { fg = "#00BFFF" })
     vim.api.nvim_set_hl(0, "AlphaNeovimLogoGreenFBlueB", { fg = "#70CF67", bg = "#00BFFF" })
     vim.api.nvim_set_hl(0, "AlphaNeovimLogoGreen", { fg = "#70CF67" })
@@ -9,11 +12,11 @@ return {
     vim.api.nvim_set_hl(0, "AlphaButtons", { fg = "#b4befe" })
     vim.api.nvim_set_hl(0, "AlphaFooter", { fg = "#fab387" })
     vim.api.nvim_set_hl(0, "AlphaShortcut", { fg = "#a6e3a1" })
-    local dashboard = require "alpha.themes.dashboard"
 
     -- ╭──────────────────────────────────────────────────────────╮
     -- │ Heading Info                                             │
     -- ╰──────────────────────────────────────────────────────────╯
+    local dashboard = require "alpha.themes.dashboard"
     -- dashboard.section.header.val = {
     --   [[                                                                       ]],
     --   [[                                                                       ]],
@@ -73,6 +76,7 @@ return {
         hl = "AlphaHeader",
       },
     }
+
     dashboard.section.header.val = {
       [[ ███       ███ ]],
       [[████      ████]],
@@ -90,6 +94,7 @@ return {
       [[                  ]],
       [[ N  E  O  V  I  M ]],
     }
+
     dashboard.section.header.opts.hl = {
       {
         { "AlphaNeovimLogoBlue", 0, 0 },
@@ -256,7 +261,8 @@ return {
       buttons = dashboard.section.buttons,
       footer = dashboard.section.footer,
     }
-    return {
+    
+    require("alpha").setup {
       layout = {
         { type = "padding", val = 5 },
         section.header,

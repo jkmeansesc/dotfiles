@@ -5,7 +5,7 @@ return {
     "nvim-tree/nvim-web-devicons",
     "AndreM222/copilot-lualine",
   },
-  opts = function()
+  config = function()
     local colors = {
       white = "#ffffff",
       mantle = "#181825",
@@ -98,7 +98,8 @@ return {
       hide_in_width = function() return vim.fn.winwidth(0) > 80 end,
       lazy_status = lazy_status.has_updates,
     }
-    return {
+
+    require("lualine").setup {
       -- extensions = { "quickfix", "lazy", "mason", "nvim-dap-ui", "toggleterm", "quickfix" },
       disabled_filetypes = {
         statusline = { "alpha" },

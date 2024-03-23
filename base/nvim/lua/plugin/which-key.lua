@@ -1,12 +1,14 @@
 return {
   "folke/which-key.nvim",
   event = "VeryLazy",
-  opts = {
-    icons = { group = "", separator = "" },
-    disable = { filetypes = { "TelescopePrompt" } },
-  },
   config = function()
     local icons = require "core.icons"
+
+    require("which-key").setup {
+      icons = { group = "", separator = "" },
+      disable = { filetypes = { "TelescopePrompt" } },
+    }
+
     require("which-key").register {
       ["<leader>b"] = { name = icons.Buffer .. " Buffer" },
       ["<leader>d"] = { name = icons.Debug .. " Debug" },

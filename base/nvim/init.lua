@@ -7,9 +7,10 @@ require "core.options"
 -- load mappings
 require "core.keymaps"
 
-----------plugins spec start----------
-
--- colorschemes
+----------------------plugins spec start-----------------------
+-- ╭──────────────────────────────────────────────────────────╮
+-- │ colorschemes                                             │
+-- ╰──────────────────────────────────────────────────────────╯
 spec "colorschemes.catppuccin"
 spec "colorschemes.darkplus"
 spec "colorschemes.edge"
@@ -32,7 +33,9 @@ spec "colorschemes.vim-nightfly-colors"
 spec "colorschemes.cyberdream"
 spec "colorschemes.citruszest"
 
--- UI
+-- ╭──────────────────────────────────────────────────────────╮
+-- │ UI                                                       │
+-- ╰──────────────────────────────────────────────────────────╯
 spec "plugin.alpha-nvim"
 spec "plugin.barbecue" -- VS Code like winbar
 spec "plugin.lualine"
@@ -40,18 +43,22 @@ spec "plugin.indent-blankline"
 spec "plugin.nvim-colorizer"
 spec "plugin.vim-illuminate"
 
--- CORE
-spec "plugin.gitsigns"
+-- ╭──────────────────────────────────────────────────────────╮
+-- │ ESSENTIALS                                               │
+-- ╰──────────────────────────────────────────────────────────╯
 spec "plugin.mason"
-spec "plugin.nvim-tree"
 spec "plugin.none-ls"
 spec "plugin.nvim-cmp" -- TODO:
 spec "plugin.nvim-treesitter"
 spec "plugin.telescope" -- TODO:
 spec "plugin.which-key"
+spec "plugin.gitsigns"
 spec "plugin.vim-fugitive"
 
--- EDITOR
+-- ╭──────────────────────────────────────────────────────────╮
+-- │ EDITOR                                                   │
+-- ╰──────────────────────────────────────────────────────────╯
+spec "plugin.nvim-tree"
 spec "plugin.better-escape"
 spec "plugin.todo-comments"
 spec "plugin.comment"
@@ -65,16 +72,20 @@ spec "plugin.fidget" -- notifications and LSP progress messages.
 spec "plugin.toggleterm"
 spec "plugin.treesj" -- splitting/joining blocks of code
 
--- LSP
+-- ╭──────────────────────────────────────────────────────────╮
+-- │ LSP                                                      │
+-- ╰──────────────────────────────────────────────────────────╯
 spec "plugin.nvim-lspconfig" -- TODO:
 spec "plugin.nvim-jdtls" -- java TODO:
 spec "plugin.cmake-tools" -- cpp TODO:
 spec "plugin.clangd_extensions" -- cpp TODO:
 
--- DAP
+-- ╭──────────────────────────────────────────────────────────╮
+-- │ DAP                                                      │
+-- ╰──────────────────────────────────────────────────────────╯
 spec "plugin.nvim-dap" -- TODO:
 
-----------plugins spec end------------
+----------------------plugins spec end-------------------------
 
 -- bootstrap lazy
 require "core.lazy"

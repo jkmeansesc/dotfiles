@@ -4,5 +4,4 @@ return {
   enabled = false,
   lazy = false,
   priority = 1000,
-  opts = { transparent_mode = false },
 }

@@ -28,14 +28,16 @@ return {
     { "<Leader>gd", function() require("gitsigns").diffthis() end, desc = "Git diff" },
     { "<Leader>gt", function() require("gitsigns").toggle_current_line_blame() end, desc = "Toggle line blame" },
   },
-  opts = {
-    signs = {
-      add = { text = "▎" },
-      change = { text = "▎" },
-      delete = { text = "󰍵" },
-      topdelete = { text = "‾" },
-      changedelete = { text = "~" },
-      untracked = { text = "▎" },
-    },
-  },
+  config = function()
+    require("gitsigns").setup {
+      signs = {
+        add = { text = "▎" },
+        change = { text = "▎" },
+        delete = { text = "󰍵" },
+        topdelete = { text = "‾" },
+        changedelete = { text = "~" },
+        untracked = { text = "▎" },
+      },
+    }
+  end,
 }

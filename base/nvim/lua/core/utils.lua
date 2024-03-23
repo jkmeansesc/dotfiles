@@ -23,24 +23,6 @@ function M.is_available(name)
   return ok
 end
 
---- Reloads the entire Neovim configuration without restarting Neovim.
-function M.reload_config()
-  -- Unloads all loaded Lua modules except 'vim' prefixed ones
-  for name, _ in pairs(package.loaded) do
-    if name:match "^_" or not name:match "^vim" then package.loaded[name] = nil end
-  end
-
-  -- Reloads the init file
-  dofile(vim.env.MYVIMRC)
-
-  -- Notifies that the configuration has been reloaded
-  if M.is_available "fidget" then
-    require("fidget").notify("Neovim configuration reloaded!", vim.log.levels.INFO)
-  else
-    vim.notify("Neovim configuration reloaded!", vim.log.levels.INFO)
-  end
-end
-
 --- get the bufnr of all opened buffers
 ---@author kikito
 ---@see https://codereview.stackexchange.com/questions/268130/get-list-of-buffers-from-current-neovim-instance

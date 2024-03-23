@@ -6,10 +6,10 @@ return {
     "SmiteshP/nvim-navic",
     "nvim-tree/nvim-web-devicons",
   },
-  opts = function()
+  config = function()
     vim.opt.updatetime = 200
     vim.api.nvim_create_autocmd({
-      "WinScrolled", -- or WinResized on NVIM-v0.9 and higher
+      "WinResized", --[[ "WinScrolled", ]] -- or WinResized on NVIM-v0.9 and higher
       "BufWinEnter",
       "CursorHold",
       "InsertLeave",
@@ -17,7 +17,7 @@ return {
       group = vim.api.nvim_create_augroup("barbecue.updater", {}),
       callback = function() require("barbecue.ui").update() end,
     })
-    return {
+    require("barbecue").setup {
       theme = "tokyonight",
       create_autocmd = false, -- prevent barbecue from updating itself automatically
     }

@@ -14,12 +14,13 @@ return {
     "jay-babu/mason-null-ls.nvim",
     "nvimtools/none-ls-extras.nvim",
   },
-  opts = function()
+  config = function()
     local null_ls = require "null-ls"
     local null_ls_utils = require "null-ls.utils"
     local formatting = null_ls.builtins.formatting
     local diagnostics = null_ls.builtins.diagnostics
-    return {
+
+    null_ls.setup {
       root_dir = null_ls_utils.root_pattern(".null-ls-root", "Makefile", ".git", "package.json"),
       sources = {
         formatting.prettier.with {

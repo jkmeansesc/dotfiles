@@ -10,17 +10,19 @@ return {
   enabled = false,
   lazy = false,
   priority = 1000,
-  opts = {
-    options = {
-      transparent = false, -- Disable setting background
-      dim_inactive = false, -- Non focused panes set to alternative background
-      styles = {
-        comments = "italic",
-        keywords = "bold",
-        types = "italic,bold",
+  config = function()
+    require("nightfox").setup {
+      options = {
+        transparent = false, -- Disable setting background
+        dim_inactive = false, -- Non focused panes set to alternative background
+        styles = {
+          comments = "italic",
+          keywords = "bold",
+          types = "italic,bold",
+        },
+        modules = { -- List of various plugins and additional options
+        },
       },
-      modules = { -- List of various plugins and additional options
-      },
-    },
-  },
+    }
+  end,
 }

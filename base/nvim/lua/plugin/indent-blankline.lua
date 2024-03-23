@@ -1,32 +1,31 @@
 return {
   "lukas-reineke/indent-blankline.nvim",
   event = { "BufReadPre", "BufNewFile" },
-  opts = {
-    indent = { char = "│" },
-    -- scope = { char = "│" },
-    scope = { show_start = false, show_end = false },
-    exclude = {
-      buftypes = {
-        "nofile",
-        "terminal",
-      },
-      filetypes = {
-        "help",
-        "startify",
-        "aerial",
-        "alpha",
-        "dashboard",
-        "lazy",
-        "neogitstatus",
-        "NvimTree",
-        "neo-tree",
-        "Trouble",
-      },
-    },
-  },
-  config = function(_, opts)
+  config = function()
     local hooks = require "ibl.hooks"
     hooks.register(hooks.type.WHITESPACE, hooks.builtin.hide_first_space_indent_level)
-    require("ibl").setup(opts) -- NOTE: necessary for v3
+    require("ibl").setup {
+      indent = { char = "│" },
+      -- scope = { char = "│" },
+      scope = { show_start = false, show_end = false },
+      exclude = {
+        buftypes = {
+          "nofile",
+          "terminal",
+        },
+        filetypes = {
+          "help",
+          "startify",
+          "aerial",
+          "alpha",
+          "dashboard",
+          "lazy",
+          "neogitstatus",
+          "NvimTree",
+          "neo-tree",
+          "Trouble",
+        },
+      },
+    }
   end,
 }

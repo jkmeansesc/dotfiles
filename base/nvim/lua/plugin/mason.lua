@@ -12,18 +12,18 @@ return {
   dependencies = {
     "williamboman/mason-lspconfig.nvim",
     "jay-babu/mason-null-ls.nvim",
-    { "jay-babu/mason-nvim-dap.nvim", dependencies = { "nvim-dap" } },
-  },
-  opts = {
-    ui = {
-      icons = {
-        package_pending = " ",
-        package_installed = "󰄳 ",
-        package_uninstalled = " 󰚌",
-      },
-    },
+    "jay-babu/mason-nvim-dap.nvim",
   },
   config = function()
+    require("mason").setup {
+      ui = {
+        icons = {
+          package_pending = " ",
+          package_installed = "󰄳 ",
+          package_uninstalled = " 󰚌",
+        },
+      },
+    }
     require("mason-lspconfig").setup {
       automatic_installation = true,
       ensure_installed = {

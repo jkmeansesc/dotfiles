@@ -63,7 +63,6 @@ map("n", "<Leader>ml", "<CMD>Lazy<CR>", { desc = "Lazy" })
 map("n", "<Leader>mm", "<CMD>Mason<CR>", { desc = "Mason" })
 map("n", "<Leader>mi", "<CMD>LspInfo<CR>", { desc = "LSP information" })
 map("n", "<Leader>mn", "<CMD>NullLsInfo<CR>", { desc = "Null-ls information" })
-map("n", "<Leader>mr", function() require("core.utils").reload_config() end, { desc = "Reload nvim" })
 
 -- Line operation
 map({ "x", "v" }, "<", "<gv", { desc = "Indent line" })

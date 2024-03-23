@@ -4,11 +4,13 @@ return {
   enabled = false,
   lazy = false,
   priority = 1000,
-  opts = {
-    option = {
-      transparent = false,
-      bold = false,
-      italic = true,
-    },
-  },
+  config = function()
+    require("citruszest").setup {
+      option = {
+        transparent = false,
+        bold = false,
+        italic = true,
+      },
+    }
+  end,
 }

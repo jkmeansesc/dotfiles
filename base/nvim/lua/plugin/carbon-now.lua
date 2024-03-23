@@ -4,5 +4,5 @@ return {
   keys = {
     { "<leader>hc", ":CarbonNow<CR>", mode = "v", desc = "Screenshot" },
   },
-  opts = { open_cmd = "open" },
+  config = function() require("carbon-now").setup { open_cmd = "open" } end,
 }
