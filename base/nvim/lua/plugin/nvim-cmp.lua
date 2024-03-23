@@ -13,6 +13,7 @@ return {
         { "vscode", "snipmate", "lua" }
       )
 
+      -- fix: https://github.com/NvChad/NvChad/issues/1223
       vim.api.nvim_create_autocmd("InsertLeave", {
         callback = function()
           if
@@ -24,7 +25,7 @@ return {
         end,
       })
     end,
-  }, -- snippet engine
+  },
   {
     "zbirenbaum/copilot.lua",
     event = "InsertEnter",
@@ -48,39 +49,72 @@ return {
     "hrsh7th/nvim-cmp",
     event = { "InsertEnter", "CmdlineEnter" },
     dependencies = {
-      "saadparwaiz1/cmp_luasnip", -- source from luasnip
       "hrsh7th/cmp-buffer", -- source from text in buffer
       "hrsh7th/cmp-path", -- source from file system paths
       "hrsh7th/cmp-nvim-lsp", -- source from lsp server
+      "hrsh7th/cmp-cmdline", -- source for cmdline
+      "saadparwaiz1/cmp_luasnip", -- source from luasnip
       "zbirenbaum/copilot-cmp", -- source from copilot
       "onsails/lspkind.nvim", -- vs-code like pictograms
     },
     config = function()
-      local cmp = require "cmp"
+      -- ╭──────────────────────────────────────────────────────────╮
+      -- │ set highlight group                                      │
+      -- ╰──────────────────────────────────────────────────────────╯
+      require("core.utils").setPluginHighlights "cmp"
 
-      -- Disabling cmdline completion for IncRename
+      -- ╭──────────────────────────────────────────────────────────╮
+      -- │ setup cmdline source                                     │
+      -- ╰──────────────────────────────────────────────────────────╯
+      local cmp = require "cmp"
+      -- `:` cmdline setup.
       cmp.setup.cmdline(":", {
+        -- Disabling cmdline completion for IncRename
+        -- see https://github.com/hrsh7th/nvim-cmp/wiki/Advanced-techniques#disabling-cmdline-completion-for-certain-commands-such-as-increname
         enabled = function()
           local disabled = { IncRename = true }
           local cmd = vim.fn.getcmdline():match "%S+"
           return not disabled[cmd] or cmp.close()
         end,
+        mapping = cmp.mapping.preset.cmdline(),
+        sources = {
+          { name = "path" },
+          {
+            name = "cmdline",
+            option = {
+              ignore_cmds = { "Man", "!" },
+            },
+          },
+        },
       })
 
-      -- vim.api.nvim_set_hl(0, "CmpItemAbbrDeprecated", { bg = "NONE", strikethrough = true, fg = "#808080" })
-      -- vim.api.nvim_set_hl(0, "CmpItemAbbrMatch", { bg = "NONE", fg = "#89B4FA" })
-      -- vim.api.nvim_set_hl(0, "CmpItemAbbrMatchFuzzy", { link = "CmpIntemAbbrMatch" })
-      -- vim.api.nvim_set_hl(0, "CmpItemKindVariable", { bg = "NONE", fg = "#89DCEB" })
-      -- vim.api.nvim_set_hl(0, "CmpItemKindInterface", { link = "CmpItemKindVariable" })
-      -- vim.api.nvim_set_hl(0, "CmpItemKindText", { link = "CmpItemKindVariable" })
-      -- vim.api.nvim_set_hl(0, "CmpItemKindFunction", { bg = "NONE", fg = "#F5C2E7" })
-      -- vim.api.nvim_set_hl(0, "CmpItemKindMethod", { link = "CmpItemKindFunction" })
-      -- vim.api.nvim_set_hl(0, "CmpItemKindKeyword", { bg = "NONE", fg = "#F2CDCD" })
-      -- vim.api.nvim_set_hl(0, "CmpItemKindProperty", { link = "CmpItemKindKeyword" })
-      -- vim.api.nvim_set_hl(0, "CmpItemKindUnit", { link = "CmpItemKindKeyword" })
-      -- vim.api.nvim_set_hl(0, "CmpItemKindCopilot", { fg = "#A6E3A1" })
+      -- `/` cmdline setup.
+      cmp.setup.cmdline("/", {
+        mapping = cmp.mapping.preset.cmdline(),
+        sources = {
+          { name = "buffer" },
+        },
+      })
+
+      -- ╭──────────────────────────────────────────────────────────╮
+      -- │ setup plugin                                             │
+      -- ╰──────────────────────────────────────────────────────────╯
+
+      local function border(hl_name)
+        return {
+          { "╭", hl_name },
+          { "─", hl_name },
+          { "╮", hl_name },
+          { "│", hl_name },
+          { "╯", hl_name },
+          { "─", hl_name },
+          { "╰", hl_name },
+          { "│", hl_name },
+        }
+      end
 
       cmp.setup {
+        -- see https://github.com/hrsh7th/nvim-cmp/pull/676#issuecomment-1002532096
         enabled = function()
           -- disable completion in comments
           local context = require "cmp.config.context"
@@ -92,35 +126,19 @@ return {
           end
         end,
 
-        confirm_opts = {
-          behavior = cmp.ConfirmBehavior.Replace,
-          select = false,
-        },
+        -- configure nvim-cmp to use Luasnip
+        snippet = { expand = function(args) require("luasnip").lsp_expand(args.body) end },
 
         window = {
           completion = {
-            border = "rounded",
-            winhighlight = "Normal:Pmenu,CursorLine:PmenuSel,FloatBorder:FloatBorder,Search:None",
-            col_offset = -3,
-            side_padding = 1,
+            border = border "CmpPmenuBoarder",
+            winhighlight = "Normal:CmpPmenu,CursorLine:CmpSel,Search:None",
             scrollbar = false,
-            scrolloff = 8,
           },
           documentation = {
-            border = "rounded",
-            winhighlight = "Normal:Pmenu,FloatBorder:FloatBorder,Search:None",
+            border = border "CmpDocBoarder",
+            winhighlight = "Normal:CmpDoc",
           },
-        },
-
-        completion = {
-          completeopt = "menu,menuone,preview,noselect",
-        },
-
-        -- configure how nvim-cmp interacts with snippet engine
-        snippet = { expand = function(args) require("luasnip").lsp_expand(args.body) end },
-
-        view = {
-          entries = { name = "custom", selection_order = "near_cursor" },
         },
 
         mapping = {
@@ -131,7 +149,6 @@ return {
           ["<C-u>"] = cmp.mapping(cmp.mapping.scroll_docs(-4), { "i", "c" }),
           ["<C-d>"] = cmp.mapping(cmp.mapping.scroll_docs(4), { "i", "c" }),
           ["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
-          ["<C-y>"] = cmp.config.disable,
           ["<C-e>"] = cmp.mapping { i = cmp.mapping.abort(), c = cmp.mapping.close() },
           ["<CR>"] = cmp.mapping.confirm { select = false },
           ["<Tab>"] = cmp.mapping(function(fallback)
@@ -166,13 +183,13 @@ return {
               return true
             end,
           },
-          { name = "copilot", priority = 900 },
-          { name = "luasnip", priority = 800 }, -- snippets
-          { name = "buffer", priority = 700 }, -- text within current buffer
-          { name = "path", priority = 500 }, -- file system paths
+          { name = "luasnip", priority = 800 },
+          { name = "copilot", priority = 600 },
+          { name = "buffer", priority = 400 },
+          { name = "path", priority = 200 },
         },
 
-        -- get types on the left, and offset the menu
+        -- get types on the left
         formatting = {
           fields = { "kind", "abbr", "menu" },
           format = function(entry, vim_item)

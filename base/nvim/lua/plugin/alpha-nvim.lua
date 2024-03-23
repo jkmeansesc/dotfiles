@@ -5,13 +5,7 @@ return {
     -- ╭──────────────────────────────────────────────────────────╮
     -- │ set highlight                                            │
     -- ╰──────────────────────────────────────────────────────────╯
-    vim.api.nvim_set_hl(0, "AlphaNeovimLogoBlue", { fg = "#00BFFF" })
-    vim.api.nvim_set_hl(0, "AlphaNeovimLogoGreenFBlueB", { fg = "#70CF67", bg = "#00BFFF" })
-    vim.api.nvim_set_hl(0, "AlphaNeovimLogoGreen", { fg = "#70CF67" })
-    vim.api.nvim_set_hl(0, "AlphaHeader", { fg = "#f9e2af" })
-    vim.api.nvim_set_hl(0, "AlphaButtons", { fg = "#b4befe" })
-    vim.api.nvim_set_hl(0, "AlphaFooter", { fg = "#fab387" })
-    vim.api.nvim_set_hl(0, "AlphaShortcut", { fg = "#a6e3a1" })
+    require("core.utils").setPluginHighlights "alpha"
 
     -- ╭──────────────────────────────────────────────────────────╮
     -- │ Heading Info                                             │
@@ -97,82 +91,82 @@ return {
 
     dashboard.section.header.opts.hl = {
       {
-        { "AlphaNeovimLogoBlue", 0, 0 },
-        { "AlphaNeovimLogoGreen", 1, 14 },
-        { "AlphaNeovimLogoBlue", 23, 34 },
+        { "AlphaLogoBlue", 0, 0 },
+        { "AlphaLogoGreen", 1, 14 },
+        { "AlphaLogoBlue", 23, 34 },
       },
       {
-        { "AlphaNeovimLogoBlue", 0, 2 },
-        { "AlphaNeovimLogoGreenFBlueB", 2, 4 },
-        { "AlphaNeovimLogoGreen", 4, 19 },
-        { "AlphaNeovimLogoBlue", 27, 40 },
+        { "AlphaLogoBlue", 0, 2 },
+        { "AlphaLogoGreenFBlueB", 2, 4 },
+        { "AlphaLogoGreen", 4, 19 },
+        { "AlphaLogoBlue", 27, 40 },
       },
       {
-        { "AlphaNeovimLogoBlue", 0, 4 },
-        { "AlphaNeovimLogoGreenFBlueB", 4, 7 },
-        { "AlphaNeovimLogoGreen", 7, 22 },
-        { "AlphaNeovimLogoBlue", 29, 42 },
+        { "AlphaLogoBlue", 0, 4 },
+        { "AlphaLogoGreenFBlueB", 4, 7 },
+        { "AlphaLogoGreen", 7, 22 },
+        { "AlphaLogoBlue", 29, 42 },
       },
       {
-        { "AlphaNeovimLogoBlue", 0, 8 },
-        { "AlphaNeovimLogoGreenFBlueB", 8, 10 },
-        { "AlphaNeovimLogoGreen", 10, 25 },
-        { "AlphaNeovimLogoBlue", 31, 44 },
+        { "AlphaLogoBlue", 0, 8 },
+        { "AlphaLogoGreenFBlueB", 8, 10 },
+        { "AlphaLogoGreen", 10, 25 },
+        { "AlphaLogoBlue", 31, 44 },
       },
       {
-        { "AlphaNeovimLogoBlue", 0, 10 },
-        { "AlphaNeovimLogoGreenFBlueB", 10, 13 },
-        { "AlphaNeovimLogoGreen", 13, 28 },
-        { "AlphaNeovimLogoBlue", 33, 46 },
+        { "AlphaLogoBlue", 0, 10 },
+        { "AlphaLogoGreenFBlueB", 10, 13 },
+        { "AlphaLogoGreen", 13, 28 },
+        { "AlphaLogoBlue", 33, 46 },
       },
       {
-        { "AlphaNeovimLogoBlue", 0, 13 },
-        { "AlphaNeovimLogoGreen", 14, 31 },
-        { "AlphaNeovimLogoBlue", 35, 49 },
+        { "AlphaLogoBlue", 0, 13 },
+        { "AlphaLogoGreen", 14, 31 },
+        { "AlphaLogoBlue", 35, 49 },
       },
       {
-        { "AlphaNeovimLogoBlue", 0, 13 },
-        { "AlphaNeovimLogoGreen", 16, 32 },
-        { "AlphaNeovimLogoBlue", 35, 49 },
+        { "AlphaLogoBlue", 0, 13 },
+        { "AlphaLogoGreen", 16, 32 },
+        { "AlphaLogoBlue", 35, 49 },
       },
       {
-        { "AlphaNeovimLogoBlue", 0, 13 },
-        { "AlphaNeovimLogoGreen", 17, 33 },
-        { "AlphaNeovimLogoBlue", 35, 49 },
+        { "AlphaLogoBlue", 0, 13 },
+        { "AlphaLogoGreen", 17, 33 },
+        { "AlphaLogoBlue", 35, 49 },
       },
       {
-        { "AlphaNeovimLogoBlue", 0, 13 },
-        { "AlphaNeovimLogoGreen", 18, 34 },
-        { "AlphaNeovimLogoGreenFBlueB", 33, 35 },
-        { "AlphaNeovimLogoBlue", 35, 49 },
+        { "AlphaLogoBlue", 0, 13 },
+        { "AlphaLogoGreen", 18, 34 },
+        { "AlphaLogoGreenFBlueB", 33, 35 },
+        { "AlphaLogoBlue", 35, 49 },
       },
       {
-        { "AlphaNeovimLogoBlue", 0, 13 },
-        { "AlphaNeovimLogoGreen", 19, 35 },
-        { "AlphaNeovimLogoGreenFBlueB", 34, 35 },
-        { "AlphaNeovimLogoBlue", 35, 49 },
+        { "AlphaLogoBlue", 0, 13 },
+        { "AlphaLogoGreen", 19, 35 },
+        { "AlphaLogoGreenFBlueB", 34, 35 },
+        { "AlphaLogoBlue", 35, 49 },
       },
       {
-        { "AlphaNeovimLogoBlue", 0, 13 },
-        { "AlphaNeovimLogoGreen", 20, 36 },
-        { "AlphaNeovimLogoGreenFBlueB", 35, 37 },
-        { "AlphaNeovimLogoBlue", 37, 49 },
+        { "AlphaLogoBlue", 0, 13 },
+        { "AlphaLogoGreen", 20, 36 },
+        { "AlphaLogoGreenFBlueB", 35, 37 },
+        { "AlphaLogoBlue", 37, 49 },
       },
       {
-        { "AlphaNeovimLogoBlue", 0, 13 },
-        { "AlphaNeovimLogoGreen", 21, 37 },
-        { "AlphaNeovimLogoGreenFBlueB", 36, 37 },
-        { "AlphaNeovimLogoBlue", 37, 49 },
+        { "AlphaLogoBlue", 0, 13 },
+        { "AlphaLogoGreen", 21, 37 },
+        { "AlphaLogoGreenFBlueB", 36, 37 },
+        { "AlphaLogoBlue", 37, 49 },
       },
       {
-        { "AlphaNeovimLogoBlue", 1, 13 },
-        { "AlphaNeovimLogoGreen", 20, 35 },
-        { "AlphaNeovimLogoBlue", 37, 48 },
+        { "AlphaLogoBlue", 1, 13 },
+        { "AlphaLogoGreen", 20, 35 },
+        { "AlphaLogoBlue", 37, 48 },
       },
       {},
       {
-        { "AlphaNeovimLogoGreen", 0, 9 },
-        { "AlphaNeovimLogoBlue", 9, 18 },
+        { "AlphaLogoGreen", 0, 9 },
+        { "AlphaLogoBlue", 9, 18 },
       },
     }
 
@@ -261,7 +255,7 @@ return {
       buttons = dashboard.section.buttons,
       footer = dashboard.section.footer,
     }
-    
+
     require("alpha").setup {
       layout = {
         { type = "padding", val = 5 },

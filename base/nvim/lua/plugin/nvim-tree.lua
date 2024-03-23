@@ -11,11 +11,6 @@ return {
     local WIDTH_RATIO = 0.6
 
     -- ╭──────────────────────────────────────────────────────────╮
-    -- │automatically open file upon creation                     │
-    -- ╰──────────────────────────────────────────────────────────╯
-    api.events.subscribe(api.events.Event.FileCreated, function(file) vim.cmd("edit " .. file.fname) end)
-
-    -- ╭──────────────────────────────────────────────────────────╮
     -- │stage and unstage files directly in the tree view         │
     -- ╰──────────────────────────────────────────────────────────╯
     local git_add = function()

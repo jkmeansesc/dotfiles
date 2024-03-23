@@ -23,6 +23,29 @@ function M.is_available(name)
   return ok
 end
 
+--- Sets highlight groups based on a provided table.
+--- @param highlightGroups table: A table with highlight group names as keys and tables of style attributes as values.
+function M.setHighlightGroups(highlightGroups)
+  for groupName, styles in pairs(highlightGroups) do
+    vim.api.nvim_set_hl(0, groupName, styles)
+  end
+end
+
+--- Function to set highlights for a given plugin.
+--- @param pluginName string: The name of the plugin. Note: the name is arbitrary and needs to exist in "core.highlights".
+function M.setPluginHighlights(pluginName)
+  local hl = require("core.highlights")[pluginName]
+  if hl then
+    M.setHighlightGroups(hl)
+  else
+    if M.is_available "fidget" then
+      require("fidget").notify("No highlight definitions found for plugin: " .. pluginName, vim.log.levels.WARN)
+    else
+      vim.notify("No highlight definitions found for plugin: " .. pluginName, vim.log.levels.WARN)
+    end
+  end
+end
+
 --- get the bufnr of all opened buffers
 ---@author kikito
 ---@see https://codereview.stackexchange.com/questions/268130/get-list-of-buffers-from-current-neovim-instance

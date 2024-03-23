@@ -6,20 +6,9 @@ return {
     "AndreM222/copilot-lualine",
   },
   config = function()
-    local colors = {
-      white = "#ffffff",
-      mantle = "#181825",
-      text = "#cdd6f4",
-      innerbg = nil,
-      outerbg = nil,
-      pink = "#f5c2e7",
-      green = "#a6e3a1",
-      peach = "#fab387",
-      red = "#f38ba8",
-      yellow = "#f9e2af",
-      lavender = "#b4befe",
-      blue = "#00BFFF",
-    }
+    local colors = require("core.highlights").colors
+    local icons = require "core.icons"
+
     local theme = function()
       return {
         inactive = {
@@ -54,8 +43,6 @@ return {
         },
       }
     end
-
-    local icons = require "core.icons"
 
     -- set an empty statusline till lualine loads
     -- hide the statusline on the starter page
@@ -176,7 +163,7 @@ return {
                 },
                 hl = {
                   enabled = colors.green,
-                  sleep = colors.white,
+                  sleep = colors.teal,
                   disabled = colors.yellow,
                   warning = colors.peach,
                   unknown = colors.red,
