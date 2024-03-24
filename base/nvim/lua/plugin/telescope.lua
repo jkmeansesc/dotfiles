@@ -32,25 +32,17 @@ return {
 
     telescope.setup {
       defaults = {
-        git_worktrees = vim.g.git_worktrees,
         prompt_prefix = icons.Search .. "  ",
         selection_caret = icons.Selected .. "  ",
         layout_config = {
           horizontal = {
-            preview_width = 0.55,
-            results_width = 0.8,
+            preview_width = 0.50,
           },
-          vertical = {
-            mirror = false,
-          },
-          width = 0.95,
-          height = 0.90,
-          preview_cutoff = 120,
+          width = 0.80,
+          height = 0.80,
         },
-        winblend = 0,
-        color_devicons = true,
+        winblend = 0, -- set transparency (0 to 30 most useful)
         path_display = { "truncate" },
-        borderchars = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
         vimgrep_arguments = {
           "rg",
           "-L",
@@ -74,7 +66,6 @@ return {
           "build/",
           "%.o$",
         },
-        set_env = { ["COLORTERM"] = "truecolor" }, -- default = nil,
         mappings = {
           i = {
             ["<C-k>"] = actions.move_selection_previous, -- move to prev result
