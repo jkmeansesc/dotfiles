@@ -48,7 +48,7 @@ spec "plugin.vim-illuminate"
 -- ╰──────────────────────────────────────────────────────────╯
 spec "plugin.mason"
 spec "plugin.none-ls"
-spec "plugin.nvim-cmp" -- TODO:
+spec "plugin.nvim-cmp"
 spec "plugin.nvim-treesitter"
 spec "plugin.telescope" -- TODO:
 spec "plugin.which-key"

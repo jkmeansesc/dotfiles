@@ -11,6 +11,11 @@ return {
     local WIDTH_RATIO = 0.6
 
     -- ╭──────────────────────────────────────────────────────────╮
+    -- │set highlight                                             │
+    -- ╰──────────────────────────────────────────────────────────╯
+    require("core.utils").setPluginHighlights "nvimtree"
+
+    -- ╭──────────────────────────────────────────────────────────╮
     -- │stage and unstage files directly in the tree view         │
     -- ╰──────────────────────────────────────────────────────────╯
     local git_add = function()
@@ -51,7 +56,7 @@ return {
       renderer = {
         root_folder_label = false,
         highlight_git = true,
-        highlight_opened_files = "none",
+        highlight_opened_files = "name",
         icons = {
           git_placement = "signcolumn",
           padding = " ",
@@ -102,7 +107,7 @@ return {
             ---@diagnostic disable-next-line: undefined-field
             local center_y = ((vim.opt.lines:get() - window_h) / 2) - vim.opt.cmdheight:get()
             return {
-              border = "rounded",
+              border = require("core.utils").box_boarder "NvimTreeBoarder",
               relative = "editor",
               row = center_y,
               col = center_x,

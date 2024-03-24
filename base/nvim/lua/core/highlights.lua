@@ -98,4 +98,9 @@ M.alpha = {
   AlphaShortcut = { fg = color.green },
 }
 
+M.nvimtree = {
+  NvimTreeBoarder = { fg = color.pink, bg = color.mantle },
+  NvimTreeOpenedHL = { fg = color.surface0, bg = color.yellow },
+}
+
 return M

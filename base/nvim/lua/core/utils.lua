@@ -46,6 +46,51 @@ function M.setPluginHighlights(pluginName)
   end
 end
 
+--- Generates a rounded border.
+--- @param hl_name string: The name of the highlight group to be applied to the border.
+--- @return table: A table where each element represents a part of the border with its character and highlight.
+function M.rounded_border(hl_name)
+  return {
+    { "╭", hl_name },
+    { "─", hl_name },
+    { "╮", hl_name },
+    { "│", hl_name },
+    { "╯", hl_name },
+    { "─", hl_name },
+    { "╰", hl_name },
+    { "│", hl_name },
+  }
+end
+
+--- Generates a box border style.
+--- @param hl_name string: The name of the highlight group to be applied to the border.
+--- @return table: A table where each element represents a part of the border with its character and highlight.
+function M.box_boarder(hl_name)
+  return {
+    { "╔", hl_name },
+    { "═", hl_name },
+    { "╗", hl_name },
+    { "║", hl_name },
+    { "╝", hl_name },
+    { "═", hl_name },
+    { "╚", hl_name },
+    { "║", hl_name },
+  }
+end
+
+function M.dotted_border(hl_name)
+  return {
+    { "┌", hl_name },
+    { "┈", hl_name },
+    { "┐", hl_name },
+    { "┊", hl_name },
+    { "┘", hl_name },
+    { "┈", hl_name },
+    { "└", hl_name },
+    { "┊", hl_name },
+  }
+end
+
 --- get the bufnr of all opened buffers
 ---@author kikito
 ---@see https://codereview.stackexchange.com/questions/268130/get-list-of-buffers-from-current-neovim-instance

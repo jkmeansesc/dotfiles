@@ -31,7 +31,7 @@ install_formula tmux
 install_cask wezterm
 
 # Fonts
-install_cask font-hack-nerd-font
+install_cask font-jetbrains-mono-nerd-font
 install_cask font-sarasa-gothic
 
 # Useful tools

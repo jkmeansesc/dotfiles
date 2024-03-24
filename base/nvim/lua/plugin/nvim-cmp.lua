@@ -99,20 +99,6 @@ return {
       -- ╭──────────────────────────────────────────────────────────╮
       -- │ setup plugin                                             │
       -- ╰──────────────────────────────────────────────────────────╯
-
-      local function border(hl_name)
-        return {
-          { "╭", hl_name },
-          { "─", hl_name },
-          { "╮", hl_name },
-          { "│", hl_name },
-          { "╯", hl_name },
-          { "─", hl_name },
-          { "╰", hl_name },
-          { "│", hl_name },
-        }
-      end
-
       cmp.setup {
         -- see https://github.com/hrsh7th/nvim-cmp/pull/676#issuecomment-1002532096
         enabled = function()
@@ -131,13 +117,13 @@ return {
 
         window = {
           completion = {
-            border = border "CmpPmenuBoarder",
+            border = require("core.utils").box_boarder "CmpPmenuBoarder",
             winhighlight = "Normal:CmpPmenu,CursorLine:CmpSel,Search:None",
             scrollbar = false,
             side_padding = 0,
           },
           documentation = {
-            border = border "CmpDocBoarder",
+            border = require("core.utils").box_boarder "CmpDocBoarder",
             winhighlight = "Normal:CmpDoc",
           },
         },
