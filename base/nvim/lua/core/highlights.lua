@@ -27,9 +27,9 @@ M.colors = {
   surface2 = "#585B70", -- default: #585B70
   surface1 = "#45475A", -- default: #45475A
   surface0 = "#313244", -- default: #313244
-  base = "#0b0b12", -- default: #1E1E2E
-  mantle = "#11111a", -- default: #181825
-  crust = "#191926", -- default: #11111B
+  base = "#11111B", -- default: #1E1E2E
+  mantle = "#191926", -- default: #181825
+  crust = "#0B0B12", -- default: #11111B
   -- ╭──────────────────────────────────────────────────────────╮
   -- │ custom defined                                           │
   -- ╰──────────────────────────────────────────────────────────╯
@@ -41,11 +41,51 @@ M.colors = {
 local color = M.colors
 
 M.cmp = {
-  CmpPmenuBoarder = { fg = color.maroon, bg = color.crust },
-  CmpDocBoarder = { fg = color.maroon, bg = color.mantle },
-  CmpSel = { fg = color.surface0, bg = color.green },
+  CmpPmenuBoarder = { fg = color.pink, bg = color.crust },
+  CmpDocBoarder = { fg = color.pink, bg = color.mantle },
+  CmpSel = { fg = color.surface0, bg = color.green, bold = true },
   CmpPmenu = { bg = color.crust },
   CmpDoc = { bg = color.mantle },
+
+  CmpItemKindCopilot = { fg = color.green, bg = "NONE" },
+
+  CmpItemAbbrDeprecated = { fg = color.surface0, bg = "NONE", strikethrough = true },
+  CmpItemAbbrMatch = { fg = color.blue, bg = "NONE", bold = true },
+  CmpItemAbbrMatchFuzzy = { fg = color.blue, bg = "NONE", bold = true },
+  CmpItemMenu = { fg = color.mauve, bg = "NONE" },
+
+  CmpItemKindField = { fg = color.rosewater, bg = "NONE" },
+  CmpItemKindProperty = { fg = color.rosewater, bg = "NONE" },
+  CmpItemKindEvent = { fg = color.rosewater, bg = "NONE" },
+
+  CmpItemKindText = { fg = color.text, bg = "NONE" },
+  CmpItemKindEnum = { fg = color.text, bg = "NONE" },
+  CmpItemKindKeyword = { fg = color.text, bg = "NONE" },
+
+  CmpItemKindConstant = { fg = color.yellow, bg = "NONE" },
+  CmpItemKindConstructor = { fg = color.yellow, bg = "NONE" },
+  CmpItemKindReference = { fg = color.yellow, bg = "NONE" },
+
+  CmpItemKindFunction = { fg = color.mauve, bg = "NONE" },
+  CmpItemKindStruct = { fg = color.mauve, bg = "NONE" },
+  CmpItemKindClass = { fg = color.mauve, bg = "NONE" },
+  CmpItemKindModule = { fg = color.mauve, bg = "NONE" },
+  CmpItemKindOperator = { fg = color.mauve, bg = "NONE" },
+
+  CmpItemKindVariable = { fg = color.subtext0, bg = "NONE" },
+  CmpItemKindFile = { fg = color.subtext0, bg = "NONE" },
+
+  CmpItemKindUnit = { fg = color.flamingo, bg = "NONE" },
+  CmpItemKindSnippet = { fg = color.flamingo, bg = "NONE" },
+  CmpItemKindFolder = { fg = color.flamingo, bg = "NONE" },
+
+  CmpItemKindMethod = { fg = color.peach, bg = "NONE" },
+  CmpItemKindValue = { fg = color.peach, bg = "NONE" },
+  CmpItemKindEnumMember = { fg = color.peach, bg = "NONE" },
+
+  CmpItemKindInterface = { fg = color.sky, bg = "NONE" },
+  CmpItemKindColor = { fg = color.sky, bg = "NONE" },
+  CmpItemKindTypeParameter = { fg = color.sky, bg = "NONE" },
 }
 
 M.alpha = {

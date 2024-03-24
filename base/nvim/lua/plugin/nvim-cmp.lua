@@ -134,6 +134,7 @@ return {
             border = border "CmpPmenuBoarder",
             winhighlight = "Normal:CmpPmenu,CursorLine:CmpSel,Search:None",
             scrollbar = false,
+            side_padding = 0,
           },
           documentation = {
             border = border "CmpDocBoarder",
