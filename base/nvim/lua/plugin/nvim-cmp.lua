@@ -117,13 +117,13 @@ return {
 
         window = {
           completion = {
-            border = require("core.utils").box_boarder "CmpPmenuBoarder",
+            border = require("core.utils").box_boarder "CmpPmenuBorder",
             winhighlight = "Normal:CmpPmenu,CursorLine:CmpSel,Search:None",
             scrollbar = false,
             side_padding = 0,
           },
           documentation = {
-            border = require("core.utils").box_boarder "CmpDocBoarder",
+            border = require("core.utils").box_boarder "CmpDocBorder",
             winhighlight = "Normal:CmpDoc",
           },
         },

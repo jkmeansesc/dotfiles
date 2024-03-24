@@ -41,8 +41,8 @@ M.colors = {
 local color = M.colors
 
 M.cmp = {
-  CmpPmenuBoarder = { fg = color.pink, bg = color.crust },
-  CmpDocBoarder = { fg = color.pink, bg = color.mantle },
+  CmpPmenuBorder = { fg = color.pink, bg = color.crust },
+  CmpDocBorder = { fg = color.pink, bg = color.mantle },
   CmpSel = { fg = color.surface0, bg = color.green, bold = true },
   CmpPmenu = { bg = color.crust },
   CmpDoc = { bg = color.mantle },

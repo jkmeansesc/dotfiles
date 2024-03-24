@@ -22,15 +22,15 @@ return {
         treesitter = true,
         mason = true,
         treesitter_context = true,
-        nvimtree = false,
+        nvimtree = true,
         telescope = {
-          enabled = false,
+          enabled = true,
           style = "nvchad",
         },
         which_key = true,
         indent_blankline = {
           enabled = true,
-          scope_color = "lavender", -- catppuccin color (eg. `lavender`) Default: text
+          scope_color = "sky", -- catppuccin color (eg. `lavender`) Default: text
           colored_indent_levels = false,
         },
         illuminate = {
