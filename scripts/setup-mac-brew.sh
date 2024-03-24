@@ -28,7 +28,7 @@ brew tap koekeishiya/formulae # yabai
 install_formula git
 install_formula neovim --HEAD
 install_formula tmux
-install_cask wezterm
+install_cask kitty
 
 # Fonts
 install_cask font-jetbrains-mono-nerd-font
