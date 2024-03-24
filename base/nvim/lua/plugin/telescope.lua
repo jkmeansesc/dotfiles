@@ -6,7 +6,7 @@ return {
     "nvim-tree/nvim-web-devicons",
     "debugloop/telescope-undo.nvim",
     "nvim-telescope/telescope-ui-select.nvim",
-    "2kabhishek/nerdy.nvim", -- nerd icons
+    "2kabhishek/nerdy.nvim", -- search nerd icons
     { "nvim-telescope/telescope-fzf-native.nvim", enabled = vim.fn.executable "make" == 1, build = "make" },
   },
   event = "VimEnter",
@@ -29,6 +29,8 @@ return {
     local actions = require "telescope.actions"
     local telescope = require "telescope"
     local icons = require "core.icons"
+
+    require("core.utils").setPluginHighlights "telescope"
 
     telescope.setup {
       defaults = {

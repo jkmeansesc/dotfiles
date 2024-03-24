@@ -78,16 +78,19 @@ function M.box_boarder(hl_name)
   }
 end
 
-function M.dotted_border(hl_name)
+--- Generates a straight border style.
+--- @param hl_name string: The name of the highlight group to be applied to the border.
+--- @return table: A table where each element represents a part of the border with its character and highlight.
+function M.straight_boarder(hl_name)
   return {
-    { "┌", hl_name },
-    { "┈", hl_name },
-    { "┐", hl_name },
-    { "┊", hl_name },
-    { "┘", hl_name },
-    { "┈", hl_name },
-    { "└", hl_name },
-    { "┊", hl_name },
+    { "┌", hl_name }, -- Top-left corner
+    { "─", hl_name }, -- Top and bottom sides
+    { "┐", hl_name }, -- Top-right corner
+    { "│", hl_name }, -- Left and right sides
+    { "┘", hl_name }, -- Bottom-right corner
+    { "─", hl_name }, -- Top and bottom sides (repeated for clarity)
+    { "└", hl_name }, -- Bottom-left corner
+    { "│", hl_name }, -- Left and right sides (repeated for clarity)
   }
 end
 

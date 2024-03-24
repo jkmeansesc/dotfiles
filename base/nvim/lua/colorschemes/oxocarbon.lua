@@ -4,8 +4,5 @@ return {
   enabled = false,
   lazy = false,
   priority = 1000,
-  config = function()
-    vim.opt.background = "dark"
-    require("oxocarbon").setup()
-  end,
+  config = function() vim.opt.background = "dark" end,
 }

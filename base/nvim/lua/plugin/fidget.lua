@@ -7,7 +7,15 @@ return {
   config = function()
     require("fidget").setup {
       notification = {
-        override_vim_notify = true, -- Automatically override vim.notify() with Fidget
+        window = {
+          winblend = 0, -- required by catppuccin
+        },
+        override_vim_notify = true,
+      },
+      progress = {
+        display = {
+          done_icon = "",
+        },
       },
     }
   end,

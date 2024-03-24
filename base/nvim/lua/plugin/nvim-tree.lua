@@ -56,11 +56,11 @@ return {
       renderer = {
         root_folder_label = false,
         highlight_git = true,
-        highlight_opened_files = "name",
+        highlight_opened_files = "none",
         icons = {
           git_placement = "signcolumn",
           padding = " ",
-          symlink_arrow = " ➛ ",
+          symlink_arrow = "  ",
           glyphs = {
             default = icons.Text,
             symlink = icons.FileSymlink,

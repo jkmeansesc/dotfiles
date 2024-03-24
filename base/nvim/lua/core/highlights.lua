@@ -47,45 +47,45 @@ M.cmp = {
   CmpPmenu = { bg = color.crust },
   CmpDoc = { bg = color.mantle },
 
-  CmpItemKindCopilot = { fg = color.green, bg = "NONE" },
+  CmpItemKindCopilot = { fg = color.green },
 
-  CmpItemAbbrDeprecated = { fg = color.surface0, bg = "NONE", strikethrough = true },
-  CmpItemAbbrMatch = { fg = color.blue, bg = "NONE", bold = true },
-  CmpItemAbbrMatchFuzzy = { fg = color.blue, bg = "NONE", bold = true },
-  CmpItemMenu = { fg = color.mauve, bg = "NONE" },
+  CmpItemAbbrDeprecated = { fg = color.surface0, strikethrough = true },
+  CmpItemAbbrMatch = { fg = color.blue, bold = true },
+  CmpItemAbbrMatchFuzzy = { fg = color.blue, bold = true },
+  CmpItemMenu = { fg = color.mauve },
 
-  CmpItemKindField = { fg = color.rosewater, bg = "NONE" },
-  CmpItemKindProperty = { fg = color.rosewater, bg = "NONE" },
-  CmpItemKindEvent = { fg = color.rosewater, bg = "NONE" },
+  CmpItemKindField = { fg = color.rosewater },
+  CmpItemKindProperty = { fg = color.rosewater },
+  CmpItemKindEvent = { fg = color.rosewater },
 
-  CmpItemKindText = { fg = color.text, bg = "NONE" },
-  CmpItemKindEnum = { fg = color.text, bg = "NONE" },
-  CmpItemKindKeyword = { fg = color.text, bg = "NONE" },
+  CmpItemKindText = { fg = color.text },
+  CmpItemKindEnum = { fg = color.text },
+  CmpItemKindKeyword = { fg = color.text },
 
-  CmpItemKindConstant = { fg = color.yellow, bg = "NONE" },
-  CmpItemKindConstructor = { fg = color.yellow, bg = "NONE" },
-  CmpItemKindReference = { fg = color.yellow, bg = "NONE" },
+  CmpItemKindConstant = { fg = color.yellow },
+  CmpItemKindConstructor = { fg = color.yellow },
+  CmpItemKindReference = { fg = color.yellow },
 
-  CmpItemKindFunction = { fg = color.mauve, bg = "NONE" },
-  CmpItemKindStruct = { fg = color.mauve, bg = "NONE" },
-  CmpItemKindClass = { fg = color.mauve, bg = "NONE" },
-  CmpItemKindModule = { fg = color.mauve, bg = "NONE" },
-  CmpItemKindOperator = { fg = color.mauve, bg = "NONE" },
+  CmpItemKindFunction = { fg = color.mauve },
+  CmpItemKindStruct = { fg = color.mauve },
+  CmpItemKindClass = { fg = color.mauve },
+  CmpItemKindModule = { fg = color.mauve },
+  CmpItemKindOperator = { fg = color.mauve },
 
-  CmpItemKindVariable = { fg = color.subtext0, bg = "NONE" },
-  CmpItemKindFile = { fg = color.subtext0, bg = "NONE" },
+  CmpItemKindVariable = { fg = color.subtext0 },
+  CmpItemKindFile = { fg = color.subtext0 },
 
-  CmpItemKindUnit = { fg = color.flamingo, bg = "NONE" },
-  CmpItemKindSnippet = { fg = color.flamingo, bg = "NONE" },
-  CmpItemKindFolder = { fg = color.flamingo, bg = "NONE" },
+  CmpItemKindUnit = { fg = color.flamingo },
+  CmpItemKindSnippet = { fg = color.flamingo },
+  CmpItemKindFolder = { fg = color.flamingo },
 
-  CmpItemKindMethod = { fg = color.peach, bg = "NONE" },
-  CmpItemKindValue = { fg = color.peach, bg = "NONE" },
-  CmpItemKindEnumMember = { fg = color.peach, bg = "NONE" },
+  CmpItemKindMethod = { fg = color.peach },
+  CmpItemKindValue = { fg = color.peach },
+  CmpItemKindEnumMember = { fg = color.peach },
 
-  CmpItemKindInterface = { fg = color.sky, bg = "NONE" },
-  CmpItemKindColor = { fg = color.sky, bg = "NONE" },
-  CmpItemKindTypeParameter = { fg = color.sky, bg = "NONE" },
+  CmpItemKindInterface = { fg = color.sky },
+  CmpItemKindColor = { fg = color.sky },
+  CmpItemKindTypeParameter = { fg = color.sky },
 }
 
 M.alpha = {
@@ -99,8 +99,31 @@ M.alpha = {
 }
 
 M.nvimtree = {
-  NvimTreeBoarder = { fg = color.pink, bg = color.mantle },
-  NvimTreeOpenedHL = { fg = color.surface0, bg = color.yellow },
+  NvimTreeBoarder = { fg = color.pink, bg = color.crust },
+  NvimTreeFolderName = { fg = color.flamingo },
+  NvimTreeFolderIcon = { fg = color.flamingo },
+  NvimTreeNormal = { fg = color.text, bg = color.crust },
+  NvimTreeNormalFloat = { fg = color.text, bg = color.crust },
+  NvimTreeOpenedFolderName = { fg = color.blue },
+  NvimTreeEmptyFolderName = { fg = color.blue },
+  NvimTreeIndentMarker = { fg = color.overlay0 },
+  NvimTreeWinSeparator = { fg = color.surface1, bg = color.base },
+  NvimTreeRootFolder = { fg = color.lavender, bold = true },
+  NvimTreeSymlink = { fg = color.pink },
+  NvimTreeStatuslineNc = { fg = color.crust, bg = color.crust },
+  NvimTreeGitDirty = { fg = color.yellow },
+  NvimTreeGitNew = { fg = color.blue },
+  NvimTreeGitDeleted = { fg = color.red },
+  NvimTreeSpecialFile = { fg = color.flamingo },
+  NvimTreeImageFile = { fg = color.text },
+  NvimTreeOpenedFile = { fg = color.pink },
 }
+
+M.harpoon = {
+  HarpoonWindow = { fg = color.text, bg = color.mantle },
+  HarpoonBorder = { fg = color.pink, bg = color.mantle },
+}
+
+M.telescope = {}
 
 return M

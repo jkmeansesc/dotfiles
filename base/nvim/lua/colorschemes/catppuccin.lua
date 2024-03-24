@@ -10,19 +10,14 @@ return {
       flavour = "mocha",
       transparent_background = false,
       term_colors = true,
-      styles = {
-        comments = { "italic" },
-        conditionals = { "italic" },
-        misc = {},
-      },
+
+      -- NOTE: maintain a list of all the plugins in use that deviates from default settings.
       integrations = {
         alpha = false,
         cmp = false,
-        gitsigns = true,
-        treesitter = true,
         mason = true,
         treesitter_context = true,
-        nvimtree = true,
+        nvimtree = false,
         telescope = {
           enabled = true,
           style = "nvchad",
@@ -30,13 +25,10 @@ return {
         which_key = true,
         indent_blankline = {
           enabled = true,
-          scope_color = "sky", -- catppuccin color (eg. `lavender`) Default: text
+          scope_color = "sky", -- default: text
           colored_indent_levels = false,
         },
-        illuminate = {
-          enabled = true,
-          lsp = false,
-        },
+        fidget = true,
       },
       color_overrides = {
         mocha = require("core.highlights").colors,
