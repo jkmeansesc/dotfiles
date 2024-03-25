@@ -100,12 +100,12 @@ M.alpha = {
 
 M.nvimtree = {
   NvimTreeBoarder = { fg = color.pink, bg = color.crust },
-  NvimTreeFolderName = { fg = color.flamingo },
-  NvimTreeFolderIcon = { fg = color.flamingo },
+  NvimTreeFolderName = { fg = color.sapphire },
+  NvimTreeFolderIcon = { fg = color.sapphire },
   NvimTreeNormal = { fg = color.text, bg = color.crust },
   NvimTreeNormalFloat = { fg = color.text, bg = color.crust },
-  NvimTreeOpenedFolderName = { fg = color.blue },
-  NvimTreeEmptyFolderName = { fg = color.blue },
+  NvimTreeOpenedFolderName = { fg = color.sky },
+  NvimTreeEmptyFolderName = { fg = color.sky },
   NvimTreeIndentMarker = { fg = color.overlay0 },
   NvimTreeWinSeparator = { fg = color.surface1, bg = color.base },
   NvimTreeRootFolder = { fg = color.lavender, bold = true },
@@ -120,8 +120,8 @@ M.nvimtree = {
 }
 
 M.harpoon = {
-  HarpoonWindow = { fg = color.text, bg = color.mantle },
-  HarpoonBorder = { fg = color.pink, bg = color.mantle },
+  HarpoonWindow = { fg = color.text, bg = color.crust },
+  HarpoonBorder = { fg = color.pink, bg = color.crust },
 }
 
 M.telescope = {}

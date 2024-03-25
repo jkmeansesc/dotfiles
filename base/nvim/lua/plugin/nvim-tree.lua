@@ -6,7 +6,6 @@ return {
   dependencies = { "nvim-tree/nvim-web-devicons" },
   config = function()
     local api = require "nvim-tree.api"
-    local icons = require "core.icons"
     local HEIGHT_RATIO = 0.8
     local WIDTH_RATIO = 0.6
 
@@ -56,35 +55,12 @@ return {
       renderer = {
         root_folder_label = false,
         highlight_git = true,
-        highlight_opened_files = "none",
+        highlight_opened_files = "name",
         icons = {
           git_placement = "signcolumn",
           padding = " ",
           symlink_arrow = "  ",
-          glyphs = {
-            default = icons.Text,
-            symlink = icons.FileSymlink,
-            bookmark = icons.BookMark,
-            folder = {
-              arrow_closed = icons.ChevronRight,
-              arrow_open = icons.ChevronShortDown,
-              default = icons.Folder,
-              open = icons.FolderOpen,
-              empty = icons.EmptyFolder,
-              empty_open = icons.EmptyFolderOpen,
-              symlink = icons.FolderSymlink,
-              symlink_open = icons.FolderOpen,
-            },
-            git = {
-              unstaged = icons.GitUnstaged,
-              staged = icons.GitStaged,
-              unmerged = icons.GitUnmerged,
-              renamed = icons.GitRenamed,
-              untracked = icons.GitUntracked,
-              deleted = icons.GitRemoved,
-              ignored = icons.GitIgnored,
-            },
-          },
+          glyphs = require("core.icons").nvim_tree_glyphs,
         },
         special_files = { "Makefile", "README.md", "readme.md" },
       },
