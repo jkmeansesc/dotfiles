@@ -7,7 +7,7 @@ return {
   },
   config = function()
     local colors = require("core.highlights").colors
-    local icons = require "core.icons"
+    local icons = require("core.icons").lualine
 
     local theme = function()
       return {
@@ -87,7 +87,6 @@ return {
     }
 
     require("lualine").setup {
-      -- extensions = { "quickfix", "lazy", "mason", "nvim-dap-ui", "toggleterm", "quickfix" },
       disabled_filetypes = {
         statusline = { "alpha" },
         winbar = { "alpha", "edgy", "toggleterm", "Trouble", "spectre_panel", "qf", "noice", "dbui" },

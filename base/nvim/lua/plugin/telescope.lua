@@ -43,7 +43,7 @@ return {
   config = function()
     local actions = require "telescope.actions"
     local telescope = require "telescope"
-    local icons = require "core.icons"
+    local icons = require("core.icons").telescope
 
     require("core.utils").setPluginHighlights "telescope"
 

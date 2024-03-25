@@ -2,13 +2,11 @@ return {
   "folke/which-key.nvim",
   event = "VeryLazy",
   config = function()
-    local icons = require "core.icons"
-
+    local icons = require("core.icons").which_key
     require("which-key").setup {
       icons = { group = "", separator = "" },
       disable = { filetypes = { "TelescopePrompt" } },
     }
-
     require("which-key").register {
       ["<leader>b"] = { name = icons.Buffer .. " Buffer" },
       ["<leader>d"] = { name = icons.Debug .. " Debug" },
