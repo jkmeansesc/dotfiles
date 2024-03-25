@@ -9,40 +9,7 @@ return {
     "b0o/schemastore.nvim",
   },
   config = function()
-    local lspconfig = require "lspconfig"
-    local icons = require "core.icons"
-    local signs = {
-      { name = "DiagnosticSignError", text = icons.DiagnosticError, texthl = "DiagnosticSignError" },
-      { name = "DiagnosticSignWarn", text = icons.DiagnosticWarn, texthl = "DiagnosticSignWarn" },
-      { name = "DiagnosticSignHint", text = icons.DiagnosticHint, texthl = "DiagnosticSignHint" },
-      { name = "DiagnosticSignInfo", text = icons.DiagnosticInfo, texthl = "DiagnosticSignInfo" },
-      { name = "DapStopped", text = icons.DapStopped, texthl = "DiagnosticWarn" },
-      { name = "DapBreakpoint", text = icons.DapBreakpoint, texthl = "DiagnosticInfo" },
-      { name = "DapBreakpointRejected", text = icons.DapBreakpointRejected, texthl = "DiagnosticError" },
-      { name = "DapBreakpointCondition", text = icons.DapBreakpointCondition, texthl = "DiagnosticInfo" },
-      { name = "DapLogPoint", text = icons.DapLogPoint, texthl = "DiagnosticInfo" },
-    }
-    for _, sign in ipairs(signs) do
-      vim.fn.sign_define(sign.name, sign)
-    end
-
-    vim.diagnostic.config {
-      signs = {
-        active = signs,
-      },
-      virtual_text = false,
-      update_in_insert = false, -- reduce excessive notifications
-      underline = true,
-      severity_sort = true,
-      float = {
-        focusable = true,
-        style = "minimal",
-        border = "rounded",
-        source = "always",
-        header = "",
-        prefix = "",
-      },
-    }
+    require("neoconf").setup()
 
     local servers = {
       "lua_ls",
@@ -51,8 +18,6 @@ return {
       "clangd",
       "marksman",
     }
-
-    require("neoconf").setup()
 
     local on_attach = require("core.utils").on_attach
     local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -73,7 +38,7 @@ return {
       if server == "clangd" then opts.capabilities = {
         offsetEncoding = { "utf-16" },
       } end
-      lspconfig[server].setup(opts)
+      require("lspconfig")[server].setup(opts)
     end
   end,
 }
