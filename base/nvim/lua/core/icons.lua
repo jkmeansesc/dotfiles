@@ -68,7 +68,7 @@ return {
   Lua = "",
   Question = "",
 
-  navic = {
+  navic = { -- deprecated
     File = "󰈔 ",
     Module = "󰕳 ",
     Namespace = " ",

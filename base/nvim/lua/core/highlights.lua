@@ -124,6 +124,18 @@ M.harpoon = {
   HarpoonBorder = { fg = color.pink, bg = color.crust },
 }
 
-M.telescope = {}
+M.telescope = {
+  TelescopeBorder = { fg = color.crust, bg = color.crust },
+  TelescopeMatching = { fg = color.red, bold = true },
+  TelescopeNormal = { bg = color.crust },
+  TelescopePromptBorder = { fg = color.mantle, bg = color.mantle },
+  TelescopePromptNormal = { fg = color.text, bg = color.mantle },
+  TelescopePromptPrefix = { fg = color.flamingo, bg = color.mantle },
+  TelescopePreviewTitle = { fg = color.base, bg = color.green },
+  TelescopePromptTitle = { fg = color.base, bg = color.red },
+  TelescopeResultsTitle = { fg = color.mantle, bg = color.lavender },
+  TelescopeSelection = { fg = color.base, bg = color.green, bold = true },
+  TelescopeSelectionCaret = { fg = color.base, bg = color.green, bold = true },
+}
 
 return M

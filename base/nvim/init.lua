@@ -50,7 +50,7 @@ spec "plugin.mason"
 spec "plugin.none-ls"
 spec "plugin.nvim-cmp"
 spec "plugin.nvim-treesitter"
-spec "plugin.telescope" -- TODO:
+spec "plugin.telescope"
 spec "plugin.which-key"
 spec "plugin.gitsigns"
 spec "plugin.vim-fugitive"

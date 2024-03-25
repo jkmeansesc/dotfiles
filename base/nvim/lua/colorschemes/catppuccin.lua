@@ -18,10 +18,6 @@ return {
         mason = true,
         treesitter_context = true,
         nvimtree = false,
-        telescope = {
-          enabled = true,
-          style = "nvchad",
-        },
         which_key = true,
         indent_blankline = {
           enabled = true,

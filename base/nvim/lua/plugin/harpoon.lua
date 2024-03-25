@@ -7,5 +7,12 @@ return {
     { "<C-p>", function() require("harpoon.ui").nav_prev() end, desc = "Goto previous mark" },
     { "<C-n>", function() require("harpoon.ui").nav_next() end, desc = "Goto next mark" },
   },
-  config = function() require("core.utils").setPluginHighlights "harpoon" end,
+  config = function()
+    require("core.utils").setPluginHighlights "harpoon"
+    require("harpoon").setup {
+      menu = {
+        borderchars = { "═", "║", "═", "║", "╔", "╗", "╝", "╚" },
+      },
+    }
+  end,
 }
