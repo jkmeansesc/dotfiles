@@ -138,4 +138,9 @@ M.telescope = {
   TelescopeSelectionCaret = { fg = color.base, bg = color.green, bold = true },
 }
 
+M.lsp = {
+  LspBorder = { fg = color.pink, bg = color.crust },
+  LspInfoBorder = { fg = color.pink, bg = color.crust },
+}
+
 return M

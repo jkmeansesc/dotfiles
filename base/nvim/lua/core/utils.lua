@@ -224,7 +224,7 @@ function M.on_attach(client, bufnr)
   -- lsp globals
   map("n", "[d", function() vim.diagnostic.goto_prev() end, { desc = "Prev diagnostic" })
   map("n", "]d", function() vim.diagnostic.goto_next() end, { desc = "Next diagnostic" })
-  map("n", "gh", function() vim.diagnostic.open_float { border = "rounded" } end, { desc = "Floating diagnostic" })
+  map("n", "gh", function() vim.diagnostic.open_float() end, { desc = "Floating diagnostic" })
 
   if client.supports_method "textDocument/codeAction" then
     map({ "n", "v" }, "<leader>la", function() vim.lsp.buf.code_action() end, { desc = "LSP code action" })
@@ -244,7 +244,7 @@ function M.on_attach(client, bufnr)
       end,
     })
     if vim.g.codelens_enabled then vim.lsp.codelens.refresh() end
-    map("n", "<leader>ll", function() vim.lsp.codelens.refresh() end, { desc = "LSP CodeLens refresh" })
+    map("n", "<leader>lC", function() vim.lsp.codelens.refresh() end, { desc = "LSP CodeLens refresh" })
 
     map("n", "<leader>lL", function() vim.lsp.codelens.run() end, { desc = "LSP CodeLens run" })
   end

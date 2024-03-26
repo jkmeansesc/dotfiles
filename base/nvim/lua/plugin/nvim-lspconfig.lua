@@ -9,16 +9,56 @@ return {
     "b0o/schemastore.nvim",
   },
   config = function()
+    -- ╭──────────────────────────────────────────────────────────╮
+    -- │ setup dependencies                                       │
+    -- ╰──────────────────────────────────────────────────────────╯
     require("neoconf").setup()
 
-    local servers = {
-      "lua_ls",
-      "yamlls",
-      "jsonls",
-      "clangd",
-      "marksman",
+    -- ╭──────────────────────────────────────────────────────────╮
+    -- │ setup diagnostic icons and highlight and more            │
+    -- ╰──────────────────────────────────────────────────────────╯
+    require("core.utils").setPluginHighlights "lsp"
+    local icons = require("core.icons").lsp
+
+    local border = require("core.utils").box_boarder "LspBorder"
+
+    vim.diagnostic.config {
+      signs = {
+        text = {
+          [vim.diagnostic.severity.INFO] = icons.DiagnosticInfo,
+          [vim.diagnostic.severity.HINT] = icons.DiagnosticHint,
+          [vim.diagnostic.severity.WARN] = icons.DiagnosticWarn,
+          [vim.diagnostic.severity.ERROR] = icons.DiagnosticError,
+        },
+      },
+      virtual_text = false,
+      update_in_insert = false,
+      underline = true,
+      severity_sort = true,
+      float = {
+        focus = true,
+        focusable = true,
+        style = "minimal",
+        border = border,
+        source = "always",
+        header = "",
+        prefix = "",
+      },
     }
 
+    vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = border })
+    vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = border })
+
+    -- ╭──────────────────────────────────────────────────────────╮
+    -- │ setup on_attach and capabilities                         │
+    -- ╰──────────────────────────────────────────────────────────╯
+    local servers = {
+      "lua_ls", -- lua
+      "yamlls", -- yaml
+      "jsonls", -- json
+      "clangd", -- c/c++
+      "marksman", -- markdown
+    }
     local on_attach = require("core.utils").on_attach
     local capabilities = vim.lsp.protocol.make_client_capabilities()
     capabilities = vim.tbl_deep_extend("force", capabilities, require("cmp_nvim_lsp").default_capabilities())
@@ -28,16 +68,14 @@ return {
         on_attach = on_attach,
         capabilities = capabilities,
       }
-      local require_ok, settings = pcall(require, "plugin.lspsettings." .. server)
+      local require_ok, settings = pcall(require, "lspsettings." .. server)
       if require_ok then opts = vim.tbl_deep_extend("force", settings, opts) end
       if server == "lua_ls" then
         require("neodev").setup {
           library = { plugins = { "nvim-dap-ui" }, types = true },
         }
       end
-      if server == "clangd" then opts.capabilities = {
-        offsetEncoding = { "utf-16" },
-      } end
+      -- if server == "clangd" then table.insert(opts.capabilities.offsetEncoding, { "utf-16" }) end
       require("lspconfig")[server].setup(opts)
     end
   end,

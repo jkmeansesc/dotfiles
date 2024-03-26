@@ -43,6 +43,7 @@ return {
         "markdownlint", -- markdownlinter
         "prettier", -- prettier formatter
         "google_java_format", -- java formatter
+        "shfmt", -- shell formatter
       },
     }
 
