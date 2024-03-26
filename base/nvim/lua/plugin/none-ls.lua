@@ -27,9 +27,7 @@ return {
           filetypes = {
             "svelte",
             "javascript",
-            "javascriptreact",
             "typescript",
-            "typescriptreact",
             "vue",
             "css",
             "scss",

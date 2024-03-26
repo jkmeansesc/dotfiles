@@ -41,12 +41,11 @@ M.colors = {
 local color = M.colors
 
 M.cmp = {
-  CmpPmenuBorder = { fg = color.pink, bg = color.crust },
-  CmpDocBorder = { fg = color.pink, bg = color.mantle },
+  CmpPmenu = { bg = color.mantle },
+  CmpPmenuBorder = { fg = color.peach, bg = color.mantle },
+  CmpDoc = { bg = color.crust },
+  CmpDocBorder = { fg = color.peach },
   CmpSel = { fg = color.surface0, bg = color.green, bold = true },
-  CmpPmenu = { bg = color.crust },
-  CmpDoc = { bg = color.mantle },
-
   CmpItemKindCopilot = { fg = color.green },
 
   CmpItemAbbrDeprecated = { fg = color.surface0, strikethrough = true },
@@ -99,17 +98,17 @@ M.alpha = {
 }
 
 M.nvimtree = {
-  NvimTreeBoarder = { fg = color.pink, bg = color.crust },
+  NvimTreeBoarder = { fg = color.surface0, bg = color.crust },
   NvimTreeFolderName = { fg = color.sapphire },
   NvimTreeFolderIcon = { fg = color.sapphire },
   NvimTreeNormal = { fg = color.text, bg = color.crust },
-  NvimTreeNormalFloat = { fg = color.text, bg = color.crust },
+  NvimTreeNormalFloat = { link = "NvimTreeNormal" },
   NvimTreeOpenedFolderName = { fg = color.sky },
   NvimTreeEmptyFolderName = { fg = color.sky },
   NvimTreeIndentMarker = { fg = color.overlay0 },
   NvimTreeWinSeparator = { fg = color.surface1, bg = color.base },
   NvimTreeRootFolder = { fg = color.lavender, bold = true },
-  NvimTreeSymlink = { fg = color.pink },
+  NvimTreeSymlink = { fg = color.lavender },
   NvimTreeStatuslineNc = { fg = color.crust, bg = color.crust },
   NvimTreeGitDirty = { fg = color.yellow },
   NvimTreeGitNew = { fg = color.blue },
@@ -121,7 +120,7 @@ M.nvimtree = {
 
 M.harpoon = {
   HarpoonWindow = { fg = color.text, bg = color.crust },
-  HarpoonBorder = { fg = color.pink, bg = color.crust },
+  HarpoonBorder = { fg = color.maroon, bg = color.crust },
 }
 
 M.telescope = {
@@ -139,8 +138,8 @@ M.telescope = {
 }
 
 M.lsp = {
-  LspBorder = { fg = color.pink, bg = color.crust },
-  LspInfoBorder = { fg = color.pink, bg = color.crust },
+  LspBorder = { fg = color.sapphire, bg = color.crust },
+  LspInfoBorder = { fg = color.crust, bg = color.crust },
 }
 
 return M

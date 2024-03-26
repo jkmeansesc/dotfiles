@@ -18,27 +18,32 @@ return {
     -- │ setup diagnostic icons and highlight and more            │
     -- ╰──────────────────────────────────────────────────────────╯
     require("core.utils").setPluginHighlights "lsp"
-    local icons = require("core.icons").lsp
 
+    local icons_lsp = require("core.icons").lsp
     local border = require("core.utils").box_boarder "LspBorder"
+    local diagnostic_hl = {
+      [vim.diagnostic.severity.INFO] = "DiagnosticInfo",
+      [vim.diagnostic.severity.HINT] = "DiagnosticHint",
+      [vim.diagnostic.severity.WARN] = "DiagnosticWarn",
+      [vim.diagnostic.severity.ERROR] = "DiagnosticError",
+    }
 
     vim.diagnostic.config {
       signs = {
         text = {
-          [vim.diagnostic.severity.INFO] = icons.DiagnosticInfo,
-          [vim.diagnostic.severity.HINT] = icons.DiagnosticHint,
-          [vim.diagnostic.severity.WARN] = icons.DiagnosticWarn,
-          [vim.diagnostic.severity.ERROR] = icons.DiagnosticError,
+          [vim.diagnostic.severity.INFO] = icons_lsp.DiagnosticInfo,
+          [vim.diagnostic.severity.HINT] = icons_lsp.DiagnosticHint,
+          [vim.diagnostic.severity.WARN] = icons_lsp.DiagnosticWarn,
+          [vim.diagnostic.severity.ERROR] = icons_lsp.DiagnosticError,
         },
+        numhl = diagnostic_hl,
       },
       virtual_text = false,
       update_in_insert = false,
       underline = true,
       severity_sort = true,
       float = {
-        focus = true,
         focusable = true,
-        style = "minimal",
         border = border,
         source = "always",
         header = "",
@@ -70,11 +75,7 @@ return {
       }
       local require_ok, settings = pcall(require, "lspsettings." .. server)
       if require_ok then opts = vim.tbl_deep_extend("force", settings, opts) end
-      if server == "lua_ls" then
-        require("neodev").setup {
-          library = { plugins = { "nvim-dap-ui" }, types = true },
-        }
-      end
+      if server == "lua_ls" then require("neodev").setup { library = { plugins = { "nvim-dap-ui" }, types = true } } end
       -- if server == "clangd" then table.insert(opts.capabilities.offsetEncoding, { "utf-16" }) end
       require("lspconfig")[server].setup(opts)
     end

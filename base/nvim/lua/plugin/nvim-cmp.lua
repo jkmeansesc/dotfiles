@@ -97,6 +97,18 @@ return {
       })
 
       -- ╭──────────────────────────────────────────────────────────╮
+      -- │ disable in telescope                                     │
+      -- ╰──────────────────────────────────────────────────────────╯
+      -- see https://github.com/hrsh7th/nvim-cmp/issues/1522
+      vim.api.nvim_create_autocmd("FileType", {
+        callback = function()
+          require("cmp").setup.filetype("TelescopePrompt", {
+            enabled = false,
+          })
+        end,
+      })
+
+      -- ╭──────────────────────────────────────────────────────────╮
       -- │ setup plugin                                             │
       -- ╰──────────────────────────────────────────────────────────╯
       cmp.setup {
