@@ -6,8 +6,8 @@ return {
   dependencies = { "nvim-tree/nvim-web-devicons" },
   config = function()
     local api = require "nvim-tree.api"
-    local HEIGHT_RATIO = 0.8
-    local WIDTH_RATIO = 0.6
+    local HEIGHT_RATIO = 0.9
+    local WIDTH_RATIO = 0.5
 
     -- ╭──────────────────────────────────────────────────────────╮
     -- │set highlight                                             │
@@ -50,6 +50,20 @@ return {
       vim.keymap.set("n", "ga", git_add, opts "Git Add")
     end
 
+    -- ╭──────────────────────────────────────────────────────────╮
+    -- │refresh nvim-tree upon gitsigns operation                 │
+    -- ╰──────────────────────────────────────────────────────────╯
+
+    if require("core.utils").is_available "gitsigns" then
+      vim.api.nvim_create_autocmd("User", {
+        pattern = "GitSignsUpdate",
+        callback = function() api.tree.reload() end,
+      })
+    end
+
+    -- ╭──────────────────────────────────────────────────────────╮
+    -- │setup nvim-tree                                           │
+    -- ╰──────────────────────────────────────────────────────────╯
     require("nvim-tree").setup {
       on_attach = on_attach,
       renderer = {
