@@ -30,16 +30,15 @@ return {
 
       color_overrides = {
         mocha = {
-          base = color.base,
-          mantle = color.mantle,
-          crust = color.crust,
+          base = color.crust,
+          lavender = color.blue,
         },
       },
 
       highlight_overrides = {
         mocha = function()
           return {
-            NormalFloat = { fg = color.text, bg = color.crust },
+            NormalFloat = { fg = color.text, bg = color.mantle },
           }
         end,
       },

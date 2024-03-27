@@ -6,40 +6,40 @@ return {
     "AndreM222/copilot-lualine",
   },
   config = function()
-    local colors = require("core.highlights").colors
+    local color = require("core.highlights").colors
     local icons = require("core.icons").lualine
 
     local theme = function()
       return {
         inactive = {
-          a = { fg = colors.text, bg = colors.outerbg, gui = "bold" },
-          b = { fg = colors.text, bg = colors.outerbg },
-          c = { fg = colors.text, bg = colors.innerbg },
+          a = { fg = color.text, bg = color.outerbg, gui = "bold" },
+          b = { fg = color.text, bg = color.outerbg },
+          c = { fg = color.text, bg = color.innerbg },
         },
         visual = {
-          a = { fg = colors.mantle, bg = colors.peach, gui = "bold" },
-          b = { fg = colors.peach, bg = colors.outerbg },
-          c = { fg = colors.text, bg = colors.innerbg },
+          a = { fg = color.mantle, bg = color.peach, gui = "bold" },
+          b = { fg = color.peach, bg = color.outerbg },
+          c = { fg = color.text, bg = color.innerbg },
         },
         replace = {
-          a = { fg = colors.mantle, bg = colors.red, gui = "bold" },
-          b = { fg = colors.red, bg = colors.outerbg },
-          c = { fg = colors.text, bg = colors.innerbg },
+          a = { fg = color.mantle, bg = color.red, gui = "bold" },
+          b = { fg = color.red, bg = color.outerbg },
+          c = { fg = color.text, bg = color.innerbg },
         },
         normal = {
-          a = { fg = colors.mantle, bg = colors.pink, gui = "bold" },
-          b = { fg = colors.pink, bg = colors.outerbg },
-          c = { fg = colors.text, bg = colors.innerbg },
+          a = { fg = color.mantle, bg = color.pink, gui = "bold" },
+          b = { fg = color.pink, bg = color.outerbg },
+          c = { fg = color.text, bg = color.innerbg },
         },
         insert = {
-          a = { fg = colors.mantle, bg = colors.green, gui = "bold" },
-          b = { fg = colors.green, bg = colors.outerbg },
-          c = { fg = colors.text, bg = colors.innerbg },
+          a = { fg = color.mantle, bg = color.green, gui = "bold" },
+          b = { fg = color.green, bg = color.outerbg },
+          c = { fg = color.text, bg = color.innerbg },
         },
         command = {
-          a = { fg = colors.mantle, bg = colors.yellow, gui = "bold" },
-          b = { fg = colors.yellow, bg = colors.outerbg },
-          c = { fg = colors.text, bg = colors.innerbg },
+          a = { fg = color.mantle, bg = color.yellow, gui = "bold" },
+          b = { fg = color.yellow, bg = color.outerbg },
+          c = { fg = color.text, bg = color.innerbg },
         },
       }
     end
@@ -120,9 +120,9 @@ return {
               removed = icons.GitRemoved .. " ",
             },
             diff_color = {
-              added = { fg = colors.green },
-              modified = { fg = colors.peach },
-              removed = { fg = colors.red },
+              added = { fg = color.green },
+              modified = { fg = color.peach },
+              removed = { fg = color.red },
             },
           },
           { function() return "%=" end },
@@ -136,10 +136,10 @@ return {
               hint = icons.DiagnosticHint .. " ",
             },
             diagnostics_color = {
-              color_error = { fg = colors.red },
-              color_warn = { fg = colors.yellow },
-              color_info = { fg = colors.green },
-              color_hint = { fg = colors.blue },
+              color_error = { fg = color.red },
+              color_warn = { fg = color.yellow },
+              color_info = { fg = color.green },
+              color_hint = { fg = color.blue },
             },
           },
         },
@@ -147,7 +147,7 @@ return {
           {
             lazy,
             cond = conditions.lazy_status,
-            color = { fg = colors.peach },
+            color = { fg = color.peach },
           },
           {
             "copilot",
@@ -161,15 +161,15 @@ return {
                   unknown = icons.CopilotUnknown,
                 },
                 hl = {
-                  enabled = colors.green,
-                  sleep = colors.teal,
-                  disabled = colors.yellow,
-                  warning = colors.peach,
-                  unknown = colors.red,
+                  enabled = color.green,
+                  sleep = color.teal,
+                  disabled = color.yellow,
+                  warning = color.peach,
+                  unknown = color.red,
                 },
               },
               spinners = require("copilot-lualine.spinners").dots,
-              spinner_color = colors.yellow,
+              spinner_color = color.yellow,
             },
             show_colors = true,
             show_loading = true,

@@ -52,7 +52,8 @@ return {
         prompt_prefix = icons.Search .. "  ",
         selection_caret = icons.Selected .. " ",
         layout_strategy = "flex",
-        borderchars = { "═", "║", "═", "║", "╔", "╗", "╝", "╚" }, -- set highlight if border needed
+        -- borderchars = { "═", "║", "═", "║", "╔", "╗", "╝", "╚" }, -- set highlight if border needed
+        borderchars = { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
         layout_config = {
           horizontal = {
             preview_width = 0.50,
