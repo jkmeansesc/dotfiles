@@ -6,7 +6,7 @@ return {
     "AndreM222/copilot-lualine",
   },
   config = function()
-    local color = require("core.highlights").palette.catppuccin
+    local color = require("core.highlights").colors
     local icons = require("core.icons").lualine
 
     local theme = function()
