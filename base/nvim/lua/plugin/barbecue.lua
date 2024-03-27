@@ -20,52 +20,52 @@ return {
       callback = function() require("barbecue.ui").update() end,
     })
 
-    local color = require("core.highlights").colors
+    local palette = require("core.highlights").palette
 
     require("barbecue").setup {
       theme = {
         -- this highlight is used to override other highlights
         -- you can take advantage of its `bg` and set a background throughout your winbar
         -- (e.g. basename will look like this: { fg = "#c0caf5", bold = true })
-        normal = { fg = color.text },
+        normal = { fg = palette.catppuccin.text },
 
         -- these highlights correspond to symbols table from config
-        ellipsis = { fg = color.text },
-        separator = { fg = color.overlay2 },
-        modified = { fg = color.peach },
+        ellipsis = { fg = palette.catppuccin.text },
+        separator = { fg = palette.catppuccin.overlay2 },
+        modified = { fg = palette.catppuccin.peach },
 
         -- these highlights represent the _text_ of three main parts of barbecue
-        dirname = { fg = color.overlay0 },
-        basename = { fg = color.white, bold = true },
+        dirname = { fg = palette.catppuccin.overlay0 },
+        basename = { fg = palette.white, bold = true },
         context = {},
 
         -- these highlights are used for context/navic icons
-        context_file = { fg = color.rosewater },
-        context_module = { fg = color.blue },
-        context_namespace = { fg = color.flamingo },
-        context_package = { fg = color.sapphire },
-        context_class = { fg = color.pink },
-        context_method = { fg = color.sky },
-        context_property = { fg = color.mauve },
-        context_field = { fg = color.teal },
-        context_constructor = { fg = color.red },
-        context_enum = { fg = color.green },
-        context_interface = { fg = color.maroon },
-        context_function = { fg = color.yellow },
-        context_variable = { fg = color.blue },
-        context_constant = { fg = color.rosewater },
-        context_string = { fg = color.sapphire },
-        context_number = { fg = color.flamingo },
-        context_boolean = { fg = color.sky },
-        context_array = { fg = color.pink },
-        context_object = { fg = color.teal },
-        context_key = { fg = color.mauve },
-        context_null = { fg = color.green },
-        context_enum_member = { fg = color.red },
-        context_struct = { fg = color.maroon },
-        context_event = { fg = color.blue },
-        context_operator = { fg = color.yellow },
-        context_type_parameter = { fg = color.rosewater },
+        context_file = { fg = palette.catppuccin.rosewater },
+        context_module = { fg = palette.catppuccin.blue },
+        context_namespace = { fg = palette.catppuccin.flamingo },
+        context_package = { fg = palette.catppuccin.sapphire },
+        context_class = { fg = palette.catppuccin.pink },
+        context_method = { fg = palette.catppuccin.sky },
+        context_property = { fg = palette.catppuccin.mauve },
+        context_field = { fg = palette.catppuccin.teal },
+        context_constructor = { fg = palette.catppuccin.red },
+        context_enum = { fg = palette.catppuccin.green },
+        context_interface = { fg = palette.catppuccin.maroon },
+        context_function = { fg = palette.catppuccin.yellow },
+        context_variable = { fg = palette.catppuccin.blue },
+        context_constant = { fg = palette.catppuccin.rosewater },
+        context_string = { fg = palette.catppuccin.sapphire },
+        context_number = { fg = palette.catppuccin.flamingo },
+        context_boolean = { fg = palette.catppuccin.sky },
+        context_array = { fg = palette.catppuccin.pink },
+        context_object = { fg = palette.catppuccin.teal },
+        context_key = { fg = palette.catppuccin.mauve },
+        context_null = { fg = palette.catppuccin.green },
+        context_enum_member = { fg = palette.catppuccin.red },
+        context_struct = { fg = palette.catppuccin.maroon },
+        context_event = { fg = palette.catppuccin.blue },
+        context_operator = { fg = palette.catppuccin.yellow },
+        context_type_parameter = { fg = palette.catppuccin.rosewater },
       },
       create_autocmd = false, -- prevent barbecue from updating itself automatically
     }

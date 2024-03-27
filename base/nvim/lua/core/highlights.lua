@@ -1,6 +1,6 @@
 local M = {}
 
-M.pallets = {
+M.palette = {
   -- ╭──────────────────────────────────────────────────────────╮
   -- │ catppuccin palette                                       │
   -- ╰──────────────────────────────────────────────────────────╯
@@ -115,147 +115,117 @@ M.pallets = {
     gray = "#a89984",
     silver = "#928374",
   },
-}
-
-local catppuccin = M.pallets.catppuccin
-local onedark = M.pallets.onedark
-local kanagawa = M.pallets.kanagawa
-local gruvbox = M.pallets.gruvbox
-
-M.colors = {
-  rosewater = catppuccin.rosewater,
-  flamingo = catppuccin.flamingo,
-  pink = catppuccin.pink,
-  mauve = catppuccin.mauve,
-  red = catppuccin.red,
-  maroon = catppuccin.maroon,
-  peach = catppuccin.peach,
-  yellow = catppuccin.yellow,
-  green = catppuccin.green,
-  teal = catppuccin.teal,
-  sky = catppuccin.sky,
-  sapphire = catppuccin.sapphire,
-  blue = catppuccin.blue,
-  lavender = catppuccin.lavender,
-  text = catppuccin.text,
-  subtext1 = catppuccin.subtext1,
-  subtext0 = catppuccin.subtext0,
-  overlay2 = catppuccin.overlay2,
-  overlay1 = catppuccin.overlay1,
-  overlay0 = catppuccin.overlay0,
-  surface2 = catppuccin.surface2,
-  surface1 = catppuccin.surface1,
-  surface0 = catppuccin.surface0,
-  base = catppuccin.base,
-  mantle = catppuccin.mantle,
-  crust = catppuccin.crust,
   white = "#ffffff",
   innerbg = nil,
   outerbg = nil,
 }
 
-local color = M.colors
+local palette = M.palette
+local catppuccin = palette.catppuccin
+local onedark = palette.onedark
+local kanagawa = palette.kanagawa
+local gruvbox = palette.gruvbox
 
 M.cmp = {
-  CmpPmenu = { bg = color.base },
-  CmpPmenuBorder = { fg = color.surface0, bg = color.base },
-  CmpDoc = { bg = color.mantle },
-  CmpDocBorder = { fg = color.surface0, bg = color.mantle },
-  CmpSel = { fg = color.surface0, bg = color.green, bold = true },
-  CmpItemKindCopilot = { fg = color.green },
+  CmpPmenu = { bg = catppuccin.base },
+  CmpPmenuBorder = { fg = catppuccin.surface0, bg = catppuccin.base },
+  CmpDoc = { bg = catppuccin.mantle },
+  CmpDocBorder = { fg = catppuccin.surface0, bg = catppuccin.mantle },
+  CmpSel = { fg = catppuccin.surface0, bg = catppuccin.green, bold = true },
+  CmpItemKindCopilot = { fg = catppuccin.green },
 
-  CmpItemAbbrDeprecated = { fg = color.surface0, strikethrough = true },
-  CmpItemAbbrMatch = { fg = color.blue, bold = true },
-  CmpItemAbbrMatchFuzzy = { fg = color.blue, bold = true },
-  CmpItemMenu = { fg = color.mauve },
+  CmpItemAbbrDeprecated = { fg = catppuccin.surface0, strikethrough = true },
+  CmpItemAbbrMatch = { fg = catppuccin.blue, bold = true },
+  CmpItemAbbrMatchFuzzy = { fg = catppuccin.blue, bold = true },
+  CmpItemMenu = { fg = catppuccin.mauve },
 
-  CmpItemKindField = { fg = color.rosewater },
-  CmpItemKindProperty = { fg = color.rosewater },
-  CmpItemKindEvent = { fg = color.rosewater },
+  CmpItemKindField = { fg = catppuccin.rosewater },
+  CmpItemKindProperty = { fg = catppuccin.rosewater },
+  CmpItemKindEvent = { fg = catppuccin.rosewater },
 
-  CmpItemKindText = { fg = color.text },
-  CmpItemKindEnum = { fg = color.text },
-  CmpItemKindKeyword = { fg = color.text },
+  CmpItemKindText = { fg = catppuccin.text },
+  CmpItemKindEnum = { fg = catppuccin.text },
+  CmpItemKindKeyword = { fg = catppuccin.text },
 
-  CmpItemKindConstant = { fg = color.yellow },
-  CmpItemKindConstructor = { fg = color.yellow },
-  CmpItemKindReference = { fg = color.yellow },
+  CmpItemKindConstant = { fg = catppuccin.yellow },
+  CmpItemKindConstructor = { fg = catppuccin.yellow },
+  CmpItemKindReference = { fg = catppuccin.yellow },
 
-  CmpItemKindFunction = { fg = color.mauve },
-  CmpItemKindStruct = { fg = color.mauve },
-  CmpItemKindClass = { fg = color.mauve },
-  CmpItemKindModule = { fg = color.mauve },
-  CmpItemKindOperator = { fg = color.mauve },
+  CmpItemKindFunction = { fg = catppuccin.mauve },
+  CmpItemKindStruct = { fg = catppuccin.mauve },
+  CmpItemKindClass = { fg = catppuccin.mauve },
+  CmpItemKindModule = { fg = catppuccin.mauve },
+  CmpItemKindOperator = { fg = catppuccin.mauve },
 
-  CmpItemKindVariable = { fg = color.subtext0 },
-  CmpItemKindFile = { fg = color.subtext0 },
+  CmpItemKindVariable = { fg = catppuccin.subtext0 },
+  CmpItemKindFile = { fg = catppuccin.subtext0 },
 
-  CmpItemKindUnit = { fg = color.flamingo },
-  CmpItemKindSnippet = { fg = color.flamingo },
-  CmpItemKindFolder = { fg = color.flamingo },
+  CmpItemKindUnit = { fg = catppuccin.flamingo },
+  CmpItemKindSnippet = { fg = catppuccin.flamingo },
+  CmpItemKindFolder = { fg = catppuccin.flamingo },
 
-  CmpItemKindMethod = { fg = color.peach },
-  CmpItemKindValue = { fg = color.peach },
-  CmpItemKindEnumMember = { fg = color.peach },
+  CmpItemKindMethod = { fg = catppuccin.peach },
+  CmpItemKindValue = { fg = catppuccin.peach },
+  CmpItemKindEnumMember = { fg = catppuccin.peach },
 
-  CmpItemKindInterface = { fg = color.sky },
-  CmpItemKindColor = { fg = color.sky },
-  CmpItemKindTypeParameter = { fg = color.sky },
+  CmpItemKindInterface = { fg = catppuccin.sky },
+  CmpItemKindColor = { fg = catppuccin.sky },
+  CmpItemKindTypeParameter = { fg = catppuccin.sky },
 }
 
 M.alpha = {
-  AlphaLogoBlue = { fg = color.blue },
-  AlphaLogoGreenFBlueB = { fg = color.green, bg = color.blue },
-  AlphaLogoGreen = { fg = color.green },
-  AlphaHeader = { fg = color.yellow },
-  AlphaButtons = { fg = color.lavender },
-  AlphaFooter = { fg = color.peach },
-  AlphaShortcut = { fg = color.green },
+  AlphaLogoBlue = { fg = catppuccin.blue },
+  AlphaLogoGreenFBlueB = { fg = catppuccin.green, bg = catppuccin.blue },
+  AlphaLogoGreen = { fg = catppuccin.green },
+  AlphaHeader = { fg = catppuccin.yellow },
+  AlphaButtons = { fg = catppuccin.lavender },
+  AlphaFooter = { fg = catppuccin.peach },
+  AlphaShortcut = { fg = catppuccin.green },
 }
 
 M.nvimtree = {
-  NvimTreeBoarder = { fg = color.red, bg = color.mantle },
-  NvimTreeFolderName = { fg = color.crystalBlue },
-  NvimTreeFolderIcon = { fg = color.crystalBlue },
-  NvimTreeNormal = { fg = color.text, bg = color.mantle },
+  NvimTreeBoarder = { fg = catppuccin.red, bg = catppuccin.mantle },
+  NvimTreeFolderName = { fg = kanagawa.crystalBlue },
+  NvimTreeFolderIcon = { fg = kanagawa.crystalBlue },
+  NvimTreeNormal = { fg = catppuccin.text, bg = catppuccin.mantle },
   NvimTreeNormalFloat = { link = "NvimTreeNormal" },
-  NvimTreeOpenedFolderName = { fg = color.blue },
-  NvimTreeEmptyFolderName = { fg = color.crystalBlue },
-  NvimTreeIndentMarker = { fg = color.overlay0 },
-  NvimTreeWinSeparator = { fg = color.surface1, bg = color.base },
-  NvimTreeRootFolder = { fg = color.lavender, bold = true },
-  NvimTreeSymlink = { fg = color.lavender },
-  NvimTreeStatuslineNc = { fg = color.crust, bg = color.crust },
-  NvimTreeGitDirty = { fg = color.yellow },
-  NvimTreeGitNew = { fg = color.blue },
-  NvimTreeGitDeleted = { fg = color.red },
-  NvimTreeSpecialFile = { fg = color.flamingo },
-  NvimTreeImageFile = { fg = color.text },
-  NvimTreeOpenedFile = { fg = color.white, bold = true },
+  NvimTreeOpenedFolderName = { fg = onedark.blue },
+  NvimTreeEmptyFolderName = { fg = kanagawa.crystalBlue },
+  NvimTreeIndentMarker = { fg = catppuccin.overlay0 },
+  NvimTreeWinSeparator = { fg = catppuccin.surface1, bg = catppuccin.base },
+  NvimTreeRootFolder = { fg = catppuccin.lavender, bold = true },
+  NvimTreeSymlink = { fg = catppuccin.lavender },
+  NvimTreeStatuslineNc = { fg = catppuccin.crust, bg = catppuccin.crust },
+  NvimTreeGitDirty = { fg = catppuccin.yellow },
+  NvimTreeGitNew = { fg = catppuccin.blue },
+  NvimTreeGitDeleted = { fg = catppuccin.red },
+  NvimTreeSpecialFile = { fg = catppuccin.flamingo },
+  NvimTreeImageFile = { fg = catppuccin.text },
+  NvimTreeOpenedFile = { fg = palette.white, bold = true },
 }
 
 M.harpoon = {
-  HarpoonWindow = { fg = color.text, bg = color.mantle },
-  HarpoonBorder = { fg = color.red, bg = color.mantle },
+  HarpoonWindow = { fg = catppuccin.text, bg = catppuccin.mantle },
+  HarpoonBorder = { fg = catppuccin.red, bg = catppuccin.mantle },
 }
 
 M.telescope = {
-  TelescopeBorder = { fg = color.surface0, bg = color.mantle },
-  TelescopeMatching = { fg = color.red, bold = true },
-  TelescopeNormal = { bg = color.mantle },
-  TelescopePromptBorder = { fg = color.surface0, bg = color.base },
-  TelescopePromptNormal = { fg = color.text, bg = color.base },
-  TelescopePromptPrefix = { fg = color.flamingo, bg = color.base },
-  TelescopePreviewTitle = { fg = color.base, bg = color.green },
-  TelescopePromptTitle = { fg = color.base, bg = color.red },
-  TelescopeResultsTitle = { fg = color.mantle, bg = color.lavender },
-  TelescopeSelection = { fg = color.base, bg = color.green, bold = true },
-  TelescopeSelectionCaret = { fg = color.base, bg = color.green, bold = true },
+  TelescopeBorder = { fg = catppuccin.surface0, bg = catppuccin.mantle },
+  TelescopeMatching = { fg = catppuccin.red, bold = true },
+  TelescopeNormal = { bg = catppuccin.mantle },
+  TelescopePromptBorder = { fg = catppuccin.surface0, bg = catppuccin.base },
+  TelescopePromptNormal = { fg = catppuccin.text, bg = catppuccin.base },
+  TelescopePromptPrefix = { fg = catppuccin.flamingo, bg = catppuccin.base },
+  TelescopePreviewTitle = { fg = catppuccin.base, bg = catppuccin.green },
+  TelescopePromptTitle = { fg = catppuccin.base, bg = catppuccin.red },
+  TelescopeResultsTitle = { fg = catppuccin.mantle, bg = catppuccin.lavender },
+  TelescopeSelection = { fg = catppuccin.base, bg = catppuccin.green, bold = true },
+  TelescopeSelectionCaret = { fg = catppuccin.base, bg = catppuccin.green, bold = true },
 }
 
 M.lsp = {
-  LspBorder = { fg = color.surface0, bg = color.mantle },
-  LspInfoBorder = { fg = color.mantle, bg = color.mantle },
+  LspBorder = { fg = catppuccin.surface0, bg = catppuccin.mantle },
+  LspInfoBorder = { fg = catppuccin.mantle, bg = catppuccin.mantle },
 }
 
 return M
