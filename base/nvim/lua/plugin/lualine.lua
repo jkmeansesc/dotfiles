@@ -27,8 +27,8 @@ return {
           c = { fg = color.text, bg = color.innerbg },
         },
         normal = {
-          a = { fg = color.mantle, bg = color.pink, gui = "bold" },
-          b = { fg = color.pink, bg = color.outerbg },
+          a = { fg = color.mantle, bg = color.maroon, gui = "bold" },
+          b = { fg = color.maroon, bg = color.outerbg },
           c = { fg = color.text, bg = color.innerbg },
         },
         insert = {

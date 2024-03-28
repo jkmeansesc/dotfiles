@@ -38,8 +38,8 @@ map("n", "<Esc>", "<CMD>noh<CR>", { desc = "Clear highlights" })
 -- http://www.reddit.com/r/vim/comments/2k4cbr/problem_with_gj_and_gk/
 -- empty mode is same as using <CMD> :map
 -- also don't use g[j|k] when in operator pending mode, so it doesn't alter d, y or c behaviour
--- map({ "n", "x" }, "j", 'v:count || mode(1)[0:1] == "no" ? "j" : "gj"', { desc = "Move down", expr = true })
--- map({ "n", "x" }, "k", 'v:count || mode(1)[0:1] == "no" ? "k" : "gk"', { desc = "Move up", expr = true })
+map({ "n", "x" }, "j", 'v:count || mode(1)[0:1] == "no" ? "j" : "gj"', { desc = "Move down", expr = true })
+map({ "n", "x" }, "k", 'v:count || mode(1)[0:1] == "no" ? "k" : "gk"', { desc = "Move up", expr = true })
 map({ "n", "v" }, "<Up>", 'v:count || mode(1)[0:1] == "no" ? "k" : "gk"', { desc = "Move up", expr = true })
 map({ "n", "v" }, "<Down>", 'v:count || mode(1)[0:1] == "no" ? "j" : "gj"', { desc = "Move down", expr = true })
 
