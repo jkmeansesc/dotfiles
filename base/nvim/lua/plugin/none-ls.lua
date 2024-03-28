@@ -19,6 +19,7 @@ return {
     local null_ls_utils = require "null-ls.utils"
     local formatting = null_ls.builtins.formatting
     local diagnostics = null_ls.builtins.diagnostics
+    local code_actions = null_ls.builtins.code_actions
 
     null_ls.setup {
       root_dir = null_ls_utils.root_pattern(".null-ls-root", "Makefile", ".git", "package.json"),
@@ -47,6 +48,9 @@ return {
         diagnostics.markdownlint.with {
           extra_args = { "--disable MD013" }, -- diable rule: line length
         }, -- markdown linter
+        diagnostics.proselint, -- prose linter
+        code_actions.proselint, -- prose linter
+        code_actions.gitsigns, -- git signs code actions
       },
     }
   end,

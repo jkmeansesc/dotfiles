@@ -64,3 +64,4 @@ unstage
 unstaged
 cmdline
 luasnip
+reflog

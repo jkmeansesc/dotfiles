@@ -38,11 +38,28 @@ function M.setPluginHighlights(pluginName)
   if hl then
     M.setHighlightGroups(hl)
   else
-    if M.is_available "fidget" then
-      require("fidget").notify("No highlight definitions found for plugin: " .. pluginName, vim.log.levels.WARN)
-    else
-      vim.notify("No highlight definitions found for plugin: " .. pluginName, vim.log.levels.WARN)
-    end
+    M.notify("No highlight definitions found for plugin: " .. pluginName, "WARN")
+  end
+end
+
+--- Sends a notification message with a specified log level.
+--- This function abstracts over Neovim's vim.notify and the fidget plugin's notify function,
+--- automatically choosing the available method. It allows specifying the log level as a simple string.
+--- @param message string: The notification message to be displayed.
+--- @param level string: A string representing the log level (e.g., "WARN", "INFO", "ERROR"). Defaults to "WARN" if an unrecognized string is provided.
+function M.notify(message, level)
+  local log_levels = {
+    TRACE = vim.log.levels.TRACE,
+    DEBUG = vim.log.levels.DEBUG,
+    INFO = vim.log.levels.INFO,
+    WARN = vim.log.levels.WARN,
+    ERROR = vim.log.levels.ERROR,
+  }
+  local log_level = log_levels[level] or vim.log.levels.WARN
+  if M.is_available "fidget" then
+    require("fidget").notify(message, log_level)
+  else
+    vim.notify(message, log_level)
   end
 end
 
@@ -324,11 +341,7 @@ function M.on_attach(client, bufnr)
     vim.g.inlay_hints_visible = true
     vim.lsp.inlay_hint.enable(bufnr, true)
   else
-    if M.is_available "fidget" then
-      require("fidget").notify(client.name .. " does not support inlay hints", vim.log.levels.WARN)
-    else
-      vim.notify(client.name .. " does not support inlay hints", vim.log.levels.WARN)
-    end
+    M.notify(client.name .. " does not support inlay hints", "WARN")
   end
 
   if client.name == "clangd" then
