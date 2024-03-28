@@ -33,6 +33,7 @@ return {
         "jdtls", -- java
         "clangd", -- c/c++
         "marksman", -- markdown
+        "vale_ls", -- prose linter
       },
     }
 
@@ -44,6 +45,7 @@ return {
         "prettier", -- prettier formatter
         "google_java_format", -- java formatter
         "shfmt", -- shell formatter
+        "vale", -- prose linter, needed by vale_ls
       },
     }
 

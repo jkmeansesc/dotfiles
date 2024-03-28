@@ -48,8 +48,6 @@ return {
         diagnostics.markdownlint.with {
           extra_args = { "--disable MD013" }, -- diable rule: line length
         }, -- markdown linter
-        diagnostics.proselint, -- prose linter
-        code_actions.proselint, -- prose linter
         code_actions.gitsigns, -- git signs code actions
       },
     }
