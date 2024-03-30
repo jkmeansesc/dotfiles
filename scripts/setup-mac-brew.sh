@@ -40,6 +40,10 @@ install_formula neofetch
 install_formula ripgrep
 install_formula tree
 install_formula yabai
+install_formula starship
+install_formula zsh-autosuggestions
+install_formula zsh-syntax-highlighting
+install_formula zsh-autocomplete
 install_cask hammerspoon
 # change default config location
 defaults write org.hammerspoon.Hammerspoon MJConfigFile "~/.config/hammerspoon/init.lua"

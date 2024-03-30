@@ -1,29 +1,9 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
+# setup auto-complete, auto-suggestion, syntax-highlight
+export HOMEBREW_PREFIX="/opt/homebrew/"
 
-
-# Path to your oh-my-zsh installation.
-export ZSH="$HOME/.local/share/oh-my-zsh"
-
-ZSH_THEME="powerlevel10k/powerlevel10k"
-
-# Uncomment the following line to change how often to auto-update (in days).
-zstyle ':omz:update' frequency 13
-
-plugins=(
-  git 
-  zsh-syntax-highlighting
-  zsh-autosuggestions
-)
-
-source $ZSH/oh-my-zsh.sh
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+source $HOMEBREW_PREFIX/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh
+source $HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source $HOMEBREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # set EDITOR
 export EDITOR='nvim'
@@ -87,5 +67,5 @@ alias cdd="cd $HOME/git/dotfiles"
 ## ChatGPT
 source ~/.config/secrets.sh
 
-# To customize prompt, run `p10k configure` or edit ~/git/dotfiles/macos/.p10k.zsh.
-[[ ! -f ~/git/dotfiles/macos/.p10k.zsh ]] || source ~/git/dotfiles/macos/.p10k.zsh
+# initialize starship
+eval "$(starship init zsh)"
