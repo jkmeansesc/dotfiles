@@ -17,7 +17,6 @@ $line_break$character\
 
 right_format = """
 $all\
-$time\
 """
 continuation_prompt = '▶▶ '
 
@@ -53,68 +52,70 @@ crust = '#11111B'
 
 [os]
 disabled = false
-format = "[](lavender)[$symbol]($style)[ ](lavender)"
-style = 'fg:base bg:lavender'
+# format = "[](lavender)[$symbol]($style)[ ](lavender)"
+# style = 'fg:base bg:lavender'
+format = "[$symbol ]($style)"
+style = 'fg:lavender'
 
 [os.symbols]
-Windows = "󰍲 "
-Ubuntu = "󰕈 "
-SUSE = " "
-Raspbian = "󰐿 "
-Mint = "󰣭 "
-Macos = " "
-Manjaro = " "
-Linux = "󰌽 "
-Gentoo = "󰣨 "
-Fedora = "󰣛 "
-Alpine = " "
-Amazon = " "
-Android = " "
-Arch = "󰣇 "
-Artix = "󰣇 "
-CentOS = " "
-Debian = "󰣚 "
-Redhat = "󱄛 "
-RedHatEnterprise = "󱄛 "
+Windows = "󰍲"
+Ubuntu = "󰕈"
+SUSE = ""
+Raspbian = "󰐿"
+Mint = "󰣭"
+Macos = "󰀵"
+Manjaro = ""
+Linux = "󰌽"
+Gentoo = "󰣨"
+Fedora = "󰣛"
+Alpine = ""
+Amazon = ""
+Android = ""
+Arch = "󰣇"
+Artix = "󰣇"
+CentOS = ""
+Debian = "󰣚"
+Redhat = "󱄛"
+RedHatEnterprise = "󱄛"
 
 [directory]
 fish_style_pwd_dir_length=2
-home_symbol = ' '
-style = 'text'
+home_symbol = ' ~'
+style = 'yellow'
 read_only = '  '
 format = '[$path]($style)[$read_only]($read_only_style) '
 
 [directory.substitutions]
-"github" = " "
-"git" = " "
-".config" = " "
-"Documents" = " "
-"Downloads" = " "
-"Music" = " "
-"Pictures" = " "
-"Desktop" = " "
+"github" = ""
+"git" = ""
+".config" = ""
+"Documents" = ""
+"Downloads" = ""
+"Music" = ""
+"Pictures" = ""
+"Desktop" = ""
 
 [git_branch]
-symbol = " "
+symbol = ""
 format = '[](surface0)[$symbol$branch ]($style)'
-style = 'fg:lavender bg:surface0 bold'
+style = 'fg:lavender bg:surface0'
 truncation_symbol = '…/'
 
 # Shows current git status
 [git_status]
 format = '$all_status$ahead_behind[](fg:surface0)'
 style = 'fg:text bg:surface0'
-conflicted = '[ 🏳 ](fg:base bg:red)'
-ahead = '[ ⇡${count}](fg:blue bg:surface0)'
-behind = '[ ⇣${count}](fg:peach bg:surface0)'
-diverged = '[ ⇡${ahead_count}](fg:blue bg:surface0)[⇣${behind_count}](fg:peach bg:surface0)'
+conflicted = '[ ](fg:maroon bg:surface0)'
+ahead = '[⇡${count}](fg:blue bg:surface0)'
+behind = '[⇣${count}](fg:peach bg:surface0)'
+diverged = '[⇡${ahead_count}](fg:blue bg:surface0)[⇣${behind_count}](fg:peach bg:surface0)'
 up_to_date = ''
-untracked = '[  ](fg:base bg:sapphire)'
-stashed = '[  ](fg:base bg:mauve)'
-modified = '[  ](fg:base bg:yellow)'
-staged = '[  ](fg:base bg:green)'
-renamed = '[  ](fg:base bg:lavender)'
-deleted = '[  ](fg:base bg:pink)'
+untracked = '[ ](fg:sapphire bg:surface0)'
+stashed = '[ ](fg:mauve bg:surface0)'
+modified = '[ ](fg:yellow bg:surface0)'
+staged = '[ ](fg:green bg:surface0)'
+renamed = '[ ](fg:lavender bg:surface0)'
+deleted = '[ ](fg:red bg:surface0)'
 
 [git_commit]
 tag_disabled = false
@@ -131,15 +132,15 @@ format = '[+$added]($added_style)[-$deleted]($deleted_style)[](surface2)'
 format = 'last command: [$duration](bold yellow)'
 
 [time]
-disabled = false
+disabled = true
 time_format = "%r" # Hour:Minute Format
 style = 'bg:base fg:blue'
 format = '[](blue)[[ $time](fg:base bg:blue)]($style)[](blue)'
 
 [character]
 disabled = false
-success_symbol = "[](bold fg:green)"
-error_symbol = "[](bold fg:red)"
+success_symbol = "[󰘍](bold fg:green)"
+error_symbol = "[󰘍](bold fg:red)"
 vimcmd_symbol = '[](bold fg:green)'
 vimcmd_replace_one_symbol = '[](bold fg:mauve)'
 vimcmd_replace_symbol = '[](bold fg:mauve)'
