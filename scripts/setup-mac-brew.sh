@@ -33,6 +33,7 @@ install_cask kitty
 # Fonts
 install_cask font-jetbrains-mono-nerd-font
 install_cask font-sarasa-gothic
+install_cask font-hack-nerd-font
 
 # Useful tools
 install_formula eza

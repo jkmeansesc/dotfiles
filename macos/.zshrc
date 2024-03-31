@@ -5,6 +5,15 @@ source $HOMEBREW_PREFIX/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh
 source $HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source $HOMEBREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
+# stop .lesshst from generating
+export LESSHISTFILE=/dev/null
+
+# move .zcompdump to .config/
+ZDOTDIR=$HOME/.config
+
+# move .zsh_history to .config/
+HISTFILE=$HOME/.config.zsh_history
+
 # set EDITOR
 export EDITOR='nvim'
 

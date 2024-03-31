@@ -34,6 +34,7 @@ return {
         "clangd", -- c/c++
         "marksman", -- markdown
         "vale_ls", -- prose linter
+        "taplo", -- toml
       },
     }
 

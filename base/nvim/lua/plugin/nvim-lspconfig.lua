@@ -71,6 +71,7 @@ return {
       "clangd", -- c/c++
       "marksman", -- markdown
       "vale_ls", -- prose linter
+      "taplo", -- toml
     }
 
     for _, server in ipairs(servers) do

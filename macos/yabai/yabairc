@@ -39,7 +39,7 @@ yabai -m rule --add title="(Project Structure)" manage=off
 
 # Web browsers
 yabai -m rule --add app="^(Safari|Arc)$" space=1
-yabai -m rule --add app="^WezTerm$" space=2
+yabai -m rule --add app="^(kitty)$" space=2
 yabai -m rule --add app="^(Notes)$" space=3
 yabai -m rule --add app="^(Mail|Microsoft Teams|Messages)$" space=4
 yabai -m rule --add app="^(Reminders|Calendar)$" space=5

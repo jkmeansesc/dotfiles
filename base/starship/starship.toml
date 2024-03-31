@@ -1,0 +1,207 @@
+# ~/.config/starship.toml
+
+add_newline = false
+command_timeout = 1000
+
+format = """
+$os\
+$directory\
+$git_branch\
+$git_status\
+$git_metrics\
+$git_commit\
+$git_state\
+$cmd_duration\
+$line_break$character\
+"""
+
+right_format = """
+$all\
+$time\
+"""
+continuation_prompt = '▶▶ '
+
+palette = 'catppuccin_mocha'
+
+[palettes.catppuccin_mocha]
+rosewater = '#F5E0DC'
+flamingo = '#F2CDCD'
+pink = '#F5C2E7'
+mauve = '#CBA6F7'
+red = '#F38BA8'
+maroon = '#EBA0AC'
+peach = '#FAB387'
+yellow = '#F9E2AF'
+green = '#A6E3A1'
+teal = '#94E2D5'
+sky = '#89DCEB'
+sapphire = '#74C7EC'
+blue = '#89B4FA'
+lavender = '#B4BEFE'
+text = '#CDD6F4'
+subtext1 = '#BAC2DE'
+subtext0 = '#A6ADC8'
+overlay2 = '#9399B2'
+overlay1 = '#7F849C'
+overlay0 = '#6C7086'
+surface2 = '#585B70'
+surface1 = '#45475A'
+surface0 = '#313244'
+base = '#1E1E2E'
+mantle = '#181825'
+crust = '#11111B'
+
+[os]
+disabled = false
+format = "[](lavender)[$symbol]($style)[ ](lavender)"
+style = 'fg:base bg:lavender'
+
+[os.symbols]
+Windows = "󰍲 "
+Ubuntu = "󰕈 "
+SUSE = " "
+Raspbian = "󰐿 "
+Mint = "󰣭 "
+Macos = " "
+Manjaro = " "
+Linux = "󰌽 "
+Gentoo = "󰣨 "
+Fedora = "󰣛 "
+Alpine = " "
+Amazon = " "
+Android = " "
+Arch = "󰣇 "
+Artix = "󰣇 "
+CentOS = " "
+Debian = "󰣚 "
+Redhat = "󱄛 "
+RedHatEnterprise = "󱄛 "
+
+[directory]
+fish_style_pwd_dir_length=2
+home_symbol = ' '
+style = 'text'
+read_only = '  '
+format = '[$path]($style)[$read_only]($read_only_style) '
+
+[directory.substitutions]
+"github" = " "
+"git" = " "
+".config" = " "
+"Documents" = " "
+"Downloads" = " "
+"Music" = " "
+"Pictures" = " "
+"Desktop" = " "
+
+[git_branch]
+symbol = " "
+format = '[](surface0)[$symbol$branch ]($style)'
+style = 'fg:lavender bg:surface0 bold'
+truncation_symbol = '…/'
+
+# Shows current git status
+[git_status]
+format = '$all_status$ahead_behind[](fg:surface0)'
+style = 'fg:text bg:surface0'
+conflicted = '[ 🏳 ](fg:base bg:red)'
+ahead = '[ ⇡${count}](fg:blue bg:surface0)'
+behind = '[ ⇣${count}](fg:peach bg:surface0)'
+diverged = '[ ⇡${ahead_count}](fg:blue bg:surface0)[⇣${behind_count}](fg:peach bg:surface0)'
+up_to_date = ''
+untracked = '[  ](fg:base bg:sapphire)'
+stashed = '[  ](fg:base bg:mauve)'
+modified = '[  ](fg:base bg:yellow)'
+staged = '[  ](fg:base bg:green)'
+renamed = '[  ](fg:base bg:lavender)'
+deleted = '[  ](fg:base bg:pink)'
+
+[git_commit]
+tag_disabled = false
+
+[git_state]
+
+[git_metrics]
+disabled = true
+added_style = 'fg:green bg:surface2'
+deleted_style = 'fg:red bg:surface2'
+format = '[+$added]($added_style)[-$deleted]($deleted_style)[](surface2)'
+
+[cmd_duration]
+format = 'last command: [$duration](bold yellow)'
+
+[time]
+disabled = false
+time_format = "%r" # Hour:Minute Format
+style = 'bg:base fg:blue'
+format = '[](blue)[[ $time](fg:base bg:blue)]($style)[](blue)'
+
+[character]
+disabled = false
+success_symbol = "[](bold fg:green)"
+error_symbol = "[](bold fg:red)"
+vimcmd_symbol = '[](bold fg:green)'
+vimcmd_replace_one_symbol = '[](bold fg:mauve)'
+vimcmd_replace_symbol = '[](bold fg:mauve)'
+vimcmd_visual_symbol = '[](bold fg:yellow)'
+
+# ---
+
+[aws]
+symbol = "  "
+
+[buf]
+symbol = " "
+
+[c]
+symbol = " "
+
+[conda]
+symbol = " "
+
+[dart]
+symbol = " "
+
+[docker_context]
+symbol = " "
+
+[golang]
+symbol = " "
+
+[java]
+symbol = " "
+
+[lua]
+symbol = " "
+
+[memory_usage]
+symbol = "󰍛 "
+disabled = true
+style='bold dimmed white'
+threshold = 1
+format = "$symbol [${ram}(|${swap})]($style) "
+
+[nodejs]
+symbol = " "
+
+[package]
+symbol = "󰏗 "
+
+[pijul_channel]
+symbol = " "
+
+[python]
+symbol = " "
+pyenv_version_name = true
+
+[ruby]
+symbol = " "
+
+[rlang]
+symbol = "󰟔 "
+
+[rust]
+symbol = " "
+
+[scala]
+symbol = " "
