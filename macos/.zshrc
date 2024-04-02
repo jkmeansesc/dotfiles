@@ -1,40 +1,38 @@
 # setup auto-complete, auto-suggestion, syntax-highlight
 export HOMEBREW_PREFIX="/opt/homebrew/"
-
 source $HOMEBREW_PREFIX/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh
 source $HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source $HOMEBREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
-# stop .lesshst from generating
-export LESSHISTFILE=/dev/null
-
-# move .zcompdump to .config/
-ZDOTDIR=$HOME/.config
-
-# move .zsh_history to .config/
-HISTFILE=$HOME/.config.zsh_history
+# clean up $HOME directory
+export LESSHISTFILE=/dev/null # stop .lesshst from generating
+export ZDOTDIR=$HOME/.config/ # move .zcompdump to .config/
+export HISTFILE=$HOME/.config/.zsh_history # move .zsh_history to .config/
 
 # set EDITOR
 export EDITOR='nvim'
 
-# MAVEN ENV
-export MAVEN_HOME="/Users/oneoldmac/Local/apache-maven-3.9.4"
+# Set $XDG_CONFIG_HOME
+export XDG_CONFIG_HOME=$HOME/.config
 
-# PATH
-export PATH="/opt/homebrew/bin:/opt/homebrew/sbin:$PATH"
+# Homebrew
 export PATH="$PATH:/usr/local/bin"
+export PATH="/opt/homebrew/bin:/opt/homebrew/sbin:$PATH"
 
+# Ruby
 if [ -d "/opt/homebrew/opt/ruby/bin" ]; then
   export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
   export PATH="`gem environment gemdir`/bin:$PATH"
 fi
 
+# Nodejs
+export NPM_CONFIG_CACHE="$HOME/.local/share/npm/cache"
+export NPM_CONFIG_PREFIX="$HOME/.local/share/npm"
+export PATH="$NPM_CONFIG_PREFIX/bin:$PATH"
+
 # 解决ssh到远程服务器中文乱码
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
-
-# Set $XDG_CONFIG_HOME
-export XDG_CONFIG_HOME=$HOME/.config
 
 # Jekyll
 alias pb="bundle exec jekyll s"

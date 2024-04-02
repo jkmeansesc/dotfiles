@@ -45,9 +45,6 @@ install_formula starship
 install_formula zsh-autosuggestions
 install_formula zsh-syntax-highlighting
 install_formula zsh-autocomplete
-install_cask hammerspoon
-# change default config location
-defaults write org.hammerspoon.Hammerspoon MJConfigFile "~/.config/hammerspoon/init.lua"
 
 # Dev tools
 install_formula php
@@ -56,6 +53,7 @@ install_formula node
 install_cask microsoft-openjdk
 
 # Apps
+install_cask hammerspoon
 install_cask balenaetcher
 install_cask intellij-idea
 install_cask movist-pro
@@ -71,5 +69,8 @@ install_cask microsoft-word
 install_cask microsoft-excel
 install_cask microsoft-powerpoint
 install_cask microsoft-teams
+
+# change default config location
+defaults write org.hammerspoon.Hammerspoon MJConfigFile "~/.config/hammerspoon/init.lua"
 
 echo "All done. Yay!"
