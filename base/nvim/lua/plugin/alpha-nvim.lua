@@ -174,12 +174,12 @@ return {
     -- │ Button                                                   │
     -- ╰──────────────────────────────────────────────────────────╯
     dashboard.section.buttons.val = {
-      dashboard.button("f", " " .. " Find file", "<cmd> Telescope find_files <cr>"),
-      dashboard.button("n", " " .. " New file", "<cmd> ene <BAR> startinsert <cr>"),
-      dashboard.button("r", " " .. " Recent files", "<cmd> Telescope oldfiles <cr>"),
-      dashboard.button("g", " " .. " Find text", "<cmd> Telescope live_grep <cr>"),
-      dashboard.button("l", "󰒲 " .. " Lazy", "<cmd> Lazy <cr>"),
-      dashboard.button("q", " " .. " Quit", "<cmd> qa <cr>"),
+      dashboard.button("f", " " .. " Find file", "<CMD> Telescope find_files <CR>"),
+      dashboard.button("n", " " .. " New file", "<CMD> ene <BAR> startinsert <CR>"),
+      dashboard.button("r", " " .. " Recent files", "<CMD> Telescope oldfiles <CR>"),
+      dashboard.button("g", " " .. " Find text", "<CMD> Telescope live_grep <CR>"),
+      dashboard.button("s", "󰦛 " .. " Restore last session", "<CMD> SessionRestore <CR>"),
+      dashboard.button("q", " " .. " Quit", "<CMD> qa <CR>"),
     }
     for _, button in ipairs(dashboard.section.buttons.val) do
       button.opts.hl = "AlphaButtons"

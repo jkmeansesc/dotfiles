@@ -65,6 +65,8 @@ return {
     -- │ setup each server                                        │
     -- ╰──────────────────────────────────────────────────────────╯
     local servers = {
+      "html", -- html
+      "cssls", -- css
       "lua_ls", -- lua
       "yamlls", -- yaml
       "jsonls", -- json

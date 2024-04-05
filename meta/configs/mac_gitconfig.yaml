@@ -1,2 +1,2 @@
 - link:
-    $HOME/.gitconfig: macos/.gitconfig
+    $HOME/.config/git/config: macos/git/config

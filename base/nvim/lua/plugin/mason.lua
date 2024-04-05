@@ -27,6 +27,8 @@ return {
     require("mason-lspconfig").setup {
       automatic_installation = true,
       ensure_installed = {
+        "html", -- html
+        "cssls", -- css
         "lua_ls", -- lua
         "yamlls", -- yaml
         "jsonls", -- json

@@ -6,8 +6,8 @@ source $HOMEBREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # clean up $HOME directory
 export LESSHISTFILE=/dev/null # stop .lesshst from generating
-export ZDOTDIR=$HOME/.config/ # move .zcompdump to .config/
-export HISTFILE=$HOME/.config/.zsh_history # move .zsh_history to .config/
+ZDOTDIR=$HOME/.config/ # move .zcompdump to .config/
+HISTFILE=$HOME/.config/.zsh_history # move .zsh_history to .config/
 
 # set EDITOR
 export EDITOR='nvim'
@@ -37,7 +37,7 @@ export LANG=en_US.UTF-8
 # Jekyll
 alias pb="bundle exec jekyll s"
 alias pbd="bundle exec jekyll serve --drafts"
-alias cb="cd ~/git/minicoderwen.github.io/"
+alias cb="cd ~/git/jkmeansesc.github.io/"
 alias j="bundle exec jekyll"
 
 # Neovim
@@ -51,14 +51,15 @@ alias tn="tmux new -s"
 alias tl="tmux ls"
 alias td="tmux detach"
 ta() {
-    local session_name="WEN"
+    # Use the argument as the session name if provided, otherwise default to "WEN"
+    local session_name=${1:-"WEN"}
 
     # Check if the session already exists
-    if tmux has-session -t $session_name 2>/dev/null; then
-        tmux attach-session -t $session_name
+    if tmux has-session -t "$session_name" 2>/dev/null; then
+        tmux attach-session -t "$session_name"
     else
         # If the session doesn't exist, create and attach to it
-        tmux new-session -s $session_name
+        tmux new-session -s "$session_name"
     fi
 }
 

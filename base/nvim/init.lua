@@ -72,11 +72,12 @@ spec "plugin.fidget" -- notifications and LSP progress messages.
 spec "plugin.toggleterm"
 spec "plugin.treesj" -- splitting/joining blocks of code
 spec "plugin.pangu" -- 自动格式化、规范化中文排版
+spec "plugin.auto-session"
 
 -- ╭──────────────────────────────────────────────────────────╮
 -- │ LSP                                                      │
 -- ╰──────────────────────────────────────────────────────────╯
-spec "plugin.nvim-lspconfig" -- TODO:
+spec "plugin.nvim-lspconfig"
 spec "plugin.nvim-jdtls" -- java TODO:
 spec "plugin.cmake-tools" -- cpp TODO:
 spec "plugin.clangd_extensions" -- cpp TODO:
