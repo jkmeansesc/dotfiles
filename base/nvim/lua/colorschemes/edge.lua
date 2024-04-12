@@ -1,7 +1,7 @@
 -- vim.cmd [[colorscheme edge]]
 return {
-  "sainnhe/edge",
-  enabled = false,
-  lazy = false,
-  priority = 1000,
+    "sainnhe/edge",
+    enabled = false,
+    lazy = false,
+    priority = 1000,
 }
