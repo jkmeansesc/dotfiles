@@ -12,12 +12,12 @@ $git_metrics\
 $git_commit\
 $git_state\
 $cmd_duration\
+$fill\
+$all\
+$time\
 $line_break$character\
 """
 
-right_format = """
-$all\
-"""
 continuation_prompt = '▶▶ '
 
 palette = 'catppuccin_mocha'
@@ -97,7 +97,7 @@ format = '[$path]($style)[$read_only]($read_only_style) '
 
 [git_branch]
 symbol = ""
-format = '[](surface0)[$symbol$branch ]($style)'
+format = '[](surface0)[$symbol$branch]($style)'
 style = 'fg:lavender bg:surface0'
 truncation_symbol = '…/'
 
@@ -105,17 +105,17 @@ truncation_symbol = '…/'
 [git_status]
 format = '$all_status$ahead_behind[](fg:surface0)'
 style = 'fg:text bg:surface0'
-conflicted = '[ ](fg:maroon bg:surface0)'
+conflicted = '[  $count](fg:maroon bg:surface0)'
 ahead = '[⇡${count}](fg:green bg:surface0)'
 behind = '[⇣${count}](fg:peach bg:surface0)'
 diverged = '[⇡${ahead_count}](fg:green bg:surface0)[⇣${behind_count}](fg:peach bg:surface0)'
 up_to_date = ''
-untracked = '[ ](fg:sapphire bg:surface0)'
-stashed = '[ ](fg:mauve bg:surface0)'
-modified = '[ ](fg:yellow bg:surface0)'
-staged = '[ ](fg:green bg:surface0)'
-renamed = '[ ](fg:lavender bg:surface0)'
-deleted = '[ ](fg:red bg:surface0)'
+untracked = '[  $count](fg:sapphire bg:surface0)'
+stashed = '[  $count](fg:mauve bg:surface0)'
+modified = '[  $count](fg:yellow bg:surface0)'
+staged = '[  $count](fg:green bg:surface0)'
+renamed = '[  $count](fg:lavender bg:surface0)'
+deleted = '[  $count](fg:red bg:surface0)'
 
 [git_commit]
 tag_disabled = false
@@ -131,8 +131,11 @@ format = '[+$added]($added_style)[-$deleted]($deleted_style)[](surface2)'
 [cmd_duration]
 format = 'last command: [$duration](bold yellow)'
 
+[fill]
+style = 'fg:surface0'
+
 [time]
-disabled = true
+disabled = false
 time_format = "%r" # Hour:Minute Format
 style = 'bg:base fg:blue'
 format = '[](blue)[[ $time](fg:base bg:blue)]($style)[](blue)'

@@ -12,20 +12,20 @@ HISTFILE=$HOME/.config/.zsh_history # move .zsh_history to .config/
 # set EDITOR
 export EDITOR='nvim'
 
-# Set $XDG_CONFIG_HOME
+# set $XDG_CONFIG_HOME
 export XDG_CONFIG_HOME=$HOME/.config
 
-# Homebrew
+# homebrew
 export PATH="$PATH:/usr/local/bin"
 export PATH="/opt/homebrew/bin:/opt/homebrew/sbin:$PATH"
 
-# Ruby
+# ruby
 if [ -d "/opt/homebrew/opt/ruby/bin" ]; then
   export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
   export PATH="`gem environment gemdir`/bin:$PATH"
 fi
 
-# Nodejs
+# nodejs
 export NPM_CONFIG_CACHE="$HOME/.local/share/npm/cache"
 export NPM_CONFIG_PREFIX="$HOME/.local/share/npm"
 export PATH="$NPM_CONFIG_PREFIX/bin:$PATH"
@@ -34,19 +34,19 @@ export PATH="$NPM_CONFIG_PREFIX/bin:$PATH"
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
-# Jekyll
+# jekyll
 alias pb="bundle exec jekyll s"
 alias pbd="bundle exec jekyll serve --drafts"
 alias cb="cd ~/git/jkmeansesc.github.io/"
 alias j="bundle exec jekyll"
 
-# Neovim
+# neovim
 alias cn="cd ~/.config/nvim"
 alias v="nvim"
 alias vi="nvim"
 alias vim="nvim"
 
-## Tmux
+## tmux
 alias tn="tmux new -s"
 alias tl="tmux ls"
 alias td="tmux detach"
@@ -74,6 +74,9 @@ alias cdd="cd $HOME/git/dotfiles"
 
 ## ChatGPT
 source ~/.config/secrets.sh
+
+## others
+alias c="clear"
 
 # initialize starship
 eval "$(starship init zsh)"
