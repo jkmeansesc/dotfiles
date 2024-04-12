@@ -63,7 +63,7 @@ Ubuntu = "󰕈"
 SUSE = ""
 Raspbian = "󰐿"
 Mint = "󰣭"
-Macos = "󰀵"
+Macos = ""
 Manjaro = ""
 Linux = "󰌽"
 Gentoo = "󰣨"
@@ -82,7 +82,7 @@ RedHatEnterprise = "󱄛"
 fish_style_pwd_dir_length=2
 home_symbol = ' ~'
 style = 'yellow'
-read_only = '  '
+read_only = ' '
 format = '[$path]($style)[$read_only]($read_only_style) '
 
 [directory.substitutions]
