@@ -72,11 +72,21 @@ alias ld='eza -lhD --icons=auto' # long list dirs
 ## dotfiles
 alias cdd="cd $HOME/git/dotfiles"
 
-## ChatGPT
-source ~/.config/secrets.sh
-
 ## others
 alias c="clear"
+
+## yazi
+function yy() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
+	yazi "$@" --cwd-file="$tmp"
+	if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+		cd -- "$cwd"
+	fi
+	rm -f -- "$tmp"
+}
+
+## ChatGPT
+source ~/.config/secrets.sh
 
 # initialize starship
 eval "$(starship init zsh)"

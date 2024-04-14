@@ -1,74 +1,66 @@
 #!/bin/bash
 
-# Function to install formula if not already installed
-install_formula() {
-	local formula="$1"
-	if brew list --formula | grep -q "^$formula$"; then
-		echo "$formula is already installed. Skipping installation."
-	else
-		brew install --formula "$formula"
-	fi
-}
+if ! command -v brew >/dev/null 2>&1; then
+	echo "Homebrew is not installed. Installing now..."
+	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+fi
 
-# Function to install cask if not already installed
-install_cask() {
-	local cask="$1"
-	if brew list --cask | grep -q "^$cask$"; then
-		echo "$cask is already installed. Skipping installation."
-	else
-		brew install --cask "$cask"
-	fi
-}
-
-# Tap repositories
 brew tap homebrew/cask-fonts  # nerd-fonts
 brew tap koekeishiya/formulae # yabai
 
-# Essentials
-install_formula git
-install_formula neovim --HEAD
-install_formula tmux
-install_cask kitty
+formulas=(
+	git
+	neovim --HEAD
+	tmux
+	eza
+	neofetch
+	ripgrep
+	tree
+	yabai
+	starship
+	zsh-autosuggestions
+	zsh-syntax-highlighting
+	zsh-autocomplete
+	yazi --HEAD
+	php
+	ruby
+	node
+)
 
-# Fonts
-install_cask font-jetbrains-mono-nerd-font
-install_cask font-sarasa-gothic
+casks=(
+	kitty
+	hammerspoon
+	balenaetcher
+	intellij-idea
+	movist-pro
+	piclist
+	squirrel
+	the-unarchiver
+	zoom
+	cleanmymac-zh
+	alfred
+	torguard
+	scroll-reverser
+	microsoft-word
+	microsoft-excel
+	microsoft-powerpoint
+	microsoft-teams
+	microsoft-openjdk
+	font-jetbrains-mono-nerd-font
+	font-sarasa-gothic
+)
 
-# Useful tools
-install_formula eza
-install_formula neofetch
-install_formula ripgrep
-install_formula tree
-install_formula yabai
-install_formula starship
-install_formula zsh-autosuggestions
-install_formula zsh-syntax-highlighting
-install_formula zsh-autocomplete
-install_formula ranger
+# Install formulas
+if [ ${#formulas[@]} -gt 0 ]; then
+	echo "Installing formulas..."
+	brew install "${formulas[@]}"
+fi
 
-# Dev tools
-install_formula php
-install_formula ruby
-install_formula node
-install_cask microsoft-openjdk
-
-# Apps
-install_cask hammerspoon
-install_cask balenaetcher
-install_cask intellij-idea
-install_cask movist-pro
-install_cask piclist
-install_cask squirrel
-install_cask the-unarchiver
-install_cask zoom
-install_cask cleanmymac-zh
-install_cask alfred
-install_cask torguard
-install_cask scroll-reverser
-install_cask microsoft-word
-install_cask microsoft-excel
-install_cask microsoft-powerpoint
-install_cask microsoft-teams
+# Install casks
+if [ ${#casks[@]} -gt 0 ]; then
+	echo "Installing casks..."
+	brew install --cask "${casks[@]}"
+fi
 
 # change default config location
 defaults write org.hammerspoon.Hammerspoon MJConfigFile "~/.config/hammerspoon/init.lua"
