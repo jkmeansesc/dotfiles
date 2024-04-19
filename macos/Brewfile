@@ -1,0 +1,71 @@
+tap "buo/cask-upgrade"
+tap "homebrew/bundle"
+tap "homebrew/cask-fonts"
+tap "koekeishiya/formulae"
+# Modern, maintained replacement for ls
+brew "eza"
+# Distributed revision control system
+brew "git"
+# Mac App Store command-line interface
+brew "mas"
+# Fast, highly customisable system info script
+brew "neofetch"
+# Ambitious Vim-fork focused on extensibility and agility
+brew "neovim", args: ["HEAD"]
+# Platform built on V8 to build network applications
+brew "node"
+# General-purpose scripting language
+brew "php"
+# Search tool like grep and The Silver Searcher
+brew "ripgrep"
+# Powerful, clean, object-oriented scripting language
+brew "ruby"
+# Cross-shell prompt for astronauts
+brew "starship"
+# Terminal multiplexer
+brew "tmux"
+# Display directories as trees (with optional color/HTML output)
+brew "tree"
+# Blazing fast terminal file manager written in Rust, based on async I/O
+brew "yazi", args: ["HEAD"]
+# Real-time type-ahead completion for Zsh
+brew "zsh-autocomplete"
+# Fish-like fast/unobtrusive autosuggestions for zsh
+brew "zsh-autosuggestions"
+# Fish shell like syntax highlighting for zsh
+brew "zsh-syntax-highlighting"
+# A tiling window manager for macOS based on binary space partitioning.
+brew "koekeishiya/formulae/yabai", args: ["HEAD"]
+# Application launcher and productivity software
+cask "alfred"
+# Chromium based browser
+cask "arc"
+# Tool to flash OS images to SD cards & USB drives
+cask "balenaetcher"
+# Tool to remove unnecessary files and folders from disk Chinese edition
+cask "cleanmymac-zh"
+# Developer targeted fonts with a high number of glyphs
+cask "font-jetbrains-mono-nerd-font"
+# CJK programming font based on Iosevka and Source Han Sans
+cask "font-sarasa-gothic"
+# Desktop automation application
+cask "hammerspoon"
+# Java IDE by JetBrains
+cask "intellij-idea"
+# GPU-based terminal emulator
+cask "kitty"
+# OpenJDK distribution from Microsoft
+cask "microsoft-openjdk"
+# Meet, chat, call, and collaborate in just one place
+cask "microsoft-teams"
+# Media player
+cask "movist-pro"
+# Cloud storage manager tool
+cask "piclist"
+# Tool to reverse the direction of scrolling
+cask "scroll-reverser"
+# Unpacks archive files
+cask "the-unarchiver"
+# Video communication and virtual meeting platform
+cask "zoom"
+mas "iShot", id: 1485844094

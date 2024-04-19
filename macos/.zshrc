@@ -74,6 +74,7 @@ alias cdd="cd $HOME/git/dotfiles"
 
 ## others
 alias c="clear"
+alias bd="brew bundle dump --force --file=~/git/dotfiles/macos/Brewfile --describe"
 
 ## yazi
 function yy() {
@@ -84,9 +85,6 @@ function yy() {
 	fi
 	rm -f -- "$tmp"
 }
-
-## ChatGPT
-source ~/.config/secrets.sh
 
 # initialize starship
 eval "$(starship init zsh)"
