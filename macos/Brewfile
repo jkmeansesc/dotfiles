@@ -54,10 +54,18 @@ cask "hammerspoon"
 cask "intellij-idea"
 # GPU-based terminal emulator
 cask "kitty"
+# Provides updates to various Microsoft products
+cask "microsoft-auto-update"
+# Spreadsheet software
+cask "microsoft-excel"
 # OpenJDK distribution from Microsoft
 cask "microsoft-openjdk"
+# Presentation software
+cask "microsoft-powerpoint"
 # Meet, chat, call, and collaborate in just one place
 cask "microsoft-teams"
+# Word processor
+cask "microsoft-word"
 # Media player
 cask "movist-pro"
 # Cloud storage manager tool
@@ -68,4 +76,9 @@ cask "scroll-reverser"
 cask "the-unarchiver"
 # Video communication and virtual meeting platform
 cask "zoom"
+mas "GarageBand", id: 682658836
+mas "iMovie", id: 408981434
 mas "iShot", id: 1485844094
+mas "Keynote", id: 409183694
+mas "Numbers", id: 409203825
+mas "Pages", id: 409201541
