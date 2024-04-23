@@ -99,7 +99,7 @@ return {
             if server == "vale_ls" then
                 function CheckAndLinkAcceptTxt()
                     local vocab_path = vim.fn.getenv "HOME"
-                        .. "/.config/vale/styles/config/vocabularies/vocab/accept.txt"
+                        .. "/.config/vale/styles/config/vocabularies/default/accept.txt"
                     local nvim_spell_file = vim.fn.stdpath "config" .. "/spell/en.utf-8.add"
                     local lstat = vim.loop.fs_lstat(vocab_path)
                     if lstat then

@@ -72,7 +72,7 @@ Mutator
 Fortran
 Simula
 Smalltalk
-Getters
+getters
 destructors
 getChildren
 getParent
@@ -108,3 +108,12 @@ config
 ChatGPT
 Synchonization
 Lifecycle
+Syncronization
+boolean
+cjk
+Deserialization
+serializable
+APIs
+deserializing
+deserialized
+deserialize

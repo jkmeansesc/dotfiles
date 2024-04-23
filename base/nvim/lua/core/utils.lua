@@ -126,7 +126,7 @@ function M.get_listed_buffers()
     return buffers
 end
 
-function M.on_attach(client, bufnr)
+function M.on_attach(client)
     local map = require("core.utils").map
 
     -- lsp globals
@@ -200,7 +200,7 @@ function M.on_attach(client, bufnr)
     -- enable inlay hints
     if client.supports_method "textDocument/inlayHint" then
         vim.g.inlay_hints_visible = true
-        vim.lsp.inlay_hint.enable(bufnr, true)
+        vim.lsp.inlay_hint.enable(true)
     else
         M.notify(client.name .. " does not support inlay hints", "WARN")
     end

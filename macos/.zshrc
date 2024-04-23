@@ -77,6 +77,7 @@ alias cdd="cd $HOME/git/dotfiles"
 alias c="clear"
 alias bu="sudo softwareupdate -ia --verbose; brew bundle -v --file=~/git/dotfiles/macos/Brewfile; brew cu; brew bundle dump --force --file=~/git/dotfiles/macos/Brewfile --describe; brew autoremove; brew cleanup; brew doctor"
 alias bi="brew bundle --verbose --force cleanup --file=~/git/dotfiles/macos/Brewfile"
+alias bd="brew bundle dump --force --file=~/git/dotfiles/macos/Brewfile --describe" 
 
 ## yazi
 function yy() {
