@@ -177,7 +177,7 @@ return {
                     end
 
                     vim.g.inlay_hints_visible = true
-                    vim.lsp.inlay_hint.enable(0, true)
+                    vim.lsp.inlay_hint.enable(true)
 
                     local map = require("core.utils").map
                     map(
