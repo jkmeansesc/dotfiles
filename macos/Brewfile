@@ -68,10 +68,14 @@ cask "microsoft-teams"
 cask "microsoft-word"
 # Media player
 cask "movist-pro"
+# Knowledge base that works on top of a local folder of plain text Markdown files
+cask "obsidian"
 # Cloud storage manager tool
 cask "piclist"
 # Tool to reverse the direction of scrolling
 cask "scroll-reverser"
+# Mesh VPN based on Wireguard
+cask "tailscale"
 # Unpacks archive files
 cask "the-unarchiver"
 # Video communication and virtual meeting platform
