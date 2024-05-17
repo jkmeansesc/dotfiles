@@ -73,6 +73,7 @@ spec "plugin.toggleterm"
 spec "plugin.treesj" -- splitting/joining blocks of code
 spec "plugin.pangu" -- 自动格式化、规范化中文排版
 spec "plugin.auto-session"
+spec "plugin.remote-nvim" -- remote editing
 
 -- ╭──────────────────────────────────────────────────────────╮
 -- │ LSP                                                      │

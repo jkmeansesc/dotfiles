@@ -78,6 +78,9 @@ defaults write com.apple.BluetoothAudioAgent "Apple Bitpool Min (editable)" -int
 defaults write NSGlobalDomain KeyRepeat -int 1
 defaults write NSGlobalDomain InitialKeyRepeat -int 20
 
+# disable default character picker popup menu for letter characters
+defaults write -g ApplePressAndHoldEnabled -bool false
+
 ###############################################################################
 # Energy saving                                                               #
 ###############################################################################
