@@ -78,6 +78,8 @@ cask "scroll-reverser"
 cask "tailscale"
 # Unpacks archive files
 cask "the-unarchiver"
+# VPN client
+cask "torguard"
 # Video communication and virtual meeting platform
 cask "zoom"
 mas "GIPHY CAPTURE", id: 668208984
