@@ -1,6 +1,5 @@
 tap "buo/cask-upgrade"
 tap "homebrew/bundle"
-tap "homebrew/cask-fonts"
 tap "koekeishiya/formulae"
 # Modern, maintained replacement for ls
 brew "eza"
@@ -44,9 +43,7 @@ cask "arc"
 cask "balenaetcher"
 # Tool to remove unnecessary files and folders from disk Chinese edition
 cask "cleanmymac-zh"
-# Developer targeted fonts with a high number of glyphs
 cask "font-jetbrains-mono-nerd-font"
-# CJK programming font based on Iosevka and Source Han Sans
 cask "font-sarasa-gothic"
 # Desktop automation application
 cask "hammerspoon"

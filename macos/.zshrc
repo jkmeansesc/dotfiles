@@ -73,6 +73,9 @@ alias ld='eza -lhD --icons=auto' # long list dirs
 ## dotfiles
 alias cdd="cd $HOME/git/dotfiles"
 
+## obsidian
+alias co="cd $HOME/Library/Mobile\ Documents/iCloud~md~obsidian/Documents/Obsidian"
+
 ## others
 alias c="clear"
 alias bu="sudo softwareupdate -ia --verbose; brew bundle -v --file=~/git/dotfiles/macos/Brewfile; brew cu; brew bundle dump --force --file=~/git/dotfiles/macos/Brewfile --describe; brew autoremove; brew cleanup; brew doctor"
