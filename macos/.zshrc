@@ -13,8 +13,9 @@ HISTFILE=$HOME/.config/.zsh_history # move .zsh_history to .config/
 # set EDITOR
 export EDITOR='nvim'
 
-# set $XDG_CONFIG_HOME
+# set $XDG PATHS
 export XDG_CONFIG_HOME=$HOME/.config
+export XDG_DATA_HOME=$HOME/.local/share
 
 # homebrew
 export PATH="$PATH:/usr/local/bin"
@@ -65,9 +66,9 @@ ta() {
 }
 
 ## eza
-alias ll='eza -lh  --icons=auto' # long list
+alias ll='eza -lha --icons=auto --sort=name --group-directories-first' # long list
 alias ls='eza -a   --icons=auto' # short list
-alias l='eza -lha --icons=auto --sort=name --group-directories-first' # long list all
+alias l='eza'
 alias ld='eza -lhD --icons=auto' # long list dirs
 
 ## dotfiles
@@ -95,8 +96,8 @@ function yy() {
 # fzf
 source <(fzf --zsh)
 
-# initialize starship
-eval "$(starship init zsh)"
+# initialize oh-my-posh
+eval "$(oh-my-posh init zsh --config $HOME/.config/ohmyposh/ohmyposh.toml)"
 
 # zoxide
 eval "$(zoxide init --cmd cd zsh)"

@@ -15,14 +15,14 @@ brew "neofetch"
 brew "neovim", args: ["HEAD"]
 # Platform built on V8 to build network applications
 brew "node"
+# Prompt theme engine for any shell
+brew "oh-my-posh", args: ["HEAD"]
 # General-purpose scripting language
 brew "php"
 # Search tool like grep and The Silver Searcher
 brew "ripgrep"
 # Powerful, clean, object-oriented scripting language
 brew "ruby"
-# Cross-shell prompt for astronauts
-brew "starship"
 # Terminal multiplexer
 brew "tmux"
 # Display directories as trees (with optional color/HTML output)
