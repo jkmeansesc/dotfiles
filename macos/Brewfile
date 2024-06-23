@@ -3,6 +3,8 @@ tap "homebrew/bundle"
 tap "koekeishiya/formulae"
 # Modern, maintained replacement for ls
 brew "eza"
+# Command-line fuzzy finder written in Go
+brew "fzf"
 # Distributed revision control system
 brew "git"
 # Mac App Store command-line interface
@@ -27,6 +29,8 @@ brew "tmux"
 brew "tree"
 # Blazing fast terminal file manager written in Rust, based on async I/O
 brew "yazi", args: ["HEAD"]
+# Shell extension to navigate your filesystem faster
+brew "zoxide"
 # Real-time type-ahead completion for Zsh
 brew "zsh-autocomplete"
 # Fish-like fast/unobtrusive autosuggestions for zsh

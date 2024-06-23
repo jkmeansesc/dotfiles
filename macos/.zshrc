@@ -78,7 +78,7 @@ alias co="cd $HOME/Library/Mobile\ Documents/iCloud~md~obsidian/Documents/Obsidi
 
 ## others
 alias c="clear"
-alias bu="sudo softwareupdate -ia --verbose; brew bundle -v --file=~/git/dotfiles/macos/Brewfile; brew cu; brew bundle dump --force --file=~/git/dotfiles/macos/Brewfile --describe; brew autoremove; brew cleanup; brew doctor"
+alias bu="sudo softwareupdate -ia --verbose; brew bundle -v --file=~/git/dotfiles/macos/Brewfile; brew cu; brew upgrade; brew bundle dump --force --file=~/git/dotfiles/macos/Brewfile --describe; brew autoremove; brew cleanup; brew doctor"
 alias bi="brew bundle --verbose --force cleanup --file=~/git/dotfiles/macos/Brewfile"
 alias bd="brew bundle dump --force --file=~/git/dotfiles/macos/Brewfile --describe" 
 
@@ -92,5 +92,11 @@ function yy() {
 	rm -f -- "$tmp"
 }
 
+# fzf
+source <(fzf --zsh)
+
 # initialize starship
 eval "$(starship init zsh)"
+
+# zoxide
+eval "$(zoxide init --cmd cd zsh)"
