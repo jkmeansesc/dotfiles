@@ -31,18 +31,19 @@ yabai -m config mouse_action2 resize
 yabai -m mouse_drop_action swap
 
 # Disable specific apps from being managed
-yabai -m rule --add app="^(System Settings|Calculator|CleanMyMac X|Dictionary|Activity Monitor|Scroll Reverser|App Store|balenaEtcher|Microsoft Remote Desktop|Infuse|Movist Pro|Downie 4|EuDic|迅雷|Alfred|PicList|Stickies|Raycast)$" manage=off
+yabai -m rule --add app="^(System Settings|Calculator|CleanMyMac X|Dictionary|Activity Monitor|Scroll Reverser|App Store|balenaEtcher|Microsoft Remote Desktop|Infuse|Movist Pro|Downie 4|EuDic|迅雷|Alfred|PicList|Stickies|Raycast|OBS Studio)$" manage=off
 
 yabai -m rule --add title="(Preferences|Settings|Software Update|Hammerspoon Console|Chris|General)" manage=off
+
 # Intellij Idea
 yabai -m rule --add title="(Project Structure)" manage=off
 
 # Web browsers
-yabai -m rule --add app="^(Safari|Arc)$" space=1
-yabai -m rule --add app="^(kitty)$" space=2
-yabai -m rule --add app="^(Notes)$" space=3
-yabai -m rule --add app="^(Mail|Microsoft Teams|Messages)$" space=4
-yabai -m rule --add app="^(Reminders|Calendar)$" space=5
+# yabai -m rule --add app="^(Safari|Arc)$" space=1
+# yabai -m rule --add app="^(kitty)$" space=2
+# yabai -m rule --add app="^(Notes)$" space=3
+# yabai -m rule --add app="^(Mail|Microsoft Teams|Messages)$" space=4
+# yabai -m rule --add app="^(Reminders|Calendar)$" space=5
 
 # Set space rules
 yabai -m space 3 --layout stack
