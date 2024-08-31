@@ -1,12 +1,17 @@
 tap "buo/cask-upgrade"
+tap "felixkratz/formulae"
 tap "homebrew/bundle"
+tap "homebrew/services"
 tap "koekeishiya/formulae"
+tap "nikitabobko/tap"
 # Modern, maintained replacement for ls
 brew "eza"
 # Command-line fuzzy finder written in Go
 brew "fzf"
 # Distributed revision control system
 brew "git"
+# GNU Pretty Good Privacy (PGP) package
+brew "gnupg"
 # Mac App Store command-line interface
 brew "mas"
 # Fast, highly customisable system info script
@@ -23,6 +28,8 @@ brew "php"
 brew "ripgrep"
 # Powerful, clean, object-oriented scripting language
 brew "ruby"
+# Official tldr client written in Rust
+brew "tlrc"
 # Terminal multiplexer
 brew "tmux"
 # Display directories as trees (with optional color/HTML output)
@@ -37,8 +44,10 @@ brew "zsh-autocomplete"
 brew "zsh-autosuggestions"
 # Fish shell like syntax highlighting for zsh
 brew "zsh-syntax-highlighting"
-# A tiling window manager for macOS based on binary space partitioning.
-brew "koekeishiya/formulae/yabai", args: ["HEAD"]
+# A window border system for macOS
+brew "felixkratz/formulae/borders"
+# AeroSpace is an i3-like tiling window manager for macOS
+cask "aerospace"
 # Application launcher and productivity software
 cask "alfred"
 # Chromium based browser
@@ -48,11 +57,10 @@ cask "balenaetcher"
 # Tool to remove unnecessary files and folders from disk Chinese edition
 cask "cleanmymac-zh"
 cask "font-jetbrains-mono-nerd-font"
-cask "font-sarasa-gothic"
-# Desktop automation application
-cask "hammerspoon"
 # Java IDE by JetBrains
 cask "intellij-idea"
+# Open-source keystroke visualiser
+cask "keycastr"
 # GPU-based terminal emulator
 cask "kitty"
 # Provides updates to various Microsoft products
@@ -69,14 +77,18 @@ cask "microsoft-teams"
 cask "microsoft-word"
 # Media player
 cask "movist-pro"
+# Open-source software for live streaming and screen recording
+cask "obs"
 # Knowledge base that works on top of a local folder of plain text Markdown files
 cask "obsidian"
 # Cloud storage manager tool
 cask "piclist"
 # Tool to reverse the direction of scrolling
 cask "scroll-reverser"
-# Mesh VPN based on Wireguard
+# Mesh VPN based on WireGuard
 cask "tailscale"
+# Cloud video conferencing
+cask "tencent-meeting"
 # Unpacks archive files
 cask "the-unarchiver"
 # VPN client
