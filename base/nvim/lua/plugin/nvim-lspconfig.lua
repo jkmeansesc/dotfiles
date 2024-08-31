@@ -71,7 +71,6 @@ return {
             "lua_ls", -- lua
             "yamlls", -- yaml
             "jsonls", -- json
-            "clangd", -- c/c++
             "marksman", -- markdown
             "taplo", -- toml
         }
@@ -93,30 +92,6 @@ return {
                     offsetEncoding = { "utf-16" },
                 }
                 opts.capabilities = vim.tbl_deep_extend("force", opts.capabilities, capabilities_clangd)
-            end
-
-            if server == "vale_ls" then
-                function CheckAndLinkAcceptTxt()
-                    local vocab_path = vim.fn.getenv "HOME"
-                        .. "/.config/vale/styles/config/vocabularies/default/accept.txt"
-                    local nvim_spell_file = vim.fn.stdpath "config" .. "/spell/en.utf-8.add"
-                    local lstat = vim.loop.fs_lstat(vocab_path)
-                    if lstat then
-                        if lstat.type ~= "link" then
-                            -- If it exists but it's not a symlink, remove and create the symlink
-                            os.remove(vocab_path)
-                            os.execute("ln -s " .. nvim_spell_file .. " " .. vocab_path)
-                            require("core.utils").notify("", "WARN")
-                        end
-                    -- If it's a symlink, do nothing
-                    else
-                        -- If the file doesn't exist, create the symlink
-                        os.execute("ln -s " .. nvim_spell_file .. " " .. vocab_path)
-                    end
-                end
-                vim.api.nvim_create_autocmd("LspAttach", {
-                    callback = function() CheckAndLinkAcceptTxt() end,
-                })
             end
 
             require("lspconfig")[server].setup(opts)

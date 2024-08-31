@@ -44,9 +44,6 @@ return {
                     },
                 },
                 formatting.stylua, -- lua formatter
-                formatting.google_java_format.with {
-                    extra_args = { "--aosp" }, -- 4 space indentation
-                }, -- java formatter
                 formatting.shfmt, -- shell formatter
                 diagnostics.markdownlint.with {
                     extra_args = { "--disable MD013" }, -- diable rule: line length

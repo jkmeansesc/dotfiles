@@ -32,8 +32,6 @@ return {
                 "lua_ls", -- lua
                 "yamlls", -- yaml
                 "jsonls", -- json
-                "jdtls", -- java
-                "clangd", -- c/c++
                 "marksman", -- markdown
                 "taplo", -- toml
             },
@@ -45,17 +43,7 @@ return {
                 "stylua", -- lua formatter
                 "markdownlint", -- markdownlinter
                 "prettier", -- prettier formatter
-                "google_java_format", -- java formatter
                 "shfmt", -- shell formatter
-            },
-        }
-
-        require("mason-nvim-dap").setup {
-            automatic_installation = true,
-            ensure_installed = {
-                "javadbg", -- java debugger
-                "javatest", -- java test runner
-                "codelldb", -- c/c++ debugger
             },
         }
     end,
