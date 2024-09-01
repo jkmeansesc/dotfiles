@@ -130,8 +130,8 @@ function M.on_attach(client)
     local map = require("core.utils").map
 
     -- lsp globals
-    map("n", "[d", function() vim.diagnostic.goto_prev() end, { desc = "Prev diagnostic" })
-    map("n", "]d", function() vim.diagnostic.goto_next() end, { desc = "Next diagnostic" })
+    map("n", "]d", function() vim.diagnostic.jump { count = 1, float = true } end, { desc = "Next diagnostic" })
+    map("n", "[d", function() vim.diagnostic.jump { count = -1, float = true } end, { desc = "Prev diagnostic" })
     map("n", "gh", function() vim.diagnostic.open_float() end, { desc = "Floating diagnostic" })
 
     if client.supports_method "textDocument/codeAction" then
@@ -201,12 +201,7 @@ function M.on_attach(client)
     if client.supports_method "textDocument/inlayHint" then
         vim.g.inlay_hints_visible = true
         vim.lsp.inlay_hint.enable(true)
-    else
-        M.notify(client.name .. " does not support inlay hints", "WARN")
-    end
-
-    if client.name == "clangd" then
-        map("n", "<Leader>lR", "<CMD>ClangdSwitchSourceHeader<CR>", { desc = "Switch Source/Header (C/C++)" })
+        M.notify(client.name .. " supports inlay hints", "INFO")
     end
 end
 

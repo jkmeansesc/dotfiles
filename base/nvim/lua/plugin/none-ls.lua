@@ -4,8 +4,26 @@ return {
     keys = {
         {
             "<Leader>lf",
-            function(bufnr)
-                vim.lsp.buf.format { bufnr = bufnr, filter = function(client) return client.name == "null-ls" end }
+            function()
+                local bufnr = vim.api.nvim_get_current_buf()
+                local null_ls = require "null-ls"
+
+                -- Check if null-ls is available and has formatting capability for this filetype
+                local null_ls_sources = null_ls.get_sources()
+                local has_null_ls_formatter = false
+                for _, source in ipairs(null_ls_sources) do
+                    if source.filetypes[vim.bo.filetype] and source.methods[null_ls.methods.FORMATTING] then
+                        has_null_ls_formatter = true
+                        break
+                    end
+                end
+
+                if has_null_ls_formatter then
+                    vim.lsp.buf.format { bufnr = bufnr, filter = function(client) return client.name == "null-ls" end }
+                else
+                    -- Fall back to any available formatter
+                    vim.lsp.buf.format { bufnr = bufnr }
+                end
             end,
             mode = { "n", "v" },
             desc = "Format",

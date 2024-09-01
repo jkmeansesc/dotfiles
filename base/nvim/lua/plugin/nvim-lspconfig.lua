@@ -87,13 +87,6 @@ return {
                 require("neodev").setup { library = { plugins = { "nvim-dap-ui" }, types = true } }
             end
 
-            if server == "clangd" then
-                local capabilities_clangd = {
-                    offsetEncoding = { "utf-16" },
-                }
-                opts.capabilities = vim.tbl_deep_extend("force", opts.capabilities, capabilities_clangd)
-            end
-
             require("lspconfig")[server].setup(opts)
         end
     end,

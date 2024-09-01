@@ -79,9 +79,6 @@ spec "plugin.remote-nvim" -- remote editing
 -- │ LSP                                                      │
 -- ╰──────────────────────────────────────────────────────────╯
 spec "plugin.nvim-lspconfig"
-spec "plugin.nvim-jdtls" -- java TODO:
-spec "plugin.cmake-tools" -- cpp TODO:
-spec "plugin.clangd_extensions" -- cpp TODO:
 
 -- ╭──────────────────────────────────────────────────────────╮
 -- │ DAP                                                      │
