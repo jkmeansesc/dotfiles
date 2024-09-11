@@ -1,22 +1,23 @@
 return {
     "folke/which-key.nvim",
     event = "VeryLazy",
-    dependencies = { "echasnovski/mini.icons", "nvim-tree/nvim-web-devicons" },
+    dependencies = "nvim-tree/nvim-web-devicons",
     config = function()
         require("which-key").setup {
-            icons = { group = "", separator = "" },
+            icons = {
+                mappings = false, --- disable keymap icons from rules
+                group = "", -- symbol prepended to a group
+                separator = "",
+            },
             disable = { ft = { "TelescopePrompt" } },
-        }
-
-        require("which-key").add {
-            { "<leader>b", group = " Buffer" },
-            { "<leader>d", group = " Debug" },
-            { "<leader>f", group = " Find" },
-            { "<leader>g", group = " Git" },
-            { "<leader>h", group = " Misc" },
-            { "<leader>j", group = " Java" },
-            { "<leader>l", group = " Lsp" },
-            { "<leader>m", group = " Manage" },
+            spec = {
+                { "<leader>b", group = "[B]uffer" },
+                { "<leader>c", group = "[C]ore" },
+                { "<leader>d", group = "[D]ebug" },
+                { "<leader>f", group = "[F]ind" },
+                { "<leader>g", group = "[G]it" },
+                { "<leader>l", group = "[L]sp" },
+            },
         }
     end,
 }

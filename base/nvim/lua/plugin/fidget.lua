@@ -2,7 +2,7 @@ return {
     "j-hui/fidget.nvim",
     event = { "VimEnter" },
     keys = {
-        { "<Leader>h?", "<CMD>Fidget history<CR>", desc = "Fidget history" },
+        { "<Leader>ch", "<CMD>Fidget history<CR>", desc = "Fidget history" },
     },
     config = function()
         require("fidget").setup {

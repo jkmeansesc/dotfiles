@@ -59,10 +59,10 @@ map("n", "<Leader>Q", "<CMD>wqa!<CR>", { desc = "Save and Quit (Force)" })
 map("n", "<Leader>bb", "<CMD>enew<CR>", { desc = "New buffer" })
 
 -- Package management
-map("n", "<Leader>ml", "<CMD>Lazy<CR>", { desc = "Lazy" })
-map("n", "<Leader>mm", "<CMD>Mason<CR>", { desc = "Mason" })
-map("n", "<Leader>mi", "<CMD>LspInfo<CR>", { desc = "LSP information" })
-map("n", "<Leader>mn", "<CMD>NullLsInfo<CR>", { desc = "Null-ls information" })
+map("n", "<Leader>cl", "<CMD>Lazy<CR>", { desc = "Lazy" })
+map("n", "<Leader>cm", "<CMD>Mason<CR>", { desc = "Mason" })
+map("n", "<Leader>ci", "<CMD>LspInfo<CR>", { desc = "LSP information" })
+map("n", "<Leader>cn", "<CMD>NullLsInfo<CR>", { desc = "Null-ls information" })
 
 -- Line operation
 map({ "x", "v" }, "<", "<gv", { desc = "Indent line" })

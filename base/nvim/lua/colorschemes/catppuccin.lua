@@ -6,7 +6,6 @@ return {
     priority = 1000,
     name = "catppuccin",
     config = function()
-        local colors = require("core.highlights").colors
         require("catppuccin").setup {
             flavour = "mocha",
             transparent_background = false,
@@ -28,17 +27,17 @@ return {
                 fidget = true,
             },
 
-            color_overrides = {
-                mocha = colors,
-            },
+            -- color_overrides = {
+            --     mocha = colors,
+            -- },
 
-            highlight_overrides = {
-                mocha = function()
-                    return {
-                        NormalFloat = { fg = colors.text, bg = colors.mantle },
-                    }
-                end,
-            },
+            -- highlight_overrides = {
+            --     mocha = function()
+            --         return {
+            --             NormalFloat = { fg = colors.text, bg = colors.mantle },
+            --         }
+            --     end,
+            -- },
         }
     end,
 }

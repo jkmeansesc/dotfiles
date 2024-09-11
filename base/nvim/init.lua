@@ -42,6 +42,7 @@ spec "plugin.lualine"
 spec "plugin.indent-blankline"
 spec "plugin.nvim-colorizer"
 spec "plugin.vim-illuminate"
+spec "plugin.render-markdown"
 
 -- ╭──────────────────────────────────────────────────────────╮
 -- │ ESSENTIALS                                               │

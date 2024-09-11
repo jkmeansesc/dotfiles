@@ -1,7 +1,7 @@
 return {
     "akinsho/toggleterm.nvim",
     keys = {
-        { "<Leader>ht", "<CMD>ToggleTerm direction=float<CR>", desc = "ToggleTerm float" },
+        { "<Leader>ct", "<CMD>ToggleTerm direction=float<CR>", desc = "ToggleTerm float" },
     },
     config = function()
         require("toggleterm").setup()
