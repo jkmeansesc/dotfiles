@@ -30,6 +30,8 @@ brew "php"
 brew "ripgrep"
 # Powerful, clean, object-oriented scripting language
 brew "ruby"
+# Safe, concurrent, practical language
+brew "rust"
 # Official tldr client written in Rust
 brew "tlrc"
 # Terminal multiplexer
@@ -58,6 +60,8 @@ cask "arc"
 cask "balenaetcher"
 # Tool to remove unnecessary files and folders from disk Chinese edition
 cask "cleanmymac-zh"
+# Voice and text chat software
+cask "discord"
 cask "font-jetbrains-mono-nerd-font"
 # Java IDE by JetBrains
 cask "intellij-idea"
@@ -85,10 +89,14 @@ cask "obs"
 cask "obsidian"
 # Cloud storage manager tool
 cask "piclist"
+# Collaboration platform for API development
+cask "postman"
 # Tool to reverse the direction of scrolling
 cask "scroll-reverser"
 # Mesh VPN based on WireGuard
 cask "tailscale"
+# Messaging app with a focus on speed and security
+cask "telegram"
 # Cloud video conferencing
 cask "tencent-meeting"
 # Unpacks archive files

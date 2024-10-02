@@ -19,6 +19,9 @@ while true; do
 	kill -0 "$$" || exit
 done 2>/dev/null &
 
+# move windows by holding ctrl+cmd and dragging any part of the window (not necessarily the window title)
+defaults write -g NSWindowShouldDragOnGesture -bool true
+
 # Increase window resize speed for Cocoa applications
 defaults write NSGlobalDomain NSWindowResizeTime -float 0.001
 
