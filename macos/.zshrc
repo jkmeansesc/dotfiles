@@ -101,3 +101,6 @@ eval "$(oh-my-posh init zsh --config $HOME/.config/ohmyposh/ohmyposh.toml)"
 
 # zoxide
 eval "$(zoxide init --cmd cd zsh)"
+
+# docker
+export DOCKER_CONFIG="$HOME/.local/share/docker"
