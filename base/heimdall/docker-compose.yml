@@ -1,0 +1,32 @@
+services:
+  watchtower:
+    image: containrrr/watchtower
+    container_name: watchtower
+    restart: unless-stopped
+    environment:
+      - UID=1000
+      - GID=1000
+      - TZ=Asia/Shanghai
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    command: --cleanup true --interval 7200
+
+  tailscale:
+    image: ghcr.io/tailscale/tailscale:latest
+    hostname: tailscale
+    environment:
+      - TS_AUTHKEY=tskey-client-kcToctozZ911CNTRL-hN6wbDnoJAQ6oQ8fnDzWBQCrEeRCayyd
+      - TS_EXTRA_ARGS=--accept-routes=true
+      - TS_EXTRA_ARGS=--advertise-tags=tag:container
+      - TS_STATE_DIR=/var/lib/tailscale
+      - TS_USERSPACE=false
+      - TS_ROUTES=10.0.0.0/24
+      - TS_HOSTNAME=heimdall
+    volumes:
+      - ${PWD}/tailscale/state:/var/lib/tailscale
+      - /dev/net/tun:/dev/net/tun
+    cap_add:
+      - NET_ADMIN
+      - NET_RAW
+    network_mode: host
+    restart: unless-stopped
