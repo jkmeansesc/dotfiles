@@ -6,14 +6,8 @@ return {
     },
     config = function()
         require("auto-session").setup {
-            auto_restore_enabled = false,
-            auto_session_suppress_dirs = {
-                "~/",
-                "~/Documents",
-                "~/Downloads",
-                "~/Desktop",
-                "/",
-            },
+            auto_restore = false,
+            suppressed_dirs = { "~/", "~/Projects", "~/Downloads", "/" },
         }
     end,
 }

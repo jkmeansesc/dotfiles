@@ -23,7 +23,7 @@ newline = true
 [[blocks.segments]]
 type = "os"
 style = "plain"
-foreground = "p:yellow"
+foreground = "p:lavender"
 background = "transparent"
 
 [blocks.segments.properties]

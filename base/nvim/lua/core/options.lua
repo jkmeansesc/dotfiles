@@ -65,8 +65,12 @@ vim.opt.backspace:append { "nostop" } -- don't stop backspace at insert
 vim.g["loaded_node_provider"] = 0
 vim.g["loaded_perl_provider"] = 0
 vim.g["loaded_ruby_provider"] = 0
+vim.g["loaded_python3_provider"] = 0
 
 -- add binaries installed by mason.nvim to path
 ---@diagnostic disable-next-line: undefined-field
 local is_windows = vim.loop.os_uname().sysname == "Windows_NT"
 vim.env.PATH = vim.fn.stdpath "data" .. "/mason/bin" .. (is_windows and ";" or ":") .. vim.env.PATH
+
+-- for auto-session
+vim.opt.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"

@@ -1,9 +1,17 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 # setup auto-complete, auto-suggestion, syntax-highlight
 eval "$(/opt/homebrew/bin/brew shellenv)"
 export HOMEBREW_PREFIX="/opt/homebrew/"
 source $HOMEBREW_PREFIX/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh
 source $HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source $HOMEBREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source $HOMEBREW_PREFIX/share/powerlevel10k/powerlevel10k.zsh-theme
 
 # clean up $HOME directory
 export LESSHISTFILE=/dev/null # stop .lesshst from generating
@@ -21,26 +29,9 @@ export XDG_DATA_HOME=$HOME/.local/share
 export PATH="$PATH:/usr/local/bin"
 export PATH="/opt/homebrew/bin:/opt/homebrew/sbin:$PATH"
 
-# ruby
-if [ -d "/opt/homebrew/opt/ruby/bin" ]; then
-  export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
-  export PATH="`gem environment gemdir`/bin:$PATH"
-fi
-
-# nodejs
-export NPM_CONFIG_CACHE="$HOME/.local/share/npm/cache"
-export NPM_CONFIG_PREFIX="$HOME/.local/share/npm"
-export PATH="$NPM_CONFIG_PREFIX/bin:$PATH"
-
 # 解决ssh到远程服务器中文乱码
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
-
-# jekyll
-alias pb="bundle exec jekyll s"
-alias pbd="bundle exec jekyll serve --drafts"
-alias cb="cd ~/git/jkmeansesc.github.io/"
-alias j="bundle exec jekyll"
 
 # neovim
 alias cn="cd ~/.config/nvim"
@@ -66,10 +57,10 @@ ta() {
 }
 
 ## eza
-alias ll='eza -lha --icons=auto --sort=name --group-directories-first' # long list
-alias ls='eza -a   --icons=auto' # short list
+alias ll='eza -la --icons=auto --sort=name --group-directories-first' # long list
+alias ls='eza -a --icons=auto' # short list
 alias l='eza'
-alias ld='eza -lhD --icons=auto' # long list dirs
+alias ld='eza -lD --icons=auto' # long list dirs
 
 ## dotfiles
 alias cdd="cd $HOME/git/dotfiles"
@@ -99,5 +90,5 @@ source <(fzf --zsh)
 # zoxide
 eval "$(zoxide init --cmd cd zsh)"
 
-# initialize oh-my-posh
-eval "$(oh-my-posh init zsh --config $HOME/.config/ohmyposh/ohmyposh.toml)"
+# powerlevel10k
+[[ ! -f ~/.config/.p10k.zsh ]] || source ~/.config/.p10k.zsh
