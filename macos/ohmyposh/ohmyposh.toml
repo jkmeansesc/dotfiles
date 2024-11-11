@@ -1,66 +1,112 @@
-console_title_template = '{{ .Shell }} in {{ .Folder }}'
 version = 3
 final_space = true
 
 [secondary_prompt]
-  template = '❯❯'
-  foreground = '#A6E3A1'
-  background = 'transparent'
+template = '󱦰 '
+foreground = 'p:green'
+background = 'transparent'
 
 [transient_prompt]
-  template = '❯ '
-  background = 'transparent'
-  foreground_templates = ['{{if gt .Code 0}}#F38BA8{{end}}', '{{if eq .Code 0}}#A6E3A1{{end}}']
+template = '❯ '
+background = 'transparent'
+foreground_templates = [
+  '{{if gt .Code 0}}p:red{{end}}',
+  '{{if eq .Code 0}}p:green{{end}}',
+]
+
 
 [[blocks]]
-  type = 'prompt'
-  alignment = 'left'
-  newline = true
+type = 'prompt'
+alignment = 'left'
+newline = true
 
-  [[blocks.segments]]
-    template = '{{ .Path }}'
-    foreground = '#F9E2AF'
-    background = 'transparent'
-    type = 'path'
-    style = 'plain'
+[[blocks.segments]]
+type = "os"
+style = "plain"
+foreground = "p:yellow"
+background = "transparent"
 
-    [blocks.segments.properties]
-      style = 'full'
+[blocks.segments.properties]
+macos = "󰀵"
 
-  [[blocks.segments]]
-    template = ' {{ .HEAD }}{{ if or (.Working.Changed) (.Staging.Changed) }}*{{ end }} <#89DCEB>{{ if gt .Behind 0 }}⇣{{ end }}{{ if gt .Ahead 0 }}⇡{{ end }}</>'
-    foreground = '#B4BEFE'
-    background = 'transparent'
-    type = 'git'
-    style = 'plain'
+[[blocks.segments]]
+type = "path"
+style = "plain"
+foreground = "p:blue"
+background = "transparent"
+template = "{{ .Path }}"
 
-    [blocks.segments.properties]
-      branch_icon = ''
-      commit_icon = '@'
-      fetch_status = true
+[blocks.segments.properties]
+style = 'agnoster'
+home_icon = '󰋜 '
 
-[[blocks]]
-  type = 'rprompt'
-  overflow = 'hidden'
+[[blocks.segments]]
+template = ' {{ .HEAD }}{{ if or (.Working.Changed) (.Staging.Changed) }}*{{ end }} <p:sky>{{ if gt .Behind 0 }}⇣{{ end }}{{ if gt .Ahead 0 }}⇡{{ end }}</>'
+foreground = 'p:subtext1'
+background = 'transparent'
+type = 'git'
+style = 'plain'
 
-  [[blocks.segments]]
-    template = '{{ .FormattedMs }}'
-    foreground = '#F9E2AF'
-    background = 'transparent'
-    type = 'executiontime'
-    style = 'plain'
-
-    [blocks.segments.properties]
-      threshold = 5000
+[blocks.segments.properties]
+branch_icon = ' '
+commit_icon = '@'
+fetch_status = true
+fetch_upstream_icon = true
+fetch_bare_info = true
 
 [[blocks]]
-  type = 'prompt'
-  alignment = 'left'
-  newline = true
+type = 'prompt'
+alignment = 'left'
+newline = true
 
-  [[blocks.segments]]
-    template = '❯'
-    background = 'transparent'
-    type = 'text'
-    style = 'plain'
-    foreground_templates = ['{{if gt .Code 0}}#F38BA8{{end}}', '{{if eq .Code 0}}#A6E3A1{{end}}']
+[[blocks.segments]]
+template = '❯'
+background = 'transparent'
+type = 'text'
+style = 'plain'
+foreground_templates = [
+  '{{if gt .Code 0}}p:red{{end}}',
+  '{{if eq .Code 0}}p:green{{end}}',
+]
+
+[[blocks]]
+type = 'rprompt'
+overflow = 'hidden'
+
+[[blocks.segments]]
+template = '{{ .FormattedMs }}'
+foreground = 'p:yellow'
+background = 'transparent'
+type = 'executiontime'
+style = 'plain'
+
+[blocks.segments.properties]
+threshold = 5000
+
+[palette]
+rosewater = "#F5E0DC"
+flamingo = "#F2CDCD"
+pink = "#F5C2E7"
+mauve = "#CBA6F7"
+red = "#F38BA8"
+maroon = "#EBA0AC"
+peach = "#FAB387"
+yellow = "#F9E2AF"
+green = "#A6E3A1"
+teal = "#94E2D5"
+sky = "#89DCEB"
+sapphire = "#74C7EC"
+blue = "#89B4FA"
+lavender = "#B4BEFE"
+text = "#CDD6F4"
+subtext1 = "#BAC2DE"
+subtext0 = "#A6ADC8"
+overlay2 = "#9399B2"
+overlay1 = "#7F849C"
+overlay0 = "#6C7086"
+surface2 = "#585B70"
+surface1 = "#45475A"
+surface0 = "#313244"
+base = "#1E1E2E"
+mantle = "#181825"
+crust = "#11111B"
