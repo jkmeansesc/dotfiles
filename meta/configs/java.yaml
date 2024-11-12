@@ -1,0 +1,3 @@
+- link:
+    $HOME/git/IdeaProjects/.devcontainer/devcontainer.json: base/java/.devcontainer/devcontainer.json
+    $HOME/git/IdeaProjects/.devcontainer/docker-compose.yml: base/java/.devcontainer/docker-compose.yml
