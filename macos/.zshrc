@@ -75,11 +75,11 @@ alias bi="brew bundle --verbose --force cleanup --file=~/git/dotfiles/macos/Brew
 alias bd="brew bundle dump --force --file=~/git/dotfiles/macos/Brewfile --describe" 
 
 ## yazi
-function yy() {
-	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
+function y() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
 	yazi "$@" --cwd-file="$tmp"
-	if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
-		cd -- "$cwd"
+	if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+		builtin cd -- "$cwd"
 	fi
 	rm -f -- "$tmp"
 }
