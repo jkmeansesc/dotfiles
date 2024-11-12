@@ -1,5 +1,5 @@
 {
-  "name": "java-knowledge-base",
+  "name": "java",
   "dockerComposeFile": "docker-compose.yml",
   "service": "java-app",
   "workspaceFolder": "/workspaces/",
