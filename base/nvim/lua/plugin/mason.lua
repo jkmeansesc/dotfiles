@@ -34,6 +34,7 @@ return {
                 "jsonls", -- json
                 "marksman", -- markdown
                 "taplo", -- toml
+                "pyright", -- python
             },
         }
 
@@ -44,6 +45,9 @@ return {
                 "markdownlint", -- markdownlinter
                 "prettier", -- prettier formatter
                 "shfmt", -- shell formatter
+                "black", -- python formatter
+                "mypy", -- python linter
+                "ruff", -- python linter
             },
         }
     end,

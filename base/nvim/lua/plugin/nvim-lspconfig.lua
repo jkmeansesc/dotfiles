@@ -45,7 +45,7 @@ return {
             float = {
                 focusable = true,
                 border = border,
-                source = "always",
+                source = true,
                 header = "",
                 prefix = "",
             },
@@ -73,6 +73,7 @@ return {
             "jsonls", -- json
             "marksman", -- markdown
             "taplo", -- toml
+            "pyright", -- python
         }
 
         for _, server in ipairs(servers) do

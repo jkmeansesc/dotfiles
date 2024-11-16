@@ -130,8 +130,6 @@ function M.on_attach(client)
     local map = require("core.utils").map
 
     -- lsp globals
-    map("n", "]d", function() vim.diagnostic.jump { count = 1, float = true } end, { desc = "Next diagnostic" })
-    map("n", "[d", function() vim.diagnostic.jump { count = -1, float = true } end, { desc = "Prev diagnostic" })
     map("n", "gh", function() vim.diagnostic.open_float() end, { desc = "Floating diagnostic" })
 
     if client.supports_method "textDocument/codeAction" then

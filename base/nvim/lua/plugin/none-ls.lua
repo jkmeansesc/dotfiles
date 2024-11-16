@@ -63,6 +63,9 @@ return {
                 },
                 formatting.stylua, -- lua formatter
                 formatting.shfmt, -- shell formatter
+                formatting.black, -- python formatter
+                diagnostics.mypy, -- python linter
+                diagnostics.ruff, -- python linter
                 diagnostics.markdownlint.with {
                     extra_args = { "--disable MD013" }, -- diable rule: line length
                 }, -- markdown linter
