@@ -15,7 +15,7 @@ services:
     image: ghcr.io/tailscale/tailscale:latest
     hostname: tailscale
     environment:
-      - TS_AUTHKEY=tskey-client-kcToctozZ911CNTRL-hN6wbDnoJAQ6oQ8fnDzWBQCrEeRCayyd
+      - TS_AUTHKEY=tskey-auth-k2kmgo1dnF11CNTRL-AENS6XhW1cVbCUFcFQRVkV6GCkgpfRw62
       - TS_EXTRA_ARGS=--accept-routes=true
       - TS_EXTRA_ARGS=--advertise-tags=tag:container
       - TS_STATE_DIR=/var/lib/tailscale
