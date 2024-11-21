@@ -46,6 +46,15 @@ services:
       - IPV6_DISABLE=1
     restart: unless-stopped
 
+  uptime-kuma:
+    image: louislam/uptime-kuma:1
+    container_name: uptime-kuma
+    volumes:
+      - ${PWD}/uptime-kuma-data:/app/data
+    ports:
+      - 3001:3001
+    restart: unless-stopped
+
 secrets:
   secret:
     file: ./secret
