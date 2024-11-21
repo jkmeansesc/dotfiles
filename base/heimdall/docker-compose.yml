@@ -30,3 +30,16 @@ services:
       - NET_RAW
     network_mode: host
     restart: unless-stopped
+
+  homer:
+    image: b4bz/homer
+    container_name: homer
+    volumes:
+      - ${PWD}/homer:/www/assets
+    ports:
+      - 8080:8080
+    user: 1000:1000
+    environment:
+      - INIT_ASSETS=1
+      - IPV6_DISABLE=1
+    restart: unless-stopped

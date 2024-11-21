@@ -14,14 +14,22 @@ brew "fzf"
 brew "git"
 # GNU Pretty Good Privacy (PGP) package
 brew "gnupg"
+# Tools and libraries to manipulate images in many formats
+brew "imagemagick"
 # Mac App Store command-line interface
 brew "mas"
 # Ambitious Vim-fork focused on extensibility and agility
 brew "neovim"
+# Platform built on V8 to build network applications
+brew "node"
+# PDF rendering library (based on the xpdf-3.0 code base)
+brew "poppler"
 # Theme for zsh
 brew "powerlevel10k"
 # Search tool like grep and The Silver Searcher
 brew "ripgrep"
+# 7-Zip is a file archiver with a high compression ratio
+brew "sevenzip"
 # Official tldr client written in Rust
 brew "tlrc"
 # Terminal multiplexer
@@ -46,6 +54,8 @@ cask "alfred"
 cask "arc"
 # Tool to flash OS images to SD cards & USB drives
 cask "balenaetcher"
+# OpenAI's official ChatGPT desktop app
+cask "chatgpt"
 # Tool to remove unnecessary files and folders from disk Chinese edition
 cask "cleanmymac-zh"
 # UI to create reproducible developer environments based on a devcontainer.json
@@ -93,6 +103,8 @@ cask "telegram"
 cask "tencent-meeting"
 # Unpacks archive files
 cask "the-unarchiver"
+# VPN and WiFi proxy
+cask "thunder"
 # VPN client
 cask "torguard"
 # Video communication and virtual meeting platform
