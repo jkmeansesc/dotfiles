@@ -65,16 +65,7 @@ return {
         -- ╭──────────────────────────────────────────────────────────╮
         -- │ setup each server                                        │
         -- ╰──────────────────────────────────────────────────────────╯
-        local servers = {
-            "html", -- html
-            "cssls", -- css
-            "lua_ls", -- lua
-            "yamlls", -- yaml
-            "jsonls", -- json
-            "marksman", -- markdown
-            "taplo", -- toml
-            "pyright", -- python
-        }
+        local servers = require("lspconfig").util.available_servers()
 
         for _, server in ipairs(servers) do
             local opts = {
