@@ -12,7 +12,6 @@ return {
         "luckasRanarison/tree-sitter-hyprlang",
     },
     config = function()
-        require("nvim-treesitter.install").compilers() -- NOTE: for unRAID 'cc' not executable
         require("nvim-treesitter.configs").setup {
             highlight = {
                 enable = true,
