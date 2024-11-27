@@ -35,7 +35,6 @@ export LANG=en_US.UTF-8
 
 # neovim
 alias cn="cd ~/.config/nvim"
-alias v="nvim"
 alias vi="nvim"
 alias vim="nvim"
 
@@ -57,9 +56,9 @@ ta() {
 }
 
 ## eza
+alias v='eza -la --icons=auto --sort=name --group-directories-first' # long list
 alias ll='eza -la --icons=auto --sort=name --group-directories-first' # long list
 alias ls='eza -a --icons=auto' # short list
-alias l='eza'
 alias ld='eza -lD --icons=auto' # long list dirs
 
 ## dotfiles
@@ -89,6 +88,9 @@ source <(fzf --zsh)
 
 # zoxide
 eval "$(zoxide init --cmd cd zsh)"
+
+# tealdeer
+export TEALDEER_CONFIG_DIR=$HOME/.config/tealdeer/
 
 # powerlevel10k
 [[ ! -f ~/.config/.p10k.zsh ]] || source ~/.config/.p10k.zsh
