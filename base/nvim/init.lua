@@ -20,6 +20,7 @@ spec "plugin.which-key"
 spec "plugin.gitsigns"
 spec "plugin.vim-fugitive"
 spec "plugin.conform"
+spec "plugin.nvim-lint"
 spec "plugin.nvim-lspconfig"
 spec "plugin.nvim-dap" -- TODO:
 

@@ -41,14 +41,15 @@ return {
       "ruff", -- python linter
     }
 
-    local ensure_installed = vim.tbl_deep_extend("force", {}, servers, formatters, linters)
+    local ensure_installed = {}
+    vim.list_extend(ensure_installed, servers)
+    vim.list_extend(ensure_installed, formatters)
+    vim.list_extend(ensure_installed, linters)
 
     require("mason-tool-installer").setup {
       ensure_installed = ensure_installed,
-      auto_update = true,
     }
-    -- HACK: the author of this doesn't know shit about lazy loading
-    vim.api.nvim_command "MasonToolsInstall"
+    vim.cmd "MasonToolsInstall"
 
     -- ╭──────────────────────────────────────────────────────────╮
     -- │ setup diagnostic icons and highlight and more            │

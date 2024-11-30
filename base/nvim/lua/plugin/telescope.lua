@@ -32,12 +32,10 @@ return {
     { "<Leader>fu", "<CMD>Telescope undo<CR>", desc = "Undo" },
     { "<Leader>fR", "<CMD>Telescope registers<CR>", desc = "Registers" },
     { "<Leader>fv", "<CMD>Telescope vim_options<CR>", desc = "Vim options" },
-
     { "<Leader>fC", "<CMD>Telescope git_commits<CR>", desc = "Git commits" },
     { "<Leader>fs", "<CMD>Telescope git_status<CR>", desc = "Git status" },
     { "<Leader>fS", "<CMD>Telescope git_stash<CR>", desc = "Git stash" },
     { "<Leader>fB", "<CMD>Telescope git_branches<CR>", desc = "Git branches" },
-
     { "<Leader>fi", "<CMD>Nerdy<CR>", desc = "Find icons" },
   },
   config = function()
@@ -52,8 +50,7 @@ return {
         prompt_prefix = icons.Search .. "  ",
         selection_caret = icons.Selected .. " ",
         layout_strategy = "flex",
-        borderchars = { "═", "║", "═", "║", "╔", "╗", "╝", "╚" }, -- set highlight if border needed
-        -- borderchars = { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
+        borderchars = { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
         layout_config = {
           horizontal = {
             preview_width = 0.50,
