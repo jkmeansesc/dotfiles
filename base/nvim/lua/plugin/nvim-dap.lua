@@ -5,6 +5,7 @@ return {
     { "rcarriga/nvim-dap-ui", dependencies = { "nvim-neotest/nvim-nio" } },
     { "rcarriga/cmp-dap", dependencies = { "nvim-cmp" } },
     { "theHamsta/nvim-dap-virtual-text", config = true },
+    "jay-babu/mason-nvim-dap.nvim",
   },
   keys = {
     { "<Leader>du", function() require("dapui").toggle() end, desc = "Dap UI" },

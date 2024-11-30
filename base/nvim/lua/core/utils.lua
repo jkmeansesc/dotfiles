@@ -127,62 +127,49 @@ function M.get_listed_buffers()
 end
 
 function M.on_attach(client)
-  local map = require("core.utils").map
+  local map = M.map
 
-  -- lsp globals
   map("n", "gh", function() vim.diagnostic.open_float() end, { desc = "Floating diagnostic" })
 
-  if client.supports_method "textDocument/codeAction" then
-    map({ "n", "v" }, "<Leader>la", function() vim.lsp.buf.code_action() end, { desc = "LSP code action" })
-  end
+  map({ "n", "v" }, "<Leader>la", function() vim.lsp.buf.code_action() end, { desc = "LSP code action" })
+
+  map("n", "gd", function() require("telescope.builtin").lsp_definitions() end, { desc = "LSP definition" })
+
+  map("n", "gD", function() vim.lsp.buf.declaration() end, { desc = "LSP declaration" })
+
+  map("n", "gi", function() require("telescope.builtin").lsp_implementations() end, { desc = "LSP implementation" })
+
+  map("n", "gr", function() require("telescope.builtin").lsp_references() end, { desc = "LSP references" })
+
+  map("n", "<Leader>lh", function() vim.lsp.buf.signature_help() end, { desc = "Signature help" })
+
+  map("n", "gy", function() require("telescope.builtin").lsp_type_definitions() end, { desc = "LSP type definition" })
+
+  map("n", "<Leader>ls", function()
+    vim.ui.input({ prompt = "Symbol Query: (leave empty for word under cursor)" }, function(query)
+      if query then
+        -- word under cursor if given query is empty
+        if query == "" then query = vim.fn.expand "<cword>" end
+        require("telescope.builtin").lsp_workspace_symbols {
+          query = query,
+          prompt_title = ("Find word (%s)"):format(query),
+        }
+      end
+    end)
+  end, { desc = "Search workspace symbols" })
 
   if client.supports_method "textDocument/codeLens" then
     map("n", "<Leader>ll", function() vim.lsp.codelens.refresh() end, { desc = "LSP CodeLens refresh" })
     map("n", "<Leader>lL", function() vim.lsp.codelens.run() end, { desc = "LSP CodeLens run" })
   end
 
-  if client.supports_method "textDocument/declaration" then
-    map("n", "gD", function() vim.lsp.buf.declaration() end, { desc = "LSP declaration" })
-  end
-
-  if client.supports_method "textDocument/definition" then
-    map("n", "gd", function() require("telescope.builtin").lsp_definitions() end, { desc = "LSP definition" })
-  end
-
-  if client.supports_method "textDocument/implementation" then
-    map("n", "gi", function() require("telescope.builtin").lsp_implementations() end, { desc = "LSP implementation" })
-  end
-
-  if client.supports_method "textDocument/references" then
-    map("n", "gr", function() require("telescope.builtin").lsp_references() end, { desc = "LSP references" })
-  end
-
   if client.supports_method "textDocument/rename" then
-    require("inc_rename").setup()
-    map("n", "<Leader>lr", function() return ":IncRename " .. vim.fn.expand "<cword>" end, { desc = "LSP rename" })
-  end
-
-  if client.supports_method "textDocument/signatureHelp" then
-    map("n", "<Leader>lh", function() vim.lsp.buf.signature_help() end, { desc = "Signature help" })
-  end
-
-  if client.supports_method "textDocument/typeDefinition" then
-    map("n", "gy", function() require("telescope.builtin").lsp_type_definitions() end, { desc = "LSP type definition" })
-  end
-
-  if client.supports_method "workspace/symbol" then
-    map("n", "<Leader>ls", function()
-      vim.ui.input({ prompt = "Symbol Query: (leave empty for word under cursor)" }, function(query)
-        if query then
-          -- word under cursor if given query is empty
-          if query == "" then query = vim.fn.expand "<cword>" end
-          require("telescope.builtin").lsp_workspace_symbols {
-            query = query,
-            prompt_title = ("Find word (%s)"):format(query),
-          }
-        end
-      end)
-    end, { desc = "Search workspace symbols" })
+    if M.is_available "inc_rename" then
+      require("inc_rename").setup()
+      map("n", "<Leader>lr", function() return ":IncRename " .. vim.fn.expand "<cword>" end, { desc = "LSP rename" })
+    else
+      map("n", "<Leader>lr", vim.lsp.buf.rename, { desc = "LSP rename" })
+    end
   end
 
   -- enable inlay hints

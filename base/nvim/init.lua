@@ -13,7 +13,6 @@ require "core.keymaps"
 -- ╭──────────────────────────────────────────────────────────╮
 -- │ ESSENTIALS                                               │
 -- ╰──────────────────────────────────────────────────────────╯
-spec "plugin.mason"
 spec "plugin.nvim-cmp"
 spec "plugin.nvim-treesitter"
 spec "plugin.telescope"
@@ -21,6 +20,8 @@ spec "plugin.which-key"
 spec "plugin.gitsigns"
 spec "plugin.vim-fugitive"
 spec "plugin.conform"
+spec "plugin.nvim-lspconfig"
+spec "plugin.nvim-dap" -- TODO:
 
 -- ╭──────────────────────────────────────────────────────────╮
 -- │ EDITOR                                                   │
@@ -40,6 +41,10 @@ spec "plugin.toggleterm"
 spec "plugin.treesj" -- splitting/joining blocks of code
 spec "plugin.pangu" -- 自动格式化、规范化中文排版
 spec "plugin.auto-session"
+spec "plugin.nvim-autopairs"
+spec "plugin.nvim-surround"
+spec "plugin.yanky"
+spec "plugin.substitute"
 
 -- ╭──────────────────────────────────────────────────────────╮
 -- │ UI                                                       │
@@ -51,43 +56,9 @@ spec "plugin.indent-blankline"
 spec "plugin.nvim-colorizer"
 spec "plugin.vim-illuminate"
 spec "plugin.render-markdown"
-
--- ╭──────────────────────────────────────────────────────────╮
--- │ LSP                                                      │
--- ╰──────────────────────────────────────────────────────────╯
-spec "plugin.nvim-lspconfig"
-
--- ╭──────────────────────────────────────────────────────────╮
--- │ Debug                                                    │
--- ╰──────────────────────────────────────────────────────────╯
-spec "plugin.nvim-dap" -- TODO:
+spec "plugin.catppuccin"
 
 ----------------------plugins spec end-------------------------
-
--- ╭──────────────────────────────────────────────────────────╮
--- │ colorschemes                                             │
--- ╰──────────────────────────────────────────────────────────╯
-spec "colorschemes.catppuccin"
-spec "colorschemes.darkplus"
-spec "colorschemes.edge"
-spec "colorschemes.flexoki-neovim"
-spec "colorschemes.gruvbox"
-spec "colorschemes.gruvbox-material"
-spec "colorschemes.kanagawa"
-spec "colorschemes.material"
-spec "colorschemes.melange-nvim"
-spec "colorschemes.monokai"
-spec "colorschemes.nightfox"
-spec "colorschemes.nord"
-spec "colorschemes.onedarkpro"
-spec "colorschemes.oxocarbon"
-spec "colorschemes.papercolor-theme"
-spec "colorschemes.rose-pine"
-spec "colorschemes.sonokai"
-spec "colorschemes.tokyonight"
-spec "colorschemes.vim-nightfly-colors"
-spec "colorschemes.cyberdream"
-spec "colorschemes.citruszest"
 
 -- bootstrap lazy
 require "core.lazy"

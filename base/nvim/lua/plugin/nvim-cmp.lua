@@ -96,6 +96,10 @@ return {
         },
       })
 
+      -- for nvim-autopairs
+      local cmp_autopairs = require "nvim-autopairs.completion.cmp"
+      cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
+
       -- ╭──────────────────────────────────────────────────────────╮
       -- │ disable in telescope                                     │
       -- ╰──────────────────────────────────────────────────────────╯
@@ -181,6 +185,12 @@ return {
               if kind == "Text" then return false end
               return true
             end,
+            -- NOTE: for markdown_oxide
+            option = {
+              markdown_oxide = {
+                keyword_pattern = [[\(\k\| \|\/\|#\)\+]],
+              },
+            },
           },
           { name = "luasnip", priority = 800 },
           { name = "copilot", priority = 600 },

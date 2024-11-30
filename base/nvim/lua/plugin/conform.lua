@@ -1,6 +1,7 @@
 return {
   "stevearc/conform.nvim",
   event = { "BufReadPre", "BufNewFile" },
+  cmd = { "ConformInfo" },
   keys = {
     {
       "<Leader>lf",
@@ -13,8 +14,8 @@ return {
     require("conform").setup {
       formatters_by_ft = {
         lua = { "stylua" },
-        -- Conform will run multiple formatters sequentially
         python = { "black" },
+        markdown = { "prettier" },
       },
       format_on_save = {
         timeout_ms = 500,
