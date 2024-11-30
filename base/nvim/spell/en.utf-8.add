@@ -154,3 +154,5 @@ toml
 json
 yaml
 css
+Dockerfile
+neovim

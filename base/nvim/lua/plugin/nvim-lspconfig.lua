@@ -27,6 +27,7 @@ return {
       "markdown_oxide", -- markdown
       "taplo", -- toml
       "pyright", -- python
+      "dockerls", -- Dockerfile
     }
 
     local formatters = {
