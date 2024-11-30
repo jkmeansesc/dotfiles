@@ -87,7 +87,7 @@ return {
     }
 
     vim.api.nvim_create_autocmd("CursorHold", {
-      callback = function() vim.diagnostic.open_float() end,
+      callback = function() vim.diagnostic.open_float { focusable = false } end,
     })
 
     vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = border })

@@ -6,5 +6,9 @@ return {
     { "ss", function() require("substitute").line() end, mode = "n", desc = "Substitute line" },
     { "S", function() require("substitute").eol() end, mode = "n", desc = "Substitute to end of line" },
   },
-  config = true,
+  config = function()
+    require("substitute").setup {
+      on_substitute = require("yanky.integration").substitute(),
+    }
+  end,
 }
