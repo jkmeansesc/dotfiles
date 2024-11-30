@@ -3,8 +3,8 @@
 -- vim.cmd [[colorscheme onedark_vivid]]
 -- vim.cmd [[colorscheme onedark_dark]]
 return {
-    "olimorris/onedarkpro.nvim",
-    enabled = false,
-    lazy = false,
-    priority = 1000,
+  "olimorris/onedarkpro.nvim",
+  enabled = false,
+  lazy = false,
+  priority = 1000,
 }

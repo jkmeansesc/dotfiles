@@ -12,6 +12,8 @@ brew "fd"
 brew "fzf"
 # Distributed revision control system
 brew "git"
+# Alternative to top/htop
+brew "glances"
 # GNU Pretty Good Privacy (PGP) package
 brew "gnupg"
 # Tools and libraries to manipulate images in many formats
@@ -30,8 +32,8 @@ brew "powerlevel10k"
 brew "ripgrep"
 # 7-Zip is a file archiver with a high compression ratio
 brew "sevenzip"
-# Official tldr client written in Rust
-brew "tlrc"
+# Very fast implementation of tldr in Rust
+brew "tealdeer"
 # Terminal multiplexer
 brew "tmux"
 # Display directories as trees (with optional color/HTML output)

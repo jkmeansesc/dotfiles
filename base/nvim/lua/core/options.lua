@@ -58,8 +58,6 @@ vim.opt.spelllang = "en_us,en_gb,cjk"
 vim.opt.spell = true
 
 vim.opt.whichwrap = "<,>,[,],h,l" -- allow certain keys to move to the next line or scroll horizontally.
-vim.opt.shortmess:append { s = true, I = true } -- disable search count wrap and startup messages
-vim.opt.backspace:append { "nostop" } -- don't stop backspace at insert
 
 -- disable some default providers
 vim.g["loaded_node_provider"] = 0

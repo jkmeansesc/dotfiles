@@ -13,6 +13,17 @@ source $HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 source $HOMEBREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source $HOMEBREW_PREFIX/share/powerlevel10k/powerlevel10k.zsh-theme
 
+# for autocomplete
+## Make Tab and ShiftTab go to the menu
+bindkey              '^I' menu-select
+bindkey "$terminfo[kcbt]" menu-select
+## Make Tab and ShiftTab change the selection in the menu
+bindkey -M menuselect              '^I'         menu-complete
+bindkey -M menuselect "$terminfo[kcbt]" reverse-menu-complete
+## Make ← and → always move the cursor on the command line
+bindkey -M menuselect  '^[[D' .backward-char  '^[OD' .backward-char
+bindkey -M menuselect  '^[[C'  .forward-char  '^[OC'  .forward-char
+
 # clean up $HOME directory
 export LESSHISTFILE=/dev/null # stop .lesshst from generating
 ZDOTDIR=$HOME/.config/ # move .zcompdump to .config/
@@ -72,6 +83,9 @@ alias c="clear"
 alias bu="sudo softwareupdate -ia --verbose; brew bundle -v --file=~/git/dotfiles/macos/Brewfile; brew cu; brew upgrade; brew bundle dump --force --file=~/git/dotfiles/macos/Brewfile --describe; brew autoremove; brew cleanup; brew doctor"
 alias bi="brew bundle --verbose --force cleanup --file=~/git/dotfiles/macos/Brewfile"
 alias bd="brew bundle dump --force --file=~/git/dotfiles/macos/Brewfile --describe" 
+alias unraid="ssh root@10.0.0.5"
+alias op="ssh root@10.0.0.1"
+alias heimdall="ssh xuhaifan@10.0.0.10"
 
 ## yazi
 function y() {
