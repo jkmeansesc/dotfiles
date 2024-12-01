@@ -13,7 +13,7 @@ source $HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 source $HOMEBREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source $HOMEBREW_PREFIX/share/powerlevel10k/powerlevel10k.zsh-theme
 
-# for autocomplete
+# zsh-autocomplete
 ## Make Tab and ShiftTab go to the menu
 bindkey              '^I' menu-select
 bindkey "$terminfo[kcbt]" menu-select
@@ -72,13 +72,11 @@ alias ll='eza -la --icons=auto --sort=name --group-directories-first' # long lis
 alias ls='eza -a --icons=auto' # short list
 alias ld='eza -lD --icons=auto' # long list dirs
 
-## dotfiles
-alias cdd="cd $HOME/git/dotfiles"
-
 ## obsidian
 alias co="cd $HOME/Library/Mobile\ Documents/iCloud~md~obsidian/Documents/Obsidian"
 
-## others
+## personal aliases
+alias cdd="cd $HOME/git/dotfiles"
 alias c="clear"
 alias bu="sudo softwareupdate -ia --verbose; brew bundle -v --file=~/git/dotfiles/macos/Brewfile; brew cu; brew upgrade; brew bundle dump --force --file=~/git/dotfiles/macos/Brewfile --describe; brew autoremove; brew cleanup; brew doctor"
 alias bi="brew bundle --verbose --force cleanup --file=~/git/dotfiles/macos/Brewfile"
