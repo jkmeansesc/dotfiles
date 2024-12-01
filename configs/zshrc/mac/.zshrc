@@ -78,7 +78,7 @@ alias co="cd $HOME/Library/Mobile\ Documents/iCloud~md~obsidian/Documents/Obsidi
 ## personal aliases
 alias cdd="cd $HOME/git/dotfiles"
 alias c="clear"
-alias bu="sudo softwareupdate -ia --verbose; brew bundle -v --file=~/git/dotfiles/configs/brew/Brewfile; brew cu; brew upgrade; brew bundle dump --force --file=~/git/dotfiles/macos/Brewfile --describe; brew autoremove; brew cleanup; brew doctor"
+alias bu="sudo softwareupdate -ia --verbose; brew bundle -v --file=~/git/dotfiles/configs/brew/Brewfile; brew cu; brew upgrade; brew bundle dump --force --file=~/git/dotfiles/configs/brew/Brewfile --describe; brew autoremove; brew cleanup; brew doctor"
 alias bi="brew bundle --verbose --force cleanup --file=~/git/dotfiles/configs/brew/Brewfile"
 alias bd="brew bundle dump --force --file=~/git/dotfiles/configs/brew/Brewfile --describe" 
 alias unraid="ssh root@10.0.0.5"
