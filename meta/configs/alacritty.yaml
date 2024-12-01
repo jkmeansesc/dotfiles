@@ -1,2 +1,2 @@
 - link:
-    $HOME/.config/alacritty: base/alacritty
+    $HOME/.config/alacritty: configs/alacritty

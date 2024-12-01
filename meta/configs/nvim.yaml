@@ -1,2 +1,2 @@
 - link:
-    $HOME/.config/nvim: base/nvim
+    $HOME/.config/nvim: configs/nvim

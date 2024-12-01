@@ -1,2 +1,2 @@
 - link:
-    $HOME/.config/nvim/lua/custom: base/nvchad
+    $HOME/.config/nvim/lua/custom: configs/nvchad

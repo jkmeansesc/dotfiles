@@ -1,2 +1,2 @@
 - link:
-    $HOME/.config/tmux: base/tmux
+    $HOME/.config/tmux: configs/tmux

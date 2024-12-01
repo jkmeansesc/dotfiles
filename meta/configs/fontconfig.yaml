@@ -1,2 +1,2 @@
 - link:
-    $HOME/.config/fontconfig: arch/fontconfig
+    $HOME/.config/fontconfig: configs/fontconfig

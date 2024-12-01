@@ -1,10 +1,9 @@
-mac_zshrc
-mac_gitconfig
+zshrc_mac
+gitconfig_mac
 nvim
 tmux
 ideavim
 kitty
-ohmyposh
 aerospace
 java
 yazi

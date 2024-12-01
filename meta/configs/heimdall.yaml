@@ -1,2 +1,2 @@
 - link:
-    $HOME/docker/docker-compose.yml: base/heimdall/docker-compose.yml
+    $HOME/docker/docker-compose.yml: configs/heimdall/docker-compose.yml

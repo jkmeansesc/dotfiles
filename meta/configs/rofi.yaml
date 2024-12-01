@@ -1,2 +1,2 @@
 - link:
-    $HOME/.config/rofi: arch/rofi
+    $HOME/.config/rofi: configs/rofi

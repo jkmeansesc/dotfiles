@@ -1,2 +1,2 @@
 - link:
-    $HOME/.config/vale: base/vale
+    $HOME/.config/vale: configs/vale

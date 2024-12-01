@@ -2,6 +2,3 @@
 	path = meta/dotbot
 	url = https://github.com/anishathalye/dotbot
 	ignore = dirty
-[submodule "macos/hammerspoon/stackline"]
-	path = macos/hammerspoon/stackline
-	url = https://github.com/AdamWagner/stackline.git
