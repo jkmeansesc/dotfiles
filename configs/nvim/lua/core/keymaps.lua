@@ -48,9 +48,6 @@ map({ "n", "v" }, "<Down>", 'v:count || mode(1)[0:1] == "no" ? "j" : "gj"', { de
 map("n", "<Leader>o", "printf('m`%so<ESC>``', v:count1)", { desc = "Insert line below", expr = true })
 map("n", "<Leader>O", "printf('m`%sO<ESC>``', v:count1)", { desc = "Insert line above", expr = true })
 
--- copy all
-map("n", "<Leader>y", "<CMD>%y+<CR>", { desc = "Yank all" })
-
 -- quit
 map("n", "<Leader>q", "<CMD>x<CR>", { desc = "Save and Quit" })
 map("n", "<Leader>Q", "<CMD>wqa!<CR>", { desc = "Save and Quit (Force)" })

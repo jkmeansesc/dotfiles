@@ -46,6 +46,7 @@ spec "plugin.nvim-autopairs"
 spec "plugin.nvim-surround"
 spec "plugin.yanky"
 spec "plugin.substitute"
+spec "plugin.vim-oscyank" -- yank text even from remote
 
 -- ╭──────────────────────────────────────────────────────────╮
 -- │ UI                                                       │
