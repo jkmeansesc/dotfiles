@@ -15,6 +15,8 @@ return {
       progress = {
         display = {
           done_icon = "",
+          render_limit = 24, -- default + 8
+          done_ttl = 6, -- default + 3
         },
       },
     }
