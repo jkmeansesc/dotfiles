@@ -44,7 +44,7 @@ alias ls='eza -a --icons=auto' # short list
 alias ld='eza -lD --icons=auto' # long list dirs
 
 ## fzf
-source <(fzf)
+source <(fzf --zsh)
 
 ## personal aliases
 alias c="clear"
