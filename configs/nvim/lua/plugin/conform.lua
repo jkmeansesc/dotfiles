@@ -15,7 +15,7 @@ return {
       formatters_by_ft = {
         lua = { "stylua" },
         python = { "black" },
-        markdown = { "markdownlint-cli2" },
+        markdown = { "markdownlint" },
         svelte = { "prettier" },
         javascript = { "prettier" },
         typescript = { "prettier" },
