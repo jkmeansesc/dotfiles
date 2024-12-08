@@ -111,3 +111,6 @@ cask "thunder"
 cask "torguard"
 # Video communication and virtual meeting platform
 cask "zoom"
+mas "GIPHY CAPTURE", id: 668208984
+mas "Infuse", id: 1136220934
+mas "iShot", id: 1485844094

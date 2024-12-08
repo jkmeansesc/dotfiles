@@ -8,7 +8,7 @@ return {
   config = function()
     require("catppuccin").setup {
       flavour = "mocha",
-      transparent_background = false,
+      transparent_background = true,
       term_colors = true,
 
       -- NOTE: maintain a list of all the in-use plugins that deviate from default settings.

@@ -22,5 +22,11 @@ return {
     { "=p", "<Plug>(YankyPutAfterFilter)", desc = "Put after applying a filter" },
     { "=P", "<Plug>(YankyPutBeforeFilter)", desc = "Put before applying a filter" },
   },
-  config = true,
+  config = function()
+    require("yanky").setup {
+      highlight = {
+        timer = 250,
+      },
+    }
+  end,
 }

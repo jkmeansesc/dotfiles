@@ -8,7 +8,7 @@ return {
     require("fidget").setup {
       notification = {
         window = {
-          winblend = 30, -- required by catppuccin
+          winblend = 0, -- required by catppuccin
         },
         override_vim_notify = true,
       },
