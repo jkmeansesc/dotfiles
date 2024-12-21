@@ -67,10 +67,11 @@ ta() {
 }
 
 ## eza
-alias v='eza -la --icons=auto --sort=name --group-directories-first' # long list
-alias ll='eza -la --icons=auto --sort=name --group-directories-first' # long list
-alias ls='eza -a --icons=auto' # short list
-alias ld='eza -lD --icons=auto' # long list dirs
+export EZA_CONFIG_DIR=$HOME/.config/eza/
+alias v='eza -lag --icons auto --sort name --group-directories-first --no-quotes --no-time'
+alias ll='eza -lag --icons auto --sort name --group-directories-first --no-quotes'
+alias ls='eza -a --icons=auto'
+alias ld='eza -lD --icons=auto'
 
 ## obsidian
 alias co="cd $HOME/Library/Mobile\ Documents/iCloud~md~obsidian/Documents/Obsidian"
@@ -82,7 +83,7 @@ alias bu="sudo softwareupdate -ia --verbose; brew bundle -v --file=~/git/dotfile
 alias bi="brew bundle --verbose --force cleanup --file=~/git/dotfiles/configs/brew/Brewfile"
 alias bd="brew bundle dump --force --file=~/git/dotfiles/configs/brew/Brewfile --describe" 
 alias unraid="ssh root@10.0.0.5"
-alias op="ssh root@10.0.0.1"
+alias heimdall="ssh root@10.0.0.1"
 
 ## yazi
 function y() {

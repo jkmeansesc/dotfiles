@@ -26,6 +26,7 @@ return {
       })
     end,
   },
+
   {
     "zbirenbaum/copilot.lua",
     event = "InsertEnter",

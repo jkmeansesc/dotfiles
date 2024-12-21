@@ -4,6 +4,8 @@ tap "homebrew/bundle"
 tap "homebrew/services"
 tap "koekeishiya/formulae"
 tap "nikitabobko/tap"
+# Clone of cat(1) with syntax highlighting and Git integration
+brew "bat"
 # Modern, maintained replacement for ls
 brew "eza"
 # Simple, fast and user-friendly alternative to find
@@ -48,6 +50,8 @@ brew "zsh-autocomplete"
 brew "zsh-autosuggestions"
 # Fish shell like syntax highlighting for zsh
 brew "zsh-syntax-highlighting"
+# Collection of apps and services for photography, design, video, web, and UX
+cask "adobe-creative-cloud"
 # AeroSpace is an i3-like tiling window manager for macOS
 cask "aerospace"
 # Application launcher and productivity software
@@ -109,8 +113,11 @@ cask "the-unarchiver"
 cask "thunder"
 # VPN client
 cask "torguard"
+# AI image upscaler
+cask "upscayl"
 # Video communication and virtual meeting platform
 cask "zoom"
+mas "Disk Speed Test", id: 425264550
 mas "GIPHY CAPTURE", id: 668208984
 mas "Infuse", id: 1136220934
 mas "iShot", id: 1485844094

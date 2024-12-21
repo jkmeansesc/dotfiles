@@ -4,6 +4,9 @@ local map = require("core.utils").map
 map("i", "<C-b>", "<ESC>^i", { desc = "Beginning of line" })
 map("i", "<C-e>", "<End>", { desc = "End of line" })
 
+map({ "n", "o", "x" }, "<s-h>", "^", { desc = "Beginning of line" })
+map({ "n", "o", "x" }, "<s-l>", "g_", { desc = "End of line" })
+
 -- navigate within insert mode
 map("i", "<C-h>", "<Left>", { desc = "Move left" })
 map("i", "<C-l>", "<Right>", { desc = "Move right" })
