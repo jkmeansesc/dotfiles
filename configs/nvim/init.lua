@@ -65,4 +65,5 @@ spec "plugin.catppuccin"
 -- bootstrap lazy
 require "core.lazy"
 
-vim.cmd [[colorscheme catppuccin]]
+-- setup highlights
+require "core.highlights"

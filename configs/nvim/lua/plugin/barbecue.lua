@@ -20,7 +20,7 @@ return {
       callback = function() require("barbecue.ui").update() end,
     })
 
-    local c = require("core.palette").catppuccin
+    local c = require "core.colors"
 
     require("barbecue").setup {
       theme = {

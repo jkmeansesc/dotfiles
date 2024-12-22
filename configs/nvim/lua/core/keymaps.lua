@@ -1,11 +1,18 @@
 local map = require("core.utils").map
 
+-- basic
+map("n", "<Leader>w", ":w!<CR>", { desc = "Save" })
+map("n", "<Leader>q", ":qa!<CR>", { desc = "Quit without saving" })
+map("n", "<C-c>", "<CMD>close<CR>", { desc = "Close" })
+
+map("n", "H", ":bprev<CR>", { desc = "Prev buffer", noremap = false })
+map("n", "L", ":bnext<CR>", { desc = "Next buffer", noremap = false })
+
 -- go to beginning and end
 map("i", "<C-b>", "<ESC>^i", { desc = "Beginning of line" })
 map("i", "<C-e>", "<End>", { desc = "End of line" })
-
-map({ "n", "o", "x" }, "<s-h>", "^", { desc = "Beginning of line" })
-map({ "n", "o", "x" }, "<s-l>", "g_", { desc = "End of line" })
+map({ "n", "o", "x" }, "B", "^", { desc = "Beginning of line" })
+map({ "n", "o", "x" }, "E", "g_", { desc = "End of line" })
 
 -- navigate within insert mode
 map("i", "<C-h>", "<Left>", { desc = "Move left" })
@@ -15,24 +22,12 @@ map("i", "<C-k>", "<Up>", { desc = "Move up" })
 
 -- turn the word under cursor to upper case
 map("i", "<C-u>", "<Esc>viwUea", { desc = "Turn into upper case" })
-
 -- turn the current word into title case
 map("i", "<C-t>", "<Esc>b~lea", { desc = "Turn into title case" })
 
 -- window management
 map("n", "|", "<C-w>v", { desc = "Split vertically" })
 map("n", "\\", "<C-w>s", { desc = "Split horizontally" })
-map("n", "<C-c>", "<CMD>close<CR>", { desc = "Close" })
-
--- save
-map("n", "<C-s>", "<CMD>update<CR>", { desc = "Save" })
-
--- Do not move my cursor when joining lines. NOTE: replaced by treesj
--- map("n", "J", function()
---   vim.cmd [[
---     normal! mzJ`z
---     delmarks z]]
--- end, { desc = "Join line" })
 
 -- clear highlights
 map("n", "<Esc>", "<CMD>noh<CR>", { desc = "Clear highlights" })
@@ -50,13 +45,6 @@ map({ "n", "v" }, "<Down>", 'v:count || mode(1)[0:1] == "no" ? "j" : "gj"', { de
 -- see https://stackoverflow.com/a/16136134/6064933
 map("n", "<Leader>o", "printf('m`%so<ESC>``', v:count1)", { desc = "Insert line below", expr = true })
 map("n", "<Leader>O", "printf('m`%sO<ESC>``', v:count1)", { desc = "Insert line above", expr = true })
-
--- quit
-map("n", "<Leader>q", "<CMD>x<CR>", { desc = "Save and Quit" })
-map("n", "<Leader>Q", "<CMD>wqa!<CR>", { desc = "Save and Quit (Force)" })
-
--- buffer management
-map("n", "<Leader>bb", "<CMD>enew<CR>", { desc = "New buffer" })
 
 -- Package management
 map("n", "<Leader>cl", "<CMD>Lazy<CR>", { desc = "Lazy" })

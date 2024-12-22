@@ -6,6 +6,12 @@ return {
   priority = 1000,
   name = "catppuccin",
   config = function()
+    local palette = require "core.palette"
+    local c = palette.catppuccin
+    local o = palette.onedark
+    local k = palette.kanagawa
+    local t = palette.tokyonight
+
     require("catppuccin").setup {
       flavour = "mocha",
       transparent_background = true,
@@ -27,17 +33,19 @@ return {
         fidget = true,
       },
 
-      -- color_overrides = {
-      --     mocha = colors,
-      -- },
+      color_overrides = {
+        mocha = require "core.colors",
+      },
 
-      -- highlight_overrides = {
-      --     mocha = function()
-      --         return {
-      --             NormalFloat = { fg = colors.text, bg = colors.mantle },
-      --         }
-      --     end,
-      -- },
+      highlight_overrides = {
+        mocha = function()
+          return {
+            NormalFloat = { fg = c.text, bg = c.mantle },
+            FloatBorder = { fg = c.overlay0, bg = c.mantle },
+          }
+        end,
+      },
     }
+    vim.cmd [[colorscheme catppuccin]]
   end,
 }

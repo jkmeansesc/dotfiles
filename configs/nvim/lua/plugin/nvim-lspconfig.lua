@@ -53,12 +53,11 @@ return {
     vim.cmd "MasonToolsInstall"
 
     -- ╭──────────────────────────────────────────────────────────╮
-    -- │ setup diagnostic icons and highlight and more            │
+    -- │ setup diagnostic icons and more                          │
     -- ╰──────────────────────────────────────────────────────────╯
-    require("core.utils").setPluginHighlights "lsp"
 
     local lsp = require("core.icons").lsp
-    local border = require("core.utils").box_boarder "LspBorder"
+    local border = require("core.utils").straight_boarder "LspBorder"
 
     local signs = {
       ERROR = lsp.DiagnosticError,
@@ -87,8 +86,11 @@ return {
       },
     }
 
-    vim.api.nvim_create_autocmd("CursorHold", {
-      callback = function() vim.diagnostic.open_float { focusable = false } end,
+    -- Show line diagnostics automatically in hover window
+    -- https://github.com/neovim/nvim-lspconfig/wiki/UI-Customization#show-line-diagnostics-automatically-in-hover-window
+    vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
+      group = vim.api.nvim_create_augroup("float_diagnostic", { clear = true }),
+      callback = function() vim.diagnostic.open_float(nil, { focus = false }) end,
     })
 
     vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = border })
@@ -119,9 +121,7 @@ return {
       }
       local require_ok, settings = pcall(require, "lspsettings." .. server)
       if require_ok then opts = vim.tbl_deep_extend("force", settings, opts) end
-
       if server == "lua_ls" then require("neodev").setup { library = { plugins = { "nvim-dap-ui" }, types = true } } end
-
       require("lspconfig")[server].setup(opts)
     end
   end,

@@ -1,20 +1,19 @@
 local M = {}
 
-local p = require "core.palette"
-local c = p.catppuccin
+local c = require "core.colors"
 
 M.cmp = {
-  CmpPmenu = { bg = c.base },
-  CmpPmenuBorder = { fg = c.surface0, bg = c.base },
-  CmpDoc = { bg = c.mantle },
-  CmpDocBorder = { fg = c.surface0, bg = c.mantle },
-  CmpSel = { fg = c.surface0, bg = c.green, bold = true },
-  CmpItemKindCopilot = { fg = c.green },
+  CmpPmenu = { bg = c.mantle },
+  CmpPmenuBorder = { fg = c.surface0, bg = c.mantle },
+  CmpDoc = { bg = c.crust },
+  CmpDocBorder = { fg = c.surface0, bg = c.crust },
+  CmpSel = { fg = c.surface0, bg = c.blue, bold = true },
+  CmpItemKindCopilot = { fg = c.blue },
 
   CmpItemAbbrDeprecated = { fg = c.surface0, strikethrough = true },
-  CmpItemAbbrMatch = { fg = c.blue, bold = true },
-  CmpItemAbbrMatchFuzzy = { fg = c.blue, bold = true },
-  CmpItemMenu = { fg = c.mauve },
+  CmpItemAbbrMatch = { fg = c.green, bold = true },
+  CmpItemAbbrMatchFuzzy = { fg = c.green, bold = true },
+  CmpItemMenu = { fg = c.peach },
 
   CmpItemKindField = { fg = c.rosewater },
   CmpItemKindProperty = { fg = c.rosewater },
@@ -54,7 +53,7 @@ M.alpha = {
   AlphaLogoBlue = { fg = c.blue },
   AlphaLogoGreenFBlueB = { fg = c.green, bg = c.blue },
   AlphaLogoGreen = { fg = c.green },
-  AlphaHeader = { fg = c.yellow },
+  AlphaHeader = { fg = c.blue },
   AlphaButtons = { fg = c.lavender },
   AlphaFooter = { fg = c.peach },
   AlphaShortcut = { fg = c.green },
@@ -78,17 +77,15 @@ M.nvimtree = {
   NvimTreeGitDeleted = { fg = c.red },
   NvimTreeSpecialFile = { fg = c.maroon },
   NvimTreeImageFile = { fg = c.text },
-  NvimTreeOpenedFile = { fg = p.white, bold = true },
+  NvimTreeOpenedFile = { fg = c.white, bold = true },
+  NvimTreeCursorLine = { fg = c.base, bg = c.blue },
 }
 
-M.harpoon = {
-  HarpoonWindow = { fg = c.text, bg = c.mantle },
-  HarpoonBorder = { fg = c.surface0, bg = c.mantle },
-}
+M.harpoon = {}
 
 M.telescope = {
   TelescopeBorder = { fg = c.surface0, bg = c.mantle },
-  TelescopeMatching = { fg = c.red, bold = true },
+  TelescopeMatching = { fg = c.yellow },
   TelescopeNormal = { bg = c.mantle },
   TelescopePromptBorder = { fg = c.surface0, bg = c.mantle },
   TelescopePromptNormal = { fg = c.text, bg = c.mantle },
@@ -97,15 +94,15 @@ M.telescope = {
   TelescopePreviewTitle = { fg = c.base, bg = c.green },
   TelescopePreviewBorder = { fg = c.surface0, bg = c.mantle },
   TelescopeResultsBorder = { fg = c.surface0, bg = c.mantle },
-  TelescopeResultsTitle = { fg = c.mantle, bg = c.mauve },
+  TelescopeResultsTitle = { fg = c.mantle, bg = c.blue },
   TelescopeResultsLineNr = { fg = c.text, bg = c.green },
-  TelescopeSelection = { fg = c.base, bg = c.green, bold = true },
-  TelescopeSelectionCaret = { fg = c.base, bg = c.green, bold = true },
+  TelescopeSelection = { fg = c.base, bg = c.blue },
+  TelescopeSelectionCaret = { fg = c.base, bg = c.blue },
 }
 
 M.lsp = {
   LspBorder = { fg = c.surface0, bg = c.mantle },
-  LspInfoBorder = { fg = c.mantle, bg = c.mantle },
+  LspInfoBorder = { fg = c.surface0, bg = c.mantle },
 }
 
 M.render_markdown = {
@@ -119,5 +116,11 @@ M.render_markdown = {
   RenderMarkdownCode = { bg = c.mantle },
   RenderMarkdownCodeInline = { bg = c.mantle },
 }
+
+for _, definitions in pairs(M) do
+  for highlight_name, highlight_attrs in pairs(definitions) do
+    vim.api.nvim_set_hl(0, highlight_name, highlight_attrs)
+  end
+end
 
 return M

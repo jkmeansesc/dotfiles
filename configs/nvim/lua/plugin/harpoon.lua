@@ -1,18 +1,15 @@
 return {
   "ThePrimeagen/harpoon",
+  branch = "harpoon2",
   dependencies = { "nvim-lua/plenary.nvim" },
-  keys = {
-    { "<Leader>a", function() require("harpoon.mark").add_file() end, desc = "Harpoon add file" },
-    { "<C-x>", function() require("harpoon.ui").toggle_quick_menu() end, desc = "Toggle harpoon menu" },
-    { "<C-p>", function() require("harpoon.ui").nav_prev() end, desc = "Goto previous mark" },
-    { "<C-n>", function() require("harpoon.ui").nav_next() end, desc = "Goto next mark" },
-  },
-  config = function()
-    require("core.utils").setPluginHighlights "harpoon"
-    require("harpoon").setup {
-      menu = {
-        borderchars = { "═", "║", "═", "║", "╔", "╗", "╝", "╚" },
-      },
+  keys = function()
+    local harpoon = require "harpoon"
+    return {
+      { "<Leader>a", function() harpoon:list():add() end, desc = "Harpoon add file" },
+      { "<C-x>", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end, desc = "Toggle harpoon menu" },
+      { "<C-p>", function() harpoon:list():prev() end, desc = "Goto previous mark" },
+      { "<C-n>", function() harpoon:list():next() end, desc = "Goto next mark" },
     }
   end,
+  config = true,
 }

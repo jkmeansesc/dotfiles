@@ -9,7 +9,6 @@ return {
     "2kabhishek/nerdy.nvim", -- search nerd icons
     { "nvim-telescope/telescope-fzf-native.nvim", enabled = vim.fn.executable "make" == 1, build = "make" },
   },
-  event = "VimEnter",
   keys = {
     { "<Leader>fa", "<CMD>Telescope find_files follow=true no_ignore=true hidden=true<CR>", desc = "Find all" },
     { "<Leader>fA", "<CMD>Telescope autocommands<CR>", desc = "Autocommands" },
@@ -42,8 +41,6 @@ return {
     local actions = require "telescope.actions"
     local telescope = require "telescope"
     local icons = require("core.icons").telescope
-
-    require("core.utils").setPluginHighlights "telescope"
 
     telescope.setup {
       defaults = {

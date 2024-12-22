@@ -60,11 +60,6 @@ return {
     },
     config = function()
       -- ╭──────────────────────────────────────────────────────────╮
-      -- │ set highlight group                                      │
-      -- ╰──────────────────────────────────────────────────────────╯
-      require("core.utils").setPluginHighlights "cmp"
-
-      -- ╭──────────────────────────────────────────────────────────╮
       -- │ setup cmdline source                                     │
       -- ╰──────────────────────────────────────────────────────────╯
       local cmp = require "cmp"
@@ -134,13 +129,13 @@ return {
 
         window = {
           completion = {
-            border = require("core.utils").box_boarder "CmpPmenuBorder",
+            border = require("core.utils").straight_boarder "CmpPmenuBorder",
             winhighlight = "Normal:CmpPmenu,CursorLine:CmpSel,Search:None",
             scrollbar = false,
             side_padding = 0,
           },
           documentation = {
-            border = require("core.utils").box_boarder "CmpDocBorder",
+            border = require("core.utils").straight_boarder "CmpDocBorder",
             winhighlight = "Normal:CmpDoc",
           },
         },

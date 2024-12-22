@@ -10,11 +10,6 @@ return {
     local WIDTH_RATIO = 0.5
 
     -- ╭──────────────────────────────────────────────────────────╮
-    -- │set highlight                                             │
-    -- ╰──────────────────────────────────────────────────────────╯
-    require("core.utils").setPluginHighlights "nvimtree"
-
-    -- ╭──────────────────────────────────────────────────────────╮
     -- │stage and unstage files directly in the tree view         │
     -- ╰──────────────────────────────────────────────────────────╯
     local git_add = function()
@@ -97,7 +92,7 @@ return {
             ---@diagnostic disable-next-line: undefined-field
             local center_y = ((vim.opt.lines:get() - window_h) / 2) - vim.opt.cmdheight:get()
             return {
-              border = require("core.utils").box_boarder "NvimTreeBoarder",
+              border = require("core.utils").straight_boarder "NvimTreeBoarder",
               relative = "editor",
               row = center_y,
               col = center_x,

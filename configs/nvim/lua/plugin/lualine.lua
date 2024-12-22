@@ -6,7 +6,7 @@ return {
     "AndreM222/copilot-lualine",
   },
   config = function()
-    local c = require("core.palette").catppuccin
+    local c = require "core.colors"
     local icons = require("core.icons").lualine
 
     local theme = function()
@@ -22,13 +22,13 @@ return {
           c = { fg = c.text, bg = nil },
         },
         replace = {
-          a = { fg = c.mantle, bg = c.red, gui = "bold" },
-          b = { fg = c.red, bg = nil },
+          a = { fg = c.mantle, bg = c.maroon, gui = "bold" },
+          b = { fg = c.maroon, bg = nil },
           c = { fg = c.text, bg = nil },
         },
         normal = {
-          a = { fg = c.mantle, bg = c.maroon, gui = "bold" },
-          b = { fg = c.maroon, bg = nil },
+          a = { fg = c.mantle, bg = c.red, gui = "bold" },
+          b = { fg = c.red, bg = nil },
           c = { fg = c.text, bg = nil },
         },
         insert = {

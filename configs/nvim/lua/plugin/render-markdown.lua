@@ -3,7 +3,6 @@ return {
   dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-tree/nvim-web-devicons" }, -- if you prefer nvim-web-devicons
   ft = { "markdown" },
   config = function()
-    require("core.utils").setPluginHighlights "render_markdown"
     require("render-markdown").setup {
       heading = {
         position = "inline",

@@ -23,25 +23,6 @@ function M.is_available(name)
   return ok
 end
 
---- Sets highlight groups based on a provided table.
---- @param highlightGroups table: A table with highlight group names as keys and tables of style attributes as values.
-function M.setHighlightGroups(highlightGroups)
-  for groupName, styles in pairs(highlightGroups) do
-    vim.api.nvim_set_hl(0, groupName, styles)
-  end
-end
-
---- Function to set highlights for a given plugin.
---- @param pluginName string: The name of the plugin. Note: the name is arbitrary and needs to exist in "core.highlights".
-function M.setPluginHighlights(pluginName)
-  local hl = require("core.highlights")[pluginName]
-  if hl then
-    M.setHighlightGroups(hl)
-  else
-    M.notify("No highlight definitions found for plugin: " .. pluginName, "WARN")
-  end
-end
-
 --- Sends a notification message with a specified log level.
 --- This function abstracts over Neovim's vim.notify and the fidget plugin's notify function,
 --- automatically choosing the available method. It allows specifying the log level as a simple string.

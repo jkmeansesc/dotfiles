@@ -3,11 +3,6 @@ return {
   event = "VimEnter",
   config = function()
     -- ╭──────────────────────────────────────────────────────────╮
-    -- │ set highlight                                            │
-    -- ╰──────────────────────────────────────────────────────────╯
-    require("core.utils").setPluginHighlights "alpha"
-
-    -- ╭──────────────────────────────────────────────────────────╮
     -- │ Heading Info                                             │
     -- ╰──────────────────────────────────────────────────────────╯
     local dashboard = require "alpha.themes.dashboard"
@@ -35,41 +30,7 @@ return {
     local thingy =
       io.popen 'echo "$(LANG=en_us_88591; date +%a) $(date +%d) $(LANG=en_us_88591; date +%b)" | tr -d "\n"'
     if thingy == nil then return end
-    local date = thingy:read "*a"
     thingy:close()
-
-    local datetime = os.date " %H:%M"
-
-    local hi_top_section = {
-      type = "text",
-      val = "┌────────────   Today is "
-        .. date
-        .. " ────────────┐",
-      opts = {
-        position = "center",
-        hl = "AlphaHeader",
-      },
-    }
-
-    local hi_middle_section = {
-      type = "text",
-      val = "│                                                │",
-      opts = {
-        position = "center",
-        hl = "AlphaHeader",
-      },
-    }
-
-    local hi_bottom_section = {
-      type = "text",
-      val = "└───══───══───══───  "
-        .. datetime
-        .. "  ───══───══───══────┘",
-      opts = {
-        position = "center",
-        hl = "AlphaHeader",
-      },
-    }
 
     dashboard.section.header.val = {
       [[ ███       ███ ]],
@@ -214,8 +175,6 @@ return {
             .. "ms"
             .. ", "
             .. string.format(" v%d.%d.%d", v.major, v.minor, v.patch),
-          "",
-          "                    左手只是支撑",
         }
         pcall(vim.cmd.AlphaRedraw)
       end,
@@ -249,9 +208,6 @@ return {
 
     local section = {
       header = dashboard.section.header,
-      hi_top_section = hi_top_section,
-      hi_middle_section = hi_middle_section,
-      hi_bottom_section = hi_bottom_section,
       buttons = dashboard.section.buttons,
       footer = dashboard.section.footer,
     }
