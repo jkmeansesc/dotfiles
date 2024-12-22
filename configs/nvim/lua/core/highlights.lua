@@ -54,7 +54,7 @@ M.alpha = {
   AlphaLogoGreenFBlueB = { fg = c.green, bg = c.blue },
   AlphaLogoGreen = { fg = c.green },
   AlphaHeader = { fg = c.blue },
-  AlphaButtons = { fg = c.lavender },
+  AlphaButtons = { fg = c.blue },
   AlphaFooter = { fg = c.peach },
   AlphaShortcut = { fg = c.green },
 }
@@ -94,7 +94,7 @@ M.telescope = {
   TelescopePreviewTitle = { fg = c.base, bg = c.green },
   TelescopePreviewBorder = { fg = c.surface0, bg = c.mantle },
   TelescopeResultsBorder = { fg = c.surface0, bg = c.mantle },
-  TelescopeResultsTitle = { fg = c.mantle, bg = c.blue },
+  TelescopeResultsTitle = { fg = c.mantle, bg = c.yellow },
   TelescopeResultsLineNr = { fg = c.text, bg = c.green },
   TelescopeSelection = { fg = c.base, bg = c.blue },
   TelescopeSelectionCaret = { fg = c.base, bg = c.blue },

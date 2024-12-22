@@ -6,15 +6,10 @@ return {
   priority = 1000,
   name = "catppuccin",
   config = function()
-    local palette = require "core.palette"
-    local c = palette.catppuccin
-    local o = palette.onedark
-    local k = palette.kanagawa
-    local t = palette.tokyonight
-
+    local c = require "core.colors"
     require("catppuccin").setup {
       flavour = "mocha",
-      transparent_background = true,
+      transparent_background = false,
       term_colors = true,
 
       -- NOTE: maintain a list of all the in-use plugins that deviate from default settings.

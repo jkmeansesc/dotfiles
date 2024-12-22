@@ -70,8 +70,6 @@ ta() {
 export EZA_CONFIG_DIR=$HOME/.config/eza/
 alias v='eza -lag --icons auto --sort name --group-directories-first --no-quotes --no-time'
 alias ll='eza -lag --icons auto --sort name --group-directories-first --no-quotes'
-alias ls='eza -a --icons=auto'
-alias ld='eza -lD --icons=auto'
 
 ## obsidian
 alias co="cd $HOME/Library/Mobile\ Documents/iCloud~md~obsidian/Documents/Obsidian"

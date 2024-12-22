@@ -1,6 +1,7 @@
 local p = require "core.palette"
 local c = p.catppuccin
 local o = p.onedark
+local r = p.rosepine
 local k = p.kanagawa
 local t = p.tokyonight
 
@@ -8,16 +9,16 @@ return {
   rosewrter = c.rosewater,
   flamingo = c.flamingo,
   pink = c.pink,
-  mauve = c.mauve,
-  red = c.red,
+  mauve = r.iris,
+  red = r.love,
   maroon = c.maroon,
-  peach = c.peach,
+  peach = k.roninYellow,
   yellow = c.yellow,
   green = c.green,
   teal = c.teal,
   sky = c.sky,
   sapphire = c.sappphire,
-  blue = c.blue,
+  blue = o.blue,
   lavender = t.fg,
   text = c.text,
   subtext1 = c.subtext1,
@@ -28,7 +29,7 @@ return {
   surface2 = c.surface2,
   surface1 = c.surface1,
   surface0 = c.surface0,
-  base = c.base,
-  mantle = c.mantle,
+  base = r.base,
+  mantle = r.surface,
   crust = c.crust,
 }

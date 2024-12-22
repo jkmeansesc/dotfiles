@@ -27,8 +27,8 @@ return {
           c = { fg = c.text, bg = nil },
         },
         normal = {
-          a = { fg = c.mantle, bg = c.red, gui = "bold" },
-          b = { fg = c.red, bg = nil },
+          a = { fg = c.mantle, bg = c.blue, gui = "bold" },
+          b = { fg = c.blue, bg = nil },
           c = { fg = c.text, bg = nil },
         },
         insert = {
@@ -60,14 +60,14 @@ return {
       if next(clients) == nil then
         return msg
       else
-        local c = {}
+        local co = {}
         for _, client in ipairs(clients) do
-          if client.name ~= "null-ls" and client.name ~= "copilot" then table.insert(c, client.name) end
+          if client.name ~= "null-ls" and client.name ~= "copilot" then table.insert(co, client.name) end
         end
-        if next(c) == nil then
+        if next(co) == nil then
           return msg
         else
-          return table.concat(c, "|")
+          return table.concat(co, "|")
         end
       end
     end
