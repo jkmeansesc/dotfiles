@@ -7,7 +7,7 @@ M.cmp = {
   CmpPmenuBorder = { fg = c.surface0, bg = c.mantle },
   CmpDoc = { bg = c.crust },
   CmpDocBorder = { fg = c.surface0, bg = c.crust },
-  CmpSel = { fg = c.surface0, bg = c.blue, bold = true },
+  CmpSel = { fg = c.surface0, bg = c.green, bold = true },
   CmpItemKindCopilot = { fg = c.blue },
 
   CmpItemAbbrDeprecated = { fg = c.surface0, strikethrough = true },
@@ -54,9 +54,9 @@ M.alpha = {
   AlphaLogoGreenFBlueB = { fg = c.green, bg = c.blue },
   AlphaLogoGreen = { fg = c.green },
   AlphaHeader = { fg = c.blue },
-  AlphaButtons = { fg = c.blue },
+  AlphaButtons = { fg = c.red },
   AlphaFooter = { fg = c.peach },
-  AlphaShortcut = { fg = c.green },
+  AlphaShortcut = { fg = c.yellow },
 }
 
 M.nvimtree = {
@@ -78,7 +78,7 @@ M.nvimtree = {
   NvimTreeSpecialFile = { fg = c.maroon },
   NvimTreeImageFile = { fg = c.text },
   NvimTreeOpenedFile = { fg = c.white, bold = true },
-  NvimTreeCursorLine = { fg = c.base, bg = c.blue },
+  NvimTreeCursorLine = { fg = c.base, bg = c.green },
 }
 
 M.harpoon = {}
@@ -96,8 +96,8 @@ M.telescope = {
   TelescopeResultsBorder = { fg = c.surface0, bg = c.mantle },
   TelescopeResultsTitle = { fg = c.mantle, bg = c.yellow },
   TelescopeResultsLineNr = { fg = c.text, bg = c.green },
-  TelescopeSelection = { fg = c.base, bg = c.blue },
-  TelescopeSelectionCaret = { fg = c.base, bg = c.blue },
+  TelescopeSelection = { fg = c.base, bg = c.green },
+  TelescopeSelectionCaret = { fg = c.base, bg = c.green },
 }
 
 M.lsp = {

@@ -9,7 +9,7 @@ return {
     local c = require "core.colors"
     require("catppuccin").setup {
       flavour = "mocha",
-      transparent_background = false,
+      transparent_background = true,
       term_colors = true,
 
       -- NOTE: maintain a list of all the in-use plugins that deviate from default settings.
