@@ -23,7 +23,7 @@ brew "imagemagick"
 # Mac App Store command-line interface
 brew "mas"
 # Ambitious Vim-fork focused on extensibility and agility
-brew "neovim"
+brew "neovim", args: ["HEAD"]
 # Platform built on V8 to build network applications
 brew "node"
 # PDF rendering library (based on the xpdf-3.0 code base)
@@ -36,6 +36,8 @@ brew "ripgrep"
 brew "sevenzip"
 # Very fast implementation of tldr in Rust
 brew "tealdeer"
+# Programmatically correct mistyped console commands
+brew "thefuck"
 # Terminal multiplexer
 brew "tmux"
 # Display directories as trees (with optional color/HTML output)
@@ -72,13 +74,12 @@ cask "discord"
 cask "docker"
 # Downloads videos from different websites
 cask "downie"
-cask "font-jetbrains-mono-nerd-font"
+cask "font-meslo-lg-nerd-font"
+cask "font-sarasa-gothic"
 # Java IDE by JetBrains
 cask "intellij-idea"
 # Open-source keystroke visualiser
 cask "keycastr"
-# GPU-based terminal emulator
-cask "kitty"
 # Provides updates to various Microsoft products
 cask "microsoft-auto-update"
 # Spreadsheet software
@@ -95,10 +96,6 @@ cask "movist-pro"
 cask "obs"
 # Knowledge base that works on top of a local folder of plain text Markdown files
 cask "obsidian"
-# Cloud storage manager tool
-cask "piclist"
-# Collaboration platform for API development
-cask "postman"
 # Tool to reverse the direction of scrolling
 cask "scroll-reverser"
 # Mesh VPN based on WireGuard
