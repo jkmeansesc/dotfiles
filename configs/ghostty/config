@@ -207,9 +207,8 @@ font-thicken = true
 # 
 #   * Powerline glyphs will be adjusted along with the cell height so
 #     that things like status lines continue to look aligned.
-adjust-cell-width = 
-
-adjust-cell-height = 
+adjust-cell-width = 1
+adjust-cell-height = 1
 # Distance in pixels from the bottom of the cell to the text baseline.
 # Increase to move baseline UP, decrease to move baseline DOWN.
 adjust-font-baseline = 
@@ -351,14 +350,14 @@ theme = catppuccin-mocha
 background = #191724
 
 # Foreground color for the window.
-foreground = #c0caf5
+foreground =
 
 # The foreground and background color for selection. If this is not set, then
 # the selection color is just the inverted window background and foreground
 # (note: not to be confused with the cell bg/fg).
-selection-foreground = #89B4FA 
+selection-foreground =
 
-selection-background = #1E1E2E
+selection-background =
 # Swap the foreground and background colors of cells for selection. This
 # option overrides the `selection-foreground` and `selection-background`
 # options.
@@ -387,21 +386,36 @@ minimum-contrast = 1
 # 
 # For definitions on all the codes [see this cheat
 # sheet](https://www.ditig.com/256-colors-cheat-sheet).
-palette = 0=#1d1f21
-palette = 1=#cc6666
-palette = 2=#b5bd68
-palette = 3=#f0c674
-palette = 4=#81a2be
-palette = 5=#b294bb
-palette = 6=#8abeb7
-palette = 7=#c5c8c6
-palette = 8=#666666
-palette = 9=#d54e53
-palette = 10=#b9ca4a
-palette = 11=#e7c547
-palette = 12=#7aa6da
-palette = 13=#c397d8
-palette = 14=#70c0b1
+# palette = 0=#1d1f21
+# palette = 1=#cc6666
+# palette = 2=#b5bd68
+# palette = 3=#f0c674
+# palette = 4=#81a2be
+# palette = 5=#b294bb
+# palette = 6=#8abeb7
+# palette = 7=#c5c8c6
+# palette = 8=#666666
+# palette = 9=#d54e53
+# palette = 10=#b9ca4a
+# palette = 11=#e7c547
+# palette = 12=#7aa6da
+# palette = 13=#c397d8
+# palette = 14=#70c0b1
+palette = 0=#11111B
+palette = 1=#F38BA8
+palette = 2=#A6E3A1
+palette = 3=#F9E2AF
+palette = 4=#89B4FA
+palette = 5=#CBA6F7
+palette = 6=#94E2D5
+palette = 7=#ABB2BF
+palette = 8=#6C7086
+palette = 9=#eb6f92
+palette = 10=#9ece6a
+palette = 11=#e0af68
+palette = 12=#61AFEF
+palette = 13=#C678DD
+palette = 14=#56B6C2
 palette = 15=#eaeaea
 palette = 16=#000000
 palette = 17=#00005f
@@ -656,7 +670,7 @@ cursor-invert-fg-bg = false
 # or greater than 1 will be clamped to the nearest valid value. Note that a
 # sufficiently small value such as 0.3 may be effectively invisible and may
 # make it difficult to find the cursor.
-cursor-opacity = 0.8
+cursor-opacity = 1
 
 # The style of the cursor. This sets the default style. A running program can
 # still request an explicit cursor style using escape sequences (such as `CSI
@@ -765,7 +779,7 @@ mouse-scroll-multiplier = 1
 # On macOS, background opacity is disabled when the terminal enters native
 # fullscreen. This is because the background becomes gray and it can cause
 # widgets to show through which isn't generally desirable.
-background-opacity = 1
+background-opacity = 0.9
 
 # A positive value enables blurring of the background when background-opacity
 # is less than 1. The value is the blur radius to apply. A value of 20
