@@ -63,7 +63,7 @@ return {
     dap.listeners.before.event_exited["dapui_config"] = function() dapui.close() end
     dapui.setup {
       floating = {
-        border = "rounded",
+        border = "single",
       },
     }
 

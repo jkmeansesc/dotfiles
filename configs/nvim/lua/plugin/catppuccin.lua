@@ -35,7 +35,7 @@ return {
       highlight_overrides = {
         mocha = function()
           return {
-            NormalFloat = { fg = c.text, bg = c.mantle },
+            NormalFloat = { fg = c.subtext0, bg = c.mantle },
             FloatBorder = { fg = c.overlay0, bg = c.mantle },
           }
         end,

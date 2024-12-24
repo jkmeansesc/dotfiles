@@ -105,5 +105,8 @@ export TEALDEER_CONFIG_DIR=$HOME/.config/tealdeer/
 # bat
 alias -g -- --help='--help 2>&1 | bat --language=help --style=plain'
 
+# thefuck
+eval $(thefuck --alias)
+
 # powerlevel10k
 [[ ! -f ~/.config/.p10k.zsh ]] || source ~/.config/.p10k.zsh

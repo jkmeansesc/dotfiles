@@ -4,8 +4,6 @@ return {
   dependencies = {
     "hrsh7th/cmp-nvim-lsp",
     "smjonas/inc-rename.nvim", -- LSP renaming with immediate visual feedback
-    "folke/neodev.nvim",
-    "folke/neoconf.nvim",
     "b0o/schemastore.nvim",
     "williamboman/mason.nvim",
     "williamboman/mason-lspconfig.nvim",
@@ -15,7 +13,6 @@ return {
     -- ╭──────────────────────────────────────────────────────────╮
     -- │ setup dependencies                                       │
     -- ╰──────────────────────────────────────────────────────────╯
-    require("neoconf").setup()
     require("mason").setup()
 
     local servers = {
@@ -93,8 +90,8 @@ return {
       callback = function() vim.diagnostic.open_float(nil, { focus = false }) end,
     })
 
-    vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = border })
-    vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = border })
+    -- vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = border })
+    -- vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = border })
 
     -- ╭──────────────────────────────────────────────────────────╮
     -- │ setup on_attach and capabilities                         │
@@ -121,7 +118,6 @@ return {
       }
       local require_ok, settings = pcall(require, "lspsettings." .. server)
       if require_ok then opts = vim.tbl_deep_extend("force", settings, opts) end
-      if server == "lua_ls" then require("neodev").setup { library = { plugins = { "nvim-dap-ui" }, types = true } } end
       require("lspconfig")[server].setup(opts)
     end
   end,

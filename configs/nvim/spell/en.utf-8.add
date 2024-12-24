@@ -156,3 +156,11 @@ yaml
 css
 Dockerfile
 neovim
+
+
+fg
+bg
+noreverse
+tmux
+conf
+tpm

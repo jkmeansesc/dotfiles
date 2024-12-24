@@ -4,6 +4,15 @@ return {
   dependencies = { "MunifTanjim/nui.nvim" },
   config = function()
     require("noice").setup {
+      cmdline = {
+        view = "cmdline",
+        format = {
+          cmdline = { icon = " " },
+          search_down = { icon = " " },
+          search_up = { icon = " " },
+          help = { icon = "󰋖 " },
+        },
+      },
       lsp = {
         -- override markdown rendering so that **cmp** and other plugins use **Treesitter**
         override = {
@@ -37,6 +46,7 @@ return {
           opts = { skip = true },
         },
       },
+      popupmenu = { enabled = false },
     }
   end,
 }
