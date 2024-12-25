@@ -73,12 +73,13 @@ M.nvimtree = {
   NvimTreeSymlink = { fg = c.lavender },
   NvimTreeStatuslineNc = { fg = c.crust, bg = c.crust },
   NvimTreeGitDirty = { fg = c.yellow },
-  NvimTreeGitNew = { fg = c.green },
+  NvimTreeGitNew = { fg = c.overlay0 },
   NvimTreeGitDeleted = { fg = c.red },
   NvimTreeSpecialFile = { fg = c.maroon },
-  NvimTreeImageFile = { fg = c.text },
-  NvimTreeOpenedFile = { fg = c.white, bold = true },
-  NvimTreeCursorLine = { fg = c.base, bg = c.green },
+  NvimTreeImageFile = { fg = c.pink },
+  NvimTreeOpenedFile = { fg = c.rosewater, bold = true },
+  NvimTreeCursorLine = { fg = c.mantle, bg = c.green },
+  NvimTreeGitStaged = { fg = c.green },
 }
 
 M.harpoon = {}

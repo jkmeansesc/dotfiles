@@ -11,7 +11,7 @@ vim.opt.relativenumber = true -- show relative numberline
 
 vim.opt.mouse = "a" -- enable mouse support
 vim.opt.laststatus = 3 -- global statusline
-vim.opt.cmdheight = 1 -- height of the command bar, default: 1
+vim.opt.cmdheight = 0 -- height of the command bar, default: 1
 vim.opt.backup = false -- disable backup
 
 vim.opt.showmode = false -- disable showing modes in command line

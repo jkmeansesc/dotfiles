@@ -2,12 +2,13 @@ return {
   "neovim/nvim-lspconfig",
   event = { "BufReadPre", "BufNewFile" },
   dependencies = {
-    "hrsh7th/cmp-nvim-lsp",
+    -- "hrsh7th/cmp-nvim-lsp",
     "smjonas/inc-rename.nvim", -- LSP renaming with immediate visual feedback
     "b0o/schemastore.nvim",
     "williamboman/mason.nvim",
     "williamboman/mason-lspconfig.nvim",
     "WhoIsSethDaniel/mason-tool-installer.nvim",
+    "saghen/blink.cmp",
   },
   config = function()
     -- ╭──────────────────────────────────────────────────────────╮
@@ -98,7 +99,7 @@ return {
     -- ╰──────────────────────────────────────────────────────────╯
     local on_attach = require("core.utils").on_attach
     local capabilities = vim.lsp.protocol.make_client_capabilities()
-    capabilities = vim.tbl_deep_extend("force", capabilities, require("cmp_nvim_lsp").default_capabilities())
+    capabilities = vim.tbl_deep_extend("force", capabilities, require("blink.cmp").get_lsp_capabilities())
 
     -- NOTE: for markdown_oxide
     capabilities.workspace = {

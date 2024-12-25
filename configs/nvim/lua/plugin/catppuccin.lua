@@ -15,17 +15,17 @@ return {
       -- NOTE: maintain a list of all the in-use plugins that deviate from default settings.
       integrations = {
         alpha = false,
-        cmp = false,
         mason = true,
         treesitter_context = true,
         nvimtree = false,
         which_key = true,
         indent_blankline = {
           enabled = true,
-          scope_color = "sapphire", -- default: text
+          scope_color = "sky", -- default: text
           colored_indent_levels = false,
         },
         fidget = true,
+        blink_cmp = true,
       },
 
       color_overrides = {

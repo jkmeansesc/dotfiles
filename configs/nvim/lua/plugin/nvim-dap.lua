@@ -3,7 +3,6 @@ return {
   enabled = vim.fn.has "win32" == 0,
   dependencies = {
     { "rcarriga/nvim-dap-ui", dependencies = { "nvim-neotest/nvim-nio" } },
-    { "rcarriga/cmp-dap", dependencies = { "nvim-cmp" } },
     { "theHamsta/nvim-dap-virtual-text", config = true },
     "jay-babu/mason-nvim-dap.nvim",
   },
@@ -51,12 +50,6 @@ return {
   },
   config = function()
     local dap, dapui = require "dap", require "dapui"
-
-    require("cmp").setup.filetype({ "dap-repl", "dapui_watches", "dapui_hover" }, {
-      sources = {
-        { name = "dap" },
-      },
-    })
 
     dap.listeners.after.event_initialized["dapui_config"] = function() dapui.open() end
     dap.listeners.before.event_terminated["dapui_config"] = function() dapui.close() end

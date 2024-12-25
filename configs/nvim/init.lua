@@ -13,7 +13,6 @@ require "core.keymaps"
 -- ╭──────────────────────────────────────────────────────────╮
 -- │ ESSENTIALS                                               │
 -- ╰──────────────────────────────────────────────────────────╯
-spec "plugin.nvim-cmp"
 spec "plugin.nvim-treesitter"
 spec "plugin.telescope"
 spec "plugin.which-key"
@@ -21,6 +20,7 @@ spec "plugin.gitsigns"
 spec "plugin.vim-fugitive"
 spec "plugin.conform"
 spec "plugin.nvim-lint"
+spec "plugin.blink"
 spec "plugin.nvim-lspconfig"
 spec "plugin.nvim-dap" -- TODO:
 
@@ -37,7 +37,7 @@ spec "plugin.inc-rename"
 spec "plugin.harpoon"
 spec "plugin.bufdelete"
 spec "plugin.carbon-now" -- screenshot code
--- spec "plugin.fidget" -- notifications and LSP progress messages.
+spec "plugin.fidget" -- notifications and LSP progress messages.
 spec "plugin.toggleterm"
 spec "plugin.treesj" -- splitting/joining blocks of code
 spec "plugin.pangu" -- 自动格式化、规范化中文排版
@@ -47,7 +47,6 @@ spec "plugin.nvim-surround"
 spec "plugin.yanky"
 spec "plugin.substitute"
 spec "plugin.vim-oscyank" -- yank text even from remote
-spec "plugin.noice"
 
 -- ╭──────────────────────────────────────────────────────────╮
 -- │ UI                                                       │
