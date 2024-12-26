@@ -20,7 +20,16 @@ vim.opt.smartindent = true -- do smart autoindenting.
 -- Case-insensitive searching UNLESS \C or one or more capital letters in the search term
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
-vim.opt.fillchars = { eob = " " } -- disable `~` on nonexistent lines
+
+vim.opt.foldlevel = 99
+vim.opt.fillchars = {
+  foldopen = "",
+  foldclose = "",
+  fold = " ",
+  foldsep = " ",
+  diff = "╱",
+  eob = " ",
+}
 
 vim.opt.undofile = true -- enable persistent undo
 
@@ -39,6 +48,7 @@ vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
 vim.opt.cursorline = true -- highlight the text line of the cursor
 vim.opt.breakindent = true -- wrap indent to match line start
 vim.opt.clipboard = "unnamedplus" -- connection to the system clipboard
+vim.opt.confirm = true -- Confirm to save changes before exiting modified buffer
 
 vim.opt.inccommand = "split" -- preview substitutions live
 

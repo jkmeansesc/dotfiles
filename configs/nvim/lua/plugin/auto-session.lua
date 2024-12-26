@@ -1,8 +1,9 @@
 return {
   "rmagatti/auto-session",
-  lazy = false,
+  cmd = { "SessionRestore", "SessionSearch" },
   keys = {
-    { "<Leader>cr", "<CMD>SessionRestore<CR>", desc = "Restore last session" },
+    { "<Leader>cS", "<CMD>SessionRestore<CR>", desc = "Restore last session" },
+    { "<Leader>cs", "<CMD>SessionSearch<CR>", desc = "Restore last session" },
   },
   config = function()
     require("auto-session").setup {

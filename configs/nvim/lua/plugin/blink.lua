@@ -1,5 +1,4 @@
 return {
-
   {
     "zbirenbaum/copilot.lua",
     event = "InsertEnter",
@@ -44,6 +43,7 @@ return {
       },
     },
     version = "*",
+    event = { "BufReadPre", "BufNewFile" },
     config = function()
       require("blink.cmp").setup {
         keymap = {
@@ -82,15 +82,16 @@ return {
               score_offset = 100,
             },
             snippets = {
-              name = "Snippets",
+              name = "Snip",
               module = "blink.cmp.sources.snippets",
               score_offset = 90,
             },
             copilot = {
-              name = "Copilot",
+              name = "Cop",
               module = "blink-cmp-copilot",
               score_offset = 80,
               async = true,
+              min_keyword_length = 2,
               transform_items = function(_, items)
                 local CompletionItemKind = require("blink.cmp.types").CompletionItemKind
                 local kind_idx = #CompletionItemKind + 1
@@ -107,20 +108,37 @@ return {
               score_offset = 70,
             },
             buffer = {
-              name = "Buffer",
+              name = "Buff",
               module = "blink.cmp.sources.buffer",
               score_offset = 60,
             },
             dadbod = {
-              name = "Dadbod",
+              name = "Dadb",
               module = "vim_dadbod_completion.blink",
               score_offset = 50,
+            },
+            cmdline = {
+              min_keyword_length = 3,
             },
           },
         },
 
         completion = {
-          menu = { border = "single" },
+          menu = {
+            -- Don't show completion menu automatically when searching or in cmdline mode
+            auto_show = function(ctx)
+              return ctx.mode ~= "cmdline" or not vim.tbl_contains({ "/", "?" }, vim.fn.getcmdtype())
+            end,
+            border = "single",
+            scrollbar = false,
+            draw = {
+              columns = {
+                { "kind_icon" },
+                { "label", "label_description", gap = 1 },
+                { "source_name" },
+              },
+            },
+          },
           documentation = {
             window = { border = "single" },
             auto_show_delay_ms = 250,

@@ -68,11 +68,12 @@ font-family-bold-italic = Sarasa Fixed SC Bold Italic
 # These are only valid if its corresponding font-family is also specified. If
 # no font-family is specified, then the font-style is ignored unless you're
 # disabling the font style.
-font-style = default
 
+font-style = default
 font-style-bold = default
 font-style-italic = default
 font-style-bold-italic = default
+
 # Control whether Ghostty should synthesize a style if the requested style is
 # not available in the specified font-family.
 # 
@@ -103,6 +104,7 @@ font-style-bold-italic = default
 # explicitly disable it. You cannot partially disable `bold-italic`.
 # 
 # By default, synthetic styles are enabled.
+
 font-synthetic-style = bold,italic,bold-italic
 
 # Apply a font feature. This can be repeated multiple times to enable multiple
@@ -122,6 +124,7 @@ font-synthetic-style = bold,italic,bold-italic
 # 
 # To generally disable most ligatures, use `-calt`, `-liga`, and `-dlig` (as
 # separate repetitive entries in your config).
+
 font-feature = 
 
 # Font size in points. This value can be a non-integer and the nearest integer
@@ -779,7 +782,7 @@ mouse-scroll-multiplier = 1
 # On macOS, background opacity is disabled when the terminal enters native
 # fullscreen. This is because the background becomes gray and it can cause
 # widgets to show through which isn't generally desirable.
-background-opacity = 0.9
+background-opacity = 0.85
 
 # A positive value enables blurring of the background when background-opacity
 # is less than 1. The value is the blur radius to apply. A value of 20

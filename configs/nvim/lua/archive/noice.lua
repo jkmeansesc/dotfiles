@@ -43,6 +43,7 @@ return {
               { find = "^%d+ lines yanked$" },
             },
           },
+          view = "mini",
           opts = { skip = true },
         },
       },

@@ -1,7 +1,7 @@
 return {
   "nvim-tree/nvim-tree.lua",
   keys = {
-    { "<Leader>e", "<CMD>NvimTreeFocus<CR>", desc = "Nvim-tree Toggle" },
+    { "<Leader>e", "<CMD>NvimTreeFocus<CR>", desc = "Nvim-tree Focus" },
   },
   dependencies = { "nvim-tree/nvim-web-devicons" },
   config = function()

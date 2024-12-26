@@ -2,7 +2,7 @@ local map = require("core.utils").map
 
 -- basic
 map("n", "<Leader>w", ":w!<CR>", { desc = "Save" })
-map("n", "<Leader>q", ":qa!<CR>", { desc = "Quit without saving" })
+map("n", "<Leader>q", ":qa!<CR>", { desc = "Force quit without saving" })
 map("n", "<C-c>", "<CMD>close<CR>", { desc = "Close" })
 
 map("n", "H", ":bprev<CR>", { desc = "Prev buffer", noremap = false })
@@ -40,11 +40,6 @@ map({ "n", "x" }, "j", 'v:count || mode(1)[0:1] == "no" ? "j" : "gj"', { desc = 
 map({ "n", "x" }, "k", 'v:count || mode(1)[0:1] == "no" ? "k" : "gk"', { desc = "Move up", expr = true })
 map({ "n", "v" }, "<Up>", 'v:count || mode(1)[0:1] == "no" ? "k" : "gk"', { desc = "Move up", expr = true })
 map({ "n", "v" }, "<Down>", 'v:count || mode(1)[0:1] == "no" ? "j" : "gj"', { desc = "Move down", expr = true })
-
--- Insert a blank line below or above current line (do not move the cursor),
--- see https://stackoverflow.com/a/16136134/6064933
-map("n", "<Leader>o", "printf('m`%so<ESC>``', v:count1)", { desc = "Insert line below", expr = true })
-map("n", "<Leader>O", "printf('m`%sO<ESC>``', v:count1)", { desc = "Insert line above", expr = true })
 
 -- Package management
 map("n", "<Leader>cl", "<CMD>Lazy<CR>", { desc = "Lazy" })

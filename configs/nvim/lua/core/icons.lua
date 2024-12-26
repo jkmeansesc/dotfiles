@@ -51,7 +51,7 @@ return {
     },
   },
   telescope = {
-    Selected = "❯",
+    Selected = "",
     Search = "",
   },
   navic = { -- deprecated

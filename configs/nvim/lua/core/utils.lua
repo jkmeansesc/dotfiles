@@ -23,27 +23,6 @@ function M.is_available(name)
   return ok
 end
 
---- Sends a notification message with a specified log level.
---- This function abstracts over Neovim's vim.notify and the fidget plugin's notify function,
---- automatically choosing the available method. It allows specifying the log level as a simple string.
---- @param message string: The notification message to be displayed.
---- @param level string: A string representing the log level (e.g., "WARN", "INFO", "ERROR"). Defaults to "WARN" if an unrecognized string is provided.
-function M.notify(message, level)
-  local log_levels = {
-    TRACE = vim.log.levels.TRACE,
-    DEBUG = vim.log.levels.DEBUG,
-    INFO = vim.log.levels.INFO,
-    WARN = vim.log.levels.WARN,
-    ERROR = vim.log.levels.ERROR,
-  }
-  local log_level = log_levels[level] or vim.log.levels.WARN
-  if M.is_available "fidget" then
-    require("fidget").notify(message, log_level)
-  else
-    vim.notify(message, log_level)
-  end
-end
-
 --- Generates a rounded border.
 --- @param hl_name string: The name of the highlight group to be applied to the border.
 --- @return table: A table where each element represents a part of the border with its character and highlight.
@@ -109,23 +88,14 @@ end
 
 function M.on_attach(client)
   local map = M.map
-
   map("n", "gh", function() vim.diagnostic.open_float() end, { desc = "Floating diagnostic" })
-
   map({ "n", "v" }, "<Leader>la", function() vim.lsp.buf.code_action() end, { desc = "LSP code action" })
-
   map("n", "gd", function() require("telescope.builtin").lsp_definitions() end, { desc = "LSP definition" })
-
   map("n", "gD", function() vim.lsp.buf.declaration() end, { desc = "LSP declaration" })
-
   map("n", "gi", function() require("telescope.builtin").lsp_implementations() end, { desc = "LSP implementation" })
-
   map("n", "gr", function() require("telescope.builtin").lsp_references() end, { desc = "LSP references" })
-
   map("n", "<Leader>lh", function() vim.lsp.buf.signature_help() end, { desc = "Signature help" })
-
   map("n", "gy", function() require("telescope.builtin").lsp_type_definitions() end, { desc = "LSP type definition" })
-
   map("n", "<Leader>ls", function()
     vim.ui.input({ prompt = "Symbol Query: (leave empty for word under cursor)" }, function(query)
       if query then
@@ -138,12 +108,10 @@ function M.on_attach(client)
       end
     end)
   end, { desc = "Search workspace symbols" })
-
   if client.supports_method "textDocument/codeLens" then
     map("n", "<Leader>ll", function() vim.lsp.codelens.refresh() end, { desc = "LSP CodeLens refresh" })
     map("n", "<Leader>lL", function() vim.lsp.codelens.run() end, { desc = "LSP CodeLens run" })
   end
-
   if client.supports_method "textDocument/rename" then
     if M.is_available "inc_rename" then
       require("inc_rename").setup()
@@ -152,7 +120,6 @@ function M.on_attach(client)
       map("n", "<Leader>lr", vim.lsp.buf.rename, { desc = "LSP rename" })
     end
   end
-
   -- enable inlay hints
   if client.supports_method "textDocument/inlayHint" then
     vim.g.inlay_hints_visible = true
