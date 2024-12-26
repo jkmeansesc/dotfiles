@@ -36,12 +36,10 @@ spec "plugin.harpoon"
 spec "plugin.carbon-now" -- screenshot code
 spec "plugin.treesj" -- splitting/joining blocks of code
 spec "plugin.pangu" -- auto format to add a space between cjk and english letters
-spec "plugin.auto-session"
 spec "plugin.nvim-autopairs"
 spec "plugin.nvim-ts-autotag"
 spec "plugin.nvim-surround"
 spec "plugin.mini-ai"
--- spec "plugin.bufdelete"
 -- spec "plugin.yanky"
 -- spec "plugin.substitute"
 spec "plugin.vim-oscyank" -- yank text even from remote
@@ -51,7 +49,6 @@ spec "plugin.snacks"
 -- ╭──────────────────────────────────────────────────────────╮
 -- │ UI                                                       │
 -- ╰──────────────────────────────────────────────────────────╯
-spec "plugin.alpha-nvim"
 spec "plugin.barbecue" -- VS Code like winbar
 spec "plugin.lualine"
 spec "plugin.nvim-colorizer"

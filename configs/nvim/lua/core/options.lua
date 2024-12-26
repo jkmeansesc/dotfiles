@@ -82,3 +82,11 @@ vim.env.PATH = vim.fn.stdpath "data" .. "/mason/bin" .. (is_windows and ";" or "
 
 -- for auto-session
 vim.opt.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
+
+-- Highlight yanked text
+vim.api.nvim_create_augroup("highlight_yank", { clear = true })
+vim.api.nvim_create_autocmd("TextYankPost", {
+  group = "highlight_yank",
+  pattern = "*",
+  callback = function() vim.highlight.on_yank { higroup = "IncSearch", timeout = 200 } end,
+})

@@ -124,7 +124,7 @@ function M.on_attach(client)
   if client.supports_method "textDocument/inlayHint" then
     vim.g.inlay_hints_visible = true
     vim.lsp.inlay_hint.enable(true)
-    M.notify(client.name .. " supports inlay hints", "INFO")
+    vim.notify(client.name .. " supports inlay hints", vim.log.levels.INFO)
   end
 end
 

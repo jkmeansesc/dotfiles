@@ -14,18 +14,14 @@ return {
 
       -- NOTE: maintain a list of all the in-use plugins that deviate from default settings.
       integrations = {
-        alpha = false,
+        alpha = true,
         mason = true,
         treesitter_context = true,
-        nvimtree = false,
+        nvimtree = true,
         which_key = true,
-        indent_blankline = {
-          enabled = true,
-          scope_color = "sky", -- default: text
-          colored_indent_levels = false,
-        },
-        fidget = true,
         blink_cmp = true,
+        snacks = true,
+        render_markdown = true,
       },
 
       color_overrides = {
@@ -37,6 +33,7 @@ return {
           return {
             NormalFloat = { fg = c.lavender, bg = c.crust },
             FloatBorder = { fg = c.crust, bg = c.crust },
+            FloatTitle = { fg = c.lavender, bg = c.crust },
             NonText = { fg = c.surface0 },
           }
         end,

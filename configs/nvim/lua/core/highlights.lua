@@ -96,6 +96,52 @@ M.blink = {
   -- BlinkCmpSignatureHelpActiveParameter = {fg = , bg = ,},
 }
 
+M.snacks = {
+  -- SnacksNormal = { fg = c.lavender, bg = c.crust }, -- Normal for the float window, default = NormalFloat
+  -- SnacksWinBar = { bg = nil }, -- Title of the window, default = Title
+  -- SnacksBackdrop = { bg = c.blue }, -- Backdrop, default = none
+  -- SnacksNormalNC = { bg = nil }, -- Normal for non-current windows, default = NormalFloat
+  -- SnacksWinBarNC = { fg = , bg = }, -- Title for non-current windows, default = SnacksWinBar
+  SnacksScratchKey = { fg = c.lavender, bg = c.crust }, -- Keymap help in the footer, default = DiagnosticVirtualText
+  SnacksScratchDesc = { fg = c.lavender, bg = c.crust }, -- Keymap help desc in the footer, default = DiagnosticInfo
+  -- SnacksNotifierInfo = { fg = c.blue }, -- Notification window for Info, default = none
+  -- SnacksNotifierWarn = { fg = c.yellow }, -- Notification window for Warn, default = none
+  -- SnacksNotifierDebug = { fg = c.pink }, -- Notification window for Debug, default = none
+  -- SnacksNotifierError = { fg = c.red }, -- Notification window for Error, default = none
+  -- SnacksNotifierTrace = { fg = c.maroon }, -- Notification window for Trace, default = none
+  SnacksNotifierIconInfo = { fg = c.blue }, -- Icon for Info notification, default = none
+  SnacksNotifierIconWarn = { fg = c.yellow }, -- Icon for Warn notification, default = none
+  SnacksNotifierIconDebug = { fg = c.pink }, -- Icon for Debug notification, default = none
+  SnacksNotifierIconError = { fg = c.red }, -- Icon for Error notification, default = none
+  SnacksNotifierIconTrace = { fg = c.maroon }, -- Icon for Trace notification, default = none
+  SnacksNotifierTitleInfo = { fg = c.blue }, -- Title for Info notification, default = none
+  SnacksNotifierTitleWarn = { fg = c.yellow }, -- Title for Warn notification, default = none
+  SnacksNotifierTitleDebug = { fg = c.pink }, -- Title for Debug notification, default = none
+  SnacksNotifierTitleError = { fg = c.red }, -- Title for Error notification, default = none
+  SnacksNotifierTitleTrace = { fg = c.maroon }, -- Title for Trace notification, default = none
+  SnacksNotifierBorderInfo = { fg = c.blue }, -- Border for Info notification, default = none
+  SnacksNotifierBorderWarn = { fg = c.yellow }, -- Border for Warn notification, default = none
+  SnacksNotifierBorderDebug = { fg = c.pink }, -- Border for Debug notification, default = none
+  SnacksNotifierBorderError = { fg = c.red }, -- Border for Error notification, default = none
+  SnacksNotifierBorderTrace = { fg = c.maroon }, -- Border for Trace notification, default = none
+  -- SnacksNotifierFooterInfo = { bg = nil }, -- Footer for Info notification, default = DiagnosticInfo
+  -- SnacksNotifierFooterWarn = { bg = nil }, -- Footer for Warn notification, default = DiagnosticWarn
+  -- SnacksNotifierFooterDebug = { bg = nil }, -- Footer for Debug notification, default = DiagnosticHint
+  -- SnacksNotifierFooterError = { bg = nil }, -- Footer for Error notification, default = DiagnosticError
+  -- SnacksNotifierFooterTrace = { bg = nil }, -- Footer for Trace notification, default = DiagnosticHint
+  -- SnacksDashboardNormal = { fg = , bg = }, -- Normal for the dashboard, default = Normal
+  -- SnacksDashboardDesc = { fg = , bg = }, -- Description text in dashboard, default = Special
+  -- SnacksDashboardFile = { fg = , bg = }, -- Dashboard file items, default = Special
+  -- SnacksDashboardDir = { fg = , bg = }, -- Directory items, default = NonText
+  -- SnacksDashboardFooter = { fg = , bg = }, -- Dashboard footer text, default = Title
+  SnacksDashboardHeader = { fg = c.blue }, -- Dashboard header text, default = Title
+  -- SnacksDashboardIcon = { fg = , bg = }, -- Dashboard icons, default = Special
+  -- SnacksDashboardKey = { fg = , bg = }, -- Keybind text, default = Number
+  -- SnacksDashboardTerminal = { fg = , bg = }, -- Terminal text, default = SnacksDashboardNormal
+  -- SnacksDashboardSpecial = { fg = , bg = }, -- Special elements, default = Special
+  -- SnacksDashboardTitle = { fg = , bg = }, -- Title text, default = Title
+}
+
 for _, definitions in pairs(M) do
   for highlight_name, highlight_attrs in pairs(definitions) do
     vim.api.nvim_set_hl(0, highlight_name, highlight_attrs)

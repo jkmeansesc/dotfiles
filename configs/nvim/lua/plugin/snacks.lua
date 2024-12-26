@@ -3,6 +3,9 @@ return {
   "folke/snacks.nvim",
   priority = 1000,
   lazy = false,
+  dependencies = {
+    { "folke/persistence.nvim", config = true },
+  },
   keys = {
     { "<leader>.", function() Snacks.scratch() end, desc = "Toggle Scratch Buffer" },
     { "<leader>n", function() Snacks.notifier.show_history() end, desc = "Notification History" },
@@ -33,14 +36,49 @@ return {
   config = function()
     require("snacks").setup {
       bigfile = { enabled = true },
-      -- dashboard = { enabled = true },
+      dashboard = {
+        enabled = true,
+        preset = {
+          keys = {
+            { icon = " ", key = "f", desc = "Find File", action = ":lua Snacks.dashboard.pick('files')" },
+            { icon = " ", key = "g", desc = "Find Text", action = ":lua Snacks.dashboard.pick('live_grep')" },
+            { icon = " ", key = "s", desc = "Restore Session", section = "session" },
+            { icon = "󰒲 ", key = "l", desc = "Lazy", action = ":Lazy", enabled = package.loaded.lazy ~= nil },
+            { icon = " ", key = "q", desc = "Quit", action = ":qa" },
+          },
+          header = [[                                                                     
+       ████ ██████           █████      ██                     
+      ███████████             █████                             
+      █████████ ███████████████████ ███   ███████████   
+     █████████  ███    █████████████ █████ ██████████████   
+    █████████ ██████████ █████████ █████ █████ ████ █████   
+  ███████████ ███    ███ █████████ █████ █████ ████ █████  
+ ██████  █████████████████████ ████ █████ █████ ████ ██████ ]],
+        },
+      },
       indent = { enabled = true },
       input = { enabled = true },
-      notifier = { enabled = true },
+      notifier = {
+        enabled = true,
+        timeout = 5000, -- default: 3000
+        top_down = false, -- false = down to top
+        style = "compat",
+      },
       quickfile = { enabled = true },
       statuscolumn = { enabled = true },
       words = { enabled = true },
       scope = { enabled = true },
+      styles = {
+        notification = {
+          border = "single",
+        },
+        scratch = {
+          wo = { winhighlight = "SnacksNormal:Normal" },
+        },
+        notification_history = {
+          wo = { winhighlight = "SnacksNormal:Normal" },
+        },
+      },
     }
 
     -- https://github.com/folke/snacks.nvim/blob/main/docs/notifier.md#-examples
