@@ -41,12 +41,6 @@ map({ "n", "x" }, "k", 'v:count || mode(1)[0:1] == "no" ? "k" : "gk"', { desc = 
 map({ "n", "v" }, "<Up>", 'v:count || mode(1)[0:1] == "no" ? "k" : "gk"', { desc = "Move up", expr = true })
 map({ "n", "v" }, "<Down>", 'v:count || mode(1)[0:1] == "no" ? "j" : "gj"', { desc = "Move down", expr = true })
 
--- Package management
-map("n", "<Leader>cl", "<CMD>Lazy<CR>", { desc = "Lazy" })
-map("n", "<Leader>cm", "<CMD>Mason<CR>", { desc = "Mason" })
-map("n", "<Leader>ci", "<CMD>LspInfo<CR>", { desc = "LSP information" })
-map("n", "<Leader>cn", "<CMD>NullLsInfo<CR>", { desc = "Null-ls information" })
-
 -- Line operation
 map({ "x", "v" }, "<", "<gv", { desc = "Indent line" })
 map({ "x", "v" }, ">", ">gv", { desc = "Indent line" })

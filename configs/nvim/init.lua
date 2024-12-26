@@ -8,6 +8,9 @@ require "core.options"
 -- load mappings
 require "core.keymaps"
 
+-- load autocmd
+require "core.autocmd"
+
 ----------------------plugins spec start-----------------------
 
 -- ╭──────────────────────────────────────────────────────────╮
@@ -40,8 +43,6 @@ spec "plugin.nvim-autopairs"
 spec "plugin.nvim-ts-autotag"
 spec "plugin.nvim-surround"
 spec "plugin.mini-ai"
--- spec "plugin.yanky"
--- spec "plugin.substitute"
 spec "plugin.vim-oscyank" -- yank text even from remote
 spec "plugin.ts-comments" -- enhance neovim's native comments, neovim natively supports comment now
 spec "plugin.snacks"
@@ -52,7 +53,6 @@ spec "plugin.snacks"
 spec "plugin.barbecue" -- VS Code like winbar
 spec "plugin.lualine"
 spec "plugin.nvim-colorizer"
-spec "plugin.vim-illuminate"
 spec "plugin.render-markdown"
 spec "plugin.todo-comments"
 spec "plugin.catppuccin"

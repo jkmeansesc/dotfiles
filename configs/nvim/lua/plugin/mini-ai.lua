@@ -1,6 +1,6 @@
 return {
   "echasnovski/mini.ai",
   version = false, -- main branch
-  event = "VeryLazy",
+  event = { "BufReadPre", "BufNewFile" },
   config = true,
 }

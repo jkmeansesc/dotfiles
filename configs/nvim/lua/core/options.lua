@@ -1,5 +1,5 @@
 vim.g.mapleader = " "
-vim.g.gmaplocalleader = " "
+vim.g.gmaplocalleader = ","
 
 -- set utf-8
 vim.scriptencoding = "utf-8"
@@ -79,14 +79,3 @@ vim.g["loaded_python3_provider"] = 0
 ---@diagnostic disable-next-line: undefined-field
 local is_windows = vim.loop.os_uname().sysname == "Windows_NT"
 vim.env.PATH = vim.fn.stdpath "data" .. "/mason/bin" .. (is_windows and ";" or ":") .. vim.env.PATH
-
--- for auto-session
-vim.opt.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
-
--- Highlight yanked text
-vim.api.nvim_create_augroup("highlight_yank", { clear = true })
-vim.api.nvim_create_autocmd("TextYankPost", {
-  group = "highlight_yank",
-  pattern = "*",
-  callback = function() vim.highlight.on_yank { higroup = "IncSearch", timeout = 200 } end,
-})

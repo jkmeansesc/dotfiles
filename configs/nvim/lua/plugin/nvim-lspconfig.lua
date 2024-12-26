@@ -10,6 +10,11 @@ return {
     "WhoIsSethDaniel/mason-tool-installer.nvim",
     "saghen/blink.cmp",
   },
+  keys = {
+    { "<leader>hm", "<CMD>Mason<CR>", desc = "Mason" },
+    { "<leader>hl", "<CMD>Lazy<CR>", desc = "Lazy" },
+    { "<leader>hi", "<CMD>LspInfo<CR>", desc = "Lsp info" },
+  },
   config = function()
     -- ╭──────────────────────────────────────────────────────────╮
     -- │ setup dependencies                                       │

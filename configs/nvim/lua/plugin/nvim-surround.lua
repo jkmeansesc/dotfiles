@@ -9,6 +9,6 @@
 --     delete(functi*on calls)     dsf             function calls
 return {
   "kylechui/nvim-surround",
-  event = "VeryLazy",
+  event = { "BufReadPre", "BufNewFile" },
   config = true,
 }

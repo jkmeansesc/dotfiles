@@ -48,7 +48,7 @@ return {
       require("blink.cmp").setup {
         keymap = {
           preset = "none",
-          ["<C-e>"] = { "show", "hide", "fallback" },
+          ["<C-w>"] = { "show", "hide", "fallback" },
           ["<C-y>"] = { "select_and_accept", "fallback" },
           ["<CR>"] = { "accept", "fallback" },
 
