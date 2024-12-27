@@ -54,6 +54,7 @@ alias c="clear"
 alias cda="cd /mnt/user/appdata/"
 alias cdd="cd /mnt/user/data/"
 alias cdf="cd /mnt/disks/fast/"
+alias cho="chown -R nobody:users"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
