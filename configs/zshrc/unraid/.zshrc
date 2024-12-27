@@ -27,7 +27,7 @@ export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
 # set EDITOR
-export EDITOR='nvim'
+export EDITOR='vim'
 
 # neovim
 alias cn="cd ~/.config/nvim"
