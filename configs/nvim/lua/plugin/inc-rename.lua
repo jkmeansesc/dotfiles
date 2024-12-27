@@ -4,7 +4,7 @@ return {
     {
       "<Leader>r",
       function() return ":IncRename " .. vim.fn.expand "<cword>" end,
-      desc = "Inc-rename",
+      desc = "Inc-[R]ename",
       expr = true,
     },
   },

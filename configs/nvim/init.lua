@@ -35,9 +35,7 @@ spec "plugin.better-escape" -- jk means esc
 spec "plugin.vim-sleuth" -- automatically adjusts 'shiftwidth' and 'expandtab' heuristically
 spec "plugin.smart-splits" -- necessary for tmux navigating across panes
 spec "plugin.inc-rename"
-spec "plugin.harpoon"
 spec "plugin.carbon-now" -- screenshot code
-spec "plugin.treesj" -- splitting/joining blocks of code
 spec "plugin.pangu" -- auto format to add a space between cjk and english letters
 spec "plugin.nvim-autopairs"
 spec "plugin.nvim-ts-autotag"

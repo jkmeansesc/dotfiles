@@ -1,6 +1,9 @@
 return {
   "Wansmer/treesj",
-  keys = { "J", "<cmd>TSJToggle<cr>", desc = "Join Toggle" },
+  keys = {
+    { "<leader>j", "<CMD>TSJJoin<CR>", desc = "Join Line" },
+    { "<leader>J", "<CMD>TSJSplit<CR>", desc = "Split Line" },
+  },
   config = function()
     require("treesj").setup {
       use_default_keymaps = false,

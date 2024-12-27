@@ -1,9 +1,9 @@
 local map = require("core.utils").map
 
 -- basic
-map("n", "<Leader>w", ":w!<CR>", { desc = "Save" })
-map("n", "<Leader>q", ":qa!<CR>", { desc = "Quit No Save" })
-map("n", "<C-c>", "<CMD>close<CR>", { desc = "Close" })
+map("n", "<Leader>w", ":w!<CR>", { desc = "[W]rite" })
+map("n", "<Leader>q", ":qa!<CR>", { desc = "[Q]uit No Save" })
+map("n", "<C-c>", "<CMD>close<CR>", { desc = "[C]lose" })
 
 map("n", "H", ":bprev<CR>", { desc = "Prev Buffer", noremap = false })
 map("n", "L", ":bnext<CR>", { desc = "Next Buffer", noremap = false })

@@ -8,15 +8,15 @@ return {
   },
   keys = {
     { "<leader>.", function() Snacks.scratch() end, desc = "Toggle Scratch Buffer" },
-    { "<leader>n", function() Snacks.notifier.show_history() end, desc = "Notification History" },
+    { "<leader>n", function() Snacks.notifier.show_history() end, desc = "[N]otification History" },
     { "<c-/>", function() Snacks.terminal() end, desc = "Toggle Terminal" },
     { "<c-_>", function() Snacks.terminal() end, desc = "which_key_ignore" },
     { "]]", function() Snacks.words.jump(vim.v.count1) end, desc = "Next Reference", mode = { "n", "t" } },
     { "[[", function() Snacks.words.jump(-vim.v.count1) end, desc = "Prev Reference", mode = { "n", "t" } },
-    { "D", function() Snacks.bufdelete() end, desc = "Delete Buffer" },
+    { "D", function() Snacks.bufdelete() end, desc = "[D]elete Buffer" },
     {
       "<leader>N",
-      desc = "Neovim News",
+      desc = "Neovim [N]ews",
       function()
         Snacks.win {
           file = vim.api.nvim_get_runtime_file("doc/news.txt", false)[1],
