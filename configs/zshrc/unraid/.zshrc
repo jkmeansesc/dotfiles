@@ -5,16 +5,6 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-# setup homebrew
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-
-brew () {
-  cd /home/linuxbrew
-  su linuxbrew -s /home/linuxbrew/.linuxbrew/bin/brew -- "$@"
-  cd - > /dev/null
-}
-
-
 export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 export ZSH=/mnt/user/appdata/zsh/.oh-my-zsh
 export HISTFILE=/mnt/user/appdata/zsh/.zsh_history
