@@ -31,13 +31,6 @@ export EDITOR='vim'
 
 # neovim
 alias cn="cd ~/.config/nvim"
-#alias vi="nvim"
-#alias vim="nvim"
-
-## eza
-export EZA_CONFIG_DIR=$HOME/.config/eza/
-alias v='eza -lag --icons auto --sort name --group-directories-first --no-quotes --no-time'
-alias ll='eza -lag --icons auto --sort name --group-directories-first --no-quotes'
 
 ## personal aliases
 alias c="clear"
