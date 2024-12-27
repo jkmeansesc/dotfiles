@@ -78,9 +78,13 @@ return {
         notification_history = {
           wo = { winhighlight = "SnacksNormal:Normal" },
         },
+        input = {
+          border = "single",
+        },
       },
     }
 
+    -- HACK: auto open dashboard on last buffer deleted
     vim.api.nvim_create_autocmd("BufDelete", {
       group = vim.api.nvim_create_augroup("bufdelpost_autocmd", {}),
       desc = "BufDeletePost User autocmd",
@@ -108,6 +112,7 @@ return {
       end,
     })
 
+    -- Lsp progress
     -- https://github.com/folke/snacks.nvim/blob/main/docs/notifier.md#-examples
     ---@type table<number, {token:lsp.ProgressToken, msg:string, done:boolean}[]>
     local progress = vim.defaulttable()

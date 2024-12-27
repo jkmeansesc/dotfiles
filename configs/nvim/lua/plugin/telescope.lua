@@ -1,7 +1,6 @@
 return {
   "nvim-telescope/telescope.nvim",
   dependencies = {
-    "MunifTanjim/nui.nvim",
     "nvim-lua/plenary.nvim",
     "nvim-tree/nvim-web-devicons",
     "debugloop/telescope-undo.nvim",
@@ -13,30 +12,30 @@ return {
   keys = {
     { "<Leader>fa", "<CMD>Telescope find_files follow=true no_ignore=true hidden=true<CR>", desc = "Find all" },
     { "<Leader>fA", "<CMD>Telescope autocommands<CR>", desc = "Autocommands" },
-    { "<Leader>fc", "<CMD>Telescope command_history<CR>", desc = "Command history" },
-    { "<Leader>fd", "<CMD>Telescope commands<CR>", desc = "Search commands" },
-    { "<Leader>ff", "<CMD>Telescope find_files<CR>", desc = "Find files" },
+    { "<Leader>fc", "<CMD>Telescope command_history<CR>", desc = "Command History" },
+    { "<Leader>fd", "<CMD>Telescope commands<CR>", desc = "Search Commands" },
+    { "<Leader>ff", "<CMD>Telescope find_files<CR>", desc = "Find Files" },
     { "<Leader>fF", "<CMD>Telescope filetypes<CR>", desc = "Filetypes" },
-    { "<Leader>fg", "<CMD>Telescope live_grep<CR>", desc = "Live grep" },
-    { "<Leader>fb", "<CMD>Telescope buffers<CR>", desc = "Opened buffers" },
-    { "<Leader>fh", "<CMD>Telescope help_tags<CR>", desc = "Help page" },
+    { "<Leader>fg", "<CMD>Telescope live_grep<CR>", desc = "Live Grep" },
+    { "<Leader>fb", "<CMD>Telescope buffers<CR>", desc = "Opened Buffers" },
+    { "<Leader>fh", "<CMD>Telescope help_tags<CR>", desc = "Help Page" },
     { "<Leader>fH", "<CMD>Telescope highlights<CR>", desc = "Highlights" },
     { "<Leader>fj", "<CMD>Telescope jumplist<CR>", desc = "Jumplist" },
     { "<Leader>fk", "<CMD>Telescope keymaps<CR>", desc = "Keymaps" },
     { "<Leader>fl", "<CMD>Telescope loclist<CR>", desc = "Loclist" },
     { "<Leader>fo", "<CMD>Telescope oldfiles<CR>", desc = "Oldfiles" },
     { "<Leader>fq", "<CMD>Telescope quickfix<CR>", desc = "Quickfix" },
-    { "<Leader><Leader>", "<CMD>Telescope current_buffer_fuzzy_find<CR>", desc = "Find in current buffer" },
-    { "<Leader>fm", "<CMD>Telescope man_pages<CR>", desc = "Manpage entries" },
+    { "<Leader><Leader>", "<CMD>Telescope current_buffer_fuzzy_find<CR>", desc = "Find In Current Buffer" },
+    { "<Leader>fm", "<CMD>Telescope man_pages<CR>", desc = "Manpage Entries" },
     { "<Leader>fM", "<CMD>Telescope marks<CR>", desc = "Bookmarks" },
     { "<Leader>fu", "<CMD>Telescope undo<CR>", desc = "Undo" },
     { "<Leader>fR", "<CMD>Telescope registers<CR>", desc = "Registers" },
-    { "<Leader>fv", "<CMD>Telescope vim_options<CR>", desc = "Vim options" },
-    { "<Leader>fC", "<CMD>Telescope git_commits<CR>", desc = "Git commits" },
-    { "<Leader>fs", "<CMD>Telescope git_status<CR>", desc = "Git status" },
-    { "<Leader>fS", "<CMD>Telescope git_stash<CR>", desc = "Git stash" },
-    { "<Leader>fB", "<CMD>Telescope git_branches<CR>", desc = "Git branches" },
-    { "<Leader>fi", "<CMD>Nerdy<CR>", desc = "Find icons" },
+    { "<Leader>fv", "<CMD>Telescope vim_options<CR>", desc = "Vim Options" },
+    { "<Leader>fC", "<CMD>Telescope git_commits<CR>", desc = "Git Commits" },
+    { "<Leader>fs", "<CMD>Telescope git_status<CR>", desc = "Git Status" },
+    { "<Leader>fS", "<CMD>Telescope git_stash<CR>", desc = "Git Stash" },
+    { "<Leader>fB", "<CMD>Telescope git_branches<CR>", desc = "Git Branches" },
+    { "<Leader>fi", "<CMD>Nerdy<CR>", desc = "Find Icons" },
   },
   config = function()
     local actions = require "telescope.actions"
@@ -48,7 +47,11 @@ return {
         prompt_prefix = icons.Search .. "  ",
         selection_caret = icons.Selected .. " ",
         layout_strategy = "flex",
-        borderchars = { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
+        borderchars = {
+          prompt = { "▀", "▐", "▄", "▌", "▛", "▜", "▟", "▙" },
+          results = { "▀", "▐", "▄", "▌", "▛", "▜", "▟", "▙" },
+          preview = { "▀", "▐", "▄", "▌", "▛", "▜", "▟", "▙" },
+        },
         layout_config = {
           horizontal = {
             preview_width = 0.50,
@@ -58,6 +61,7 @@ return {
           },
         },
         winblend = 0, -- set transparency (0 to 30 most useful)
+
         path_display = { "truncate" },
         vimgrep_arguments = {
           "rg",
@@ -70,7 +74,6 @@ return {
           "--smart-case",
           "--trim",
           "--hidden",
-          -- I don't want to search in the `.git` directory.
           "--glob",
           "!**/.git/*",
         },
@@ -84,14 +87,14 @@ return {
         },
         mappings = {
           i = {
-            ["<C-k>"] = actions.move_selection_previous, -- move to prev result
-            ["<C-j>"] = actions.move_selection_next, -- move to next result
-            ["<C-e>"] = actions.close, -- close telescope
-            ["<C-n>"] = actions.cycle_history_next, -- cycle previewer next
-            ["<C-p>"] = actions.cycle_history_prev, -- cycle previewer prev
+            ["<ESC>"] = actions.close,
+            ["<C-k>"] = actions.move_selection_previous,
+            ["<C-j>"] = actions.move_selection_next,
+            ["<C-n>"] = actions.cycle_history_next,
+            ["<C-p>"] = actions.cycle_history_prev,
           },
           n = {
-            ["q"] = actions.close, -- close telescope
+            ["q"] = actions.close,
           },
         },
       },
@@ -109,5 +112,6 @@ return {
     telescope.load_extension "fzf"
     telescope.load_extension "undo"
     telescope.load_extension "ui-select"
+    telescope.load_extension "nerdy"
   end,
 }

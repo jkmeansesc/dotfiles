@@ -140,6 +140,11 @@ M.snacks = {
   -- SnacksDashboardTerminal = { fg = , bg = }, -- Terminal text, default = SnacksDashboardNormal
   -- SnacksDashboardSpecial = { fg = , bg = }, -- Special elements, default = Special
   -- SnacksDashboardTitle = { fg = , bg = }, -- Title text, default = Title
+  SnacksInputNormal = { fg = c.lavender, bg = c.mantle },
+  SnacksInputIcon = { fg = c.red },
+  SnacksInputTitle = { fg = c.lavender, bg = c.mantle },
+  SnacksInputBorder = { fg = c.red, bg = c.mantle },
+  SnacksInputPrompt = { fg = c.lavender, bg = c.mantle },
 }
 
 for _, definitions in pairs(M) do

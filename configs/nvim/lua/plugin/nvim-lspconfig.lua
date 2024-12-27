@@ -2,7 +2,6 @@ return {
   "neovim/nvim-lspconfig",
   event = { "BufReadPre", "BufNewFile" },
   dependencies = {
-    -- "hrsh7th/cmp-nvim-lsp",
     "smjonas/inc-rename.nvim", -- LSP renaming with immediate visual feedback
     "b0o/schemastore.nvim",
     "williamboman/mason.nvim",
@@ -95,9 +94,6 @@ return {
       group = vim.api.nvim_create_augroup("float_diagnostic", { clear = true }),
       callback = function() vim.diagnostic.open_float(nil, { focus = false }) end,
     })
-
-    -- vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = border })
-    -- vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = border })
 
     -- ╭──────────────────────────────────────────────────────────╮
     -- │ setup on_attach and capabilities                         │
