@@ -85,6 +85,7 @@ return {
     }
 
     -- HACK: auto open dashboard on last buffer deleted
+    -- FIX: right now it is buggy
     vim.api.nvim_create_autocmd("BufDelete", {
       group = vim.api.nvim_create_augroup("bufdelpost_autocmd", {}),
       desc = "BufDeletePost User autocmd",

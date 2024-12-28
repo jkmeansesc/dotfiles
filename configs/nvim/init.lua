@@ -32,7 +32,6 @@ spec "plugin.nvim-dap" -- TODO:
 -- ╰──────────────────────────────────────────────────────────╯
 spec "plugin.nvim-tree"
 spec "plugin.better-escape" -- jk means esc
-spec "plugin.vim-sleuth" -- automatically adjusts 'shiftwidth' and 'expandtab' heuristically
 spec "plugin.smart-splits" -- necessary for tmux navigating across panes
 spec "plugin.inc-rename"
 spec "plugin.carbon-now" -- screenshot code

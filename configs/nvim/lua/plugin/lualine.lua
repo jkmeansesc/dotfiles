@@ -1,6 +1,6 @@
 return {
   "nvim-lualine/lualine.nvim",
-  event = "VeryLazy",
+  event = { "BufReadPre", "BufNewFile" },
   dependencies = {
     "nvim-tree/nvim-web-devicons",
     "AndreM222/copilot-lualine",
@@ -9,6 +9,9 @@ return {
     local c = require "core.colors"
     local icons = require("core.icons").lualine
 
+    ---------------------------------------------------------------
+    -- setup themes
+    ---------------------------------------------------------------
     local theme = function()
       return {
         inactive = {
@@ -44,8 +47,10 @@ return {
       }
     end
 
+    ---------------------------------------------------------------
     -- set an empty statusline till lualine loads
     -- hide the statusline on the starter page
+    ---------------------------------------------------------------
     vim.g.lualine_laststatus = vim.o.laststatus
     if vim.fn.argc(-1) > 0 then
       vim.o.statusline = " "
@@ -53,7 +58,9 @@ return {
       vim.o.laststatus = 0
     end
 
-    -- lsp client
+    ---------------------------------------------------------------
+    -- lsp client component
+    ---------------------------------------------------------------
     local lsp = function()
       local clients = vim.lsp.get_clients()
       local msg = "No Active Lsp"
@@ -72,24 +79,43 @@ return {
       end
     end
 
-    -- lazy status
+    ---------------------------------------------------------------
+    -- lazy status component
+    ---------------------------------------------------------------
     local lazy_status = require "lazy.status"
     local lazy = function() return lazy_status.updates() end
 
-    -- vim
+    ---------------------------------------------------------------
+    -- vim component
+    ---------------------------------------------------------------
     local vim_icon = function() return "" end
 
+    ---------------------------------------------------------------
     -- conditions for components to show
+    ---------------------------------------------------------------
     local conditions = {
       buffer_not_empty = function() return vim.fn.empty(vim.fn.expand "%:t") ~= 1 end,
       hide_in_width = function() return vim.fn.winwidth(0) > 80 end,
       lazy_status = lazy_status.has_updates,
     }
 
+    ---------------------------------------------------------------
+    -- setup the thing
+    ---------------------------------------------------------------
     require("lualine").setup {
       disabled_filetypes = {
         statusline = { "alpha" },
-        winbar = { "alpha", "edgy", "toggleterm", "Trouble", "spectre_panel", "qf", "noice", "dbui" },
+        winbar = {
+          "snacks_dashboard",
+          "alpha",
+          "edgy",
+          "toggleterm",
+          "Trouble",
+          "spectre_panel",
+          "qf",
+          "noice",
+          "dbui",
+        },
       },
       options = {
         theme = theme,
@@ -150,6 +176,34 @@ return {
             color = { fg = c.peach },
           },
           {
+            "buffers",
+            show_filename_only = true,
+            hide_filename_extension = true,
+            show_modified_status = true,
+            mode = 0, -- 0: Shows buffer name 1: Shows buffer index 2: Shows buffer name + buffer index 3: Shows buffer number 4: Shows buffer name + buffer number
+            max_length = vim.o.columns * 2 / 3,
+            filetype_names = {
+              TelescopePrompt = " ",
+              snacks_dashboard = " ",
+              snacks_input = " ",
+              snacks_notif_history = " ",
+              fzf = " ",
+              NvimTree = " ",
+              lazy = "󰒲 ",
+              help = "",
+              mason = " ",
+            },
+            buffers_color = {
+              active = "lualine_b_command",
+              inactive = "lualine_c_inactive",
+            },
+            symbols = {
+              modified = " ",
+              alternate_file = "", -- Text to show to identify the alternate file
+              directory = "", -- Text to show when the buffer is a directory
+            },
+          },
+          {
             "copilot",
             symbols = {
               status = {
@@ -173,12 +227,6 @@ return {
             },
             show_colors = true,
             show_loading = true,
-          },
-          {
-            "encoding",
-            fmt = string.upper,
-            cond = conditions.hide_in_width,
-            color = { gui = "bold" },
           },
         },
         lualine_y = {
