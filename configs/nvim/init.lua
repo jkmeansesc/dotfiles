@@ -15,7 +15,7 @@ require "core.autocmd"
 -- ESSENTIALS
 ---------------------
 spec "plugin.nvim-treesitter"
-spec "plugin.fzf-lua"
+spec "plugin.telescope"
 spec "plugin.nvim-tree"
 spec "plugin.which-key"
 spec "plugin.blink"

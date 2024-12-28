@@ -8,6 +8,11 @@ map("n", "<C-c>", "<CMD>close<CR>", { desc = "[C]lose" })
 map("n", "H", ":bprev<CR>", { desc = "Prev Buffer", noremap = false })
 map("n", "L", ":bnext<CR>", { desc = "Next Buffer", noremap = false })
 
+map("n", "=", [[<CMD>vertical resize +5<CR>]]) -- biger vertically
+map("n", "-", [[<CMD>vertical resize -5<CR>]]) -- make the window smaller vertically
+map("n", "+", [[<CMD>horizontal resize +2<CR>]]) -- make the window bigger horizontally
+map("n", "_", [[<CMD>horizontal resize -2<CR>]]) -- make the window smaller horizontally
+
 -- go to beginning and end
 map("i", "<C-b>", "<ESC>^i", { desc = "Beginning of Line" })
 map("i", "<C-e>", "<End>", { desc = "End of Line" })
