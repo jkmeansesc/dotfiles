@@ -22,7 +22,7 @@ spec "plugin.blink"
 spec "plugin.conform"
 spec "plugin.nvim-lint"
 spec "plugin.nvim-lspconfig"
-spec "plugin.nvim-dap" -- TODO:
+-- spec "plugin.nvim-dap" -- TODO:
 
 ---------------------
 -- EDITOR
