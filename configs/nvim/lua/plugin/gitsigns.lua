@@ -43,7 +43,7 @@ return {
       { "<Leader>gs", function() gs.stage_hunk() end, desc = "[S]tage Hunk" },
       { "<Leader>gS", function() gs.stage_buffer() end, desc = "[S]tage Buffer" },
       { "<Leader>gu", function() gs.undo_stage_hunk() end, desc = "[U]ndo Hunk" },
-      { "<Leader>gb", function() gs.blame_line() end, desc = "[B]lame Line" },
+      -- { "<Leader>gb", function() gs.blame_line() end, desc = "[B]lame Line" }, -- NOTE: use snacks
       { "<Leader>gB", function() gs.blame_line { full = true } end, desc = "[B]lame Buffer" },
       { "<Leader>gd", function() gs.diffthis() end, desc = "Git [D]iff" },
       { "<Leader>gt", function() gs.toggle_current_line_blame() end, desc = "[T]oggle Line Blame" },

@@ -14,6 +14,11 @@ return {
     { "]]", function() Snacks.words.jump(vim.v.count1) end, desc = "Next Reference", mode = { "n", "t" } },
     { "[[", function() Snacks.words.jump(-vim.v.count1) end, desc = "Prev Reference", mode = { "n", "t" } },
     { "D", function() Snacks.bufdelete() end, desc = "[D]elete Buffer" },
+    { "<leader>go", function() Snacks.gitbrowse() end, desc = "Git [O]pen", mode = { "n", "v" } },
+    { "<leader>gb", function() Snacks.git.blame_line() end, desc = "Git [B]lame Line" },
+    { "<leader>gh", function() Snacks.lazygit.log_file() end, desc = "Lazygit Current File [H]istory" },
+    { "<leader>gg", function() Snacks.lazygit() end, desc = "Lazygit" },
+    { "<leader>gl", function() Snacks.lazygit.log() end, desc = "Lazygit [L]og" },
     {
       "<leader>N",
       desc = "Neovim [N]ews",
