@@ -20,6 +20,8 @@ brew "glances"
 brew "gnupg"
 # Tools and libraries to manipulate images in many formats
 brew "imagemagick"
+# Simple terminal UI for git commands
+brew "lazygit"
 # Mac App Store command-line interface
 brew "mas"
 # Ambitious Vim-fork focused on extensibility and agility
@@ -76,6 +78,8 @@ cask "docker"
 cask "downie"
 cask "font-meslo-lg-nerd-font"
 cask "font-sarasa-gothic"
+# Terminal emulator that uses platform-native UI and GPU acceleration
+cask "ghostty"
 # Java IDE by JetBrains
 cask "intellij-idea"
 # Open-source keystroke visualiser
