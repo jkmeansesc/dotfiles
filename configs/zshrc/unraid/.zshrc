@@ -34,6 +34,7 @@ alias cn="cd ~/.config/nvim"
 
 ## personal aliases
 alias c="clear"
+alias v="ls -alh"
 alias cda="cd /mnt/user/appdata/"
 alias cdd="cd /mnt/user/data/"
 alias cdf="cd /mnt/disks/fast/"
