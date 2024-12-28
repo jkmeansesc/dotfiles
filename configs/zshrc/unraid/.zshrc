@@ -11,7 +11,7 @@ export HISTFILE=/mnt/user/appdata/zsh/.zsh_history
 if [ ! "$TMUX" = "" ]; then export TERM=xterm-256color; fi
 
 ZSH_THEME="powerlevel10k/powerlevel10k"
-
+ZSH_DISABLE_COMPFIX=true
 zstyle ':omz:update' mode auto      # update automatically without asking
 
 plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
