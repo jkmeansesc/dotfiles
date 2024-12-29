@@ -30,7 +30,6 @@ spec "plugin.nvim-lspconfig"
 spec "plugin.vim-fugitive"
 spec "plugin.gitsigns"
 spec "plugin.vim-tmux-navigator"
-spec "plugin.better-escape" -- jk means esc
 spec "plugin.inc-rename"
 spec "plugin.carbon-now" -- screenshot code
 spec "plugin.pangu" -- auto format to add a space between cjk and english letters
