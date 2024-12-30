@@ -50,11 +50,12 @@
 # Changing this configuration at runtime will only affect new terminals, i.e.
 # new windows, tabs, etc.
 # font-family = MesloLGS Nerd Font Mono
+font-family = Maple Mono
 font-family = Sarasa Fixed SC
 
-font-family-bold = Sarasa Fixed SC Bold
-font-family-italic = Sarasa Fixed SC Italic
-font-family-bold-italic = Sarasa Fixed SC Bold Italic
+font-family-bold = Maple Mono Bold
+font-family-italic = Maple Mono Italic
+font-family-bold-italic = Maple Mono BoldItalic
 
 # The named font style to use for each of the requested terminal font styles.
 # This looks up the style based on the font style string advertised by the
@@ -138,7 +139,7 @@ font-feature =
 # depending on your `window-inherit-font-size` setting. If that setting is
 # true, only the first window will be affected by this change since all
 # subsequent windows will inherit the font size of the previous window.
-font-size = 17
+font-size = 16
 
 # A repeatable configuration to set one or more font variations values for
 # a variable font. A variable font is a single font, usually with a filename
@@ -210,8 +211,8 @@ font-thicken = true
 # 
 #   * Powerline glyphs will be adjusted along with the cell height so
 #     that things like status lines continue to look aligned.
-adjust-cell-width = 1
-adjust-cell-height = 1
+adjust-cell-width = 0
+adjust-cell-height = 0
 # Distance in pixels from the bottom of the cell to the text baseline.
 # Increase to move baseline UP, decrease to move baseline DOWN.
 adjust-font-baseline = 
