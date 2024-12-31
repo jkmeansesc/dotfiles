@@ -13,12 +13,21 @@ return {
     { "<leader>hm", "<CMD>Mason<CR>", desc = "Mason" },
     { "<leader>hl", "<CMD>Lazy<CR>", desc = "Lazy" },
     { "<leader>hi", "<CMD>LspInfo<CR>", desc = "Lsp info" },
+    {
+      "<Leader>r",
+      function() return ":IncRename " .. vim.fn.expand "<cword>" end,
+      desc = "Inc-[R]ename",
+      expr = true,
+    },
   },
   config = function()
     -- ╭──────────────────────────────────────────────────────────╮
     -- │ setup dependencies                                       │
     -- ╰──────────────────────────────────────────────────────────╯
+
     require("mason").setup()
+
+    require("inc_rename").setup()
 
     local servers = {
       "html", -- html
