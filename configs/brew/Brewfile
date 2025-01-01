@@ -8,6 +8,8 @@ tap "nikitabobko/tap"
 brew "bat"
 # Modern, maintained replacement for ls
 brew "eza"
+# Like neofetch, but much faster because written mostly in C
+brew "fastfetch"
 # Simple, fast and user-friendly alternative to find
 brew "fd"
 # Command-line fuzzy finder written in Go
@@ -54,6 +56,8 @@ brew "zsh-autocomplete"
 brew "zsh-autosuggestions"
 # Fish shell like syntax highlighting for zsh
 brew "zsh-syntax-highlighting"
+# A window border system for macOS
+brew "felixkratz/formulae/borders"
 # Collection of apps and services for photography, design, video, web, and UX
 cask "adobe-creative-cloud"
 # AeroSpace is an i3-like tiling window manager for macOS
@@ -76,12 +80,16 @@ cask "discord"
 cask "docker"
 # Downloads videos from different websites
 cask "downie"
-cask "font-meslo-lg-nerd-font"
+# Screenshot software
+cask "flameshot"
+cask "font-maple-mono"
 cask "font-sarasa-gothic"
 # Terminal emulator that uses platform-native UI and GPU acceleration
 cask "ghostty"
 # Java IDE by JetBrains
 cask "intellij-idea"
+# Keyboard customiser
+cask "karabiner-elements"
 # Open-source keystroke visualiser
 cask "keycastr"
 # Provides updates to various Microsoft products
@@ -118,7 +126,5 @@ cask "torguard"
 cask "upscayl"
 # Video communication and virtual meeting platform
 cask "zoom"
-mas "Disk Speed Test", id: 425264550
 mas "GIPHY CAPTURE", id: 668208984
 mas "Infuse", id: 1136220934
-mas "iShot", id: 1485844094

@@ -57,9 +57,9 @@
 # font-family-bold-italic = Maple Mono BoldItalic
 
 font-family = Sarasa Fixed SC Semibold
-font-family-bold = Maple Mono Bold
-font-family-italic = Maple Mono Italic
-font-family-bold-italic = Maple Mono BoldItalic
+font-family-bold = Sarasa Fixed SC Bold
+font-family-italic = Sarasa Fixed SC Italic
+font-family-bold-italic = Sarasa Fixed SC BoldItalic
 
 # The named font style to use for each of the requested terminal font styles.
 # This looks up the style based on the font style string advertised by the
@@ -143,7 +143,7 @@ font-feature =
 # depending on your `window-inherit-font-size` setting. If that setting is
 # true, only the first window will be affected by this change since all
 # subsequent windows will inherit the font size of the previous window.
-font-size = 16
+font-size = 17
 
 # A repeatable configuration to set one or more font variations values for
 # a variable font. A variable font is a single font, usually with a filename
@@ -716,7 +716,7 @@ cursor-style = block
 #   * `true`
 #   * `false`
 # 
-cursor-style-blink = false
+cursor-style-blink = true
 
 # The color of the text under the cursor. If this is not set, a default will
 # be chosen.
@@ -1920,7 +1920,7 @@ macos-option-as-alt = true
 # Whether to enable the macOS window shadow. The default value is true.
 # With some window managers and window transparency settings, you may
 # find false more visually appealing.
-macos-window-shadow = true
+macos-window-shadow = false
 
 # If true, Ghostty on macOS will automatically enable the "Secure Input"
 # feature when it detects that a password prompt is being displayed.
