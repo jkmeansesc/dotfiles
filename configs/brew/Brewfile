@@ -72,12 +72,8 @@ cask "balenaetcher"
 cask "chatgpt"
 # Tool to remove unnecessary files and folders from disk Chinese edition
 cask "cleanmymac-zh"
-# UI to create reproducible developer environments based on a devcontainer.json
-cask "devpod"
 # Voice and text chat software
 cask "discord"
-# App to build and share containerised applications and microservices
-cask "docker"
 # Downloads videos from different websites
 cask "downie"
 # Screenshot software
