@@ -35,8 +35,6 @@ M.nvimtree = {
   NvimTreeGitStaged = { fg = c.green },
 }
 
-M.harpoon = {}
-
 M.telescope = {
   TelescopeBorder = { fg = c.surface1 },
   TelescopeMatching = { fg = c.yellow },
