@@ -58,6 +58,8 @@ brew "zsh-autosuggestions"
 brew "zsh-syntax-highlighting"
 # A window border system for macOS
 brew "felixkratz/formulae/borders"
+# Custom macOS statusbar with shell plugin, interaction and graph support
+brew "felixkratz/formulae/sketchybar"
 # Collection of apps and services for photography, design, video, web, and UX
 cask "adobe-creative-cloud"
 # AeroSpace is an i3-like tiling window manager for macOS
@@ -92,6 +94,8 @@ cask "keycastr"
 cask "microsoft-auto-update"
 # Spreadsheet software
 cask "microsoft-excel"
+# OpenJDK distribution from Microsoft
+cask "microsoft-openjdk"
 # Presentation software
 cask "microsoft-powerpoint"
 # Meet, chat, call, and collaborate in just one place
