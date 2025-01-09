@@ -58,8 +58,6 @@ brew "zsh-autosuggestions"
 brew "zsh-syntax-highlighting"
 # A window border system for macOS
 brew "felixkratz/formulae/borders"
-# Custom macOS statusbar with shell plugin, interaction and graph support
-brew "felixkratz/formulae/sketchybar"
 # Collection of apps and services for photography, design, video, web, and UX
 cask "adobe-creative-cloud"
 # AeroSpace is an i3-like tiling window manager for macOS
@@ -80,8 +78,8 @@ cask "discord"
 cask "downie"
 # Screenshot software
 cask "flameshot"
-cask "font-maple-mono"
 cask "font-sarasa-gothic"
+cask "font-ubuntu-mono-nerd-font"
 # Terminal emulator that uses platform-native UI and GPU acceleration
 cask "ghostty"
 # Java IDE by JetBrains

@@ -8,4 +8,4 @@
 
 - Search files in a given dir that is not hard linked
 
-`find {{dirA dirB}} -type f -name '*.mp4' -o -name '*.mkv' ! -links +1`
+`find {{dirA dirB}} -type f \( -name '*.mp4' -o -name '*.mkv' \) -links 1`
