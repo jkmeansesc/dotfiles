@@ -33,10 +33,10 @@ return {
         bash = { "shfmt" },
         toml = { "taplo" },
       },
-      format_on_save = {
-        timeout_ms = 500,
-        lsp_format = "fallback",
-      },
+      -- format_on_save = {
+      --   timeout_ms = 500,
+      --   lsp_format = "fallback",
+      -- },
     }
 
     require("conform").formatters.shfmt = { prepend_args = { "-i", "2" } }

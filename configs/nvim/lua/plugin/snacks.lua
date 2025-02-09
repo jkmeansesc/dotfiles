@@ -8,6 +8,24 @@ return {
   },
   keys = {
     { "<leader>.", function() Snacks.scratch() end, desc = "Toggle Scratch Buffer" },
+    {
+      "<leader>,",
+      function()
+        Snacks.win {
+          file = vim.fn.stdpath "config".."/tips.md",
+          width = 0.6,
+          height = 0.6,
+          wo = {
+            spell = false,
+            wrap = false,
+            signcolumn = "yes",
+            statuscolumn = " ",
+            conceallevel = 3,
+          },
+        }
+      end,
+      desc = "Toggle Scratch Buffer",
+    },
     { "<leader>n", function() Snacks.notifier.show_history() end, desc = "[N]otification" },
     { "<c-/>", function() Snacks.terminal() end, desc = "Toggle Terminal" },
     { "<c-_>", function() Snacks.terminal() end, desc = "which_key_ignore" },
