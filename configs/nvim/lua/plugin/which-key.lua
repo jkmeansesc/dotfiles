@@ -11,6 +11,7 @@ return {
       },
       disable = { ft = { "TelescopePrompt" } },
       spec = {
+        { "<leader>a", group = "[A]vante" },
         { "<leader>b", group = "[B]uffer" },
         { "<leader>h", group = "[H]elper" },
         { "<leader>d", group = "[D]ebug" },

@@ -40,6 +40,7 @@ spec "plugin.vim-oscyank" -- yank text even from remote
 spec "plugin.ts-comments" -- enhance neovim's native comments, neovim natively supports comment now
 spec "plugin.snacks"
 spec "plugin.vim-easy-align"
+spec "plugin.avante" -- AI like cursor
 
 ---------------------
 -- UI

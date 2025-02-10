@@ -41,6 +41,7 @@ return {
         "kristijanhusak/vim-dadbod-completion",
         ft = { "sql", "mysql", "plsql" },
       },
+      "saghen/blink.compat",
     },
     version = "*",
     event = { "BufReadPre", "BufNewFile" },
@@ -74,7 +75,18 @@ return {
         },
 
         sources = {
-          default = { "lsp", "snippets", "copilot", "path", "buffer", "dadbod" },
+          default = {
+            "lsp",
+            "snippets",
+            "copilot",
+            "path",
+            "buffer",
+            "dadbod",
+            "markdown",
+            "avante_commands",
+            "avante_mentions",
+            "avante_files",
+          },
           providers = {
             lsp = {
               name = "Lsp",
@@ -119,6 +131,29 @@ return {
             },
             cmdline = {
               min_keyword_length = 3,
+            },
+            markdown = {
+              name = "RenderMarkdown",
+              module = "render-markdown.integ.blink",
+              fallbacks = { "lsp" },
+            },
+            avante_commands = {
+              name = "avante_commands",
+              module = "blink.compat.source",
+              score_offset = 110,
+              opts = {},
+            },
+            avante_files = {
+              name = "avante_files",
+              module = "blink.compat.source",
+              score_offset = 120,
+              opts = {},
+            },
+            avante_mentions = {
+              name = "avante_mentions",
+              module = "blink.compat.source",
+              score_offset = 130,
+              opts = {},
             },
           },
         },
