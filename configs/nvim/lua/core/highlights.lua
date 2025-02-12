@@ -2,37 +2,11 @@ local M = {}
 
 local c = require "core.colors"
 
-M.alpha = {
-  AlphaLogoBlue = { fg = c.blue },
-  AlphaLogoGreenFBlueB = { fg = c.green, bg = c.blue },
-  AlphaLogoGreen = { fg = c.green },
-  AlphaHeader = { fg = c.blue },
-  AlphaButtons = { fg = c.red },
-  AlphaFooter = { fg = c.peach },
-  AlphaShortcut = { fg = c.yellow },
-}
-
-M.nvimtree = {
-  NvimTreeBoarder = { fg = c.crust, bg = c.crust },
-  NvimTreeFolderName = { fg = c.blue },
-  NvimTreeFolderIcon = { fg = c.blue },
-  NvimTreeNormal = { fg = c.text, bg = c.crust },
-  NvimTreeNormalFloat = { link = "NvimTreeNormal" },
-  NvimTreeOpenedFolderName = { fg = c.blue },
-  NvimTreeEmptyFolderName = { fg = c.blue },
-  NvimTreeIndentMarker = { fg = c.overlay0 },
-  NvimTreeWinSeparator = { fg = c.surface1, bg = c.base },
-  NvimTreeRootFolder = { fg = c.lavender, bold = true },
-  NvimTreeSymlink = { fg = c.lavender },
-  NvimTreeStatuslineNc = { fg = c.crust, bg = c.crust },
-  NvimTreeGitDirty = { fg = c.yellow },
-  NvimTreeGitNew = { fg = c.overlay0 },
-  NvimTreeGitDeleted = { fg = c.red },
-  NvimTreeSpecialFile = { fg = c.maroon },
-  NvimTreeImageFile = { fg = c.pink },
-  NvimTreeOpenedFile = { fg = c.rosewater, bold = true },
-  NvimTreeCursorLine = { fg = c.mantle, bg = c.green },
-  NvimTreeGitStaged = { fg = c.green },
+M.mini = {
+  MiniFilesTitleFocused = { fg = c.yellow, bold = true },
+  MiniFilesCursorLine = { fg = c.mantle, bg = c.green, bold = true },
+  MiniPickIconFile = {},
+  MiniPickIconDirectory = {},
 }
 
 M.telescope = {
@@ -150,5 +124,38 @@ for _, definitions in pairs(M) do
     vim.api.nvim_set_hl(0, highlight_name, highlight_attrs)
   end
 end
+
+-- M.alpha = {
+--   AlphaLogoBlue = { fg = c.blue },
+--   AlphaLogoGreenFBlueB = { fg = c.green, bg = c.blue },
+--   AlphaLogoGreen = { fg = c.green },
+--   AlphaHeader = { fg = c.blue },
+--   AlphaButtons = { fg = c.red },
+--   AlphaFooter = { fg = c.peach },
+--   AlphaShortcut = { fg = c.yellow },
+-- }
+
+-- M.nvimtree = {
+--   NvimTreeBoarder = { fg = c.crust, bg = c.crust },
+--   NvimTreeFolderName = { fg = c.blue },
+--   NvimTreeFolderIcon = { fg = c.blue },
+--   NvimTreeNormal = { fg = c.text, bg = c.crust },
+--   NvimTreeNormalFloat = { link = "NvimTreeNormal" },
+--   NvimTreeOpenedFolderName = { fg = c.blue },
+--   NvimTreeEmptyFolderName = { fg = c.blue },
+--   NvimTreeIndentMarker = { fg = c.overlay0 },
+--   NvimTreeWinSeparator = { fg = c.surface1, bg = c.base },
+--   NvimTreeRootFolder = { fg = c.lavender, bold = true },
+--   NvimTreeSymlink = { fg = c.lavender },
+--   NvimTreeStatuslineNc = { fg = c.crust, bg = c.crust },
+--   NvimTreeGitDirty = { fg = c.yellow },
+--   NvimTreeGitNew = { fg = c.overlay0 },
+--   NvimTreeGitDeleted = { fg = c.red },
+--   NvimTreeSpecialFile = { fg = c.maroon },
+--   NvimTreeImageFile = { fg = c.pink },
+--   NvimTreeOpenedFile = { fg = c.rosewater, bold = true },
+--   NvimTreeCursorLine = { fg = c.mantle, bg = c.green },
+--   NvimTreeGitStaged = { fg = c.green },
+-- }
 
 return M

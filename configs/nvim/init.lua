@@ -16,7 +16,6 @@ require "core.autocmd"
 ---------------------
 spec "plugin.nvim-treesitter"
 spec "plugin.telescope"
-spec "plugin.nvim-tree"
 spec "plugin.which-key"
 spec "plugin.blink"
 spec "plugin.conform"
@@ -27,6 +26,7 @@ spec "plugin.nvim-lspconfig"
 ---------------------
 -- EDITOR
 ---------------------
+spec "plugin.mini"
 spec "plugin.vim-fugitive"
 spec "plugin.gitsigns"
 spec "plugin.vim-tmux-navigator"
@@ -34,8 +34,6 @@ spec "plugin.carbon-now" -- screenshot code
 spec "plugin.pangu" -- auto format to add a space between cjk and english letters
 spec "plugin.nvim-autopairs"
 spec "plugin.nvim-ts-autotag"
-spec "plugin.nvim-surround"
-spec "plugin.mini-ai"
 spec "plugin.vim-oscyank" -- yank text even from remote
 spec "plugin.ts-comments" -- enhance neovim's native comments, neovim natively supports comment now
 spec "plugin.snacks"

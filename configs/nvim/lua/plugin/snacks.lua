@@ -12,7 +12,7 @@ return {
       "<leader>,",
       function()
         Snacks.win {
-          file = vim.fn.stdpath "config".."/tips.md",
+          file = vim.fn.stdpath "config" .. "/tips.md",
           width = 0.6,
           height = 0.6,
           wo = {
@@ -24,7 +24,7 @@ return {
           },
         }
       end,
-      desc = "Toggle Scratch Buffer",
+      desc = "Tips and Tricks",
     },
     { "<leader>n", function() Snacks.notifier.show_history() end, desc = "[N]otification" },
     { "<c-/>", function() Snacks.terminal() end, desc = "Toggle Terminal" },
@@ -89,8 +89,6 @@ return {
       },
     }
 
-    -- HACK: auto open dashboard on last buffer deleted
-    -- FIX: right now it is buggy
     vim.api.nvim_create_autocmd("BufDelete", {
       group = vim.api.nvim_create_augroup("bufdelpost_autocmd", {}),
       desc = "BufDeletePost User autocmd",
@@ -108,13 +106,15 @@ return {
     vim.api.nvim_create_autocmd("User", {
       pattern = "BufDeletePost",
       group = vim.api.nvim_create_augroup("dashboard_delete_buffers", {}),
-      desc = "Open Dashboard when no available buffers",
+      desc = "Quit Neovim when no available buffers",
       callback = function(ev)
         local deleted_name = vim.api.nvim_buf_get_name(ev.buf)
         local deleted_ft = vim.api.nvim_get_option_value("filetype", { buf = ev.buf })
         local deleted_bt = vim.api.nvim_get_option_value("buftype", { buf = ev.buf })
-        local dashboard_on_empty = deleted_name == "" and deleted_ft == "" and deleted_bt == ""
-        if dashboard_on_empty then Snacks.dashboard() end
+        local no_buffers_left = deleted_name == "" and deleted_ft == "" and deleted_bt == ""
+        if no_buffers_left then
+          vim.cmd "quit" -- Quit Neovim when no buffers are left
+        end
       end,
     })
 

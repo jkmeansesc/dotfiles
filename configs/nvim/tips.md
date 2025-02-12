@@ -1,11 +1,5 @@
 # MY PERSONAL TIPS & TRICKS
 
-## MISC
-
-```vim
-:set ft? -- Show `filetype`
-```
-
 ## RESISTERS
 
 ```vim
@@ -21,4 +15,10 @@ qa " start recording in register `a`
 q " stop recording
 @a " run the macro
 @@ " repeat the last macro
+```
+
+## MISC
+
+```vim
+:set ft? " Show `filetype`
 ```
