@@ -32,12 +32,10 @@ spec "plugin.gitsigns"
 spec "plugin.vim-tmux-navigator"
 spec "plugin.carbon-now" -- screenshot code
 spec "plugin.pangu" -- auto format to add a space between cjk and english letters
-spec "plugin.nvim-autopairs"
 spec "plugin.nvim-ts-autotag"
 spec "plugin.vim-oscyank" -- yank text even from remote
 spec "plugin.ts-comments" -- enhance neovim's native comments, neovim natively supports comment now
 spec "plugin.snacks"
-spec "plugin.vim-easy-align"
 spec "plugin.avante" -- AI like cursor
 
 ---------------------
