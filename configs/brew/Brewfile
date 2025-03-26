@@ -60,8 +60,6 @@ brew "zsh-autosuggestions"
 brew "zsh-syntax-highlighting"
 # A window border system for macOS
 brew "felixkratz/formulae/borders"
-# Collection of apps and services for photography, design, video, web, and UX
-cask "adobe-creative-cloud"
 # AeroSpace is an i3-like tiling window manager for macOS
 cask "aerospace"
 # Application launcher and productivity software
@@ -70,8 +68,6 @@ cask "alfred"
 cask "arc"
 # Tool to flash OS images to SD cards & USB drives
 cask "balenaetcher"
-# OpenAI's official ChatGPT desktop app
-cask "chatgpt"
 # Tool to remove unnecessary files and folders from disk Chinese edition
 cask "cleanmymac-zh"
 # Voice and text chat software
@@ -102,6 +98,8 @@ cask "microsoft-powerpoint"
 cask "microsoft-teams"
 # Word processor
 cask "microsoft-word"
+# Minimal installer for conda
+cask "miniconda"
 # Media player
 cask "movist-pro"
 # Open-source software for live streaming and screen recording
@@ -120,8 +118,6 @@ cask "tencent-meeting"
 cask "the-unarchiver"
 # VPN and WiFi proxy
 cask "thunder"
-# VPN client
-cask "torguard"
 # AI image upscaler
 cask "upscayl"
 # Video communication and virtual meeting platform

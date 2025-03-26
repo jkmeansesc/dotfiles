@@ -108,5 +108,8 @@ alias -g -- --help='--help 2>&1 | bat --language=help --style=plain'
 # thefuck
 eval $(thefuck --alias)
 
+# # conda
+# eval "$(conda "shell.$(basename "${SHELL}")" hook)"
+
 # powerlevel10k
 [[ ! -f ~/.config/.p10k.zsh ]] || source ~/.config/.p10k.zsh

@@ -21,6 +21,7 @@ return {
       pipe_table = {
         preset = "double",
       },
+      latex = { enabled = false },
     }
   end,
 }

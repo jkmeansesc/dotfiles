@@ -73,6 +73,7 @@ return {
       statuscolumn = { enabled = true },
       words = { enabled = true },
       scope = { enabled = true },
+      image = { enabled = true },
       styles = {
         notification = {
           border = "single",
