@@ -5,15 +5,11 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-# setup homebrew
-eval "$(/opt/homebrew/bin/brew shellenv)"
-
-# setup auto-complete, auto-suggestion, syntax-highlight
-export HOMEBREW_PREFIX="/opt/homebrew/"
-source $HOMEBREW_PREFIX/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh
-source $HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source $HOMEBREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-source $HOMEBREW_PREFIX/share/powerlevel10k/powerlevel10k.zsh-theme
+# theming
+source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
+source /usr/share/zsh/plugins/zsh-autocomplete/zsh-autocomplete.plugin.zsh
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # zsh-autocomplete
 ## Make Tab and ShiftTab go to the menu
@@ -37,14 +33,6 @@ export EDITOR='nvim'
 # set $XDG PATHS
 export XDG_CONFIG_HOME=$HOME/.config
 export XDG_DATA_HOME=$HOME/.local/share
-
-# homebrew
-export PATH="$PATH:/usr/local/bin"
-export PATH="/opt/homebrew/bin:/opt/homebrew/sbin:$PATH"
-
-# 解决ssh到远程服务器中文乱码
-export LC_ALL=en_US.UTF-8
-export LANG=en_US.UTF-8
 
 # neovim
 alias cn="cd ~/.config/nvim"
@@ -73,31 +61,6 @@ export EZA_CONFIG_DIR=$HOME/.config/eza/
 alias v='eza -lag --icons auto --sort name --group-directories-first --no-quotes --no-time'
 alias ll='eza -lag --icons auto --sort name --group-directories-first --no-quotes'
 
-## obsidian
-alias co="cd $HOME/Library/Mobile\ Documents/iCloud~md~obsidian/Documents/Obsidian"
-
-## personal aliases
-alias cdd="cd $HOME/git/dotfiles"
-alias c="clear"
-alias bu="sudo softwareupdate -ia --verbose; brew bundle -v --file=~/git/dotfiles/configs/brew/Brewfile; brew cu; brew upgrade; brew bundle dump --force --file=~/git/dotfiles/configs/brew/Brewfile --describe; brew autoremove; brew cleanup; brew doctor"
-alias bi="brew bundle --verbose --force cleanup --file=~/git/dotfiles/configs/brew/Brewfile"
-alias bd="brew bundle dump --force --file=~/git/dotfiles/configs/brew/Brewfile --describe" 
-alias unraid="ssh root@10.0.0.5"
-alias heimdall="ssh root@10.0.0.1"
-
-## yazi
-function y() {
-	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
-	yazi "$@" --cwd-file="$tmp"
-	if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
-		builtin cd -- "$cwd"
-	fi
-	rm -f -- "$tmp"
-}
-
-# fzf
-source <(fzf --zsh)
-
 # zoxide
 eval "$(zoxide init --cmd cd zsh)"
 
@@ -110,8 +73,16 @@ alias -g -- --help='--help 2>&1 | bat --language=help --style=plain'
 # thefuck
 eval $(thefuck --alias)
 
-# # conda
-# eval "$(conda "shell.$(basename "${SHELL}")" hook)"
+# fcitx5
+export GTK_IM_MODULE=fcitx
+export QT_IM_MODULE=fcitx
+export XMODIFIERS=@im=fcitx
 
-# powerlevel10k
-[[ ! -f ~/.config/.p10k.zsh ]] || source ~/.config/.p10k.zsh
+## personal aliases
+alias cdd="cd $HOME/git/dotfiles"
+alias c="clear"
+alias unraid="ssh root@10.0.0.5"
+alias heimdall="ssh root@10.0.0.1"
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
