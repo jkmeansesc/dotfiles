@@ -36,7 +36,7 @@ spec "plugin.nvim-ts-autotag"
 spec "plugin.vim-oscyank" -- yank text even from remote
 spec "plugin.ts-comments" -- enhance neovim's native comments, neovim natively supports comment now
 spec "plugin.snacks"
-spec "plugin.avante" -- AI like cursor
+spec "plugin.better-escape"
 
 ---------------------
 -- UI

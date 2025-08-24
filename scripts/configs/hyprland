@@ -1,16 +1,51 @@
-wezterm-git
-fcitx5-im
+# install this after a minimal arch install
+# basic
+hyprland
+xdg-desktop-portal-hyprland
+polkit-kde-agent
+qt5-wayland
+qt6-wayland
+# notifications
+dunst
+# brightness control
+brightnessctl
+# volume control
+pamixer
+# audio
+pavucontrol
+# input
 fcitx5-rime
-neovim-nightly-bin
+# font
+ttf-sarasa-gothic
+# logout
+wlogout
+# theming
+nwg-look
+qt5ct
+qt6ct
+kvantum
+
+# shell
+zsh
+zsh-autocomplete
+zsh-autosuggestions
+zsh-syntax-highlighting
+zsh-theme-powerlevel10k-git
+eza
 bat
+zoxide
+
+# neovim && prerequisites
+fd
 ripgrep
-ruby
-nodejs
+lazygit
+tree-sitter
 npm
-unzip
-xorg-xrdb
-intellij-idea-ultimate-edition
-intellij-idea-ultimate-edition-jre
+nodejs
+wayclip
+
+# must have
+firefox
+firefox-i18n-zh-cn
 discord_arch_electron
-teams
 telegram-desktop
