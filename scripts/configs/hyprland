@@ -34,6 +34,9 @@ ttf-dejavu
 ttf-liberation
 ttf-opensans
 ttf-sarasa-gothic
+ttf-jetbrains-mono-nerd
+# app launcher
+tofi
 # logout
 wlogout
 # theming
@@ -41,7 +44,6 @@ nwg-look
 qt5ct
 qt6ct
 kvantum
-
 # shell
 zsh
 zsh-autocomplete
@@ -55,7 +57,6 @@ fzf
 tealdeer
 tmux
 thefuck
-
 # neovim && prerequisites
 fd
 ripgrep
@@ -63,9 +64,13 @@ lazygit
 tree-sitter-cli
 npm
 nodejs
-wayclip
+wl-clipboard
 neovim-nightly-bin
-
+# yazi && dependencies
+jq
+7zip
+resvg
+yazi
 # must have
 firefox
 firefox-i18n-zh-cn
