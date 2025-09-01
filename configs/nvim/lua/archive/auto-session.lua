@@ -3,7 +3,7 @@ return {
   cmd = { "SessionRestore", "SessionSearch" },
   keys = {
     { "<Leader>cS", "<CMD>SessionRestore<CR>", desc = "Restore last session" },
-    { "<Leader>cs", "<CMD>SessionSearch<CR>", desc = "Restore last session" },
+    { "<Leader>cs", "<CMD>SessionSearch<CR>", desc = "Search session" },
   },
   config = function()
     require("auto-session").setup {
