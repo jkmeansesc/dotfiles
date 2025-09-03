@@ -1,7 +1,5 @@
 tap "buo/cask-upgrade"
 tap "felixkratz/formulae"
-tap "homebrew/bundle"
-tap "homebrew/services"
 tap "koekeishiya/formulae"
 tap "nikitabobko/tap"
 # Clone of cat(1) with syntax highlighting and Git integration
@@ -26,8 +24,8 @@ brew "imagemagick"
 brew "lazygit"
 # Mac App Store command-line interface
 brew "mas"
-# Parser generator tool and incremental parsing library
-brew "tree-sitter", args: ["HEAD"]
+# Incremental parsing library
+brew "tree-sitter"
 # Ambitious Vim-fork focused on extensibility and agility
 brew "neovim", args: ["HEAD"]
 # Platform built on V8 to build network applications
@@ -102,14 +100,16 @@ cask "microsoft-word"
 cask "miniconda"
 # Media player
 cask "movist-pro"
+# App to write, plan, collaborate, and get organised
+cask "notion"
 # Open-source software for live streaming and screen recording
 cask "obs"
 # Knowledge base that works on top of a local folder of plain text Markdown files
 cask "obsidian"
-# Tool to reverse the direction of scrolling
-cask "scroll-reverser"
 # Mesh VPN based on WireGuard
-cask "tailscale"
+cask "tailscale-app"
+# Mesh VPN based on WireGuard
+cask "tailscale-app"
 # Messaging app with a focus on speed and security
 cask "telegram"
 # Cloud video conferencing
