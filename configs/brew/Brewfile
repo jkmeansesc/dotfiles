@@ -72,7 +72,7 @@ cask "cleanmymac-zh"
 cask "discord"
 # Downloads videos from different websites
 cask "downie"
-# Screenshot software
+# Screenshot software with built-in annotation tools
 cask "flameshot"
 cask "font-sarasa-gothic"
 cask "font-ubuntu-mono-nerd-font"
@@ -80,8 +80,6 @@ cask "font-ubuntu-mono-nerd-font"
 cask "ghostty"
 # Java IDE by JetBrains
 cask "intellij-idea"
-# Keyboard customiser
-cask "karabiner-elements"
 # Open-source keystroke visualiser
 cask "keycastr"
 # Provides updates to various Microsoft products
@@ -104,8 +102,6 @@ cask "movist-pro"
 cask "notion"
 # Open-source software for live streaming and screen recording
 cask "obs"
-# Knowledge base that works on top of a local folder of plain text Markdown files
-cask "obsidian"
 # Mesh VPN based on WireGuard
 cask "tailscale-app"
 # Mesh VPN based on WireGuard
