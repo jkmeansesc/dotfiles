@@ -72,8 +72,6 @@ cask "cleanmymac-zh"
 cask "discord"
 # Downloads videos from different websites
 cask "downie"
-# Screenshot software with built-in annotation tools
-cask "flameshot"
 cask "font-sarasa-gothic"
 cask "font-ubuntu-mono-nerd-font"
 # Terminal emulator that uses platform-native UI and GPU acceleration
@@ -90,8 +88,6 @@ cask "microsoft-excel"
 cask "microsoft-openjdk"
 # Presentation software
 cask "microsoft-powerpoint"
-# Meet, chat, call, and collaborate in just one place
-cask "microsoft-teams"
 # Word processor
 cask "microsoft-word"
 # Minimal installer for conda
@@ -118,5 +114,6 @@ cask "thunder"
 cask "upscayl"
 # Video communication and virtual meeting platform
 cask "zoom"
+mas "Blackmagic Disk Speed Test", id: 425264550
 mas "GIPHY CAPTURE", id: 668208984
 mas "Infuse", id: 1136220934
