@@ -169,5 +169,21 @@ if.app-id = 'com.apple.ActivityMonitor'
 run = 'layout floating'
 
 [[on-window-detected]]
+if.app-id = 'com.apple.AppStore'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.apple.Preview'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'net.jasminestudios.Vimlike'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.runningwithcrayons.Alfred'
+run = 'layout floating'
+
+[[on-window-detected]]
 if.app-name-regex-substring = 'finder'
 run = 'layout floating'
