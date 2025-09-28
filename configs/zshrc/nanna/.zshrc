@@ -49,5 +49,30 @@ source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ~/powerlevel10k/powerlevel10k.zsh-theme
 
+# clean up $HOME directory
+export LESSHISTFILE=/dev/null # stop .lesshst from generating
+ZDOTDIR=$HOME/.config/ # move .zcompdump to .config/
+HISTFILE=$HOME/.config/.zsh_history # move .zsh_history to .config/
+
+# set EDITOR
+export EDITOR='nvim'
+
+# set $XDG PATHS
+export XDG_CONFIG_HOME=$HOME/.config
+export XDG_DATA_HOME=$HOME/.local/share
+## personal aliases
+alias cdd="cd $HOME/git/dotfiles"
+alias c="clear"
+
+## eza
+export EZA_CONFIG_DIR=$HOME/.config/eza/
+alias v='eza -lag --icons auto --sort name --group-directories-first --no-quotes --no-time'
+alias ll='eza -lag --icons auto --sort name --group-directories-first --no-quotes'
+
+# neovim
+alias cn="cd ~/.config/nvim"
+alias vi="nvim"
+alias vim="nvim"
+
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
