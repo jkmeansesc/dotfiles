@@ -2,7 +2,7 @@ colourful: true
 
 filekinds:
   normal: { foreground: "#BAC2DE" }
-  directory: { foreground: "#89B4FA" }
+  directory: { foreground: "#B4BEFE" }
   symlink: { foreground: "#89DCEB" }
   pipe: { foreground: "#7F849C" }
   block_device: { foreground: "#EBA0AC" }
@@ -45,7 +45,7 @@ users:
   user_you: { foreground: "#F9E2AF" }
   user_root: { foreground: "#F38BA8" }
   user_other: { foreground: "#CBA6F7" }
-  group_yours: { foreground: "#B4BEFE" }
+  group_yours: { foreground: "#FAB387" }
   group_other: { foreground: "#7F849C" }
   group_root: { foreground: "#F38BA8" }
 
