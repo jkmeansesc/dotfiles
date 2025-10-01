@@ -1,12 +1,8 @@
 return {
   "nvim-treesitter/nvim-treesitter",
   build = ":TSUpdate",
+  branch = "main",
   event = { "BufReadPre", "BufNewFile" },
-  main = "nvim-treesitter.configs",
-  dependencies = {
-    "nvim-treesitter/nvim-treesitter-textobjects",
-    "luckasRanarison/tree-sitter-hyprlang", -- hyprland parser
-  },
   opts = {
     highlight = {
       enable = true,
@@ -18,20 +14,17 @@ return {
       "css",
       "dockerfile",
       "gitignore",
+      "git_config",
       "html",
       "javascript",
-      "jsdoc",
       "json",
-      "jsonc",
       "latex",
       "lua",
       "luadoc",
-      "luap",
       "python",
       "query",
       "regex",
       "toml",
-      "tsx",
       "typescript",
       "vim",
       "vimdoc",
@@ -39,21 +32,8 @@ return {
       "markdown",
       "markdown_inline",
       "java",
-      "c",
       "cpp",
-      "objc",
-      "cuda",
-      "proto",
-      "hyprlang", -- hyprland parser
-    },
-    incremental_selection = {
-      enable = true,
-      keymaps = {
-        init_selection = "<CR>",
-        node_incremental = "<CR>",
-        node_decremental = "<BS>",
-        scope_incremental = false,
-      },
+      "csv",
     },
   },
 }
