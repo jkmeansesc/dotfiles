@@ -40,22 +40,5 @@ alias cdd="cd /mnt/user/data/"
 alias cdf="cd /mnt/disks/fast/"
 alias cho="chown -R nobody:users"
 
-## tmux
-alias tn="tmux new -s"
-alias tl="tmux ls"
-alias td="tmux detach"
-ta() {
-    # Use the argument as the session name if provided, otherwise default to "WEN"
-    local session_name=${1:-"WEN"}
-
-    # Check if the session already exists
-    if tmux has-session -t "$session_name" 2>/dev/null; then
-        tmux attach-session -t "$session_name"
-    else
-        # If the session doesn't exist, create and attach to it
-        tmux new-session -s "$session_name"
-    fi
-}
-
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
