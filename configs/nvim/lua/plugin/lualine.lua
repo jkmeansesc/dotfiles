@@ -5,7 +5,7 @@ return {
     "nvim-tree/nvim-web-devicons",
     "AndreM222/copilot-lualine",
   },
-  config = function()
+  opts = function()
     local c = require "core.colors"
     local icons = require("core.icons").lualine
 
@@ -97,12 +97,16 @@ return {
       buffer_not_empty = function() return vim.fn.empty(vim.fn.expand "%:t") ~= 1 end,
       hide_in_width = function() return vim.fn.winwidth(0) > 80 end,
       lazy_status = lazy_status.has_updates,
+      is_mac = function()
+        local os = require("core.utils").get_os()
+        return os == "macos"
+      end,
     }
 
     -- ------------------------------------------------------------
     -- setup the thing
     -- ------------------------------------------------------------
-    require("lualine").setup {
+    return {
       disabled_filetypes = {
         statusline = { "alpha" },
         winbar = {
@@ -205,6 +209,7 @@ return {
           },
           {
             "copilot",
+            cond = conditions.is_mac,
             symbols = {
               status = {
                 icons = {

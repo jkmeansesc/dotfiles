@@ -16,6 +16,39 @@ function M.is_available(name)
   return ok
 end
 
+---Determine the operating system Neovim is running on.
+---@return string
+---| '"windows"' # When running on Windows systems (detected as 'windows_nt')
+---| '"linux"'   # When running on Linux systems
+---| '"macos"'   # When running on macOS (Darwin) systems
+---| '"freebsd"' # When running on FreeBSD systems
+---| '"openbsd"' # When running on OpenBSD systems
+---| '"netbsd"'  # When running on NetBSD systems
+---| 'string'    # The raw system name for other Unix-like systems
+---@usage `local os_name = get_os()`
+---@usage ```
+---if get_os() == "windows" then
+---  -- Windows-specific configuration
+---  vim.opt.shell = "powershell"
+---end
+---```
+---@example # Basic usage
+---  print(get_os()) -- Outputs: "linux", "windows", "macos", etc.
+function M.get_os()
+  local uname = vim.loop.os_uname()
+  local sysname = uname.sysname:lower()
+
+  if sysname == "windows_nt" then
+    return "windows"
+  elseif sysname == "darwin" then
+    return "macos"
+  elseif sysname == "linux" then
+    return "linux"
+  else
+    return sysname
+  end
+end
+
 --- Generates a rounded border.
 --- @param hl_name string: The name of the highlight group to be applied to the border.
 --- @return table: A table where each element represents a part of the border with its character and highlight.
