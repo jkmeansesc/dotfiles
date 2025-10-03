@@ -88,6 +88,7 @@ alias bd="brew bundle dump --force --file=~/git/dotfiles/configs/brew/Brewfile -
 alias unraid="ssh root@10.0.0.5"
 alias heimdall="ssh root@10.0.0.1"
 alias nanna="ssh xuhaifan@10.0.0.12"
+alias baldur="ssh xuhaifan@10.0.0.10"
 
 ## yazi
 function y() {

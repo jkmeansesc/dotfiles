@@ -6,7 +6,7 @@ return {
     "debugloop/telescope-undo.nvim",
     "nvim-telescope/telescope-ui-select.nvim",
     "2kabhishek/nerdy.nvim", -- search nerd icons
-    { "nvim-telescope/telescope-fzf-native.nvim", enabled = vim.fn.executable "make" == 1, build = "make" },
+    -- { "nvim-telescope/telescope-fzf-native.nvim", enabled = vim.fn.executable "make" == 1, build = "make" },
   },
   event = "VeryLazy",
   keys = {
@@ -110,7 +110,7 @@ return {
         ["ui-select"] = { require("telescope.themes").get_dropdown {} },
       },
     }
-    telescope.load_extension "fzf"
+    -- telescope.load_extension "fzf"
     telescope.load_extension "undo"
     telescope.load_extension "ui-select"
     telescope.load_extension "nerdy"

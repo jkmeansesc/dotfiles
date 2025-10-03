@@ -6,23 +6,9 @@ return {
     "SmiteshP/nvim-navic",
     "nvim-tree/nvim-web-devicons",
   },
-  config = function()
-    -- better performance when moving the cursor around
-    -- see https://github.com/utilyre/barbecue.nvim?tab=readme-ov-file#-recipes
-    vim.opt.updatetime = 200
-    vim.api.nvim_create_autocmd({
-      "WinResized", --[[ "WinScrolled", ]] -- or WinResized on NVIM-v0.9 and higher
-      "BufWinEnter",
-      "CursorHold",
-      "InsertLeave",
-    }, {
-      group = vim.api.nvim_create_augroup("barbecue.updater", {}),
-      callback = function() require("barbecue.ui").update() end,
-    })
-
+  opts = function()
     local c = require "core.colors"
-
-    require("barbecue").setup {
+    return {
       theme = {
         -- this highlight is used to override other highlights
         -- you can take advantage of its `bg` and set a background throughout your winbar
@@ -69,5 +55,19 @@ return {
       },
       create_autocmd = false, -- prevent barbecue from updating itself automatically
     }
+  end,
+  config = function()
+    -- better performance when moving the cursor around
+    -- see https://github.com/utilyre/barbecue.nvim?tab=readme-ov-file#-recipes
+    vim.opt.updatetime = 200
+    vim.api.nvim_create_autocmd({
+      "WinResized", --[[ "WinScrolled", ]] -- or WinResized on NVIM-v0.9 and higher
+      "BufWinEnter",
+      "CursorHold",
+      "InsertLeave",
+    }, {
+      group = vim.api.nvim_create_augroup("barbecue.updater", {}),
+      callback = function() require("barbecue.ui").update() end,
+    })
   end,
 }
