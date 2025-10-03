@@ -4,11 +4,12 @@ local m = require("core.utils").map
 m("n", "<Leader>w", ":w!<CR>", { desc = "[W]rite" })
 m("n", "<Leader>q", ":qa!<CR>", { desc = "[Q]uit No Save" })
 m("n", "<C-c>", "<CMD>close<CR>", { desc = "[C]lose" })
+m("n", "<Leader>yy", "<cmd>%y+<CR>", { desc = "[Y]ank buffer" })
 
 m("n", "H", ":bprev<CR>", { desc = "Prev Buffer", noremap = false })
 m("n", "L", ":bnext<CR>", { desc = "Next Buffer", noremap = false })
 
-m("n", "=", [[<CMD>vertical resize +5<CR>]]) -- biger vertically
+m("n", "=", [[<CMD>vertical resize +5<CR>]]) -- make the window bigger vertically
 m("n", "-", [[<CMD>vertical resize -5<CR>]]) -- make the window smaller vertically
 m("n", "+", [[<CMD>horizontal resize +2<CR>]]) -- make the window bigger horizontally
 m("n", "_", [[<CMD>horizontal resize -2<CR>]]) -- make the window smaller horizontally
@@ -65,3 +66,7 @@ m("x", "c", '"_c')
 -- Don't copy the replaced text after pasting in visual mode
 -- https://vim.fandom.com/wiki/Replace_a_word_with_yanked_text#Alternative_mapping_for_paste
 m("x", "p", 'p:let @+=@0<CR>:let @"=@0<CR>', { desc = "Don't Copy Replaced Text" })
+
+-- commenting
+m("n", "gco", "o<esc>Vcx<esc><cmd>normal gcc<cr>fxa<bs>", { desc = "Add Comment Below" })
+m("n", "gcO", "O<esc>Vcx<esc><cmd>normal gcc<cr>fxa<bs>", { desc = "Add Comment Above" })

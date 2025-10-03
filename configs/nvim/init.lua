@@ -27,7 +27,6 @@ spec "plugin.nvim-lspconfig"
 -- EDITOR
 ---------------------
 spec "plugin.mini"
-spec "plugin.vim-fugitive"
 spec "plugin.gitsigns"
 spec "plugin.vim-tmux-navigator"
 spec "plugin.carbon-now" -- screenshot code
